@@ -6,11 +6,12 @@ Copyright (c) GeorgeDong32(Github). All rights reserved.
 */
 //代码日志
 //见"CodeBlog.h"
-char version[] = "1.7.0 ";//更新版本号！char[7]
+char version[] = "1.7.2 ";//更新版本号！char[7]
 
 //函数&头文件
 #include <fstream>
 #include <string>
+#include <Windows.h>
 using namespace std;
 #include "Generate.h"
 #include "PPF_cryption.h"
@@ -24,6 +25,7 @@ string inRTmod1 = "| 请输入循环模式                  |"; string inNOT = "|  请输
 
 int main(void)
 {
+	system("color 70");//设置控制台颜色，7为背景，0为字体
 	//cout << inplat.length() << endl;
 	//定义区
 	string name, account, platform, patch, oripla, RTmod;
