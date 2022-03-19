@@ -6,22 +6,26 @@ Copyright (c) GeorgeDong32(Github). All rights reserved.
 */
 //代码日志
 //见"CodeBlog.h"
-char version[] = "1.7.2 ";//更新版本号！char[7]
+char version[] = "1.7.3 ";//更新版本号！char[7]
 
 //函数&头文件
 #include <fstream>
 #include <string>
+#include <stdio.h>
 #include <Windows.h>
 using namespace std;
 #include "Generate.h"
 #include "PPF_cryption.h"
 #include "FileOperate.h"
+#include "MKeyProcess.h"
 int start_option(char control);
 //加密基数
 int PI[40] = { 1,4,1,5,9,2,6,5,3,5,8,9,7,9,3,2,3,8,4,6,2,6,4,3,3,8,3,2,7,9,5,0,2,8,8,4,1,9,7,1 };
 string  inplat = "|  输入平台名称： |"; string inaccout = "|  输入账号名： |"; 
 string indate = "|  输入日期：  |"; string inRTmod2 = "|  输入<rg>测试生成,<rd>测试解密  |";
 string inRTmod1 = "| 请输入循环模式                  |"; string inNOT = "|  请输入测例个数  |";
+string inname = "|  输入用户名称(可选)，输入0以跳过  |"; string MKC1 = "|  请输入主密码进行校验  |";
+string MKC0 = "|  请设置您的主密码  |"; string MKC2 = "|  请重新设置主密码  |";
 
 int main(void)
 {
@@ -33,6 +37,7 @@ int main(void)
 	string final; //结果数组
 	string Test_Direct;//测试模式导向符
 	string D_encr; string D_pwdc;//解密阶段字符串
+	string MainKey;
 	int namel = 0; int rek = 0; int date = 0; int fopc = 0;//输出控制符
 	int Test_Mode_Control = 1;//测试模式调控符
 	int RT_Control = 0;//循环测试控制符
@@ -41,11 +46,33 @@ int main(void)
 	char direct = '0';  //开始操作判断符
 	int next = -1;  //结束操作判断符
 	string dates = "00000000";
-	//日志更新区的固定格式
-	char blog1[] = "密码更新于:"; char blog2[] = "对应帐号为:";
-	char blog3[] = "加密后结果为:";
 	//程序头打印区
 	PrintTitle();
+	//主密码配置检查
+	int mkc = MKconInit();
+	switch(mkc)
+	{
+		case 2:
+			printLine(MKC2.length() - 6, Test_Mode_Control);
+			cout << MKC2 << endl;
+			printLine(MKC2.length() - 6, Test_Mode_Control);
+			cin >> MainKey;
+			setConfig(MainKey, mkc);
+			break;
+		case 1:
+			printLine(MKC1.length() - 6, Test_Mode_Control);
+			cout << MKC1 << endl;
+			printLine(MKC1.length() - 6, Test_Mode_Control);
+			cin >> MainKey;
+			checkConfig(MainKey)
+			break;
+		case 0:
+			printLine(MKC0.length() - 6, Test_Mode_Control);
+			cout << MKC0 << endl;
+			printLine(MKC0.length() - 6, Test_Mode_Control);
+			cin >> MainKey;
+			break;
+	}
 	//初始定向区
 	printf("+----------------------------------------------------+\n");
 	printf("|  输入G/g进入密码生成程序，输入D/d进入结果解密程序  |\n");
@@ -118,6 +145,12 @@ Generator:
 	cout << inaccout << endl;
 	printLine(inaccout.length() - 6, Test_Mode_Control);
 	cin >> account;
+	printLine(inname.length() - 6, Test_Mode_Control);
+	cout << inname << endl;
+	printLine(inname.length() - 6, Test_Mode_Control);
+	cin >> name;
+	if (name[0] == '0')
+		name = "";
 	printLine(indate.length() - 6, Test_Mode_Control);
 	cout << indate << endl;
 	printLine(indate.length() - 6, Test_Mode_Control);
@@ -134,19 +167,13 @@ Generator:
 	//日志文件初始化
 	BlogInit(Test_Mode_Control);
 	extern ofstream fblog;
-	//第一行
-	//cout << "writing blog" << endl;
-	fblog << oripla;
-	fblog << blog1;
-	fblog << dates << endl;
-	//第二行
-	fblog << blog2;
-	fblog << account << endl;
-	//第三行
-	fblog << blog3 << endl; 
-	fblog << G_encr << endl << endl;
-	fblog.close();
-	//cout << "finish writing" << endl;
+	//文件写入
+	fblog << oripla << ",";//第一列（平台）
+	fblog << account << ",";//第二列（账号）
+	fblog << name << ",";//第三列（用户名）
+	fblog << G_encr << ",";
+	fblog << dates << endl;//第五列（日期）
+	fblog.close();//安全关闭
 	//输出区
 	printf("+----------------+\n");
 	printf("|  最终密码为：  |\n");
