@@ -6,7 +6,7 @@
 #include <string>
 #include "Generate.h"
 using namespace std;
-ofstream fblog;
+ofstream fblog; ofstream fdata;
 ofstream MKconO;
 ifstream MKconI;
 string L0path = "D:\\My Project";
@@ -14,7 +14,8 @@ string L1fpath = "D:\\My Project\\GoodPass";
 string L2Bpath = "D:\\My Project\\GoodPass\\Blog";
 string blogpath = "D:\\My Project\\GoodPass\\Blog\\GeneratorBlog.csv";
 string L2Dpath = "D:\\My Project\\GoodPass\\MData";
-string MKconpath = "D:\\My Project\\GoodPass\\Blog\\MKCheck.config";
+string MKconpath = "D:\\My Project\\GoodPass\\MData\\MKCheck.config";
+string MDpath = "D:\\My Project\\GoodPass\\MData\\Data.csv";
 
 void FloderInit(int mode)
 {
@@ -69,6 +70,11 @@ void BlogInit(int mode)
 	fblog.open(blogpath, ios_base::app);
 }
 
+void DataInit()
+{
+	fdata.open(MDpath, ios::app);
+}
+
 int MKconInit()
 {
 	if (!_access(MKconpath.c_str(), 00))//检测配置文件是否存在
@@ -76,7 +82,7 @@ int MKconInit()
 		MKconI.open(MKconpath, ios::in);
 		char check;
 		MKconI >> check;
-		if (check == '1')
+		if (check != NULL)
 			return 1;
 		else
 		{

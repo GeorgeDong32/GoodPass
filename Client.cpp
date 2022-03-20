@@ -6,7 +6,7 @@ Copyright (c) GeorgeDong32(Github). All rights reserved.
 */
 //代码日志
 //见"CodeBlog.h"
-char version[] = "1.7.3 ";//更新版本号！char[7]
+char version[] = "1.7.5 ";//更新版本号！char[7]
 
 //函数&头文件
 #include <fstream>
@@ -19,6 +19,7 @@ using namespace std;
 #include "FileOperate.h"
 #include "MKeyProcess.h"
 int start_option(char control);
+int Test_Mode_Control = 1;//测试模式调控符
 //加密基数
 int PI[40] = { 1,4,1,5,9,2,6,5,3,5,8,9,7,9,3,2,3,8,4,6,2,6,4,3,3,8,3,2,7,9,5,0,2,8,8,4,1,9,7,1 };
 string  inplat = "|  输入平台名称： |"; string inaccout = "|  输入账号名： |"; 
@@ -39,7 +40,6 @@ int main(void)
 	string D_encr; string D_pwdc;//解密阶段字符串
 	string MainKey;
 	int namel = 0; int rek = 0; int date = 0; int fopc = 0;//输出控制符
-	int Test_Mode_Control = 1;//测试模式调控符
 	int RT_Control = 0;//循环测试控制符
 	int ipc = 1; //检测输入次数
 	int ipfl = 0; int NOT = 0;//NOT为循环次数控制符
@@ -57,20 +57,17 @@ int main(void)
 			cout << MKC2 << endl;
 			printLine(MKC2.length() - 6, Test_Mode_Control);
 			cin >> MainKey;
-			setConfig(MainKey, mkc);
+			setConfig(MainKey);
 			break;
 		case 1:
-			printLine(MKC1.length() - 6, Test_Mode_Control);
-			cout << MKC1 << endl;
-			printLine(MKC1.length() - 6, Test_Mode_Control);
-			cin >> MainKey;
-			checkConfig(MainKey)
+			checkConfig(MainKey);
 			break;
 		case 0:
 			printLine(MKC0.length() - 6, Test_Mode_Control);
 			cout << MKC0 << endl;
 			printLine(MKC0.length() - 6, Test_Mode_Control);
 			cin >> MainKey;
+			setConfig(MainKey);
 			break;
 	}
 	//初始定向区
@@ -166,14 +163,21 @@ Generator:
 	//日志更新区
 	//日志文件初始化
 	BlogInit(Test_Mode_Control);
-	extern ofstream fblog;
-	//文件写入
+	DataInit();
+	extern ofstream fblog; extern ofstream fdata;
+	//blog写入
 	fblog << oripla << ",";//第一列（平台）
 	fblog << account << ",";//第二列（账号）
 	fblog << name << ",";//第三列（用户名）
-	fblog << G_encr << ",";
+	fblog << G_encr << ",";//第四列（密码加密串）
 	fblog << dates << endl;//第五列（日期）
 	fblog.close();//安全关闭
+	//data写入
+	// fdata << oripla << ",";//第一列（平台）
+	// fdata << account << ",";//第二列（账号）
+	// fdata << name << ",";//第三列（用户名）
+	// fdata << G_encr << ",";//第四列（密码加密串）
+	// fdata.close();
 	//输出区
 	printf("+----------------+\n");
 	printf("|  最终密码为：  |\n");
