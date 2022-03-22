@@ -6,7 +6,7 @@ Copyright (c) GeorgeDong32(Github). All rights reserved.
 */
 //代码日志
 //见"CodeBlog.h"
-char version[] = "1.7.5 ";//更新版本号！char[7]
+char version[] = "1.7.5c";//更新版本号！char[7]
 
 //函数&头文件
 #include <fstream>

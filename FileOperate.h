@@ -83,13 +83,17 @@ int MKconInit()
 		char check;
 		MKconI >> check;
 		if (check != NULL)
+		{
+			MKconI.close();
 			return 1;
+		}
 		else
 		{
 			cout << "+-------------------<!>------------------+" << endl;
 			cout << "!  :)                                    !" << endl;
 			cout << "!  Error! MainKey config has a problem!  !" << endl;
 			cout << "+-------------------<!>------------------+" << endl;
+			MKconI.close();
 		}
 		return 2;
 	}
