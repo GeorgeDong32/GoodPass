@@ -4,7 +4,7 @@
 #include <direct.h>
 #include <io.h>
 #include <string>
-#include "Generate.h"
+#include "Display.h"
 using namespace std;
 ofstream fblog; ofstream fdata;
 ofstream MKconO;

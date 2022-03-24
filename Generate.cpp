@@ -4,48 +4,6 @@
 using namespace std;
 extern int PI[];
 
-void PrintTitle(void)
-{
-	extern char version[];
-	printf("*==============================<*>==============================*\n");
-	printf("||  Welcome to GoodPass %s                                 ||\n", version);
-	printf("||  Copyright (c)  GeorgeDong32(Github). All rights reserved.  ||\n");
-	printf("*==============================<*>==============================*\n");
-	printf("\n");
-}
-
-void PrintTestTitle(void)
-{
-	cout << "#================================<T>================================#" << endl;
-	cout << "# 欢迎你，工程师!   现在是工程模式!                                 #" << endl;
-	cout << "# 输入<tg>进行生成测试，输入<td>进行解密测试，输入<rt>进行重复测试  #" << endl;
-	cout << "#================================<T>================================#" << endl;
-}
-
-void printLine(int len, int mode)
-{
-	int con = len + 4;
-	if (mode)
-	{
-		printf("#");
-		while (con)
-		{
-			printf("-");
-			con--;
-		}
-		printf("#\n");
-	}
-	else {
-		printf("*");
-		while (con)
-		{
-			printf("-");
-			con--;
-		}
-		printf("*\n");
-	}
-}
-
 void Date_Warning()
 {
 	cout << "+-----------------<!>----------------+" << endl;

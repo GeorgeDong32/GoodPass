@@ -6,7 +6,7 @@ Copyright (c) GeorgeDong32(Github). All rights reserved.
 */
 //代码日志
 //见"CodeBlog.h"
-char version[] = "1.7.5c";//更新版本号！char[7]
+char version[] = "1.8.0 ";//更新版本号！char[7]
 
 //函数&头文件
 #include <fstream>
@@ -18,6 +18,7 @@ using namespace std;
 #include "PPF_cryption.h"
 #include "FileOperate.h"
 #include "MKeyProcess.h"
+#include "Display.h"
 int start_option(char control);
 int Test_Mode_Control = 1;//测试模式调控符
 //加密基数
@@ -71,9 +72,10 @@ int main(void)
 			break;
 	}
 	//初始定向区
-	printf("+----------------------------------------------------+\n");
-	printf("|  输入G/g进入密码生成程序，输入D/d进入结果解密程序  |\n");
-	printf("+----------------------------------------------------+\n");
+	printf("+---------------------------+\n");
+	printf("|  输入G/g进入密码生成程序  |\n");
+	printf("|  输入D/d进入结果解密程序  |\n");
+	printf("+----------------------------+\n");
 	cin >> direct;
 Start_option:
 	int Option = start_option(direct);
@@ -107,10 +109,11 @@ Direct_Error:
 		ipc++;
 		if (ipc > 1 && ipfl == 1 && Direct_Waring_Control < 1)
 		{
-			printf("+----------------------------------------------------+\n");
-			printf("|  请输入正确值                                      |\n");
-			printf("|  输入G/g进入密码生成程序，输入D/d进入结果解密程序  |\n");
-			printf("+----------------------------------------------------+\n");
+			printf("+---------------------------+\n");
+			printf("|  请输入正确值             |\n");
+			printf("|  输入G/g进入密码生成程序  |\n");
+			printf("|  输入D/d进入结果解密程序  |\n");
+			printf("+---------------------------+\n");
 			Direct_Waring_Control++;
 			cin >> direct;
 		}
@@ -196,10 +199,7 @@ Generator:
 	if (RT_Control == 0)
 	{
 		next = -1;
-		printf("+----------------------------------------------------------------+\n");
-		printf("|  输入值以进行对应操作                                          |\n");
-		printf("|  按下1继续进行密码生成，按下2进入解密程序，输入其他值结束程序  |\n");
-		printf("+----------------------------------------------------------------+\n");
+		printNextO(Test_Mode_Control);
 		cin >> next;
 		if (next == 1)
 			goto Generator;
@@ -235,10 +235,7 @@ Decryptor:
 	if (RT_Control == 0)
 	{
 		next = -1;
-		printf("+----------------------------------------------------------------+\n");
-		printf("|  输入值以进行对应操作                                          |\n");
-		printf("|  按下1继续进行密码生成，按下2进入解密程序，输入其他值结束程序  |\n");
-		printf("+----------------------------------------------------------------+\n");
+		printNextO(Test_Mode_Control);
 		cin >> next;
 		if (next == 1)
 			goto Generator;
