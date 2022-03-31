@@ -18,6 +18,7 @@ using namespace std;
 #include "PPF_cryption.h"
 #include "FileOperate.h"
 #include "MKeyProcess.h"
+#include "Data.h"
 #include "Display.h"
 int start_option(char control);
 int Test_Mode_Control = 1;//测试模式调控符
@@ -75,7 +76,7 @@ int main(void)
 	printf("+---------------------------+\n");
 	printf("|  输入G/g进入密码生成程序  |\n");
 	printf("|  输入D/d进入结果解密程序  |\n");
-	printf("+----------------------------+\n");
+	printf("+---------------------------+\n");
 	cin >> direct;
 Start_option:
 	int Option = start_option(direct);
