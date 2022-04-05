@@ -1,15 +1,8 @@
 #include "Data.h"
-#include "PPF_cryption.h"
+#include "GP_cryption.h"
 #include "Display.h"
-void addempty(int oril, int tarl)//格式函数：添加空格
-{
-	int con = tarl - oril;
-	while (con)
-	{
-		cout << " ";
-		con--;
-	}
-}
+#include <fstream>
+#include <sstream>
 
 bool fuzzymatch(string o, string t)//字符串模糊匹配
 {
@@ -61,17 +54,21 @@ void Data_Delete_S(string p, string a)
 void Data::printData()
 {
 	string mid;
+	string dis1, dis2, dis3;
 	decrypt(encp, mid);
-	int ml = fmax(platform.length(), fmax(account.length(), mid.length()));
+	dis1 = platform + "平台";
+	dis2 = "账号为：" + account;
+	dis3 = "密码为：" + mid;
+	int ml = fmax(dis1.length(), fmax(dis2.length(), dis3.length()));
 	printLine(ml, 0);
-	cout << "|  " << platform;
-	addempty(platform.length(), ml);
+	cout << "|  " << dis1;
+	addempty(dis1.length(), ml);
 	cout << "  |" << endl;
-	cout << "|  " << account;
-	addempty(account.length(), ml);
+	cout << "|  " << dis2;
+	addempty(dis2.length(), ml);
 	cout << "  |" << endl;
-	cout << "|  " << mid;
-	addempty(mid.length(), ml);
+	cout << "|  " << dis3;
+	addempty(dis3.length(), ml);
 	cout << "  |" << endl;
 	printLine(ml, 0);
 }
@@ -163,16 +160,19 @@ void Manager::fuzzysearch(string platform)//按平台搜索账号
 	cout << "|  " << finaldisplay << count << display3; addempty(finaldisplay.length() + 7 + nl, ml); cout << "  |" << endl;
 	for (int i = 0; i < count; i++)
 	{
+		printLine(ml, 0);
 		cout << "|  " << final[i];
 		addempty(final[i].length(), ml);
 		cout << "  |" << endl;
+		//printLine(ml, 0);
 	}
 	printLine(ml, 0);
 }
 
-Data* Manager::accusearch(string platform, string account, int mode)
+Data* Manager::accusearch(string platform, string account, int mode)//mode显示控制，1时有成功输出，2
 {
 	Data* p = head;
+	string Dis_accs = "|  未找到对应账号，请检查后重新搜索  |";
 	while (p != NULL)
 	{
 		if (fuzzymatch(p->getplatform(), platform))
@@ -189,16 +189,14 @@ Data* Manager::accusearch(string platform, string account, int mode)
 	}
 	if (mode == 1)
 	{
-		printLine(33, 0);
-		cout << "|  未找到对应账号，请检查后重新搜索  |" << endl;
-		printLine(33, 0);
+		Displayinf(Dis_accs, 1, 0);
 	}
 	return NULL;
 }
 
 void Manager::addData_User(string p, string a, string e)
 {
-	string mid = e; string dis = "|  新增成功！  |";
+	string mid = e; string aD_U_AS = "|  新增成功！  |";
 	e = "";
 	Data* pd = head;
 	encrypt(mid, e);
@@ -219,17 +217,13 @@ void Manager::addData_User(string p, string a, string e)
 			head = nd;
 		else
 			pd->next = nd;
-		printLine(dis.length() - 6, 0);
-		cout << dis << endl;
-		printLine(dis.length() - 6, 0);
+		Displayinf(aD_U_AS, 1, 0);
 	}
 	else
 	{
 		delete nd;
 		string disp1 = "|  账号已存在，请前往修改界面  |";
-		printLine(disp1.length() - 6, 0);
-		cout << disp1 << endl;
-		printLine(disp1.length() - 6, 0);
+		Displayinf(disp1, 1, 0);
 	}
 }
 
@@ -313,9 +307,7 @@ void Manager::reviseData(string p, string a)
 		int recheck = 0; string temp2;
 		string dp_rD1 = "|  修改失败，请重试  |"; string dp_rD2 = "|  修改成功！  |"; string dp_rD3 = "|  修改出错(-1)，请重试  |";
 		string dp_rD4 = "|  修改出错(0)，请重试  |";
-		printLine(12, 0);
-		cout << "|  请输入新密码  |" << endl;
-		printLine(12, 0);
+		Displayinf("请输入新密码", 0, 0);
 		cin >> newp;
 		sp = pd->resetData(newp);
 		if (sp)
@@ -339,32 +331,25 @@ void Manager::reviseData(string p, string a)
 		{
 			if (recheck == 1)
 			{
-				printLine(dp_rD2.length() - 6, 0);
-				cout << dp_rD2 << endl;
-				printLine(dp_rD2.length() - 6, 0);
+				Displayinf(dp_rD2, 1, 0);
 			}
 			else if (recheck == -1)
 			{
-				printLine(dp_rD3.length() - 6, 0);
-				cout << dp_rD3 << endl;
-				printLine(dp_rD3.length() - 6, 0);
+				Displayinf(dp_rD3, 1, 0);
 			}
 			else if (recheck == 0)
 			{
-				printLine(dp_rD4.length() - 6, 0);
-				cout << dp_rD4 << endl;
-				printLine(dp_rD4.length() - 6, 0);
+				Displayinf(dp_rD4, 1, 0);
 			}
 		}
 		else
 		{
-			printLine(dp_rD1.length() - 6, 0);
-			cout << dp_rD1 << endl;
-			printLine(dp_rD1.length() - 6, 0);
+			Displayinf(dp_rD1, 1, 0);
 		}
 	}
 	else
 	{
+		Displayinf(display1, 1, 0);
 		printLine(display1.length() - 6, 0);
 		cout << display1 << endl;
 		printLine(display1.length() - 6, 0);
@@ -437,4 +422,54 @@ void Manager::showData(string p, string a)
 void Manager::showData(Data& d)
 {
 	d.printData();
+}
+
+void DataInit(Manager& m, string dp)
+{
+	ifstream infile(dp, ios::in);
+	if (!infile)
+	{
+		cout << "打开文件失败！" << endl;
+		exit(1);
+	}
+	int i = 0;
+	string line;
+	string field;
+	while (getline(infile, line))//getline(inFile, line)表示按行读取CSV文件中的数据
+	{
+		string p, a, e;
+		string field;
+		istringstream sin(line); //将整行字符串line读入到字符串流sin中
+		getline(sin, field, ','); //将字符串流sin中的字符读入到field字符串中，以逗号为分隔符 
+		p = field;
+		getline(sin, field, ',');
+		a = field;
+		getline(sin, field, ',');
+		e = field;
+		m.addData_File(p, a, e);
+		//i++;
+	}
+	infile.close();
+}
+
+void FileUpdate(Manager& m, string Datapath)
+{
+	ofstream outfile(Datapath, ios::out);
+	Data* p = m.getHead();
+	while (p != NULL)
+	{
+		outfile << p->getplatform() << ",";
+		outfile << p->getaccount() << ",";
+		outfile << p->getEncp() << "," << endl;
+		if (p->next != NULL)
+		{
+			p = p->next;
+		}
+		else
+			break;
+	}
+	cout << "*-----------------------------------*" << endl;
+	cout << "|  The data file has been updated!  |" << endl;
+	cout << "*-----------------------------------*" << endl;
+	outfile.close();
 }

@@ -1,6 +1,11 @@
-#ifndef _DATA_H_
-#define _DATA_H_
-
+#ifndef __GPDATA_H__
+#define __GPDATA_H__
+/*********************************************************
+*                                                        *
+* Data.h -- The Data Class for local info process system *
+* Copyright(c) GeorgeDong32(Github).All rights reserved. *
+*                                                        *
+**********************************************************/
 #include <iostream>
 #include <string>
 using namespace std;
@@ -81,5 +86,9 @@ public:
 	void showData(string platform, string account);
 	void showData(Data& in_data);
 };
+
+void DataInit(Manager& manager, string Datapath);
+
+void FileUpdate(Manager& manager, string Datapath);
 
 #endif

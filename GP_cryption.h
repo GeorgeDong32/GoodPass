@@ -1,9 +1,9 @@
-#ifndef _CRYPTION_H_
-#define _CRYPTION_H_
+#ifndef __CRYPTION_H__
+#define __CRYPTION_H__
 #include <iostream>
 #include <string>
 using namespace std;
-void encrypt(string& ori, string & final);//用于加密存储密码，便于寻找密码
+void encrypt(string& ori, string& final);//用于加密存储密码，便于寻找密码
 
 char numenc(char n, int pos);//对于数字的加密
 

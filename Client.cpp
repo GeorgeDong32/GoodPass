@@ -1,12 +1,11 @@
 //Code Information
-/*
-<GoodPass 密码管理器>
-Written by GeorgeDong32
-Copyright (c) GeorgeDong32(Github). All rights reserved.
-*/
+/***********************************************************
+* <GoodPass Password Manager>                              *
+* Written by GeorgeDong32                                  *
+* Copyright (c) GeorgeDong32(Github). All rights reserved. *
+***********************************************************/
 //代码日志
 //见"CodeBlog.h"
-char version[] = "1.8.0 ";//更新版本号！char[7]
 
 //函数&头文件
 #include <fstream>
@@ -15,19 +14,22 @@ char version[] = "1.8.0 ";//更新版本号！char[7]
 #include <Windows.h>
 using namespace std;
 #include "Generate.h"
-#include "PPF_cryption.h"
 #include "FileOperate.h"
-#include "MKeyProcess.h"
+#include "GP_cryption.h"
 #include "Data.h"
+#include "MKeyProcess.h"
 #include "Display.h"
-int start_option(char control);
-int Test_Mode_Control = 1;//测试模式调控符
+#include "GPBase.h"
+int Test_Mode_Control = 0;//测试模式调控符
+
+string version = "1.9.1 dev";//更新版本号!
+
 //加密基数
 int PI[40] = { 1,4,1,5,9,2,6,5,3,5,8,9,7,9,3,2,3,8,4,6,2,6,4,3,3,8,3,2,7,9,5,0,2,8,8,4,1,9,7,1 };
 string  inplat = "|  输入平台名称： |"; string inaccout = "|  输入账号名： |"; 
 string indate = "|  输入日期：  |"; string inRTmod2 = "|  输入<rg>测试生成,<rd>测试解密  |";
 string inRTmod1 = "| 请输入循环模式                  |"; string inNOT = "|  请输入测例个数  |";
-string inname = "|  输入用户名称(可选)，输入0以跳过  |"; string MKC1 = "|  请输入主密码进行校验  |";
+string inname = "|  输入用户名称(可选)，输入0以跳过  |";
 string MKC0 = "|  请设置您的主密码  |"; string MKC2 = "|  请重新设置主密码  |";
 
 int main(void)
@@ -36,6 +38,7 @@ int main(void)
 	//cout << inplat.length() << endl;
 	//定义区
 	string name, account, platform, patch, oripla, RTmod;
+	string MDpath = "D:\\My Project\\GoodPass\\MData\\Data.csv";
 	string G_encr;  //生成阶段加密结果
 	string final; //结果数组
 	string Test_Direct;//测试模式导向符
@@ -48,16 +51,16 @@ int main(void)
 	char direct = '0';  //开始操作判断符
 	int next = -1;  //结束操作判断符
 	string dates = "00000000";
+	char opt = '@';
 	//程序头打印区
 	PrintTitle();
 	//主密码配置检查
 	int mkc = MKconInit();
+	FloderInit(Test_Mode_Control);//文件夹初始化
 	switch(mkc)
 	{
 		case 2:
-			printLine(MKC2.length() - 6, Test_Mode_Control);
-			cout << MKC2 << endl;
-			printLine(MKC2.length() - 6, Test_Mode_Control);
+			Displayinf(MKC2, 1, 0);
 			cin >> MainKey;
 			setConfig(MainKey);
 			break;
@@ -65,14 +68,56 @@ int main(void)
 			checkConfig(MainKey);
 			break;
 		case 0:
-			printLine(MKC0.length() - 6, Test_Mode_Control);
-			cout << MKC0 << endl;
-			printLine(MKC0.length() - 6, Test_Mode_Control);
+			Displayinf(MKC0, 1, 0);
 			cin >> MainKey;
 			setConfig(MainKey);
 			break;
 	}
-	//初始定向区
+	//Manager初始化
+	Manager gpm;
+	DataInit(gpm, MDpath);
+	printMenu(Test_Mode_Control);
+	while (cin >> opt)
+	{
+		switch (opt)
+		{
+			case 'e':
+			case '0':
+				FileUpdate(gpm, MDpath);
+				gpm.~Manager();
+				system("pause");
+				exit(0);
+				break;
+			case 'a':
+			case '1':
+				GP_add(gpm);
+				break;
+			case 's':
+			case '2':
+				GP_search(gpm);
+				break;
+			case 'g':
+			case '3':
+				GP_get(gpm);
+				break;
+			case 'c':
+			case '4':
+				GP_change(gpm);
+				break;
+			case 'd':
+			case '5':
+				GP_delete(gpm);
+				break;
+			default:
+				Displayinf("请检查您的输入", 0, 0);
+				break;
+		}
+		printMenu(Test_Mode_Control);
+	}
+	FileUpdate(gpm, MDpath);//数据保护
+	gpm.~Manager();
+	return 0;
+	/*初始定向区
 	printf("+---------------------------+\n");
 	printf("|  输入G/g进入密码生成程序  |\n");
 	printf("|  输入D/d进入结果解密程序  |\n");
@@ -151,7 +196,7 @@ Generator:
 	printLine(inname.length() - 6, Test_Mode_Control);
 	cin >> name;
 	if (name[0] == '0')
-		name = "";
+		name = "noname";
 	printLine(indate.length() - 6, Test_Mode_Control);
 	cout << indate << endl;
 	printLine(indate.length() - 6, Test_Mode_Control);
@@ -217,7 +262,7 @@ Generator:
 		RT_Control = 0;
 		goto RT_Loop1;
 	}*/
-	//解密区
+	/*解密区
 Decryptor:
 	D_encr = ""; D_pwdc = "";
 	printf("+---------------------+\n");
@@ -293,22 +338,5 @@ Rep_Test:
 			fblog.close();
 			return 0;
 		}
-	}
-}
-
-int start_option(char control)
-{
-	switch (control)
-	{
-	case 'G':
-	case 'g':
-		return 1;
-	case 'D':
-	case 'd':
-		return 2;
-	case 't':
-		return 3;
-	default:
-		return 4;
-	}
+	}*/
 }

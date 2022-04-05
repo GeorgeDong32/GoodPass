@@ -1,5 +1,10 @@
-#ifndef _GENERATET_H_
-#define _GENERATET_H_
+#ifndef __GENERATET_H__
+#define __GENERATET_H__
+/*********************************************************
+*                                                        *
+* Copyright(c) GeorgeDong32(Github).All rights reserved. *
+*                                                        *
+**********************************************************/
 #include <string>
 using namespace std;
 
@@ -13,4 +18,5 @@ void Date_Warning();//输出日期警告
 
 bool Date_check(int date);//检查日期
 
+string Generatepw(string platform, string username);
 #endif

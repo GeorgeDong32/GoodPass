@@ -1,5 +1,7 @@
 #include "Generate.h"
-#include <iostream>
+#include "GPBase.h"
+#include "GP_cryption.h"
+#include <fstream>
 #include <string>
 using namespace std;
 extern int PI[];
@@ -113,4 +115,53 @@ fPPf_Start:
 	//cout << "pfname: " << pfname << endl;
 	//cout << "date: " << date << endl;
 	//cout << "out ProcessPf" << endl;
+}
+
+string Generatepw(string pl, string un)
+{
+	string dates = Getsystime();
+	string G_encr = "";  //加密结果
+	string final = ""; //结果数组
+	string patch;//密码加强补丁
+	string oripla = pl;
+	string name;
+	if (un.length() <= 4)
+	{
+		name = un;
+	}
+	else
+	{
+		name = "!!!!";
+		for (int i = 0; i < 4; i++)
+		{
+			name[i] = un[i];
+		}
+	}
+	int date = 0;
+	//日期转换
+	for (int i = 0; i < 8; i++)
+	{
+		date += (dates[i] - '0') * pow(10, 7 - i);
+	}
+	//处理区
+	ProcessPf(pl, date);
+	ProcessPatch(patch, date);
+	final += pl;
+	final += name;
+	final += patch;
+	//cout << final << endl;
+	encrypt(final, G_encr);
+	//日志更新区
+	//日志文件初始化
+	ofstream blog;
+	string blogp = "D:\\My Project\\GoodPass\\Blog\\GeneratorBlog.csv";
+	blog.open(blogp, ios_base::app);
+	//blog写入
+	blog << oripla << ",";//第一列（平台）
+	blog << un << ",";//第二列（账号）
+	blog << name << ",";//第三列（用户名）
+	blog << G_encr << ",";//第四列（密码加密串）
+	blog << dates << endl;//第五列（日期）
+	blog.close();//安全关闭
+	return final;
 }
