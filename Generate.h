@@ -2,6 +2,7 @@
 #define __GENERATET_H__
 /*********************************************************
 *                                                        *
+* Generate.h -- Provide password generating functions    *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
 *                                                        *
 **********************************************************/

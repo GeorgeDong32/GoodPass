@@ -8,11 +8,6 @@
 //见"CodeBlog.h"
 
 //函数&头文件
-#include <fstream>
-#include <string>
-#include <stdio.h>
-#include <Windows.h>
-using namespace std;
 #include "Generate.h"
 #include "FileOperate.h"
 #include "GP_cryption.h"
@@ -22,20 +17,19 @@ using namespace std;
 #include "GPBase.h"
 int Test_Mode_Control = 0;//测试模式调控符
 
-string version = "1.9.1 dev";//更新版本号!
+string version = "2.0.0";//更新版本号!
 
 //加密基数
 int PI[40] = { 1,4,1,5,9,2,6,5,3,5,8,9,7,9,3,2,3,8,4,6,2,6,4,3,3,8,3,2,7,9,5,0,2,8,8,4,1,9,7,1 };
-string  inplat = "|  输入平台名称： |"; string inaccout = "|  输入账号名： |"; 
+/*string  inplat = "|  输入平台名称： |"; string inaccout = "|  输入账号名： |";
 string indate = "|  输入日期：  |"; string inRTmod2 = "|  输入<rg>测试生成,<rd>测试解密  |";
 string inRTmod1 = "| 请输入循环模式                  |"; string inNOT = "|  请输入测例个数  |";
-string inname = "|  输入用户名称(可选)，输入0以跳过  |";
+string inname = "|  输入用户名称(可选)，输入0以跳过  |";*/
 string MKC0 = "|  请设置您的主密码  |"; string MKC2 = "|  请重新设置主密码  |";
 
 int main(void)
 {
 	system("color 70");//设置控制台颜色，7为背景，0为字体
-	//cout << inplat.length() << endl;
 	//定义区
 	string name, account, platform, patch, oripla, RTmod;
 	string MDpath = "D:\\My Project\\GoodPass\\MData\\Data.csv";

@@ -24,15 +24,18 @@ void GP_add(Manager &m)
 {
 	string GP_add_dis1 = "|  请输入平台名称  |"; string GP_add_dis2 = "|  请输入登录名/用户名  |";
 	string GP_add_dis3 = "|  请输入密码  |"; string dis = "生成密码为：";
-	string p, a, pw; char opt = '#'; int ml = 0;
+	string p, a, pw; char opt = '#'; int ml = 0; Data* check = NULL;
 	Displayinf(GP_add_dis1, 1, 0);
 	cin >> p;
 	Displayinf(GP_add_dis2, 1, 0);
 	cin >> a;
-	printaddMenu();
-	cin >> opt;
-	switch (opt)
+	check = m.accusearch(p, a, 0);
+	if (check == NULL)
 	{
+		printaddMenu();
+		cin >> opt;
+		switch (opt)
+		{
 		case'm':
 		case '1':
 			Displayinf(GP_add_dis3, 1, 0);
@@ -47,8 +50,14 @@ void GP_add(Manager &m)
 			cout << "  |" << endl;
 			cout << "|  " << pw << "  |" << endl;
 			printLine(ml, 0);
+		}
+		m.addData_User(p, a, pw);
 	}
-	m.addData_User(p, a, pw);
+	else
+	{
+		string disp1 = "|  账号已存在，请前往修改界面  |";
+		Displayinf(disp1, 1, 0);
+	}
 }
 
 void GP_search(Manager& m)
@@ -73,7 +82,7 @@ void GP_get(Manager& m)
 
 void GP_change(Manager& m)
 {
-	string dis1 = "|  请输入平台名称       |"; string dis2 = "|  请输入登录名/用户名  |";
+	string dis1 = "|  请输入平台名称  |"; string dis2 = "|  请输入登录名/用户名  |";
 	string p, a;
 	Displayinf(dis1, 1, 0);
 	cin >> p;

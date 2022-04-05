@@ -1,8 +1,15 @@
 #ifndef __CRYPTION_H__
 #define __CRYPTION_H__
+/************************************************************
+*                                                           *
+* GP_cryption -- Provide encryption and decryption fuctions *
+* Copyright(c) GeorgeDong32(Github).All rights reserved.    *
+*                                                           *
+************************************************************/
 #include <iostream>
 #include <string>
 using namespace std;
+
 void encrypt(string& ori, string& final);//用于加密存储密码，便于寻找密码
 
 char numenc(char n, int pos);//对于数字的加密

@@ -6,7 +6,6 @@
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
 *                                                        *
 **********************************************************/
-#include <iostream>
 #include <string>
 using namespace std;
 class Data

@@ -1,11 +1,13 @@
 #ifndef __GP_FILEOP_H__
 #define __GP_FILEOP_H__
-
-#include <iostream>
-#include <string>
+/*********************************************************
+*                                                        *
+* FileOperate.h -- Process GoodPass local files          *
+* Copyright(c) GeorgeDong32(Github).All rights reserved. *
+*                                                        *
+**********************************************************/
 #include <fstream>
 #include "Display.h"
-using namespace std;
 
 void FloderInit(int mode);
 

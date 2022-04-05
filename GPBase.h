@@ -6,10 +6,7 @@
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
 *                                                        *
 **********************************************************/
-#include <string>
-#include <iostream>
 #include "Data.h"
-using namespace std;
 int start_option(char control);
 
 void GP_add(Manager& manager);

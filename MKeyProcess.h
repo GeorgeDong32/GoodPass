@@ -2,6 +2,7 @@
 #define __MKEYPROCESS_H__
 /*********************************************************
 *                                                        *
+* MKeyProcess.h -- Provide MainKey-related fuctions      *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
 *                                                        *
 **********************************************************/

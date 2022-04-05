@@ -289,11 +289,18 @@ void Manager::deleteData(string p, string a)
 			Data_Delete_S(p, a);
 		}
 	}
-	else
+	else if(pd != head && pd != NULL)
 	{
 		pb->next = pd->next;
 		delete pd;
 		Data_Delete_S(p, a);
+	}
+	else if (pd == NULL)
+	{
+		string Dis = "|  未找到对应账号，请检查后重试！   |";
+		cout << "*----------------<!>----------------*" << endl;
+		cout << Dis << endl;
+		cout << "*----------------<!>----------------*" << endl;
 	}
 }
 
