@@ -1,11 +1,8 @@
 # GoodPass
+*Developed by GeorgeDong32 <Copyright (c) GeorgeDong32(Github). All rights reserved.>*
 <h1 align="center">
-  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/GoodPass2.0.png" alt="GoodPass" width="600">
+  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Title%20Photo/GoodPass2.0T.png" alt="GoodPass" width="400">
 </h1>
-
-*Developed by GeorgeDong32*
-
-*Copyright (c) GeorgeDong32(Github). All rights reserved.*
 
 GoodPass is a developing password manager that help to to manage your passwords. It now works locally with a off-line encryption system to protect your data. 
 
