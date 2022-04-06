@@ -1,6 +1,6 @@
 # GoodPass
 <h1 align="center">
-  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/GoodPass2.0.png" alt="Matrix" width="600">
+  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/GoodPass2.0.png" alt="GoodPass" width="600">
 </h1>
 
 *Developed by GeorgeDong32*
