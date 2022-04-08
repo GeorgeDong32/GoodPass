@@ -71,8 +71,7 @@ int MKconInit()
 	{
 		MKconI.open(MKconpath, ios::in);
 		char check;
-		MKconI >> check;
-		if (check != NULL)
+		if (MKconI >> check)
 		{
 			MKconI.close();
 			return 1;
