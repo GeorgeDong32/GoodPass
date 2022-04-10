@@ -1,7 +1,8 @@
 #include "FileOperate.h"
 #include <direct.h>
 #include <io.h>
-
+#include <Windows.h>
+#include "Display.h";
 ofstream fblog; ofstream fdata;
 ofstream MKconO;
 ifstream MKconI;
@@ -78,10 +79,10 @@ int MKconInit()
 		}
 		else
 		{
-			cout << "+-------------------<!>------------------+" << endl;
-			cout << "!  :)                                    !" << endl;
-			cout << "!  Error! MainKey config has a problem!  !" << endl;
-			cout << "+-------------------<!>------------------+" << endl;
+			printf(YELLOW "+-------------------<!>------------------+\n");
+			printf(YELLOW "!  :(                                    !\n");
+			printf(YELLOW "!  Error! MainKey config has a problem!  !\n");
+			printf(YELLOW "+-------------------<!>------------------+\n" ORI);
 			MKconI.close();
 		}
 		return 2;

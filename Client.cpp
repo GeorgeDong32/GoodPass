@@ -1,8 +1,10 @@
 //Code Information
 /***********************************************************
+*                                                          *
 * <GoodPass Password Manager>                              *
 * Written by GeorgeDong32                                  *
 * Copyright (c) GeorgeDong32(Github). All rights reserved. *
+*                                                          *
 ***********************************************************/
 //代码日志
 //见"CodeBlog.h"
@@ -17,7 +19,7 @@
 #include "GPBase.h"
 int Test_Mode_Control = 0;//测试模式调控符
 
-string version = "2.0.0";//更新版本号!
+string version = "2.0.2";//更新版本号!
 
 //加密基数
 int PI[40] = { 1,4,1,5,9,2,6,5,3,5,8,9,7,9,3,2,3,8,4,6,2,6,4,3,3,8,3,2,7,9,5,0,2,8,8,4,1,9,7,1 };
@@ -54,7 +56,7 @@ int main(void)
 	switch(mkc)
 	{
 		case 2:
-			Displayinf(MKC2, 1, 0);
+			Displayinf(MKC2, 1, 0, "ori");
 			cin >> MainKey;
 			setConfig(MainKey);
 			break;
@@ -62,7 +64,7 @@ int main(void)
 			checkConfig(MainKey);
 			break;
 		case 0:
-			Displayinf(MKC0, 1, 0);
+			Displayinf(MKC0, 1, 0, "ori");
 			cin >> MainKey;
 			setConfig(MainKey);
 			break;
@@ -103,7 +105,7 @@ int main(void)
 				GP_delete(gpm);
 				break;
 			default:
-				Displayinf("请检查您的输入", 0, 0);
+				Displayinf("请检查您的输入", 0, 0, "yellow");
 				break;
 		}
 		printMenu(Test_Mode_Control);

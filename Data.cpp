@@ -3,6 +3,7 @@
 #include "Display.h"
 #include <fstream>
 #include <sstream>
+#include <Windows.h>
 
 bool fuzzymatch(string o, string t)//字符串模糊匹配
 {
@@ -46,31 +47,24 @@ void Data_Delete_S(string p, string a)
 {
 	string dis1 = "|  已成功删除"; string dis2 = "账号：";
 	string finaldis = dis1 + p + dis2 + a + "  |";
-	printLine(finaldis.length() - 6, 0);
-	cout << finaldis << endl;
-	printLine(finaldis.length() - 6, 0);
+	Displayinf(finaldis, 1, 0, "green");
 }
 
 void Data::printData()
 {
-	string mid;
-	string dis1, dis2, dis3;
-	decrypt(encp, mid);
-	dis1 = platform + "平台";
-	dis2 = "账号为：" + account;
-	dis3 = "密码为：" + mid;
-	int ml = fmax(dis1.length(), fmax(dis2.length(), dis3.length()));
-	printLine(ml, 0);
-	cout << "|  " << dis1;
-	addempty(dis1.length(), ml);
-	cout << "  |" << endl;
-	cout << "|  " << dis2;
-	addempty(dis2.length(), ml);
-	cout << "  |" << endl;
-	cout << "|  " << dis3;
-	addempty(dis3.length(), ml);
-	cout << "  |" << endl;
-	printLine(ml, 0);
+	string dispw;;
+	string title = "账号信息";
+	int pl = 0; int al = 0; int pwl = 0;
+	decrypt(encp, dispw);
+	pl = platform.length();
+	al = account.length();
+	pwl = dispw.length();
+	int ml = pl + al + pwl + 8;
+	printLine(ml - 6, 0);
+	cout << "| " << setw(ml - 4) << left << title << " |" << endl;
+	printmLine(ml - 6, 0);
+	cout << "| " << platform << "  " << account << "  " << dispw << " |" << endl;
+	printLine(ml - 6, 0);
 }
 
 /*int Data::getpos()
@@ -113,18 +107,19 @@ bool Data::resetData(string npw)
 
 void Manager::fuzzysearch(string platform)//按平台搜索账号
 {
-	Data* p = head; int ml = 0; int nl = 0;
-	int count = 0; int countt = 0;
-	string s_account[40]; string sp[40]; string final[40];
+	Data* p = head;
+	int count = 0;
+	string s_account[40]; string sp[40]; string counts;
 	string display1 = "已找到关于"; string display2 = "的"; string display3 = "个账号:";
+	string title;
 	while (p != NULL)
 	{
 		if (count > 40)
 		{
-			cout << "!---------------<!>---------------!" << endl;
-			cout << "|  :(                             |" << endl;
-			cout << "|  Too many accounts are found!   |" << endl;
-			cout << "!---------------<!>---------------!" << endl;
+			printf(YELLOW "!---------------<!>---------------!\n");
+			printf(YELLOW "|  :(                             |\n");
+			printf(YELLOW "|  Too many accounts are found!   |\n");
+			printf(YELLOW "!---------------<!>---------------!\n" ORI);
 		}
 		if (fuzzymatch(p->getplatform(), platform))
 		{
@@ -139,34 +134,36 @@ void Manager::fuzzysearch(string platform)//按平台搜索账号
 		else
 			break;
 	}
+	{
+		int tn = count / 10;
+		int gn = count % 10;
+		if (tn > 0)
+		{
+			counts += '0' + tn;
+			counts += '0' + gn;
+		}
+		else
+		{
+			counts = '0' + gn;
+		}
+	}
+	title = display1 + platform + display2 + counts + display3;
+	int mlp = 0; int mln = 0; int ml = 0;
 	for (int i = 0; i < count; i++)
 	{
-		final[i] = sp[i] + "账号：" + s_account[i];
+		mlp = fmax(sp[i].length(), mlp);
+		mln = fmax(s_account[i].length(), mln);
 	}
-	//display2 += ('0' + count);
-	countt = count;
-	while (countt)
-	{
-		countt /= 10;
-		nl++;
-	}
-	string finaldisplay = display1 + platform + display2;
-	ml = finaldisplay.length() + 7 + nl;
+	ml = fmax(title.length(), mlp + mln + 5);
+	printLine(ml - 2, 0);
+	cout << "| " << setw(ml - 2) << left << title << " |" << endl;
 	for (int i = 0; i < count; i++)
 	{
-		ml = fmax(final[i].length(), ml);
+		printmLine(ml - 2, mlp + 2);
+		cout << "| " << setw(mlp) << left << sp[i] << " |";
+		cout << " " << setw(ml - mlp - 3) << left << s_account[i] << " |" << endl;
 	}
-	printLine(ml, 0);
-	cout << "|  " << finaldisplay << count << display3; addempty(finaldisplay.length() + 7 + nl, ml); cout << "  |" << endl;
-	for (int i = 0; i < count; i++)
-	{
-		printLine(ml, 0);
-		cout << "|  " << final[i];
-		addempty(final[i].length(), ml);
-		cout << "  |" << endl;
-		//printLine(ml, 0);
-	}
-	printLine(ml, 0);
+	printLine(ml - 2, 0);
 }
 
 Data* Manager::accusearch(string platform, string account, int mode)//mode显示控制，1时有成功输出，2
@@ -189,7 +186,7 @@ Data* Manager::accusearch(string platform, string account, int mode)//mode显示控
 	}
 	if (mode == 1)
 	{
-		Displayinf(Dis_accs, 1, 0);
+		Displayinf(Dis_accs, 1, 0, "red");
 	}
 	return NULL;
 }
@@ -217,13 +214,13 @@ void Manager::addData_User(string p, string a, string e)
 			head = nd;
 		else
 			pd->next = nd;
-		Displayinf(aD_U_AS, 1, 0);
+		Displayinf(aD_U_AS, 1, 0, "green");
 	}
 	else
 	{
 		delete nd;
 		string disp1 = "|  账号已存在，请前往修改界面  |";
-		Displayinf(disp1, 1, 0);
+		Displayinf(disp1, 1, 0, "red");
 	}
 }
 
@@ -298,9 +295,9 @@ void Manager::deleteData(string p, string a)
 	else if (pd == NULL)
 	{
 		string Dis = "|  未找到对应账号，请检查后重试！   |";
-		cout << "*----------------<!>----------------*" << endl;
-		cout << Dis << endl;
-		cout << "*----------------<!>----------------*" << endl;
+		printf(YELLOW "*----------------<!>----------------*\n");
+		printf("%s\n", Dis.c_str());
+		printf("*----------------<!>----------------*\n" ORI);
 	}
 }
 
@@ -314,7 +311,7 @@ void Manager::reviseData(string p, string a)
 		int recheck = 0; string temp2;
 		string dp_rD1 = "|  修改失败，请重试  |"; string dp_rD2 = "|  修改成功！  |"; string dp_rD3 = "|  修改出错(-1)，请重试  |";
 		string dp_rD4 = "|  修改出错(0)，请重试  |";
-		Displayinf("请输入新密码", 0, 0);
+		Displayinf("请输入新密码", 0, 0,"ori");
 		cin >> newp;
 		sp = pd->resetData(newp);
 		if (sp)
@@ -338,28 +335,25 @@ void Manager::reviseData(string p, string a)
 		{
 			if (recheck == 1)
 			{
-				Displayinf(dp_rD2, 1, 0);
+				Displayinf(dp_rD2, 1, 0,"green");
 			}
 			else if (recheck == -1)
 			{
-				Displayinf(dp_rD3, 1, 0);
+				Displayinf(dp_rD3, 1, 0,"red");
 			}
 			else if (recheck == 0)
 			{
-				Displayinf(dp_rD4, 1, 0);
+				Displayinf(dp_rD4, 1, 0,"red");
 			}
 		}
 		else
 		{
-			Displayinf(dp_rD1, 1, 0);
+			Displayinf(dp_rD1, 1, 0,"red");
 		}
 	}
 	else
 	{
-		Displayinf(display1, 1, 0);
-		printLine(display1.length() - 6, 0);
-		cout << display1 << endl;
-		printLine(display1.length() - 6, 0);
+		Displayinf(display1, 1, 0,"yellow");
 	}
 }
 
@@ -475,8 +469,7 @@ void FileUpdate(Manager& m, string Datapath)
 		else
 			break;
 	}
-	cout << "*-----------------------------------*" << endl;
-	cout << "|  The data file has been updated!  |" << endl;
-	cout << "*-----------------------------------*" << endl;
+	string fdis = "The data file has been updated!";
+	Displayinf(fdis, 0, 0, "green");
 	outfile.close();
 }
