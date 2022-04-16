@@ -13,6 +13,9 @@ You can get the application in [Releases](https://github.com/GeorgeDong32/GoodPa
 Of course, I'm looking forward to your feedback.
 It is such a fortune to meet you here! You can provide your advise to me at georgedong32@foxmail.com or at the [Issue](https://github.com/GeorgeDong32/GoodPass/issues) part of Github.
 ## Development Plan
+🚧 GPHES(GoodPass Hash Encryption System) and GPSEA(GoodPass Symmetrical Encryption System). Both are TEA(Twice Encryption Algorithm) that protect your password efficient and safely.
+
+🏗️ Graphic interface based on QT is under development. Maybe come out in July.
 ## File Security
 The SHA256 Hash of releases are as follow
 * [v2.0.2](https://github.com/GeorgeDong32/GoodPass/releases/tag/v2.0.2) `956031C0F1C3AE1F3B8CA47B22AD786E49E95EB701A202A436C3C5D4E8CD11DB`
