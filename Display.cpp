@@ -120,19 +120,19 @@ Yellow:
 				printf(COLOR "#");
 				while (con)
 				{
-					printf(COLOR "-");
+					printf( "-");
 					con--;
 				}
-				printf(COLOR "#\n");
+				printf( "#\n");
 			}
 			else {
 				printf(COLOR "*");
 				while (con)
 				{
-					printf(COLOR "-");
+					printf( "-");
 					con--;
 				}
-				printf(COLOR "*\n");
+				printf( "*\n");
 			}
 			printf("%s\n", d.c_str());
 			con = temp;
@@ -141,19 +141,19 @@ Yellow:
 				printf(COLOR "#");
 				while (con)
 				{
-					printf(COLOR "-");
+					printf( "-");
 					con--;
 				}
-				printf(COLOR "#\n");
+				printf( "#\n");
 			}
 			else {
 				printf(COLOR "*");
 				while (con)
 				{
-					printf(COLOR "-");
+					printf( "-");
 					con--;
 				}
-				printf(COLOR "*\n" ORI);
+				printf( "*\n" ORI);
 			}
 			/*printLine(d.length() - 6, lm);
 			cout << d << endl;
@@ -167,19 +167,19 @@ Yellow:
 				printf(COLOR "#");
 				while (con)
 				{
-					printf(COLOR "-");
+					printf( "-");
 					con--;
 				}
-				printf(COLOR "#\n");
+				printf( "#\n");
 			}
 			else {
 				printf(COLOR "*");
 				while (con)
 				{
-					printf(COLOR "-");
+					printf( "-");
 					con--;
 				}
-				printf(COLOR "*\n");
+				printf( "*\n");
 			}
 			printf(COLOR "|  %s  |\n", d.c_str());
 			con = temp + 6;
@@ -188,19 +188,19 @@ Yellow:
 				printf(COLOR "#");
 				while (con)
 				{
-					printf(COLOR "-");
+					printf( "-");
 					con--;
 				}
-				printf(COLOR "#\n");
+				printf( "#\n");
 			}
 			else {
 				printf(COLOR "*");
 				while (con)
 				{
-					printf(COLOR "-");
+					printf( "-");
 					con--;
 				}
-				printf(COLOR "*\n" ORI);
+				printf( "*\n" ORI);
 			}
 	}
 		/*printLine(d.length(), lm);

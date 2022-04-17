@@ -1,6 +1,16 @@
 #include <cstring>
 #include <fstream>
 #include "GPHES.h"
+/*≤‚ ‘ π”√
+#include <iostream>
+using std::cout; using std::endl;*/
+/***************************************************************
+*                                                              *
+* GPEHS.h -- Provides GoodPass Hash Encryption System          *
+* GPHES is a hash-based encrypton system developed by GoodPass *
+* Copyright(c) GeorgeDong32(Github).All rights reserved.       *
+*                                                              *
+***************************************************************/
 /*******************************************************************
 *                                                                  *
 * The SHA256 class and its related fuctions are provides by jluuM2 *
@@ -136,4 +146,87 @@ std::string sha256(std::string input)
 	for (int i = 0; i < SHA256::DIGEST_SIZE; i++)
 		sprintf(buf + i * 2, "%02x", digest[i]);
 	return std::string(buf);
+}
+
+string gphes(string mainkey)
+{
+	GPHES o(mainkey);
+	string stemp;
+	stemp = o.getSalt();
+	o.Mix();
+	string sstr = o.getSaltedstr();
+	return sha256(sstr);
+}
+
+GPHES::GPHES() :
+	mainkey_s("mainkey"),
+	salt_s("defualt_salt"),
+	salted_mainkey("salted_mainkey") {}
+
+GPHES::GPHES(string mainkey) :
+	mainkey_s(mainkey),
+	salt_s("defualt_salt"),
+	salted_mainkey("salted_mainkey") {}
+
+string GPHES::getSalt()
+{
+	string resalt = "12345678";
+	int saltbase[8] = { 0, };
+	int* mkbase = new int[mainkey_s.length()];
+	int mkl = mainkey_s.length();
+	for (int i = 0; i < mkl; i++)
+	{
+		if (mainkey_s[i] <= 'z' && mainkey_s[i] >= 'a')
+			mkbase[i] = mainkey_s[i] - 'a';
+		else if (mainkey_s[i] <= 'Z' && mainkey_s[i] >= 'A')
+			mkbase[i] = mainkey_s[i] - 'A';
+		else if (mainkey_s[i] <= '9' && mainkey_s[i] >= '0')
+			mkbase[i] = mainkey_s[i] - '0';
+		else
+			mkbase[i] = 0;
+	}
+	int addcon = mkl / 8; int j = 0; int mkbc = 0;
+	for (int i = 0; i < 8; i++)
+	{
+		j = 0;
+		for (j; j < addcon; j++)
+		{
+			saltbase[i] += mkbase[mkbc];
+			mkbc++;
+		}
+		if (saltbase[i] <= 32)
+		{
+			saltbase[i] += 32;
+		}
+		while (saltbase[i] >= 127)
+		{
+			saltbase[i] -= 32;
+		}
+	}
+	for (int i = 0; i < 8; i++)
+	{
+		resalt[i] = saltbase[i];
+	}
+	salt_s = resalt;
+	//cout << "resalt is" << resalt << endl;
+	return resalt;
+}
+
+string GPHES::Mix()
+{
+	string remix; string s1, s2;
+	s1 = "0000"; s2 = "0000";
+	for (int i = 0; i < 4; i++)
+		s1[i] = salt_s[i];
+	for (int i = 0; i < 4; i++)
+		s2[i] = salt_s[i + 4];
+	remix = s1 + mainkey_s + s2;
+	salted_mainkey = remix;
+	//cout << "The salted_mainkey is:" << endl << salted_mainkey << endl;
+	return remix;
+}
+
+string GPHES::getSaltedstr()
+{
+	return salted_mainkey;
 }

@@ -16,6 +16,7 @@
 *                                                                  *
 *******************************************************************/
 #include <string>
+using std::string;
 class SHA256
 {
 protected:
@@ -39,7 +40,23 @@ protected:
 	uint32 m_h[8];
 };
 
-std::string sha256(std::string input);
+std::string sha256(string input);
+
+class GPHES
+{
+public:
+	GPHES();
+	GPHES(string mainkey);
+	string getSalt();
+	string Mix();
+	string getSaltedstr();
+private:
+	string mainkey_s;
+	string salt_s;
+	string salted_mainkey;
+};
+
+string gphes(string mainkey);
 
 #define SHA2_SHFR(x, n)    (x >> n)
 #define SHA2_ROTR(x, n)   ((x >> n) | (x << ((sizeof(x) << 3) - n)))
