@@ -8,7 +8,10 @@ Developed by GeorgeDong32 <Copyright (c) GeorgeDong32(Github). All rights reserv
 ## 🎤Introduction
 GoodPass is a developing password manager that help to to manage your passwords. It now works locally with a off-line encryption system to protect your data.
 ## 📦[Releases](https://github.com/GeorgeDong32/GoodPass/releases)
+[<img src="https://img.shields.io/badge/Release-download-34558b" alt="Release">](https://github.com/GeorgeDong32/GoodPass/releases)
+
 You can get the application in [Releases](https://github.com/GeorgeDong32/GoodPass/releases) part, thanks for using it. 
+
 ## 💬Feedback
 Of course, I'm looking forward to your feedback.
 It is such a fortune to meet you here! You can provide your advise to me at georgedong32@foxmail.com or at the [Issue](https://github.com/GeorgeDong32/GoodPass/issues) part of Github.
