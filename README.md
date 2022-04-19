@@ -17,8 +17,8 @@ Of course, I'm looking forward to your feedback.
 It is such a fortune to meet you here! You can provide your advise to me at georgedong32@foxmail.com or at the [Issue](https://github.com/GeorgeDong32/GoodPass/issues) part of Github.
 
 ## 🔐About Security
-### 🏗️ GPSES is building......
-### 🔏 GPHES(GoodPass Hash Encryption System) is a salted hash encryption system. It uses your main key to process a salt to enhance SHA256.  
+#### 🏗️ GPSES is building......
+#### 🔏 GPHES(GoodPass Hash Encryption System) is a salted hash encryption system. It uses your main key to process a salt to enhance SHA256.  
 
 ## 📈Development Plan
 🚧 GPHES(GoodPass Hash Encryption System) and GPSES(GoodPass Symmetrical Encryption System). Both are TEA(Twice Encryption Algorithm) that protect your password efficient and safely.
