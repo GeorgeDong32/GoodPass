@@ -1,5 +1,5 @@
 #include "Data.h"
-#include "GP_cryption.h"
+#include "GPSES.h"
 #include "Display.h"
 #include <fstream>
 #include <sstream>
@@ -55,7 +55,8 @@ void Data::printData()
 	string dispw;;
 	string title = "账号信息";
 	int pl = 0; int al = 0; int pwl = 0;
-	decrypt(encp, dispw);
+	GPBES pD(encp, 1);
+	dispw = pD.decrypt();
 	pl = platform.length();
 	al = account.length();
 	pwl = dispw.length();
@@ -66,11 +67,6 @@ void Data::printData()
 	cout << "| " << platform << "  " << account << "  " << dispw << " |" << endl;
 	printLine(ml - 6, 0);
 }
-
-/*int Data::getpos()
-{
-	return linepos;
-}*/
 
 string Data::getaccount()
 {
@@ -90,7 +86,8 @@ string Data::getEncp()
 string Data::getPassword()
 {
 	string re;
-	decrypt(encp, re);
+	GPBES gp(encp, 1);
+	re = gp.decrypt();
 	return re;
 }
 
@@ -98,7 +95,8 @@ bool Data::resetData(string npw)
 {
 	string temp = encp;
 	encp = "";
-	encrypt(npw, encp);
+	GPBES rd(npw, 0);
+	encp = rd.encrypt();
 	if (encp != "" && encp != temp)
 		return true;
 	else
@@ -196,7 +194,8 @@ void Manager::addData_User(string p, string a, string e)
 	string mid = e; string aD_U_AS = "|  新增成功！  |";
 	e = "";
 	Data* pd = head;
-	encrypt(mid, e);
+	GPBES adu(mid, 0);
+	e = adu.encrypt();
 	Data* nd = new Data(p, a, e); Data* check = NULL;
 	check = accusearch(p, a, 0);
 	if (check == NULL)
@@ -286,7 +285,7 @@ void Manager::deleteData(string p, string a)
 			Data_Delete_S(p, a);
 		}
 	}
-	else if(pd != head && pd != NULL)
+	else if (pd != head && pd != NULL)
 	{
 		pb->next = pd->next;
 		delete pd;
@@ -311,7 +310,7 @@ void Manager::reviseData(string p, string a)
 		int recheck = 0; string temp2;
 		string dp_rD1 = "|  修改失败，请重试  |"; string dp_rD2 = "|  修改成功！  |"; string dp_rD3 = "|  修改出错(-1)，请重试  |";
 		string dp_rD4 = "|  修改出错(0)，请重试  |";
-		Displayinf("请输入新密码", 0, 0,"ori");
+		Displayinf("请输入新密码", 0, 0, "ori");
 		cin >> newp;
 		sp = pd->resetData(newp);
 		if (sp)
@@ -324,7 +323,8 @@ void Manager::reviseData(string p, string a)
 			if (recheck)
 			{
 				temp1 = "";
-				encrypt(newp, temp1);
+				GPBES rd(newp, 0);
+				temp1 = rd.encrypt();
 				if (temp1 == temp2)
 					recheck = 1;
 				else
@@ -335,25 +335,25 @@ void Manager::reviseData(string p, string a)
 		{
 			if (recheck == 1)
 			{
-				Displayinf(dp_rD2, 1, 0,"green");
+				Displayinf(dp_rD2, 1, 0, "green");
 			}
 			else if (recheck == -1)
 			{
-				Displayinf(dp_rD3, 1, 0,"red");
+				Displayinf(dp_rD3, 1, 0, "red");
 			}
 			else if (recheck == 0)
 			{
-				Displayinf(dp_rD4, 1, 0,"red");
+				Displayinf(dp_rD4, 1, 0, "red");
 			}
 		}
 		else
 		{
-			Displayinf(dp_rD1, 1, 0,"red");
+			Displayinf(dp_rD1, 1, 0, "red");
 		}
 	}
 	else
 	{
-		Displayinf(display1, 1, 0,"yellow");
+		Displayinf(display1, 1, 0, "yellow");
 	}
 }
 
@@ -376,7 +376,8 @@ void Manager::reviseData(Data& d)
 			recheck = 1;
 		if (recheck)
 		{
-			encrypt(newp, temp1);
+			GPBES rd(newp, 0);
+			temp1 = rd.encrypt();
 			if (temp1 == temp2)
 				recheck = 1;
 			else

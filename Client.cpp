@@ -12,14 +12,13 @@
 //函数&头文件
 #include "Generate.h"
 #include "FileOperate.h"
-#include "GP_cryption.h"
 #include "Data.h"
 #include "MKeyProcess.h"
 #include "Display.h"
 #include "GPBase.h"
 int Test_Mode_Control = 0;//测试模式调控符
 
-string version = "2.0.5";//更新版本号!
+string version = "2.1.0";//更新版本号!
 
 //加密基数
 int PI[40] = { 1,4,1,5,9,2,6,5,3,5,8,9,7,9,3,2,3,8,4,6,2,6,4,3,3,8,3,2,7,9,5,0,2,8,8,4,1,9,7,1 };
@@ -53,21 +52,21 @@ int main(void)
 	//主密码配置检查
 	int mkc = MKconInit();
 	FloderInit(Test_Mode_Control);//文件夹初始化
-	switch(mkc)
+	switch (mkc)
 	{
-		case 2:
-			Displayinf(MKC2, 1, 0, "ori");
-			cin >> MainKey;
-			setConfig(MainKey);
-			break;
-		case 1:
-			checkConfig(MainKey);
-			break;
-		case 0:
-			Displayinf(MKC0, 1, 0, "ori");
-			cin >> MainKey;
-			setConfig(MainKey);
-			break;
+	case 2:
+		Displayinf(MKC2, 1, 0, "ori");
+		cin >> MainKey;
+		setConfig(MainKey);
+		break;
+	case 1:
+		checkConfig(MainKey);
+		break;
+	case 0:
+		Displayinf(MKC0, 1, 0, "ori");
+		cin >> MainKey;
+		setConfig(MainKey);
+		break;
 	}
 	//Manager初始化
 	Manager gpm;
@@ -77,36 +76,36 @@ int main(void)
 	{
 		switch (opt)
 		{
-			case 'e':
-			case '0':
-				FileUpdate(gpm, MDpath);
-				gpm.~Manager();
-				system("pause");
-				exit(0);
-				break;
-			case 'a':
-			case '1':
-				GP_add(gpm);
-				break;
-			case 's':
-			case '2':
-				GP_search(gpm);
-				break;
-			case 'g':
-			case '3':
-				GP_get(gpm);
-				break;
-			case 'c':
-			case '4':
-				GP_change(gpm);
-				break;
-			case 'd':
-			case '5':
-				GP_delete(gpm);
-				break;
-			default:
-				Displayinf("请检查您的输入", 0, 0, "yellow");
-				break;
+		case 'e':
+		case '0':
+			FileUpdate(gpm, MDpath);
+			gpm.~Manager();
+			system("pause");
+			exit(0);
+			break;
+		case 'a':
+		case '1':
+			GP_add(gpm);
+			break;
+		case 's':
+		case '2':
+			GP_search(gpm);
+			break;
+		case 'g':
+		case '3':
+			GP_get(gpm);
+			break;
+		case 'c':
+		case '4':
+			GP_change(gpm);
+			break;
+		case 'd':
+		case '5':
+			GP_delete(gpm);
+			break;
+		default:
+			Displayinf("请检查您的输入", 0, 0, "yellow");
+			break;
 		}
 		printMenu(Test_Mode_Control);
 	}
@@ -133,7 +132,7 @@ Start_option:
 		//文件夹初始化
 		FloderInit(Test_Mode_Control);
 		goto Decryptor; break;
-	case 3: 
+	case 3:
 		//文件夹初始化
 		FloderInit(Test_Mode_Control);
 		goto Test_Mode; break;
@@ -287,7 +286,7 @@ Decryptor:
 		{
 			fblog.close();
 			return 0;
-		}	
+		}
 	}
 	else
 	{
@@ -304,7 +303,7 @@ Rep_Test:
 	cout << inRTmod1 << endl << inRTmod2 << endl;
 	printLine(inRTmod1.length() - 6, Test_Mode_Control);
 	cin >> RTmod;
-	
+
 	if (RTmod == "rg")
 	{
 	RT_Loop1:

@@ -1,6 +1,6 @@
 #include "Generate.h"
 #include "GPBase.h"
-#include "GP_cryption.h"
+#include "GPSES.h"
 #include <fstream>
 #include <string>
 using namespace std;
@@ -149,8 +149,8 @@ string Generatepw(string pl, string un)
 	final += pl;
 	final += name;
 	final += patch;
-	//cout << final << endl;
-	encrypt(final, G_encr);
+	GPBES gpg(final, 0);
+	G_encr = gpg.encrypt();
 	//日志更新区
 	//日志文件初始化
 	ofstream blog;
