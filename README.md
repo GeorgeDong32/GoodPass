@@ -21,10 +21,14 @@ It is such a fortune to meet you here! You can provide your advise to me at geor
 #### 🔏 GPHES(GoodPass Hash Encryption System) is a salted hash encryption system. It uses your main key to process a salt to enhance SHA256. 
 #### 🔒 Encryption System Support
 ##### PassWord Storage
-| Version | GP_cryptiom        | GPSES        |
-| ------- | ------------------ | ------------ |
-| 2.x     | :white_check_mark: |        
-| 1.x     | :x:                |
+| Version | GP_cryptiom        | GPSES 1.0         |
+| ------- | ------------------ | ----------------- |
+| 2.1.0   | :white_check_mark: | :white_check_mark:|
+| 2.0.5   | :white_check_mark: | :x:               |
+| 2.0.2   | :white_check_mark: | :x:               |
+| 2.0.1   | :white_check_mark: | :x:               |
+| 2.0.0   | :white_check_mark: | :x:               |
+| 1.8.0   | :white_check_mark: | :x:               |
 
 ## 📈Development Plan
 🚧 GPHES(GoodPass Hash Encryption System) and GPSES(GoodPass Symmetrical Encryption System). Both are TEA(Twice Encryption Algorithm) that protect your password efficient and safely.
