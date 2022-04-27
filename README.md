@@ -12,13 +12,19 @@ You can get the application in [Releases](https://github.com/GeorgeDong32/GoodPa
 
 [<img src="https://img.shields.io/badge/Latest Release-v2.0.5-FFFFFF" alt="Latest Release">](https://github.com/GeorgeDong32/GoodPass/releases/tag/v2.0.5)
 
-## 💬Feedback  [<img src="https://img.shields.io/badge/GoodPass-Feedback-939597" alt="Issue">](https://github.com/GeorgeDong32/GoodPass/issues)
+## 💬 Feedback  [<img src="https://img.shields.io/badge/GoodPass-Feedback-939597" alt="Issue">](https://github.com/GeorgeDong32/GoodPass/issues)
 Of course, I'm looking forward to your feedback.
 It is such a fortune to meet you here! You can provide your advise to me at georgedong32@foxmail.com or at the [Issue](https://github.com/GeorgeDong32/GoodPass/issues) part of Github.
 
 ## 🔐About Security
 #### 🏗️ GPSES is building......
-#### 🔏 GPHES(GoodPass Hash Encryption System) is a salted hash encryption system. It uses your main key to process a salt to enhance SHA256.  
+#### 🔏 GPHES(GoodPass Hash Encryption System) is a salted hash encryption system. It uses your main key to process a salt to enhance SHA256. 
+#### 🔒 Encryption System Support
+##### PassWord Storage
+| Version | GP_cryptiom        | GPSES        |
+| ------- | ------------------ | ------------ |
+| 2.x     | :white_check_mark: |        
+| 1.x     | :x:                |
 
 ## 📈Development Plan
 🚧 GPHES(GoodPass Hash Encryption System) and GPSES(GoodPass Symmetrical Encryption System). Both are TEA(Twice Encryption Algorithm) that protect your password efficient and safely.
