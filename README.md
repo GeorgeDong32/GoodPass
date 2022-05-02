@@ -10,7 +10,7 @@ GoodPass is a developing password manager that help to to manage your passwords.
 ## 📦Releases  [<img src="https://img.shields.io/badge/GoodPass-Release-34558b" alt="Release">](https://github.com/GeorgeDong32/GoodPass/releases)
 You can get the application in [Releases](https://github.com/GeorgeDong32/GoodPass/releases) part, thanks for using it.
 
-[<img src="https://img.shields.io/badge/Latest Release-v2.1.0-FFFFFF" alt="Latest Release">](https://github.com/GeorgeDong32/GoodPass/releases/tag/v2.0.5)
+[![Release Version](https://img.shields.io/github/v/release/GeorgeDong32/GoodPass)](https://github.com/GeorgeDong32/GoodPass/releases/latest)
 
 ## 💬 Feedback  [<img src="https://img.shields.io/badge/GoodPass-Feedback-939597" alt="Issue">](https://github.com/GeorgeDong32/GoodPass/issues)
 Of course, I'm looking forward to your feedback.
