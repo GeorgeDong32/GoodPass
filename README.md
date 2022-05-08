@@ -1,4 +1,5 @@
-# GoodPass
+<h1 align="center">
+GoodPass -- A developing password manager
 <h1 align="center">
   <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Title%20Photo/GoodPass2.0T.png" alt="GoodPass" width="400">
 </h1>
