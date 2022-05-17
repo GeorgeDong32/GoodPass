@@ -48,12 +48,6 @@ It is such a fortune to meet you here! You can provide your advise to me at geor
 
 🏗️ Graphic interface based on QT is under development. Maybe come out in July in the version v3.0.0.
 ## 🛡File Security
-The SHA256 Hash of releases are as follow
-* v2.0.2
-`956031C0F1C3AE1F3B8CA47B22AD786E49E95EB701A202A436C3C5D4E8CD11DB`
-* v2.0.5
-`ADCF90E19E3D48B53AC6F9B21B79A0970303839391A271690AA65BC501891D8F`
-* v2.1.0
-`20f6822d49477ed3062cbac01e080c06e2cc197b1166fc88265d6587e6497bb5`
-* v2.2.0
-`736ecaad20f4ceec8608f785ea839989288b544e5664acd4ce174ac798ae065ac`
+The SHA256 Hash of releases are in the follow file。
+  
+[<img src="https://img.shields.io/badge/GoodPass-File SHA256-34558b" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/File_SHA256.md)
