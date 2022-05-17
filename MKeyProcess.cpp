@@ -91,16 +91,6 @@ MKC_Start:
 	{
 		flag = 0;
 	}
-	//mkmd5 = getMD5(mk);
-	//MKconI >> fmd5;
-	/*if (mkmd5 == fmd5)
-	{
-		flag = 1;
-	}
-	else
-	{
-		flag = 0;
-	}*/
 	Check_con++;
 	if (flag == 1)
 	{
@@ -112,10 +102,12 @@ MKC_Start:
 	{
 		if (Check_con > 4)
 		{
+			SetColor(124);
 			cout << "*----------------<!>----------------*" << endl;
 			cout << "!  :(                               !" << endl;
 			cout << "!  错误次数太多了，好好想想再来吧   !" << endl;
 			cout << "*----------------<!>----------------*" << endl;
+			SetColor(112);
 			system("pause");
 			exit(0);
 		}

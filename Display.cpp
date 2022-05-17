@@ -1,4 +1,11 @@
 #include "Display.h"
+#include <Windows.h>
+
+void SetColor(int mixedcolor)
+{
+	HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE); //获取缓冲区句柄
+	SetConsoleTextAttribute(hCon, mixedcolor); //设置文本及背景色
+}
 
 void addempty(int oril, int tarl)//格式函数：添加空格
 {
@@ -24,36 +31,36 @@ void PrintTitle(void)
 
 void PrintTestTitle(void)
 {
-		cout << "#=================<T>=================#" << endl;
-		cout << "#  欢迎你，工程师!   现在是工程模式!  #" << endl;
-		cout << R"(#  输入<tg>进行生成测试               #
+	cout << "#=================<T>=================#" << endl;
+	cout << "#  欢迎你，工程师!   现在是工程模式!  #" << endl;
+	cout << R"(#  输入<tg>进行生成测试               #
 #  输入<td>进行解密测试               #
 #  输入<rt>进行重复测试               #)" << endl;
-		cout << "#=================<T>=================#" << endl;
+	cout << "#=================<T>=================#" << endl;
 }
 
 void printLine(int len, int mode)
 {
-		int con = len + 4;
-		if (mode)
+	int con = len + 4;
+	if (mode)
+	{
+		printf("#");
+		while (con)
 		{
-			printf("#");
-			while (con)
-			{
-				printf("-");
-				con--;
-			}
-			printf("#\n");
+			printf("-");
+			con--;
 		}
-		else {
-			printf("*");
-			while (con)
-			{
-				printf("-");
-				con--;
-			}
-			printf("*\n");
+		printf("#\n");
+	}
+	else {
+		printf("*");
+		while (con)
+		{
+			printf("-");
+			con--;
 		}
+		printf("*\n");
+	}
 }
 
 void printNextO(int mode)
@@ -71,7 +78,8 @@ void printMenu(int mode)
 	string dp1 = "1/a：添加账号"; string dp2 = "2/s：按平台搜索账号"; string dp3 = "3/g：获取指定账号信息";
 	string dp4 = "4/c：修改指定账号信息"; string dp5 = "5/d：删除指定账号";
 	printLine(27, mode);
-	cout << "|  " << dpt << "   |" << endl;
+	printf("|  ");
+	cout << dpt << "   |" << endl;
 	cout << "|  " << dp0; addempty(dp0.length(), 27);
 	cout << "  |" << endl;
 	cout << "|  " << dp1; addempty(dp1.length(), 27);
@@ -89,422 +97,30 @@ void printMenu(int mode)
 
 void Displayinf(string d, int pm, int lm, string color)
 {
-	int cdir = 0;
+	int cdir = 112;
 	if (color == "yellow")
-		cdir = 33;
+		cdir = 126;
 	else if (color == "red")
-		cdir = 31;
+		cdir = 124;
 	else if (color == "green")
-		cdir = 32;
+		cdir = 122;
 	else
-		cdir = 0;
-	switch (cdir)
+		cdir = 112;
+	SetColor(cdir);
+	int len = d.length();
+	if (pm)
 	{
-	case 33:
-		goto Yellow;
-	case 32:
-		goto Green;
-	case 31:
-		goto Red;
-	case 0:
-		goto Ori;
+		printLine(len - 6, lm);
+		cout << d << endl;
+		printLine(len - 6, lm);
 	}
-Yellow:
+	else
 	{
-#define COLOR YELLOW
-		int con = d.length() - 2; int temp = con;
-		if (pm == 1)
-		{
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf( "-");
-					con--;
-				}
-				printf( "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf( "-");
-					con--;
-				}
-				printf( "*\n");
-			}
-			printf("%s\n", d.c_str());
-			con = temp;
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf( "-");
-					con--;
-				}
-				printf( "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf( "-");
-					con--;
-				}
-				printf( "*\n" ORI);
-			}
-			/*printLine(d.length() - 6, lm);
-			cout << d << endl;
-			printLine(d.length() - 6, lm);*/
-		}
-		else if (pm == 0)
-		{
-			con += 6;
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf( "-");
-					con--;
-				}
-				printf( "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf( "-");
-					con--;
-				}
-				printf( "*\n");
-			}
-			printf(COLOR "|  %s  |\n", d.c_str());
-			con = temp + 6;
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf( "-");
-					con--;
-				}
-				printf( "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf( "-");
-					con--;
-				}
-				printf( "*\n" ORI);
-			}
-	}
-		/*printLine(d.length(), lm);
+		printLine(len, lm);
 		cout << "|  " << d << "  |" << endl;
-		printLine(d.length(), lm);*/
-		return;
+		printLine(len, lm);
 	}
-Green:
-	{
-#define COLOR GREEN
-		int con = d.length() - 2; int temp = con;
-		if (pm == 1)
-		{
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "*\n");
-			}
-			printf("%s\n", d.c_str());
-			con = temp;
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "*\n" ORI);
-			}
-			/*printLine(d.length() - 6, lm);
-			cout << d << endl;
-			printLine(d.length() - 6, lm);*/
-		}
-		else if (pm == 0)
-		{
-			con += 6;
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "*\n");
-			}
-			printf(COLOR "|  %s  |\n", d.c_str());
-			con = temp + 6;
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "*\n" ORI);
-			}
-		}
-		/*printLine(d.length(), lm);
-		cout << "|  " << d << "  |" << endl;
-		printLine(d.length(), lm);*/
-		return;
-	}
-Red:
-	{
-#define COLOR RED
-		int con = d.length() - 2; int temp = con;
-		if (pm == 1)
-		{
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "*\n");
-			}
-			printf("%s\n", d.c_str());
-			con = temp;
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "*\n" ORI);
-			}
-			/*printLine(d.length() - 6, lm);
-			cout << d << endl;
-			printLine(d.length() - 6, lm);*/
-		}
-		else if (pm == 0)
-		{
-			con += 6;
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "*\n");
-			}
-			printf(COLOR "|  %s  |\n", d.c_str());
-			con = temp + 6;
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "*\n" ORI);
-			}
-		}
-		/*printLine(d.length(), lm);
-		cout << "|  " << d << "  |" << endl;
-		printLine(d.length(), lm);*/
-		return;
-	}
-Ori:
-	{
-#define COLOR ORI
-		int con = d.length() - 2; int temp = con;
-		if (pm == 1)
-		{
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "*\n");
-			}
-			printf("%s\n", d.c_str());
-			con = temp;
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "*\n" ORI);
-			}
-			/*printLine(d.length() - 6, lm);
-			cout << d << endl;
-			printLine(d.length() - 6, lm);*/
-		}
-		else if (pm == 0)
-		{
-			con += 6;
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "*\n");
-			}
-			printf(COLOR "|  %s  |\n", d.c_str());
-			con = temp + 6;
-			if (lm)
-			{
-				printf(COLOR "#");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "#\n");
-			}
-			else {
-				printf(COLOR "*");
-				while (con)
-				{
-					printf(COLOR "-");
-					con--;
-				}
-				printf(COLOR "*\n" ORI);
-			}
-		}
-		/*printLine(d.length(), lm);
-		cout << "|  " << d << "  |" << endl;
-		printLine(d.length(), lm);*/
-		return;
-	}
+	SetColor(112);
 }
 
 void printDevloping()
@@ -517,7 +133,7 @@ void printDevloping()
 
 void printaddMenu()
 {
-	string dis1 = "|  请选择添加密码方式：  |"; string dis2 = "|  m/1：手动添加         |"; 
+	string dis1 = "|  请选择添加密码方式：  |"; string dis2 = "|  m/1：手动添加         |";
 	string dis3 = "|  g/2：生成器生成       |";
 	printLine(20, 0);
 	cout << dis1 << endl << dis2 << endl << dis3 << endl;
@@ -531,7 +147,7 @@ void printmLine(int len, int cp)
 	int flag = cp;
 	for (int i = 0; i < len + 4; i++)
 	{
-		if (i == cp&&flag)
+		if (i == cp && flag)
 			printf("+");
 		else
 			printf("-");

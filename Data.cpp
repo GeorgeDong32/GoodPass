@@ -2,8 +2,8 @@
 #include "GPSES.h"
 #include "Display.h"
 #include <fstream>
-#include <sstream>
 #include <Windows.h>
+#include <sstream>
 
 bool fuzzymatch(string o, string t)//×Ö·û´®Ä£ºýÆ¥Åä
 {
@@ -114,10 +114,12 @@ void Manager::fuzzysearch(string platform)//°´Æ½Ì¨ËÑË÷ÕËºÅ
 	{
 		if (count > 40)
 		{
-			printf(YELLOW "!---------------<!>---------------!\n");
-			printf(YELLOW "|  :(                             |\n");
-			printf(YELLOW "|  Too many accounts are found!   |\n");
-			printf(YELLOW "!---------------<!>---------------!\n" ORI);
+			SetColor(126);
+			printf("!---------------<!>---------------!\n");
+			printf("|  :(                             |\n");
+			printf("|  Too many accounts are found!   |\n");
+			printf("!---------------<!>---------------!\n");
+			SetColor(112);
 		}
 		if (fuzzymatch(p->getplatform(), platform))
 		{
@@ -158,8 +160,9 @@ void Manager::fuzzysearch(string platform)//°´Æ½Ì¨ËÑË÷ÕËºÅ
 	for (int i = 0; i < count; i++)
 	{
 		printmLine(ml - 2, mlp + 2);
-		cout << "| " << setw(mlp) << left << sp[i] << " |";
-		cout << " " << setw(ml - mlp - 3) << left << s_account[i] << " |" << endl;
+		printf("| ");
+		cout << setw(mlp) << left << sp[i] << " |";
+		cout << " " << setw(ml - mlp - 3) << left << s_account[i]; printf(" |\n");
 	}
 	printLine(ml - 2, 0);
 }
@@ -294,9 +297,11 @@ void Manager::deleteData(string p, string a)
 	else if (pd == NULL)
 	{
 		string Dis = "|  Î´ÕÒµ½¶ÔÓ¦ÕËºÅ£¬Çë¼ì²éºóÖØÊÔ£¡   |";
-		printf(YELLOW "*----------------<!>----------------*\n");
-		printf("%s\n", Dis.c_str());
-		printf("*----------------<!>----------------*\n" ORI);
+		SetColor(118);
+		cout << "*----------------<!>----------------*" << endl;
+		cout << Dis << endl;
+		cout << "*----------------<!>----------------*" << endl;
+		SetColor(112);
 	}
 }
 
@@ -415,9 +420,11 @@ void Manager::showData(string p, string a)
 		ps->printData();
 	else
 	{
+		SetColor(124);
 		printLine(dis_sD.length() - 6, 0);
 		cout << dis_sD << endl;
 		printLine(dis_sD.length() - 6, 0);
+		SetColor(112);
 	}
 }
 

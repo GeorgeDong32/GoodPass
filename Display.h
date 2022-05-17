@@ -10,16 +10,8 @@
 #include <string>
 #include <iomanip>
 using namespace std;
-#define COL(x)  "\033[0;" #x ";47m"
-#define RED     COL(31)
-#define GREEN   COL(32)
-#define YELLOW  COL(33)
-#define BLUE    COL(34)
-#define MAGENTA COL(35)
-#define CYAN    COL(36)
-#define WHITE   COL(0)
-#define GRAY    "\033[7;0m"
-#define ORI     "\033[0;7m"
+
+void SetColor(int mixedcolor);
 
 void addempty(int oril, int tarl);
 

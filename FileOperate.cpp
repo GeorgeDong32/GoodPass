@@ -79,10 +79,12 @@ int MKconInit()
 		}
 		else
 		{
-			printf(YELLOW "+-------------------<!>------------------+\n");
-			printf(YELLOW "!  :(                                    !\n");
-			printf(YELLOW "!  Error! MainKey config has a problem!  !\n");
-			printf(YELLOW "+-------------------<!>------------------+\n" ORI);
+			SetColor(118);
+			printf("+-------------------<!>------------------+\n");
+			printf("!  :(                                    !\n");
+			printf("!  Error! MainKey config has a problem!  !\n");
+			printf("+-------------------<!>------------------+\n");
+			SetColor(112);
 			MKconI.close();
 		}
 		return 2;
