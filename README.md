@@ -24,6 +24,7 @@ It is such a fortune to meet you here! You can provide your advise to me at geor
 ##### PassWord Storage
 | Version | GP_cryption        | GPSES 1.0         |
 | ------- | ------------------ | ----------------- |
+| 2.2.0   | :white_check_mark: | :white_check_mark:|
 | 2.1.0   | :white_check_mark: | :white_check_mark:|
 | 2.0.5   | :white_check_mark: | :x:               |
 | 2.0.2   | :white_check_mark: | :x:               |
@@ -34,6 +35,7 @@ It is such a fortune to meet you here! You can provide your advise to me at geor
 ##### Master password verification 
 | Version | MD5                | SHA256             | GPHES              |
 | ------- | ------------------ | ------------------ | ------------------ |
+| 2.2.0   | :x:                | :x:                | :white_check_mark: |
 | 2.1.0   | :x:                | :x:                | :white_check_mark: |
 | 2.0.5   | :x:                | :x:                | :white_check_mark: |
 | 2.0.2   | :x:                | :white_check_mark: | :x:                |
@@ -53,3 +55,5 @@ The SHA256 Hash of releases are as follow
 `ADCF90E19E3D48B53AC6F9B21B79A0970303839391A271690AA65BC501891D8F`
 * v2.1.0
 `20f6822d49477ed3062cbac01e080c06e2cc197b1166fc88265d6587e6497bb5`
+* v2.2.0
+`736ecaad20f4ceec8608f785ea839989288b544e5664acd4ce174ac798ae065ac`
