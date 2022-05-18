@@ -1,7 +1,7 @@
 # GoodPass
 *Developed by GeorgeDong32 <Copyright (c) GeorgeDong32(Github). All rights reserved.>*
 <h1 align="center">
-  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Title%20Photo/GoodPassbackup.png" alt="GoodPass" width="400">
+  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Title%20Photo/GoodPassbackup.png" alt="GoodPass" width="600">
 </h1>
 
 There are the source files of GoodPass Project in the "backup" branch.
