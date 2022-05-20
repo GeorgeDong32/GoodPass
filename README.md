@@ -4,9 +4,9 @@ GoodPass -- A developing password manager
   <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Title%20Photo/GoodPass2.0T.png" alt="GoodPass" width="400">
 </h1>
   <p align="center">
-    <a href="/docs/readme_fr.md">Français </a>
+    <a href="/docs/readme_tcn.md">繁體中文</a>
     ·
-    <a href="/docs/readme_cn.md">简体中文</a>
+    <a href="/docs/readme_scn.md">简体中文</a>
 </p>
 
 ## ©️Copyright
