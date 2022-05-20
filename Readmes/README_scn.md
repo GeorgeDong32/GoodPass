@@ -6,7 +6,7 @@ GoodPass -- 开发中的密码管家
   <p align="center">
     <a href="/docs/README_tcn.md">繁體中文</a>
     ·
-    <a href="README.md">English</a>
+    <a href="/README.md">English</a>
 </p>
 
 ## ©️ 版权
