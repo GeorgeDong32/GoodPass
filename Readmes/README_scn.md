@@ -17,7 +17,7 @@ GoodPass -- 开发中的密码管家
 
 GoodPass是一个开发中的密码管家。它目前完全在本地运行，在本地加密和解密您的数据，无需担心联网所带来的安全风险。
 
-## 📦 发行版本  [<img src="https://img.shields.io/badge/GoodPass-Release-34558b" alt="发行版本">](https://github.com/GeorgeDong32/GoodPass/releases)
+## 📦 发行版本  [<img src="https://img.shields.io/badge/GoodPass-发行版本-34558b" alt="发行版本">](https://github.com/GeorgeDong32/GoodPass/releases)
 
 您可以在[Releases](https://github.com/GeorgeDong32/GoodPass/releases)界面获取应用,我对您的使用表示由衷地感谢.
 
