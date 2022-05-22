@@ -25,31 +25,19 @@ GoodPass 係一個開發中的密碼管家。它目前完全在本地運行，�
 ## 💬 反饋  [<img src="https://img.shields.io/badge/GoodPass-Feedback-939597" alt="Issue">](https://github.com/GeorgeDong32/GoodPass/issues)
 我非常希望能夠聽到你的聲音，你可以將建議和意見發送到`georgedong32@foxmail.com`或者點擊上方`feedback`按鈕提交反饋
 
-## 🔐 安全性
-#### 🏗️ GPSES--GoodPass對稱加密系統正在開發中，為目前爲1.0版本
-#### 🔏 GPHES(GoodPass哈希加密驗證系統)是基於SHA256的 `salted hash` 加密驗證系統,用於校驗主密碼
-#### 🔒 加密系統支持表
-##### 密碼存儲
-| 版本 | GP_cryption        | GPSES 1.0         |
-| ------- | ------------------ | ----------------- |
-| 2.2.0   | :white_check_mark: | :white_check_mark:|
-| 2.1.0   | :white_check_mark: | :white_check_mark:|
-| 2.0.5   | :white_check_mark: | :x:               |
-| 2.0.2   | :white_check_mark: | :x:               |
-| 2.0.1   | :white_check_mark: | :x:               |
-| 2.0.0   | :white_check_mark: | :x:               |
-| 1.8.0   | :white_check_mark: | :x:               |
+## ✨功能與支持 [<img src="https://img.shields.io/badge/GoodPass-功能與支持-FFFFFF" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/Features_and_Support/Features_and_Support_tcn.md)
 
-##### 主密碼校驗 
-| 版本 | MD5                | SHA256             | GPHES              |
-| ------- | ------------------ | ------------------ | ------------------ |
-| 2.2.0   | :x:                | :x:                | :white_check_mark: |
-| 2.1.0   | :x:                | :x:                | :white_check_mark: |
-| 2.0.5   | :x:                | :x:                | :white_check_mark: |
-| 2.0.2   | :x:                | :white_check_mark: | :x:                |
-| 2.0.1   | :white_check_mark: | :x:                | :x:                |
-| 2.0.0   | :x:                | :x:                | :x:                |
-| 1.8.0   | :x:                | :x:                | :x:                |
+### 密碼管家功能
+
+GoodPass為您提供一套高效的密碼管理系統，同時內嵌密碼生成器，可以極大地方便你的密碼管理
+
+### 安全體系
+
+GoodPass 使用 **GPHES** 和 **GPSES** 兩套安全加密系統保護你的數據安全。**GPHES**用於驗證使用者身份，**GPSES**用於加密存儲密碼
+
+### 更多
+
+前往 [`功能與支持`](https://github.com/GeorgeDong32/GoodPass/blob/main/Features_and_Support/Features_and_Support_tcn.md) 文檔獲取更多訊息
 
 ## 📈 開發計劃
 🚧 GPHES(GoodPass哈希加密驗證系統)与GPSES(GoodPass對稱加密系統)，兩者都為TEA(二重加密算法)，它們將不斷完善以保護你的數據安全
