@@ -1,22 +1,22 @@
-# Features and Support
+# 功能与支持
 
 
 
-## 🔐Security
+## 🔐安全性
 
 ### 🏗️ GPSES
 
-GPSES is a symmetric encryption system. GoodPass uses it to encrypt your passwords and keep them away form leaking out.
+**GPSES** 是一套对称加密系统，**GoodPass**将其用于加密你的密码，防止密码泄露
 
-### 🔏 GPHES(GoodPass Hash Encryption System) 
+### 🔏 GPHES(GoodPass 哈希加密验证系统)
 
-GPHES is a salted hash encryption system. It uses your main key to process a salt to enhance SHA256. It is used to verify the input mainkey and verify user identity.
+**GPHES**是一个`salted hash`哈希加密系统，**GoodPass**将其用于验证主密码，防止其他用户访问你的数据
 
-## Support Lists
+## 支持列表
 
-### 🔒 Encryption System Support
+### 🔒 加密系统支持列表
 
-#### PassWord Storage
+#### 密码存储
 
 | Version | GP_cryption        | GPSES 1.0          |
 | ------- | ------------------ | ------------------ |
@@ -28,7 +28,7 @@ GPHES is a salted hash encryption system. It uses your main key to process a sal
 | 2.0.0   | :white_check_mark: | :x:                |
 | 1.8.0   | :white_check_mark: | :x:                |
 
-#### Master password verification 
+#### 主密码校验
 
 | Version | MD5                | SHA256             | GPHES              |
 | ------- | ------------------ | ------------------ | ------------------ |
