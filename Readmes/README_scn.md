@@ -8,12 +8,13 @@ GoodPass -- 开发中的密码管家
     ·
     <a href="/README.md">English</a>
 </p>
+## ©️ 版权 
 
-## ©️ 版权
 > 由GeorgeDong32开发并发布 
 >
 > <Copyright (c) GeorgeDong32(Github). 保留所有权利.>
 ## 🎤 简介
+
 GoodPass是一个开发中的密码管家。它目前完全在本地运行，在本地加密和解密您的数据，无需担心联网所带来的安全风险。
 ## 📦 发行版本  [<img src="https://img.shields.io/badge/GoodPass-Release-34558b" alt="Release">](https://github.com/GeorgeDong32/GoodPass/releases)
 您可以在[Releases](https://github.com/GeorgeDong32/GoodPass/releases)界面获取应用,我对您的使用表示由衷地感谢.
@@ -55,5 +56,5 @@ GoodPass是一个开发中的密码管家。它目前完全在本地运行，在
 🏗️ 基于QT的图形界面正在开发中，预计将于7月在v3.0.0问世
 ## 🛡 文件安全性
 发行文件的SHA256值已被记录在下列文件中，请前往查阅
-  
+
 [<img src="https://img.shields.io/badge/GoodPass-File SHA256-34558b" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/File_SHA256.md)
