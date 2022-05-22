@@ -24,8 +24,13 @@ It is such a fortune to meet you here! You can provide your advise to me at geor
 
 ## ✨Features and Support [<img src="https://img.shields.io/badge/GoodPass-Features and Support-FFFFFF" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/File_SHA256.md)
 
+### Password Manager
+GoodPass provide you with a password manage system which helps you to manage your passwords easily. Also a password generator is inside.
+### Security
+GoodPass uses GPHES and GPSES to protect your data. The GPHES helps verify your identity, while GPSES makes sure your passwords are stored encrypted.
+### More Information
+View the [`Features and Support`](https://github.com/GeorgeDong32/GoodPass/blob/main/Features_and_Support/Features_and_Support.md) document to get more information.
   
-
 ## 📈Development Plan
 🚧 GPHES(GoodPass Hash Encryption System) and GPSES(GoodPass Symmetrical Encryption System). Both are TEA(Twice Encryption Algorithm) that protect your password efficient and safely.
 
