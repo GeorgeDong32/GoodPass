@@ -1,7 +1,5 @@
 # Features and Support
 
-
-
 ## 🔐Security
 
 ### 🏗️ GPSES
