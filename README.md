@@ -22,7 +22,7 @@ You can get the application in [Releases](https://github.com/GeorgeDong32/GoodPa
 Of course, I'm looking forward to your feedback.
 It is such a fortune to meet you here! You can provide your advise to me at georgedong32@foxmail.com or at the [Issue](https://github.com/GeorgeDong32/GoodPass/issues) part of Github.
 
-## ✨Features and Support [<img src="https://img.shields.io/badge/GoodPass-Features and Support-FFFFFF" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/File_SHA256.md)
+## ✨Features and Support [<img src="https://img.shields.io/badge/GoodPass-Features and Support-FFFFFF" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/Features_and_Support/Features_and_Support.md)
 
 ### Password Manager
 GoodPass provide you with a password manage system which helps you to manage your passwords easily. Also a password generator is inside.
@@ -30,12 +30,12 @@ GoodPass provide you with a password manage system which helps you to manage you
 GoodPass uses GPHES and GPSES to protect your data. The GPHES helps verify your identity, while GPSES makes sure your passwords are stored encrypted.
 ### More Information
 View the [`Features and Support`](https://github.com/GeorgeDong32/GoodPass/blob/main/Features_and_Support/Features_and_Support.md) document to get more information.
-  
+
 ## 📈Development Plan
 🚧 GPHES(GoodPass Hash Encryption System) and GPSES(GoodPass Symmetrical Encryption System). Both are TEA(Twice Encryption Algorithm) that protect your password efficient and safely.
 
 🏗️ Graphic interface based on QT is under development. Maybe come out in July in the version v3.0.0.
 ## 🛡File Security
 The SHA256 Hash of releases are in the follow file。
-  
+
 [<img src="https://img.shields.io/badge/GoodPass-File SHA256-24617D" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/File_SHA256.md)
