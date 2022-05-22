@@ -22,31 +22,9 @@ You can get the application in [Releases](https://github.com/GeorgeDong32/GoodPa
 Of course, I'm looking forward to your feedback.
 It is such a fortune to meet you here! You can provide your advise to me at georgedong32@foxmail.com or at the [Issue](https://github.com/GeorgeDong32/GoodPass/issues) part of Github.
 
-## 🔐About Security
-#### 🏗️ GPSES is building......
-#### 🔏 GPHES(GoodPass Hash Encryption System) is a salted hash encryption system. It uses your main key to process a salt to enhance SHA256. 
-#### 🔒 Encryption System Support
-##### PassWord Storage
-| Version | GP_cryption        | GPSES 1.0         |
-| ------- | ------------------ | ----------------- |
-| 2.2.0   | :white_check_mark: | :white_check_mark:|
-| 2.1.0   | :white_check_mark: | :white_check_mark:|
-| 2.0.5   | :white_check_mark: | :x:               |
-| 2.0.2   | :white_check_mark: | :x:               |
-| 2.0.1   | :white_check_mark: | :x:               |
-| 2.0.0   | :white_check_mark: | :x:               |
-| 1.8.0   | :white_check_mark: | :x:               |
+## ✨Features and Support [<img src="https://img.shields.io/badge/GoodPass-Features and Support-FFFFFF" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/File_SHA256.md)
 
-##### Master password verification 
-| Version | MD5                | SHA256             | GPHES              |
-| ------- | ------------------ | ------------------ | ------------------ |
-| 2.2.0   | :x:                | :x:                | :white_check_mark: |
-| 2.1.0   | :x:                | :x:                | :white_check_mark: |
-| 2.0.5   | :x:                | :x:                | :white_check_mark: |
-| 2.0.2   | :x:                | :white_check_mark: | :x:                |
-| 2.0.1   | :white_check_mark: | :x:                | :x:                |
-| 2.0.0   | :x:                | :x:                | :x:                |
-| 1.8.0   | :x:                | :x:                | :x:                |
+  
 
 ## 📈Development Plan
 🚧 GPHES(GoodPass Hash Encryption System) and GPSES(GoodPass Symmetrical Encryption System). Both are TEA(Twice Encryption Algorithm) that protect your password efficient and safely.
@@ -55,4 +33,4 @@ It is such a fortune to meet you here! You can provide your advise to me at geor
 ## 🛡File Security
 The SHA256 Hash of releases are in the follow file。
   
-[<img src="https://img.shields.io/badge/GoodPass-File SHA256-34558b" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/File_SHA256.md)
+[<img src="https://img.shields.io/badge/GoodPass-File SHA256-24617D" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/File_SHA256.md)
