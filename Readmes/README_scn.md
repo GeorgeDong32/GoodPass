@@ -8,6 +8,7 @@ GoodPass -- 开发中的密码管家
     ·
     <a href="/README.md">English</a>
 </p>
+  
 ## ©️ 版权 
 
 > 由GeorgeDong32开发并发布 
