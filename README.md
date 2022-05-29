@@ -38,7 +38,7 @@ View the [`Features and Support`](https://github.com/GeorgeDong32/GoodPass/blob/
   <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Other%20Photos/GoodPass_development_process.png" alt="Development Process" width="600">
 </h1>
 
-In every major version, after the first release v n.0.0, there will be some functional updates, security updates and also some patches. After that, the project will go into a freeze period which no new applications will be release. While the period, the new major version will be built and tested. 
+In every major version, after the first release `v n.0.0`, there will be some functional updates, security updates and also some patches. After that, the project will go into a freeze period which no new applications will be release. While the period, the new major version will be built and tested. 
 
 ### Development Plan
 🚧 GPHES(GoodPass Hash Encryption System) and GPSES(GoodPass Symmetrical Encryption System). Both are TEA(Twice Encryption Algorithm) that protect your password efficient and safely.
