@@ -103,6 +103,14 @@ bool Data::resetData(string npw)
 		return false;
 }
 
+void Data::selfupdate()
+{
+	string* mid = new string;
+	GPBES gp(encp, 1);
+	*mid = gp.decrypt();
+
+}
+
 void Manager::fuzzysearch(string platform)//°´Æ½Ì¨ËÑË÷ÕËºÅ
 {
 	Data* p = head;
@@ -431,6 +439,11 @@ void Manager::showData(string p, string a)
 void Manager::showData(Data& d)
 {
 	d.printData();
+}
+
+void Manager::dataupdate()
+{
+
 }
 
 void DataInit(Manager& m, string dp)
