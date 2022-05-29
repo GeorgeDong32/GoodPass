@@ -5,7 +5,7 @@ GoodPass -- 開發中的密碼管家
 </h1>
   <p align="center">
     <a href="/README.md">English</a>
-    ·
+    |
     <a href="/Readmes/README_scn.md">简体中文</a>
 </p>
 
