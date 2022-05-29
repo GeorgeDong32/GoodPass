@@ -33,7 +33,7 @@ View the [`Features and Support`](https://github.com/GeorgeDong32/GoodPass/blob/
 
 ## 📈Development
 ### Development Process
-<h1 align="left">
+<h1 align="center">
   <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Other%20Photos/GoodPass_development_process.png" alt="GoodPass" width="600">
 </h1>
 In every major version, after the first release v n.0.0, there will be some functional updates, security updates and also some patches. After that, the project will go into a freeze period which no new applications will be release. While the period, the new major version will be built and tested. 
