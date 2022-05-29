@@ -108,7 +108,13 @@ void Data::selfupdate()
 	string* mid = new string;
 	GPBES gp(encp, 1);
 	*mid = gp.decrypt();
-
+	int check = resetData(*mid);
+	if (check == 0)
+	{
+		GPBES gp(encp, 1);
+		*mid = gp.decrypt();
+	}
+	delete mid;
 }
 
 void Manager::fuzzysearch(string platform)//°´Æ½Ì¨ËÑË÷ÕËºÅ
@@ -443,7 +449,17 @@ void Manager::showData(Data& d)
 
 void Manager::dataupdate()
 {
-
+	Data* p = head;
+	while (p != NULL)
+	{
+		p->selfupdate();
+		if (p->next != NULL)
+		{
+			p = p->next;
+		}
+		else
+			break;
+	}
 }
 
 void DataInit(Manager& m, string dp)
