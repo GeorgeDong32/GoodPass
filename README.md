@@ -31,7 +31,14 @@ GoodPass uses GPHES and GPSES to protect your data. The GPHES helps verify your 
 ### More Information
 View the [`Features and Support`](https://github.com/GeorgeDong32/GoodPass/blob/main/Features_and_Support/Features_and_Support.md) document to get more information.
 
-## 📈Development Plan
+## 📈Development
+### Development Process
+<h1 align="left">
+  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Other%20Photos/GoodPass_development_process.png" alt="GoodPass" width="600">
+</h1>
+In every major version, after the first release v n.0.0, there will be some functional updates, security updates and also some patches. After that, the project will go into a freeze period which no new applications will be release. While the period, the new major version will be built and tested. 
+
+### Development Plan
 🚧 GPHES(GoodPass Hash Encryption System) and GPSES(GoodPass Symmetrical Encryption System). Both are TEA(Twice Encryption Algorithm) that protect your password efficient and safely.
 
 🏗️ Graphic interface based on QT is under development. Maybe come out in July in the version v3.0.0.
