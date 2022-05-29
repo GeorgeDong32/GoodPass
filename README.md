@@ -5,7 +5,7 @@ GoodPass -- A developing password manager
 </h1>
   <p align="center">
     <a href="/Readmes/README_tcn.md">繁體中文</a>
-    ·
+    |
     <a href="/Readmes/README_scn.md">简体中文</a>
 </p>
 
