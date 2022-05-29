@@ -103,6 +103,20 @@ bool Data::resetData(string npw)
 		return false;
 }
 
+void Data::selfupdate()
+{
+	string* mid = new string;
+	GPBES gp(encp, 1);
+	*mid = gp.decrypt();
+	int check = resetData(*mid);
+	if (check == 0)
+	{
+		GPBES gp(encp, 1);
+		*mid = gp.decrypt();
+	}
+	delete mid;
+}
+
 void Manager::fuzzysearch(string platform)//按平台搜索账号
 {
 	Data* p = head;
@@ -145,6 +159,34 @@ void Manager::fuzzysearch(string platform)//按平台搜索账号
 		else
 		{
 			counts = '0' + gn;
+		}
+	}
+	//sort content
+	for (int i = 0; i < count; i++)
+	{
+		for (int j = i; j < count; j++)
+		{
+			if (sp[i] > sp[j])
+			{
+				string midp = sp[i];
+				sp[i] = sp[j];
+				sp[j] = midp;
+				string mida = s_account[i];
+				s_account[i] = s_account[j];
+				s_account[j] = mida;
+			}
+			else if (sp[i] == sp[j])
+			{
+				if (s_account[i] > s_account[j])
+				{
+					string midp = sp[i];
+					sp[i] = sp[j];
+					sp[j] = midp;
+					string mida = s_account[i];
+					s_account[i] = s_account[j];
+					s_account[j] = mida;
+				}
+			}
 		}
 	}
 	title = display1 + platform + display2 + counts + display3;
@@ -431,6 +473,21 @@ void Manager::showData(string p, string a)
 void Manager::showData(Data& d)
 {
 	d.printData();
+}
+
+void Manager::dataupdate()
+{
+	Data* p = head;
+	while (p != NULL)
+	{
+		p->selfupdate();
+		if (p->next != NULL)
+		{
+			p = p->next;
+		}
+		else
+			break;
+	}
 }
 
 void DataInit(Manager& m, string dp)

@@ -40,6 +40,7 @@ public:
 	string getEncp();
 	string getPassword();
 	bool resetData(string newpassword);
+	void selfupdate();
 };
 
 class Manager
@@ -84,6 +85,7 @@ public:
 	void reviseData(Data& in_data);
 	void showData(string platform, string account);
 	void showData(Data& in_data);
+	void dataupdate();
 };
 
 void DataInit(Manager& manager, string Datapath);
