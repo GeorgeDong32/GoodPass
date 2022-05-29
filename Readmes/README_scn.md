@@ -8,7 +8,7 @@ GoodPass -- 开发中的密码管家
     |
     <a href="/README.md">English</a>
 </p>
-  
+
 ## ©️ 版权
 
 > 由GeorgeDong32开发并发布 
@@ -42,7 +42,18 @@ GoodPass 使用 **GPHES** 和 **GPSES** 两套安全加密系统来保护您的�
 
 前往 [`功能与支持`](https://github.com/GeorgeDong32/GoodPass/blob/main/Features_and_Support/Features_and_Support_scn.md) 文档获取更多信息
 
-## 📈 开发计划
+## 📈 开发
+
+### 开发流程
+
+<h1 align="center">
+  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Other%20Photos/GoodPass_development_process_scn.png" alt="开发流程图" width="600">
+</h1>
+
+GoodPass不定期进行大版本和小版本更新，大版本更新版本号为`v n.0.0`，小版本则在大版本的基础上进行安全性更新、功能性更新以及打补丁，功能性更新和安全性更新版本号一般为`v n.x.0`，补丁版本号一般为`v n.x.y`。在大版本相对完善时会进入开发窗口期，在此期间会进行下一版本的开发，但一般不会发布新的程序
+
+### 开发计划
+
 🚧 GPHES(GoodPass哈希加密验证系统)与GPSES(GoodPass对称加密系统)，二者都是TEA(二重加密算法)，他们将不断完善以保护您的数据安全
 
 🏗️ 基于QT的图形界面正在开发中，预计将于7月在v3.0.0问世
