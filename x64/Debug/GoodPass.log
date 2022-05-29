@@ -1,0 +1,48 @@
+﻿  Client.cpp
+  Data.cpp
+D:\GoodPass Project\GoodPass\Data.cpp(10,21): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Data.cpp(10,42): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Data.cpp(60,24): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Data.cpp(61,23): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Data.cpp(62,22): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Data.cpp(196,13): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Data.cpp(197,13): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Data.cpp(199,11): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Data.cpp(438,36): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Data.cpp(440,36): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Data.cpp(444,36): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Data.cpp(446,36): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Data.cpp(451,35): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Data.cpp(453,35): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Data.cpp(466,35): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Data.cpp(468,35): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  Display.cpp
+D:\GoodPass Project\GoodPass\Display.cpp(26,49): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Display.cpp(83,49): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Display.cpp(85,49): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Display.cpp(87,49): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Display.cpp(89,49): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Display.cpp(91,49): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Display.cpp(93,49): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Display.cpp(110,22): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  FileOperate.cpp
+D:\GoodPass Project\GoodPass\FileOperate.cpp(5,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
+  Generate.cpp
+D:\GoodPass Project\GoodPass\Generate.cpp(85,26): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Generate.cpp(144,28): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
+  GPBase.cpp
+D:\GoodPass Project\GoodPass\GPBase.cpp(47,13): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\GPBase.cpp(49,51): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  GPHES.cpp
+D:\GoodPass Project\GoodPass\GPHES.cpp(141,58): warning C4267: “参数”: 从“size_t”转换到“unsigned int”，可能丢失数据
+D:\GoodPass Project\GoodPass\GPHES.cpp(176,30): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  GPSES.cpp
+D:\GoodPass Project\GoodPass\GPSES.cpp(6,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\GPSES.cpp(59,20): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\GPSES.cpp(178,19): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\GPSES.cpp(205,24): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\GPSES.cpp(236,20): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
+  MKeyProcess.cpp
+D:\GoodPass Project\GoodPass\MKeyProcess.cpp(14,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+  正在生成代码...
+  GoodPass.vcxproj -> D:\GoodPass Project\GoodPass\x64\Debug\GoodPass.exe
