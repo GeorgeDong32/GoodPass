@@ -161,6 +161,34 @@ void Manager::fuzzysearch(string platform)//°´Æ½Ì¨ËÑË÷ÕËºÅ
 			counts = '0' + gn;
 		}
 	}
+	//sort content
+	for (int i = 0; i < count; i++)
+	{
+		for (int j = i; j < count; j++)
+		{
+			if (sp[i] > sp[j])
+			{
+				string midp = sp[i];
+				sp[i] = sp[j];
+				sp[j] = midp;
+				string mida = s_account[i];
+				s_account[i] = s_account[j];
+				s_account[j] = mida;
+			}
+			else if (sp[i] == sp[j])
+			{
+				if (s_account[i] > s_account[j])
+				{
+					string midp = sp[i];
+					sp[i] = sp[j];
+					sp[j] = midp;
+					string mida = s_account[i];
+					s_account[i] = s_account[j];
+					s_account[j] = mida;
+				}
+			}
+		}
+	}
 	title = display1 + platform + display2 + counts + display3;
 	int mlp = 0; int mln = 0; int ml = 0;
 	for (int i = 0; i < count; i++)

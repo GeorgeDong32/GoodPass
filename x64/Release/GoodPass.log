@@ -1,6 +1,12 @@
 ﻿  Client.cpp
+  GPBase.cpp
+D:\GoodPass Project\GoodPass\GPBase.cpp(47,13): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\GPBase.cpp(49,51): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
+  Generate.cpp
+D:\GoodPass Project\GoodPass\Generate.cpp(85,26): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
+D:\GoodPass Project\GoodPass\Generate.cpp(144,28): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
   正在生成代码
-  4 of 351 functions ( 1.1%) were compiled, the rest were copied from previous compilation.
+  14 of 355 functions ( 3.9%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成
