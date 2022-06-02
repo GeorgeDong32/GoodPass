@@ -1,3 +1,4 @@
+/* GPBase.cpp version 2.4.1 */
 #include "GPBase.h"
 #include "Display.h"
 #include "Generate.h"
@@ -20,7 +21,7 @@ int start_option(char control)
 	}
 }
 
-void GP_add(Manager &m)
+void GP_add(Manager& m)
 {
 	string GP_add_dis1 = "|  请输入平台名称  |"; string GP_add_dis2 = "|  请输入登录名/用户名  |";
 	string GP_add_dis3 = "|  请输入密码  |"; string dis = "生成密码为：";
@@ -45,18 +46,18 @@ void GP_add(Manager &m)
 		case '2':
 			pw = Generatepw(p, a);
 			ml = fmax(dis.length(), pw.length());
-			printLine(ml, 0);
+			printLine(ml);
 			cout << "|  " << dis; addempty(dis.length(), ml);
 			cout << "  |" << endl;
 			cout << "|  " << pw << "  |" << endl;
-			printLine(ml, 0);
+			printLine(ml);
 		}
 		m.addData_User(p, a, pw);
 	}
 	else
 	{
 		string disp1 = "|  账号已存在，请前往修改界面  |";
-		Displayinf(disp1, 1, 0,"yellow");
+		Displayinf(disp1, 1, 0, "yellow");
 	}
 }
 
@@ -77,7 +78,7 @@ void GP_get(Manager& m)
 	cin >> p;
 	Displayinf(dis2, 1, 0, "ori");
 	cin >> a;
-	m.showData(p,a);
+	m.showData(p, a);
 }
 
 void GP_change(Manager& m)
