@@ -4,6 +4,7 @@
 *                                                        *
 * GPBase.h -- Provides the base functions for GoodPass   *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
+* GPBase.h version 2.4.1                                 *
 *                                                        *
 **********************************************************/
 #include "Data.h"

@@ -1,3 +1,4 @@
+/* Display.cpp version 2.4.1 */
 #include "Display.h"
 #include <Windows.h>
 
@@ -39,37 +40,25 @@ void PrintTestTitle(void)//打印测试程序头（已删除测试模式，函数报废）
 	cout << "#=================<T>=================#" << endl;
 }
 
-void printLine(int len, int mode)//打印分割线
+void printLine(int len)//打印分割线
 {
 	int con = len + 4;
-	if (mode)
+	printf("*");
+	while (con)
 	{
-		printf("#");
-		while (con)
-		{
-			printf("-");
-			con--;
-		}
-		printf("#\n");
+		printf("-");
+		con--;
 	}
-	else {
-		printf("*");
-		while (con)
-		{
-			printf("-");
-			con--;
-		}
-		printf("*\n");
-	}
+	printf("*\n");
 }
 
 void printNextO(int mode)//输出下一步菜单（过期待删除）
 {
 	string opt0 = "|  输入以下值进行下一步  |"; string opt1 = "|  1：生成密码           |";
 	string opt2 = "|  2：解密字符           |"; string opte = "|  其他：离开            |";
-	printLine(20, mode);
+	printLine(20);
 	cout << opt0 << endl << opt1 << endl << opt2 << endl << opte << endl;
-	printLine(20, mode);
+	printLine(20);
 }
 
 void printMenu(int mode)//打印菜单
@@ -77,7 +66,7 @@ void printMenu(int mode)//打印菜单
 	string dpt = "输入以下值以进行对应操作："; string dp0 = "0/e：离开";
 	string dp1 = "1/a：添加账号"; string dp2 = "2/s：按平台搜索账号"; string dp3 = "3/g：获取指定账号信息";
 	string dp4 = "4/c：修改指定账号信息"; string dp5 = "5/d：删除指定账号";
-	printLine(27, mode);
+	printLine(27);
 	printf("|  ");
 	cout << dpt << "   |" << endl;
 	cout << "|  " << dp0; addempty(dp0.length(), 27);
@@ -92,7 +81,7 @@ void printMenu(int mode)//打印菜单
 	cout << "  |" << endl;
 	cout << "|  " << dp5; addempty(dp5.length(), 27);
 	cout << "  |" << endl;
-	printLine(27, mode);
+	printLine(27);
 }
 
 void Displayinf(string d, int pm, int lm, string color)
@@ -110,15 +99,15 @@ void Displayinf(string d, int pm, int lm, string color)
 	int len = d.length();
 	if (pm)
 	{
-		printLine(len - 6, lm);
+		printLine(len - 6);
 		cout << d << endl;
-		printLine(len - 6, lm);
+		printLine(len - 6);
 	}
 	else
 	{
-		printLine(len, lm);
+		printLine(len);
 		cout << "|  " << d << "  |" << endl;
-		printLine(len, lm);
+		printLine(len);
 	}
 	SetColor(112);
 }
@@ -135,9 +124,9 @@ void printaddMenu()
 {
 	string dis1 = "|  请选择添加密码方式：  |"; string dis2 = "|  m/1：手动添加         |";
 	string dis3 = "|  g/2：生成器生成       |";
-	printLine(20, 0);
+	printLine(20);
 	cout << dis1 << endl << dis2 << endl << dis3 << endl;
-	printLine(20, 0);
+	printLine(20);
 }
 
 void printmLine(int len, int cp)//打印表格中线

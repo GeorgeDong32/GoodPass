@@ -1,14 +1,17 @@
+/* MKeyProcess.cpp version 2.4.1 */
 #include "MKeyProcess.h"
 #include <fstream>
 #include <sstream>
 #include <string>
 #include "FileOperate.h"
 #include "GPHES.h"
-//#include "GP_cryption.h"
 using namespace std;
+
 extern int PI[];
 int KEY[40] = { -1,0, };
+
 extern ofstream MKconO; extern ifstream MKconI;
+
 void ProcessKEY(string mk, int* pk)
 {
 	int len = mk.length();

@@ -4,6 +4,7 @@
 *                                                        *
 * Display.h -- Provides the visual output functions      *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
+* Display.h version 2.4.1                                *
 *                                                        *
 **********************************************************/
 #include <iostream>
@@ -19,7 +20,7 @@ void PrintTitle(void);//打印程序头
 
 void PrintTestTitle(void);//打印测试程序头（已删除测试模式，函数报废）
 
-void printLine(int len, int mode);//打印分割线（线长为len+4，mode为0时输出普通线）
+void printLine(int len);//打印分割线（线长为len+4，mode为0时输出普通线）
 
 void printNextO(int mode);//输出下一步菜单（过期待删除）
 

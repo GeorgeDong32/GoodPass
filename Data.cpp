@@ -1,3 +1,4 @@
+/* Data.cpp version 2.4.1 */
 #include "Data.h"
 #include "GPSES.h"
 #include "Display.h"
@@ -61,11 +62,11 @@ void Data::printData()
 	al = account.length();
 	pwl = dispw.length();
 	int ml = pl + al + pwl + 8;
-	printLine(ml - 6, 0);
+	printLine(ml - 6);
 	cout << "| " << setw(ml - 4) << left << title << " |" << endl;
 	printmLine(ml - 6, 0);
 	cout << "| " << platform << "  " << account << "  " << dispw << " |" << endl;
-	printLine(ml - 6, 0);
+	printLine(ml - 6);
 }
 
 string Data::getaccount()
@@ -197,7 +198,7 @@ void Manager::fuzzysearch(string platform)//按平台搜索账号
 		mln = fmax(s_account[i].length(), mln);
 	}
 	ml = fmax(title.length(), mlp + mln + 5);
-	printLine(ml - 2, 0);
+	printLine(ml - 2);
 	cout << "| " << setw(ml - 2) << left << title << " |" << endl;
 	for (int i = 0; i < count; i++)
 	{
@@ -206,7 +207,7 @@ void Manager::fuzzysearch(string platform)//按平台搜索账号
 		cout << setw(mlp) << left << sp[i] << " |";
 		cout << " " << setw(ml - mlp - 3) << left << s_account[i]; printf(" |\n");
 	}
-	printLine(ml - 2, 0);
+	printLine(ml - 2);
 }
 
 Data* Manager::accusearch(string platform, string account, int mode)//mode显示控制，1时有成功输出，2
@@ -409,9 +410,9 @@ void Manager::reviseData(Data& d)
 	string newp; int sp = 0; string temp1 = d.getEncp();
 	int recheck = 0; string temp2;
 	string dp_rD1 = "|  修改失败，请重试  |"; string dp_rD2 = "|  修改成功！  |"; string dp_rD3 = "|  修改出错，请重试  |";
-	printLine(13, 0);
+	printLine(13);
 	cout << "|  请输入新密码  |" << endl;
-	printLine(13, 0);
+	printLine(13);
 	cin >> newp;
 	sp = d.resetData(newp);
 	if (sp)
@@ -435,22 +436,22 @@ void Manager::reviseData(Data& d)
 	{
 		if (recheck == 1)
 		{
-			printLine(dp_rD2.length() - 6, 0);
+			printLine(dp_rD2.length() - 6);
 			cout << dp_rD2 << endl;
-			printLine(dp_rD2.length() - 6, 0);
+			printLine(dp_rD2.length() - 6);
 		}
 		else if (recheck == -1)
 		{
-			printLine(dp_rD3.length() - 6, 0);
+			printLine(dp_rD3.length() - 6);
 			cout << dp_rD3 << endl;
-			printLine(dp_rD3.length() - 6, 0);
+			printLine(dp_rD3.length() - 6);
 		}
 	}
 	else
 	{
-		printLine(dp_rD1.length() - 6, 0);
+		printLine(dp_rD1.length() - 6);
 		cout << dp_rD1 << endl;
-		printLine(dp_rD1.length() - 6, 0);
+		printLine(dp_rD1.length() - 6);
 	}
 }
 
@@ -463,9 +464,9 @@ void Manager::showData(string p, string a)
 	else
 	{
 		SetColor(124);
-		printLine(dis_sD.length() - 6, 0);
+		printLine(dis_sD.length() - 6);
 		cout << dis_sD << endl;
-		printLine(dis_sD.length() - 6, 0);
+		printLine(dis_sD.length() - 6);
 		SetColor(112);
 	}
 }
