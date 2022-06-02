@@ -8,23 +8,16 @@
 **********************************************************/
 #include <string>
 using namespace std;
-class Data
+
+class Data//密码数据类，链表结构
 {
 private:
-	string platform;
-	string account;
-	string encp;
-	//int linepos;
+	string platform;//平台
+	string account;//账号名
+	string encp;//加密的密码
 public:
 	Data* next;
-	Data()
-	{
-		platform = "default";
-		account = "default";
-		encp = "default";
-		next = NULL;
-		//linepos = -1;
-	}
+	Data() :platform("default"), account("default"), encp("default"), next(nullptr) {}
 	Data(string in_platform, string in_account, string in_encstring, Data* in_next)
 	{
 		platform = in_platform; account = in_account; encp = in_encstring; next = in_next;
@@ -33,27 +26,21 @@ public:
 	{
 		platform = in_platform; account = in_account; encp = in_encstring; next = NULL;
 	}
-	void printData();
-	//int getpos();
-	string getaccount();
-	string getplatform();
-	string getEncp();
-	string getPassword();
-	bool resetData(string newpassword);
-	void selfupdate();
+	void printData();//输出数据
+	string getaccount();//输出账号名
+	string getplatform();//输出平台名
+	string getEncp();//输出加密串
+	string getPassword();//输出密码
+	bool resetData(string newpassword);//重设密码
+	void selfupdate();//数据自更新
 };
 
-class Manager
+class Manager//密码管家类，用于管理数据
 {
 private:
-	//int total;
-	Data* head;
+	Data* head;//头节点地址
 public:
-	Manager()
-	{
-		//total = 0;
-		head = NULL;
-	}
+	Manager() : head(nullptr) {}
 	~Manager()
 	{
 		Data* p = head; Data* temp = p;
@@ -72,24 +59,24 @@ public:
 			}
 		}
 	}
-	Data* getHead()
+	Data* getHead()//获取头节点地址
 	{
 		return head;
 	}
-	void fuzzysearch(string platform);
-	Data* accusearch(string platform, string account, int mode);
-	void addData_User(string platform, string account, string password);
-	void addData_File(string p, string a, string pw);
-	void deleteData(string platform, string account);
-	void reviseData(string platform, string account);
-	void reviseData(Data& in_data);
-	void showData(string platform, string account);
-	void showData(Data& in_data);
-	void dataupdate();
+	void fuzzysearch(string platform);//模糊搜索，即搜索功能
+	Data* accusearch(string platform, string account, int mode);//精确搜索，即获取功能
+	void addData_User(string platform, string account, string password);//用户添加数据函数
+	void addData_File(string p, string a, string pw);//从文件初始化数据
+	void deleteData(string platform, string account);//删除数据
+	void reviseData(string platform, string account);//更改数据，内嵌accusearch
+	void reviseData(Data& in_data);//更改数据
+	void showData(string platform, string account);//输出指定数据，内嵌accusearch
+	void showData(Data& in_data);//输出指定数据
+	void dataupdate();//数据版本更新
 };
 
-void DataInit(Manager& manager, string Datapath);
+void DataInit(Manager& manager, string Datapath);//管家数据初始化
 
-void FileUpdate(Manager& manager, string Datapath);
+void FileUpdate(Manager& manager, string Datapath);//文件数据更新
 
 #endif

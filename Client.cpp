@@ -52,17 +52,17 @@ int main(void)
 	//主密码配置检查
 	int mkc = MKconInit();
 	FloderInit(Test_Mode_Control);//文件夹初始化
-	switch (mkc)
+	switch (mkc)//主密码配置检查导向
 	{
-	case 2:
+	case 2://配置异常，重设密码
 		Displayinf(MKC2, 1, 0, "ori");
 		cin >> MainKey;
 		setConfig(MainKey);
 		break;
 	case 1:
-		checkConfig(MainKey);
+		checkConfig(MainKey);//配置正常，检查密码
 		break;
-	case 0:
+	case 0://初次进入设置密码
 		Displayinf(MKC0, 1, 0, "ori");
 		cin >> MainKey;
 		setConfig(MainKey);
@@ -73,7 +73,7 @@ int main(void)
 	DataInit(gpm, MDpath);
 	gpm.dataupdate();
 	printMenu(Test_Mode_Control);
-	while (cin >> opt)
+	while (cin >> opt)//选择菜单
 	{
 		switch (opt)
 		{
