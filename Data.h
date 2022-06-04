@@ -4,7 +4,7 @@
 *                                                        *
 * Data.h -- The Data Class for local info process system *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
-* Data.h version 2.4.1                                   *
+* Data.h version 2.5.0                                   *
 *                                                        *
 **********************************************************/
 #include <string>

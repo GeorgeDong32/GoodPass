@@ -45,7 +45,8 @@ D:\GoodPass Project\GoodPass\Generate.cpp(145,28): warning C4244: “+=”: 从�
   MKeyProcess.cpp
 D:\GoodPass Project\GoodPass\MKeyProcess.cpp(17,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   正在生成代码
-  Previous IPDB and IOBJ mismatch, fall back to full compilation.
-  All 355 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  14 of 355 functions ( 3.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成
   GoodPass.vcxproj -> D:\GoodPass Project\GoodPass\x64\Release\GoodPass.exe

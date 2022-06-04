@@ -61,7 +61,7 @@ IDI_ICON1               ICON                    "D:\\GoodPass Project\\Resource\
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 2,4,1,0
+ FILEVERSION 2,5,0,0
  PRODUCTVERSION 22,6,2,22
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
@@ -79,7 +79,7 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Unisoft"
             VALUE "FileDescription", "GoodPass"
-            VALUE "FileVersion", "2.4.1.0"
+            VALUE "FileVersion", "2.5.0.0"
             VALUE "InternalName", "GoodPass.exe"
             VALUE "LegalCopyright", "Copyright (C) 2022 GeorgeDong32(Github)"
             VALUE "OriginalFilename", "GoodPass.exe"
