@@ -4,14 +4,14 @@
 *                                                        *
 * Blog.h -- Record the Update blogs                      *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
-* Codeblog.h version 2.5.0                               *
+* Codeblog.h version 2.5.0 dev                           *
 *                                                        *
 **********************************************************/
 //Update Blog
 /*
 * 2022.6.4
-* 2.5.0     1
-创建 2.5.0     1
+* 2.5.0 dev 1
+创建 2.5.0 dev 1
 * 2022.5.28
 * 2.3.0 dev 1
 * Test Github pull request

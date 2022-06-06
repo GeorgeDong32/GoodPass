@@ -5,7 +5,7 @@
 * GPEHS.h -- Provides GoodPass Hash Encryption System          *
 * GPHES is a hash-based encrypton system developed by GoodPass *
 * Copyright(c) GeorgeDong32(Github).All rights reserved.       *
-* GPHES.h version 2.5.0                                        *
+* GPHES.h version 2.5.0 dev                                    *
 *                                                              *
 ***************************************************************/
 /*******************************************************************
