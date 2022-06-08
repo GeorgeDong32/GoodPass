@@ -4,6 +4,19 @@
 </h1>
 
 > Developed by GeorgeDong32 
-> 
+>
 > <Copyright (c) GeorgeDong32(Github). All rights reserved.>
-### Please wait...
+
+## About GoodPass Open source
+
+
+
+## Open source Process
+
+
+
+## How to make contributions
+
+
+
+## Thanks
