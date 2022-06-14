@@ -124,10 +124,32 @@ MKC_Start:
 void setConfig(const string& mk)
 {
 	string MKconpath = "D:\\My Project\\GoodPass\\MData\\MKCheck.config";
+	string newMK = mk; bool setcon = 0;
 	if (!MKconO.is_open())
 		MKconO.open(MKconpath, ios::out);
-	string fSHA;
-	ProcessKEY(mk, KEY);
-	fSHA = gphes(mk);
-	MKconO << fSHA;
+	while (setcon == false)
+	{
+		int MKlen = newMK.length();
+		if (MKlen >= 15 && MKlen <= 39)
+		{
+			string fSHA;
+			ProcessKEY(newMK, KEY);
+			fSHA = gphes(newMK);
+			MKconO << fSHA;
+			Displayinf("|  密码符合安全要求,设置成功!  |", 1, 0, "ori");
+			setcon = true;
+		}
+		else if (MKlen < 15)
+		{
+			Displayinf("|  密码长度太短，请设置长度为15~39位的密码  |", 1, 0, "ori");
+			cin >> newMK;
+			setcon = false;
+		}
+		else if (MKlen > 39)
+		{
+			Displayinf("|  密码长度太短，请设置长度为15~39位的密码  |", 1, 0, "ori");
+			cin >> newMK;
+			setcon = false;
+		}
+	}
 }
