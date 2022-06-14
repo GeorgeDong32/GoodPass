@@ -1,4 +1,4 @@
-/* MKeyProcess.cpp version 2.5.0 dev */
+/* MKeyProcess.cpp version 2.5.0 pre */
 #include "MKeyProcess.h"
 #include <fstream>
 #include <sstream>
@@ -136,18 +136,18 @@ void setConfig(const string& mk)
 			ProcessKEY(newMK, KEY);
 			fSHA = gphes(newMK);
 			MKconO << fSHA;
-			Displayinf("|  密码符合安全要求,设置成功!  |", 1, 0, "ori");
+			Displayinf("|  密码符合安全要求,设置成功!  |", 1, 0, "green");
 			setcon = true;
 		}
 		else if (MKlen < 15)
 		{
-			Displayinf("|  密码长度太短，请设置长度为15~39位的密码  |", 1, 0, "ori");
+			Displayinf("|  密码长度太短，请设置长度为15~39位的密码  |", 1, 0, "red");
 			cin >> newMK;
 			setcon = false;
 		}
 		else if (MKlen > 39)
 		{
-			Displayinf("|  密码长度太短，请设置长度为15~39位的密码  |", 1, 0, "ori");
+			Displayinf("|  密码长度太长，请设置长度为15~39位的密码  |", 1, 0, "red");
 			cin >> newMK;
 			setcon = false;
 		}

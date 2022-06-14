@@ -18,7 +18,7 @@
 #include "GPBase.h"
 int Test_Mode_Control = 0;//测试模式调控符
 
-string version = "2.5.0 dev";//更新版本号! 
+string version = "2.5.0 pre";//更新版本号! 
 //替换时格式为 "n.x.y    "(4个空格) 或 "n.x.y dev"
 
 //加密基数
@@ -27,7 +27,7 @@ int PI[40] = { 1,4,1,5,9,2,6,5,3,5,8,9,7,9,3,2,3,8,4,6,2,6,4,3,3,8,3,2,7,9,5,0,2
 string indate = "|  输入日期：  |"; string inRTmod2 = "|  输入<rg>测试生成,<rd>测试解密  |";
 string inRTmod1 = "| 请输入循环模式                  |"; string inNOT = "|  请输入测例个数  |";
 string inname = "|  输入用户名称(可选)，输入0以跳过  |";*/
-string MKC0 = "|  请设置您的主密码,长度应在15到39之间  |"; string MKC2 = "|  请重新设置主密码,长度应在15到39之间  |";
+string MKC0 = "|  请设置一个长度位15~39位的密码  |"; string MKC2 = "|  请重新设置主密码,长度应为15~39位  |";
 
 int main(void)
 {

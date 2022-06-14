@@ -1,4 +1,4 @@
-/* FileOperate.cpp version 2.5.0 dev */
+/* FileOperate.cpp version 2.5.0 pre */
 #include "FileOperate.h"
 #include <direct.h>
 #include <io.h>

@@ -1,4 +1,4 @@
-/* GPHES.cpp version 2.5.0 dev */
+/* GPHES.cpp version 2.5.0 pre */
 #include <cstring>
 #include <fstream>
 #include "GPHES.h"

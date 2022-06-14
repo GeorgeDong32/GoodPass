@@ -1,4 +1,4 @@
-/* Display.cpp version 2.5.0 dev */
+/* Display.cpp version 2.5.0 pre */
 #include "Display.h"
 #include <Windows.h>
 
