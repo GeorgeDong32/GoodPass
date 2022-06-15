@@ -47,7 +47,18 @@
 #### derived branches
 
 * 初始化分支后, 修改文件版本号为dev -- `launch 版本号 development`
-* 开发过程中, 提交按顺序记为 -- `update 版本号 dev(序号)`
+* 开发过程中, 提交按顺序记为 -- `Update 版本号 dev(序号)`
+
+  * 例：
+  * ```
+    2.5.0 开发第一版
+    Update 2.5.0 dev1 build22604.14
+    
+    2.5.0 开发第二版
+    Update 2.5.0 dev2 build22614.22
+    ```
+  * 其中 `build` 部分号数为 `年份后两位 + 月份 + 日期 + . + 小时` ，月份超过9时待定
+
 * 版本结束, 修改文件版本号为普通版本 -- `finish 版本号 development`
 * Pull Requests -- `PR of 版本号`
 
