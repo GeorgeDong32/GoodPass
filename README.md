@@ -8,9 +8,14 @@ GoodPass -- A developing password manager
     |
     <a href="/Readmes/README_scn.md">简体中文</a>
 </p>
+</h1>
+<h2 align="center">
+  Made with <img src="https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white" alt="IDE" width="112">
+</h2>
 
 ## ©️Copyright
-> Developed by GeorgeDong32 <Copyright (c) GeorgeDong32(Github). All rights reserved.>
+> Developed by GeorgeDong32 <Copyright (c) GeorgeDong32(Github). All rights reserved.<br>
+
 ## 🎤Introduction
 GoodPass is a developing password manager that help to to manage your passwords. It now works locally with a off-line encryption system to protect your data.
 ## 📦Releases  [<img src="https://img.shields.io/badge/GoodPass-Release-34558b" alt="Release">](https://github.com/GeorgeDong32/GoodPass/releases)
