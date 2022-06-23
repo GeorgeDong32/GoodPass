@@ -2,3 +2,5 @@
 *.vs
 #忽略.vs文件夹
 .vs/
+x64/
+Release/
