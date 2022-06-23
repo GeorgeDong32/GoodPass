@@ -1,52 +1,7 @@
 ﻿  Client.cpp
-  Data.cpp
-D:\GoodPass Project\GoodPass\Data.cpp(13,21): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Data.cpp(13,42): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Data.cpp(63,24): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Data.cpp(64,23): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Data.cpp(65,22): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Data.cpp(199,13): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Data.cpp(200,13): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Data.cpp(202,11): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Data.cpp(442,33): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Data.cpp(444,33): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Data.cpp(448,33): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Data.cpp(450,33): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Data.cpp(455,32): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Data.cpp(457,32): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Data.cpp(470,32): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Data.cpp(472,32): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-  Display.cpp
-D:\GoodPass Project\GoodPass\Display.cpp(27,49): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Display.cpp(72,49): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Display.cpp(74,49): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Display.cpp(76,49): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Display.cpp(78,49): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Display.cpp(80,49): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Display.cpp(82,49): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Display.cpp(99,22): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-  FileOperate.cpp
-D:\GoodPass Project\GoodPass\FileOperate.cpp(6,10): warning C4067: 预处理器指令后有意外标记 - 应输入换行符
-  Generate.cpp
-D:\GoodPass Project\GoodPass\Generate.cpp(86,26): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\Generate.cpp(145,28): warning C4244: “+=”: 从“double”转换到“int”，可能丢失数据
-  GPBase.cpp
-D:\GoodPass Project\GoodPass\GPBase.cpp(48,13): warning C4244: “=”: 从“double”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\GPBase.cpp(50,51): warning C4267: “参数”: 从“size_t”转换到“int”，可能丢失数据
-  GPHES.cpp
-D:\GoodPass Project\GoodPass\GPHES.cpp(142,58): warning C4267: “参数”: 从“size_t”转换到“unsigned int”，可能丢失数据
-D:\GoodPass Project\GoodPass\GPHES.cpp(177,30): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-  GPSES.cpp
-D:\GoodPass Project\GoodPass\GPSES.cpp(7,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\GPSES.cpp(60,20): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\GPSES.cpp(179,19): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\GPSES.cpp(206,24): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\GPSES.cpp(237,20): warning C4267: “=”: 从“size_t”转换到“int”，可能丢失数据
-  MKeyProcess.cpp
-D:\GoodPass Project\GoodPass\MKeyProcess.cpp(17,23): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
-D:\GoodPass Project\GoodPass\MKeyProcess.cpp(132,29): warning C4267: “初始化”: 从“size_t”转换到“int”，可能丢失数据
   正在生成代码
-  Previous IPDB was built with incompatible compiler, fall back to full compilation.
-  All 355 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  14 of 355 functions ( 3.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成
   GoodPass.vcxproj -> D:\GoodPass Project\GoodPass\x64\Release\GoodPass.exe
