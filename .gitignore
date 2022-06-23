@@ -8,3 +8,8 @@ x64/Debug
 x64/Release
 #
 Release/
+*.pdb
+*.obj
+*.iobj
+*.iobj
+*.ipdb

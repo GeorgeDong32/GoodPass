@@ -18,7 +18,7 @@
 #include "GPBase.h"
 int Test_Mode_Control = 0;//测试模式调控符
 
-string version = "2.5.1    ";//更新版本号! 
+string version = "2.5.2    ";//更新版本号! 
 //替换时格式为 "n.x.y    "(4个空格) 或 "n.x.y dev"
 
 //加密基数
