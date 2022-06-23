@@ -4,7 +4,7 @@
 *                                                        *
 * Data.h -- The Data Class for local info process system *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
-* Data.h version 2.5.0 pre                               *
+* Data.h version 2.5.1                                   *
 *                                                        *
 **********************************************************/
 #include <string>
@@ -78,6 +78,6 @@ public:
 
 void DataInit(Manager& manager, string Datapath);//管家数据初始化
 
-void FileUpdate(Manager& manager, string Datapath);//文件数据更新
+void FileUpdate(Manager& manager, string Datapath, int mode/*是否有反馈输出*/);//文件数据更新
 
 #endif

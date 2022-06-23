@@ -18,7 +18,7 @@
 #include "GPBase.h"
 int Test_Mode_Control = 0;//测试模式调控符
 
-string version = "2.5.0 pre";//更新版本号! 
+string version = "2.5.1    ";//更新版本号! 
 //替换时格式为 "n.x.y    "(4个空格) 或 "n.x.y dev"
 
 //加密基数
@@ -80,7 +80,7 @@ int main(void)
 		{
 		case 'e':
 		case '0':
-			FileUpdate(gpm, MDpath);
+			FileUpdate(gpm, MDpath, 1);
 			gpm.~Manager();
 			system("pause");
 			exit(0);
@@ -111,7 +111,7 @@ int main(void)
 		}
 		printMenu(Test_Mode_Control);
 	}
-	FileUpdate(gpm, MDpath);//数据保护
+	FileUpdate(gpm, MDpath, 1);//数据保护
 	gpm.~Manager();
 	return 0;
 }

@@ -1,4 +1,4 @@
-/* MKeyProcess.cpp version 2.5.0 pre */
+/* MKeyProcess.cpp version 2.5.1     */
 #include "MKeyProcess.h"
 #include <fstream>
 #include <sstream>
@@ -152,4 +152,6 @@ void setConfig(const string& mk)
 			setcon = false;
 		}
 	}
+	if (MKconO.is_open())
+		MKconO.close();
 }
