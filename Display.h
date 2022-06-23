@@ -4,7 +4,7 @@
 *                                                        *
 * Display.h -- Provides the visual output functions      *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
-* Display.h version 2.4.1                                *
+* Display.h version 2.5.1                                *
 *                                                        *
 **********************************************************/
 #include <iostream>

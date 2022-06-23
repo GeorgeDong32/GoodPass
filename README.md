@@ -1,6 +1,6 @@
 # GoodPass-Developer
 <h1 align="center">
-  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Title%20Photo/GoodPass_developer.png" alt="GoodPass" width="600">
+  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Title%20Photo/GoodPass_developer.png" alt="GoodPass" width="450">
 </h1>
 
 > Developed by GeorgeDong32 

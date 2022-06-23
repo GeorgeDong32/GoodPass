@@ -1,10 +1,12 @@
-/* Data.cpp version 2.4.1 */
+/* Data.cpp version 2.5.1     */
 #include "Data.h"
 #include "GPSES.h"
 #include "Display.h"
 #include <fstream>
 #include <Windows.h>
 #include <sstream>
+
+//extern string MDpath;
 
 bool fuzzymatch(string o, string t)//×Ö·û´®Ä£ºýÆ¥Åä
 {
@@ -260,6 +262,7 @@ void Manager::addData_User(string p, string a, string e)
 		else
 			pd->next = nd;
 		Displayinf(aD_U_AS, 1, 0, "green");
+		//FileUpdate(*this, MDpath, 1);
 	}
 	else
 	{
@@ -519,7 +522,7 @@ void DataInit(Manager& m, string dp)
 	infile.close();
 }
 
-void FileUpdate(Manager& m, string Datapath)
+void FileUpdate(Manager& m, string Datapath, int mode/*ÊÇ·ñÓÐ·´À¡Êä³ö*/)
 {
 	ofstream outfile(Datapath, ios::out);
 	Data* p = m.getHead();
@@ -536,6 +539,9 @@ void FileUpdate(Manager& m, string Datapath)
 			break;
 	}
 	string fdis = "The data file has been updated!";
-	Displayinf(fdis, 0, 0, "green");
+	if (mode)
+	{
+		Displayinf(fdis, 0, 0, "green");
+	}
 	outfile.close();
 }

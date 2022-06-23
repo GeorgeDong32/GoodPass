@@ -4,7 +4,7 @@
 *                                                        *
 * Generate.h -- Provide password generating functions    *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
-* Generate.h version 2.4.1                               *
+* Generate.h version 2.5.1                               *
 *                                                        *
 **********************************************************/
 #include <string>
