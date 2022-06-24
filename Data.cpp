@@ -1,4 +1,4 @@
-/* Data.cpp version 2.5.1     */
+/* Data.cpp version 2.5.2     */
 #include "Data.h"
 #include "GPSES.h"
 #include "Display.h"
@@ -108,6 +108,11 @@ bool Data::resetData(string npw)
 
 void Data::selfupdate()
 {
+	string checkold = this->encp;
+	if (checkold[0] != '#')//若为新版本则跳过
+	{
+		return ;
+	}
 	string* mid = new string;
 	GPBES gp(encp, 1);
 	*mid = gp.decrypt();

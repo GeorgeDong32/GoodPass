@@ -1,4 +1,4 @@
-/* GPBase.cpp version 2.5.1     */
+/* GPBase.cpp version 2.5.2     */
 #include "GPBase.h"
 #include "Display.h"
 #include "Generate.h"
