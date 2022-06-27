@@ -1,4 +1,4 @@
-/* Data.cpp version 2.5.2     */
+/* Data.cpp version 2.6.0     */
 #include "Data.h"
 #include "GPSES.h"
 #include "Display.h"
@@ -497,6 +497,95 @@ void Manager::dataupdate()
 		else
 			break;
 	}
+}
+
+void Manager::showAllData()
+{
+	Data* p = head;
+	int count = 0;
+	string s_account[40]; string sp[40]; string counts;
+	string display1 = "数据集中共有"; string display3 = "个账号:";
+	string title;
+	while (p != NULL)
+	{
+		if (count > 50)
+		{
+			SetColor(126);
+			printf("!---------------<!>---------------!\n");
+			printf("|  :(                             |\n");
+			printf("|  Too many accounts are found!   |\n");
+			printf("!---------------<!>---------------!\n");
+			SetColor(112);
+		}
+		sp[count] = p->getplatform();
+		s_account[count] = p->getaccount();
+		count++;
+		if (p->next != NULL)
+		{
+			p = p->next;
+		}
+		else
+			break;
+	}
+	{
+		int tn = count / 10;
+		int gn = count % 10;
+		if (tn > 0)
+		{
+			counts += '0' + tn;
+			counts += '0' + gn;
+		}
+		else
+		{
+			counts = '0' + gn;
+		}
+	}
+	//sort content
+	for (int i = 0; i < count; i++)
+	{
+		for (int j = i; j < count; j++)
+		{
+			if (sp[i] > sp[j])
+			{
+				string midp = sp[i];
+				sp[i] = sp[j];
+				sp[j] = midp;
+				string mida = s_account[i];
+				s_account[i] = s_account[j];
+				s_account[j] = mida;
+			}
+			else if (sp[i] == sp[j])
+			{
+				if (s_account[i] > s_account[j])
+				{
+					string midp = sp[i];
+					sp[i] = sp[j];
+					sp[j] = midp;
+					string mida = s_account[i];
+					s_account[i] = s_account[j];
+					s_account[j] = mida;
+				}
+			}
+		}
+	}
+	title = display1 + counts + display3;
+	int mlp = 0; int mln = 0; int ml = 0;
+	for (int i = 0; i < count; i++)
+	{
+		mlp = fmax(sp[i].length(), mlp);
+		mln = fmax(s_account[i].length(), mln);
+	}
+	ml = fmax(title.length(), mlp + mln + 5);
+	printLine(ml - 2);
+	cout << "| " << setw(ml - 2) << left << title << " |" << endl;
+	for (int i = 0; i < count; i++)
+	{
+		printmLine(ml - 2, mlp + 2);
+		printf("| ");
+		cout << setw(mlp) << left << sp[i] << " |";
+		cout << " " << setw(ml - mlp - 3) << left << s_account[i]; printf(" |\n");
+	}
+	printLine(ml - 2);
 }
 
 void DataInit(Manager& m, string dp)

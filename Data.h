@@ -4,7 +4,7 @@
 *                                                        *
 * Data.h -- The Data Class for local info process system *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
-* Data.h version 2.5.2                                   *
+* Data.h version 2.6.0                                   *
 *                                                        *
 **********************************************************/
 #include <string>
@@ -74,6 +74,7 @@ public:
 	void showData(string platform, string account);//输出指定数据，内嵌accusearch
 	void showData(Data& in_data);//输出指定数据
 	void dataupdate();//数据版本更新
+	void showAllData();//输出当前manager中的所有平台和账号
 };
 
 void DataInit(Manager& manager, string Datapath);//管家数据初始化

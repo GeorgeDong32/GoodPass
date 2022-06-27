@@ -1,4 +1,4 @@
-/* Display.cpp version 2.5.2     */
+/* Display.cpp version 2.6.0     */
 #include "Display.h"
 #include <Windows.h>
 
@@ -65,7 +65,7 @@ void printMenu(int mode)//打印菜单
 {
 	string dpt = "输入以下值以进行对应操作："; string dp0 = "0/e：离开";
 	string dp1 = "1/a：添加账号"; string dp2 = "2/s：按平台搜索账号"; string dp3 = "3/g：获取指定账号信息";
-	string dp4 = "4/c：修改指定账号信息"; string dp5 = "5/d：删除指定账号";
+	string dp4 = "4/c：修改指定账号信息"; string dp5 = "5/d：删除指定账号"; string dp6 = "6：获取所有账号";
 	printLine(27);
 	printf("|  ");
 	cout << dpt << "   |" << endl;
@@ -80,6 +80,8 @@ void printMenu(int mode)//打印菜单
 	cout << "|  " << dp4; addempty(dp4.length(), 27);
 	cout << "  |" << endl;
 	cout << "|  " << dp5; addempty(dp5.length(), 27);
+	cout << "  |" << endl;
+	cout << "|  " << dp6; addempty(dp6.length(), 27);
 	cout << "  |" << endl;
 	printLine(27);
 }

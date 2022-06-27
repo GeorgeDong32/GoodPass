@@ -4,7 +4,7 @@
 *                                                        *
 * MKeyProcess.h -- Provide MainKey-related fuctions      *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
-* MKeyProcess.h version 2.5.2                            *
+* MKeyProcess.h version 2.6.0                            *
 *                                                        *
 **********************************************************/
 #include <string>

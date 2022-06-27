@@ -1,4 +1,4 @@
-/* GPBase.cpp version 2.5.2     */
+/* GPBase.cpp version 2.6.0     */
 #include "GPBase.h"
 #include "Display.h"
 #include "Generate.h"
@@ -49,7 +49,8 @@ void GP_add(Manager& m)
 			printLine(ml);
 			cout << "|  " << dis; addempty(dis.length(), ml);
 			cout << "  |" << endl;
-			cout << "|  " << pw << "  |" << endl;
+			cout << "|  " << pw; addempty(dis.length(), ml);
+			cout << "  |" << endl;
 			printLine(ml);
 		}
 		m.addData_User(p, a, pw);
@@ -101,6 +102,11 @@ void GP_delete(Manager& m)
 	Displayinf(dis2, 1, 0, "ori");
 	cin >> a;
 	m.deleteData(p, a);
+}
+
+void GP_showall(Manager& m)
+{
+	m.showAllData();
 }
 
 string Getsystime()

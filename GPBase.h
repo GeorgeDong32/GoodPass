@@ -4,7 +4,7 @@
 *                                                        *
 * GPBase.h -- Provides the base functions for GoodPass   *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
-* GPBase.h version 2.5.2                                 *
+* GPBase.h version 2.6.0                                 *
 *                                                        *
 **********************************************************/
 #include "Data.h"
@@ -19,6 +19,8 @@ void GP_get(Manager& manager);
 void GP_change(Manager& manager);
 
 void GP_delete(Manager& manager);
+
+void GP_showall(Manager& manager);
 
 string Getsystime();
 

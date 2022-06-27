@@ -18,7 +18,7 @@
 #include "GPBase.h"
 int Test_Mode_Control = 0;//测试模式调控符
 
-string version = "2.5.2    ";//更新版本号! 
+string version = "2.6.0    ";//更新版本号! 
 //替换时格式为 "n.x.y    "(4个空格) 或 "n.x.y dev"
 
 //加密基数
@@ -71,6 +71,7 @@ int main(void)
 	}
 	//Manager初始化
 	Manager gpm;
+	DataInit();
 	DataInit(gpm, MDpath);
 	gpm.dataupdate();
 	printMenu(Test_Mode_Control);
@@ -104,6 +105,9 @@ int main(void)
 		case 'd':
 		case '5':
 			GP_delete(gpm);
+			break;
+		case '6':
+			GP_showall(gpm);
 			break;
 		default:
 			Displayinf("请检查您的输入", 0, 0, "yellow");
