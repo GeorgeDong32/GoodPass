@@ -4,11 +4,18 @@
 *                                                        *
 * Blog.h -- Record the Update blogs                      *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
-* Codeblog.h version 2.5.2                               *
+* Codeblog.h version 2.6.0                               *
 *                                                        *
 **********************************************************/
 //Update Blog
+/*commit sample*/
+//Update 2.5.0 dev1 build22604.14
 /*
+* 2022.6.27
+*2.6.0 (dev1 build22627.20)
+	修复了Data.csv无法创建的bug
+	优化密码生成器
+	新增显示所有账号功能
 * 2022.6.24
 *2.5.2
 	优化selfupdate函数，优化程序性能
