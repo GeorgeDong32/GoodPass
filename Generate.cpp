@@ -168,3 +168,16 @@ string Generatepw(string pl, string un)
 	blog.close();//°²È«¹Ø±Õ*/
 	return final;
 }
+
+int randomNum(int start, int end)
+{
+	int random_value = 0; int return_value = 0;
+	random_value = rand();
+	return_value = (rand() % (end - start + 1)) + start;
+	return return_value;
+}
+
+string randomPW(int len, int mode)
+{
+	return string();
+}
