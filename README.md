@@ -14,7 +14,9 @@ GoodPass -- A developing password manager
 </h2>
 
 ## ©️Copyright
-> Developed by GeorgeDong32 <Copyright (c) GeorgeDong32(Github). All rights reserved.<br>
+> Developed by GeorgeDong32 
+> 
+> Copyright (c) GeorgeDong32(Github). All rights reserved.<br>
 
 ## 🎤Introduction
 GoodPass is a developing password manager that help to to manage your passwords. It now works locally with a off-line encryption system to protect your data.
