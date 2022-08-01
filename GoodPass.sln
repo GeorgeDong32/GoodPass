@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GoodPass", "GoodPass.vcxproj", "{7B07DE50-F11A-4B16-BAA0-58A70BC6A0D6}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GoodPassSetup", "..\GoodPassSetup\GoodPassSetup.vdproj", "{BD287526-4437-48A0-9861-0C1CBC915B89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,10 @@ Global
 		{7B07DE50-F11A-4B16-BAA0-58A70BC6A0D6}.Release|x64.Build.0 = Release|x64
 		{7B07DE50-F11A-4B16-BAA0-58A70BC6A0D6}.Release|x86.ActiveCfg = Release|Win32
 		{7B07DE50-F11A-4B16-BAA0-58A70BC6A0D6}.Release|x86.Build.0 = Release|Win32
+		{BD287526-4437-48A0-9861-0C1CBC915B89}.Debug|x64.ActiveCfg = Debug
+		{BD287526-4437-48A0-9861-0C1CBC915B89}.Debug|x86.ActiveCfg = Debug
+		{BD287526-4437-48A0-9861-0C1CBC915B89}.Release|x64.ActiveCfg = Release
+		{BD287526-4437-48A0-9861-0C1CBC915B89}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
