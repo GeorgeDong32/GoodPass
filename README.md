@@ -10,7 +10,7 @@ GoodPass -- A developing password manager
 </p>
 </h1>
 <h2 align="center">
-  Made with <img src="https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white" alt="IDE" width="112">
+  Made with <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Other%20Photos/visual_studio.png" alt="VS" width="200">
 </h2>
 
 ## ©️Copyright
