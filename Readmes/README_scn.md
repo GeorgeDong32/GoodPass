@@ -13,7 +13,7 @@ GoodPass -- 开发中的密码管家
 
 > **由GeorgeDong32开发并发布** 
 >
-> **<Copyright (c) GeorgeDong32(Github). 保留所有权利.**<br>
+> **<Copyright (c) GeorgeDong32(Github). 保留所有权利.>**<br>
 ## 🎤 简介
 
 GoodPass是一个开发中的密码管家。它目前完全在本地运行，在本地加密和解密您的数据，无需担心联网所带来的安全风险。
