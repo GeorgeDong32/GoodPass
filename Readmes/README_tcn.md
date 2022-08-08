@@ -10,9 +10,9 @@ GoodPass -- 開發中的密碼管家
 </p>
 
 ## ©️ 版權
-> 由GeorgeDong32開發
+> **由GeorgeDong32開發**
 >
-> <Copyright (c) GeorgeDong32(Github). All rights reserved.>
+> **<Copyright (c) GeorgeDong32(Github). All rights reserved.>**<br>
 ## 🎤 簡介
 GoodPass 係一個開發中的密碼管家。它目前完全在本地運行，在本地加密和解密你的數據，你無需擔心聯網所帶來的安全風險
 
