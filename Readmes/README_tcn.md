@@ -1,7 +1,7 @@
 <h1 align="center">
 GoodPass -- 開發中的密碼管家
 <h1 align="center">
-  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Title%20Photo/GoodPass2.0T.png" alt="GoodPass" width="400">
+  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Title%20Photo/GoodPass3.0_Title.png" alt="GoodPass" width="400">
 </h1>
   <p align="center">
     <a href="/README.md">English</a>
