@@ -1,6 +1,6 @@
 # GoodPass-resouce 
 <h1 align="center">
-  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Title%20Photo/GoodPass_resources.png" alt="GoodPass" width="600">
+  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Title%20Photo/GoodPass3.0_Resource.png" alt="GoodPass" width="400">
 </h1>
 
 > Developed by GeorgeDong32 
