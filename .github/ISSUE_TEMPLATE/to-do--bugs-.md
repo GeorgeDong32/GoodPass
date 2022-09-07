@@ -3,7 +3,7 @@ name: To Do (Bugs)
 about: This template is used to build developer To Dos. Only for developer!
 title: ''
 labels: bug
-assignees: ''
+assignees: GeorgeDong32
 
 ---
 

@@ -2,8 +2,8 @@
 name: To Do (Features)
 about: This template is used to build developer To Dos. Only for developer!
 title: ''
-labels: enhancement
-assignees: ''
+labels: enhancement, To Do
+assignees: GeorgeDong32
 
 ---
 

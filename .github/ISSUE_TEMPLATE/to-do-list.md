@@ -3,7 +3,7 @@ name: To Do List
 about: This is the template for developer to create To Do List
 title: ''
 labels: To Do
-assignees: ''
+assignees: GeorgeDong32
 
 ---
 
