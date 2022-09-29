@@ -13,7 +13,7 @@ void addempty(int oril, int tarl)//格式函数：添加空格
 	int con = tarl - oril;
 	while (con)
 	{
-		cout << " ";
+		printf(" ");
 		con--;
 	}
 }
@@ -22,7 +22,7 @@ void PrintTitle(void)//打印程序头
 {
 	extern string version;
 	string dp = "||  Welcome to GoodPass "; string dpend = "  ||";
-	cout << "*==============================<*>==============================*" << endl;
+	printf("*==============================<*>==============================*\n");
 	cout << dp << version;
 	addempty(dp.length() + version.length() + 6, 67);
 	cout << dpend << endl;
@@ -88,15 +88,15 @@ void printMenu(int mode)//打印菜单
 
 void Displayinf(string d, int pm, int lm, string color)
 {
-	int cdir = 112;
+	int cdir = 15;
 	if (color == "yellow")
-		cdir = 126;
+		cdir = 14;
 	else if (color == "red")
-		cdir = 124;
+		cdir = 12;
 	else if (color == "green")
-		cdir = 122;
+		cdir = 10;
 	else
-		cdir = 112;
+		cdir = 15;
 	SetColor(cdir);
 	int len = d.length();
 	if (pm)
@@ -111,7 +111,7 @@ void Displayinf(string d, int pm, int lm, string color)
 		cout << "|  " << d << "  |" << endl;
 		printLine(len);
 	}
-	SetColor(112);
+	SetColor(15);
 }
 
 void printDevloping()//打印开发中提示（无效函数，待删除）

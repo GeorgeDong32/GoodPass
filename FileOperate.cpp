@@ -80,12 +80,12 @@ int MKconInit()
 		}
 		else
 		{
-			SetColor(118);
+			SetColor(14);
 			printf("+-------------------<!>------------------+\n");
 			printf("!  :(                                    !\n");
 			printf("!  Error! MainKey config has a problem!  !\n");
 			printf("+-------------------<!>------------------+\n");
-			SetColor(112);
+			SetColor(15);
 			MKconI.close();
 		}
 		return 2;

@@ -105,12 +105,12 @@ MKC_Start:
 	{
 		if (Check_con > 4)
 		{
-			SetColor(124);
+			SetColor(12);
 			cout << "*----------------<!>----------------*" << endl;
 			cout << "!  :(                               !" << endl;
 			cout << "!  错误次数太多了，好好想想再来吧   !" << endl;
 			cout << "*----------------<!>----------------*" << endl;
-			SetColor(112);
+			SetColor(15);
 			system("pause");
 			exit(0);
 		}

@@ -31,7 +31,7 @@ string MKC0 = "|  ÇëÉèÖÃÒ»¸ö³¤¶ÈÎ»15~39Î»µÄÃÜÂë  |"; string MKC2 = "|  ÇëÖØĞÂÉèÖ
 
 int main(void)
 {
-	system("color 70");//ÉèÖÃ¿ØÖÆÌ¨ÑÕÉ«£¬7Îª±³¾°£¬0Îª×ÖÌå
+	//system("color 70");//ÉèÖÃ¿ØÖÆÌ¨ÑÕÉ«£¬7Îª±³¾°£¬0Îª×ÖÌå
 	//¶¨ÒåÇø
 	string name, account, platform, patch, oripla, RTmod;
 	string MDpath = "D:\\My Project\\GoodPass\\MData\\Data.csv";
