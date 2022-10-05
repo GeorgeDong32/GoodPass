@@ -1,15 +1,21 @@
 <h1 align="center">
 GoodPass -- 開發中的密碼管家
 <h1 align="center">
-  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Title%20Photo/GoodPass3.0_Title.png" alt="GoodPass" width="400">
+  <img src="../Resource/Title%20Photo/GoodPass3.0_Title.png" alt="GoodPass" width="400">
 </h1>
   <p align="center">
-    <a href="/README.md">English</a>
+    <a href="./README.md">English</a>
     |
-    <a href="/Readmes/README_scn.md">简体中文</a>
-</p>
+    <a href="./Readmes/README_scn.md">简体中文</a>
+  </p>
+<h2 align="center">
+  Made with <img src="../Resource/Other%20Photos/visual_studio.png" alt="VS" width="200">
+</h2>
+
+
 
 ## ©️ 版權
+
 > **由GeorgeDong32開發**
 >
 > **<Copyright (c) GeorgeDong32(Github). All rights reserved.>**<br>
@@ -37,15 +43,16 @@ GoodPass 使用 **GPHES** 和 **GPSES** 兩套安全加密系統保護你的數�
 
 ### 更多
 
-前往 [`功能與支持`](https://github.com/GeorgeDong32/GoodPass/blob/main/Features_and_Support/Features_and_Support_tcn.md) 文檔獲取更多訊息
+前往 [`功能與支持`](../Features_and_Support/Features_and_Support_tcn.md) 文檔獲取更多訊息
 
 ## 📈 開發
 
 ### 開發流程
 
 <h1 align="center">
-  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Other%20Photos/GoodPass_development_process_tcn.png" alt="開發流程" width="600">
+  <img src="../Resource/Other%20Photos/GoodPass_development_process_tcn.png" alt="開發流程" width="600">
 </h1>
+
 
 GoodPass不定期發佈大小版本更新，大版本更新版本號為`v n.0.0`，小版本在大版本的基礎上進行安全性更新和功能性更新，偶爾進行補丁更新，功能 / 安全更新版本號為`v n.x.0`，補丁版本號為`v n.x.y`。在大版本相對完善時項目會進入開發窗口期，在此期間將進行新版本的開發，一般不會發佈上一大版本的更新
 
@@ -53,7 +60,7 @@ GoodPass不定期發佈大小版本更新，大版本更新版本號為`v n.0.0`
 
 🚧 GPHES(GoodPass哈希加密驗證系統)与GPSES(GoodPass對稱加密系統)，兩者都為TEA(二重加密算法)，它們將不斷完善以保護你的數據安全
 
-🏗️ 基於QT的圖形界面正在開發,預計將於7月於v3.0.0問世
+🏗️ 基於C# MAUI的圖形界面正在開發,預計將於v3.0.0問世
 ## 🛡發行文件安全性
 發行文件的SHA256值記錄于下方文檔,請前往查閲
 
