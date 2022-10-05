@@ -1,3 +1,4 @@
+/* Generate.cpp version 2.6.0     */
 #include "Generate.h"
 #include "GPBase.h"
 #include "GPSES.h"
@@ -5,6 +6,14 @@
 #include <string>
 using namespace std;
 extern int PI[];
+
+int max(int a, int b)
+{
+	if (a >= b)
+		return a;
+	else
+		return b;
+}
 
 void Date_Warning()
 {
@@ -29,7 +38,6 @@ bool Date_check(int date)
 
 void ProcessPatch(string& patch, int& date)
 {
-	//cout << "in ProcessPatch" << endl;
 fPP_Start:
 	patch = "aaaa";
 	int pd1 = 0; int pd2 = 0;
@@ -51,13 +59,10 @@ fPP_Start:
 		patch[3] = 'A' + 6 + pd1;
 	else
 		patch[3] = 'A' + pd1;
-	//cout << "Patch: " << patch << endl;
-	//cout << "out ProcessPatch" << endl;
 }
 
 void datetoStr(string& dates, int& date)
 {
-	//cout << "in datetoStr" << endl;
 FdtS_Start:
 	int cp = 7;
 	if (Date_check(date))
@@ -72,13 +77,10 @@ FdtS_Start:
 		date /= 10;
 		cp--;
 	}
-	//cout << "datestr: " << dates << endl;
-	//cout << "out datetoStr" << endl;
 }
 
 void ProcessPf(string& pfname, int& date)
 {
-	//cout << "in ProcessGf" << endl;
 fPPf_Start:
 	//定义区
 	int pp1 = 0; int pp2 = 0; int temp1 = date; int temp2 = date;
@@ -112,9 +114,6 @@ fPPf_Start:
 	pfname[pp1] = pfname[pp1] - 'a' + 'A';
 	if (pfname[pp2] > 'a' && pfname[pp2] < 'z')
 		pfname[pp2] += 'A' - 'a';
-	//cout << "pfname: " << pfname << endl;
-	//cout << "date: " << date << endl;
-	//cout << "out ProcessPf" << endl;
 }
 
 string Generatepw(string pl, string un)
@@ -125,16 +124,20 @@ string Generatepw(string pl, string un)
 	string patch;//密码加强补丁
 	string oripla = pl;
 	string name;
-	if (un.length() <= 4)
+	int unl = un.length();
+	if (un[0] != '@')
 	{
-		name = un;
+		name += '@';
+		for (int i = 0; i < min(unl,4); i++)
+		{
+			name += un[i];
+		}
 	}
 	else
 	{
-		name = "!!!!";
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < min(unl, 5); i++)
 		{
-			name[i] = un[i];
+			name += un[i];
 		}
 	}
 	int date = 0;
@@ -151,9 +154,9 @@ string Generatepw(string pl, string un)
 	final += patch;
 	GPBES gpg(final, 0);
 	G_encr = gpg.encrypt();
-	//日志更新区
+	//日志更新区(已弃用)
 	//日志文件初始化
-	ofstream blog;
+	/*ofstream blog;
 	string blogp = "D:\\My Project\\GoodPass\\Blog\\GeneratorBlog.csv";
 	blog.open(blogp, ios_base::app);
 	//blog写入
@@ -162,6 +165,6 @@ string Generatepw(string pl, string un)
 	blog << name << ",";//第三列（用户名）
 	blog << G_encr << ",";//第四列（密码加密串）
 	blog << dates << endl;//第五列（日期）
-	blog.close();//安全关闭
+	blog.close();//安全关闭*/
 	return final;
 }

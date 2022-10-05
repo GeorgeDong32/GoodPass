@@ -1,14 +1,17 @@
+/* MKeyProcess.cpp version 2.6.0     */
 #include "MKeyProcess.h"
 #include <fstream>
 #include <sstream>
 #include <string>
 #include "FileOperate.h"
 #include "GPHES.h"
-//#include "GP_cryption.h"
 using namespace std;
+
 extern int PI[];
 int KEY[40] = { -1,0, };
+
 extern ofstream MKconO; extern ifstream MKconI;
+
 void ProcessKEY(string mk, int* pk)
 {
 	int len = mk.length();
@@ -121,10 +124,34 @@ MKC_Start:
 void setConfig(const string& mk)
 {
 	string MKconpath = "D:\\My Project\\GoodPass\\MData\\MKCheck.config";
+	string newMK = mk; bool setcon = 0;
 	if (!MKconO.is_open())
 		MKconO.open(MKconpath, ios::out);
-	string fSHA;
-	ProcessKEY(mk, KEY);
-	fSHA = gphes(mk);
-	MKconO << fSHA;
+	while (setcon == false)
+	{
+		int MKlen = newMK.length();
+		if (MKlen >= 15 && MKlen <= 39)
+		{
+			string fSHA;
+			ProcessKEY(newMK, KEY);
+			fSHA = gphes(newMK);
+			MKconO << fSHA;
+			Displayinf("|  密码符合安全要求,设置成功!  |", 1, 0, "green");
+			setcon = true;
+		}
+		else if (MKlen < 15)
+		{
+			Displayinf("|  密码长度太短，请设置长度为15~39位的密码  |", 1, 0, "red");
+			cin >> newMK;
+			setcon = false;
+		}
+		else if (MKlen > 39)
+		{
+			Displayinf("|  密码长度太长，请设置长度为15~39位的密码  |", 1, 0, "red");
+			cin >> newMK;
+			setcon = false;
+		}
+	}
+	if (MKconO.is_open())
+		MKconO.close();
 }

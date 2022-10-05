@@ -1,3 +1,4 @@
+/* FileOperate.cpp version 2.6.0     */
 #include "FileOperate.h"
 #include <direct.h>
 #include <io.h>
@@ -14,7 +15,7 @@ void FloderInit(int mode)
 	string L2Bpath = "D:\\My Project\\GoodPass\\Blog";
 	string L2Dpath = "D:\\My Project\\GoodPass\\MData";
 	if (mode)
-		printLine(33, mode);
+		printLine(33);
 	if (_access(L0path.c_str(), 00))//检测文件夹是否存在
 	{
 		int flag = _mkdir(L0path.c_str());//创建文件夹
@@ -56,7 +57,7 @@ void FloderInit(int mode)
 	else if (mode == 1)
 		cout << "|  The Data floder exists             |" << endl;
 	if (mode)
-		printLine(33, mode);
+		printLine(33);
 }
 
 void BlogInit(int mode)

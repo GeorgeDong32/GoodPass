@@ -1,3 +1,4 @@
+/* GPSES.cpp version 2.6.0     */
 #include "GPSES.h"
 extern int KEY[40];
 
@@ -188,7 +189,18 @@ string GPBES::decrypt()
 	for (int i = 1; i <= numpos[0]; i++)
 	{
 		int p = numpos[i];
-		mid[p] = numdec(mid[p], p);
+		//mid[p] = numdec(mid[p], p);
+		try {
+			mid[p] = numdec(mid[p], p);
+		}
+		catch (std::out_of_range&)
+		{
+			std::cout << "catch successful" << std::endl;
+		}
+		catch (...)
+		{
+			std::cout << "catch successful" << std::endl;
+		}
 	}
 	for (int i = 1; i <= charpos[0]; i++)
 	{

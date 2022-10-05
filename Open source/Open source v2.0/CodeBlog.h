@@ -4,10 +4,40 @@
 *                                                        *
 * Blog.h -- Record the Update blogs                      *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
+* Codeblog.h version 2.6.0                               *
 *                                                        *
 **********************************************************/
 //Update Blog
+/*commit sample*/
+//Update 2.5.0 dev1 build22604.14
 /*
+* 2022.6.27
+*2.6.0 (dev1 build22627.20)
+	修复了Data.csv无法创建的bug
+	优化密码生成器
+	新增显示所有账号功能
+* 2022.6.24
+*2.5.2
+	优化selfupdate函数，优化程序性能
+* 2022.6.23
+*2.5.1
+	修复了一些bug，提升了程序安全性
+	新增特性：MKCheck.config的人为变更将可能导致程序出错
+*2.5.0dev3
+	检查文件，确定2.5.0pre bug为新安全特性：即MKCheck.config的人为变更将可能导致程序出错
+	新增数据保护机制，在每一次数据改动后都增加自动保存
+* 2022.6.14
+*2.5.0pre
+	新增主密码长度检查，完善主密码设置流程，提升用户体验
+	警告：超过20位的长字符串生成加密key时出错
+*2.5.0dev1
+	新增主密码长度检查，完善主密码设置流程，提升用户体验
+* 2022.6.4
+* 2.5.0dev1
+创建 2.5.0 dev1
+* 2022.5.28
+* 2.3.0 dev 1
+* Test Github pull request
 * 2022.5.17
 * 2.2.0
 	  重构彩色文字功能，提升兼容性和稳定性

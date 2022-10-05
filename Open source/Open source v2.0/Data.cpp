@@ -1,9 +1,12 @@
+/* Data.cpp version 2.6.0     */
 #include "Data.h"
 #include "GPSES.h"
 #include "Display.h"
 #include <fstream>
 #include <Windows.h>
 #include <sstream>
+
+//extern string MDpath;
 
 bool fuzzymatch(string o, string t)//字符串模糊匹配
 {
@@ -61,11 +64,11 @@ void Data::printData()
 	al = account.length();
 	pwl = dispw.length();
 	int ml = pl + al + pwl + 8;
-	printLine(ml - 6, 0);
+	printLine(ml - 6);
 	cout << "| " << setw(ml - 4) << left << title << " |" << endl;
 	printmLine(ml - 6, 0);
 	cout << "| " << platform << "  " << account << "  " << dispw << " |" << endl;
-	printLine(ml - 6, 0);
+	printLine(ml - 6);
 }
 
 string Data::getaccount()
@@ -101,6 +104,25 @@ bool Data::resetData(string npw)
 		return true;
 	else
 		return false;
+}
+
+void Data::selfupdate()
+{
+	string checkold = this->encp;
+	if (checkold[0] != '#')//若为新版本则跳过
+	{
+		return ;
+	}
+	string* mid = new string;
+	GPBES gp(encp, 1);
+	*mid = gp.decrypt();
+	int check = resetData(*mid);
+	if (check == 0)
+	{
+		GPBES gp(encp, 1);
+		*mid = gp.decrypt();
+	}
+	delete mid;
 }
 
 void Manager::fuzzysearch(string platform)//按平台搜索账号
@@ -147,6 +169,34 @@ void Manager::fuzzysearch(string platform)//按平台搜索账号
 			counts = '0' + gn;
 		}
 	}
+	//sort content
+	for (int i = 0; i < count; i++)
+	{
+		for (int j = i; j < count; j++)
+		{
+			if (sp[i] > sp[j])
+			{
+				string midp = sp[i];
+				sp[i] = sp[j];
+				sp[j] = midp;
+				string mida = s_account[i];
+				s_account[i] = s_account[j];
+				s_account[j] = mida;
+			}
+			else if (sp[i] == sp[j])
+			{
+				if (s_account[i] > s_account[j])
+				{
+					string midp = sp[i];
+					sp[i] = sp[j];
+					sp[j] = midp;
+					string mida = s_account[i];
+					s_account[i] = s_account[j];
+					s_account[j] = mida;
+				}
+			}
+		}
+	}
 	title = display1 + platform + display2 + counts + display3;
 	int mlp = 0; int mln = 0; int ml = 0;
 	for (int i = 0; i < count; i++)
@@ -155,7 +205,7 @@ void Manager::fuzzysearch(string platform)//按平台搜索账号
 		mln = fmax(s_account[i].length(), mln);
 	}
 	ml = fmax(title.length(), mlp + mln + 5);
-	printLine(ml - 2, 0);
+	printLine(ml - 2);
 	cout << "| " << setw(ml - 2) << left << title << " |" << endl;
 	for (int i = 0; i < count; i++)
 	{
@@ -164,7 +214,7 @@ void Manager::fuzzysearch(string platform)//按平台搜索账号
 		cout << setw(mlp) << left << sp[i] << " |";
 		cout << " " << setw(ml - mlp - 3) << left << s_account[i]; printf(" |\n");
 	}
-	printLine(ml - 2, 0);
+	printLine(ml - 2);
 }
 
 Data* Manager::accusearch(string platform, string account, int mode)//mode显示控制，1时有成功输出，2
@@ -217,6 +267,7 @@ void Manager::addData_User(string p, string a, string e)
 		else
 			pd->next = nd;
 		Displayinf(aD_U_AS, 1, 0, "green");
+		//FileUpdate(*this, MDpath, 1);
 	}
 	else
 	{
@@ -367,9 +418,9 @@ void Manager::reviseData(Data& d)
 	string newp; int sp = 0; string temp1 = d.getEncp();
 	int recheck = 0; string temp2;
 	string dp_rD1 = "|  修改失败，请重试  |"; string dp_rD2 = "|  修改成功！  |"; string dp_rD3 = "|  修改出错，请重试  |";
-	printLine(13, 0);
+	printLine(13);
 	cout << "|  请输入新密码  |" << endl;
-	printLine(13, 0);
+	printLine(13);
 	cin >> newp;
 	sp = d.resetData(newp);
 	if (sp)
@@ -393,22 +444,22 @@ void Manager::reviseData(Data& d)
 	{
 		if (recheck == 1)
 		{
-			printLine(dp_rD2.length() - 6, 0);
+			printLine(dp_rD2.length() - 6);
 			cout << dp_rD2 << endl;
-			printLine(dp_rD2.length() - 6, 0);
+			printLine(dp_rD2.length() - 6);
 		}
 		else if (recheck == -1)
 		{
-			printLine(dp_rD3.length() - 6, 0);
+			printLine(dp_rD3.length() - 6);
 			cout << dp_rD3 << endl;
-			printLine(dp_rD3.length() - 6, 0);
+			printLine(dp_rD3.length() - 6);
 		}
 	}
 	else
 	{
-		printLine(dp_rD1.length() - 6, 0);
+		printLine(dp_rD1.length() - 6);
 		cout << dp_rD1 << endl;
-		printLine(dp_rD1.length() - 6, 0);
+		printLine(dp_rD1.length() - 6);
 	}
 }
 
@@ -421,9 +472,9 @@ void Manager::showData(string p, string a)
 	else
 	{
 		SetColor(124);
-		printLine(dis_sD.length() - 6, 0);
+		printLine(dis_sD.length() - 6);
 		cout << dis_sD << endl;
-		printLine(dis_sD.length() - 6, 0);
+		printLine(dis_sD.length() - 6);
 		SetColor(112);
 	}
 }
@@ -431,6 +482,110 @@ void Manager::showData(string p, string a)
 void Manager::showData(Data& d)
 {
 	d.printData();
+}
+
+void Manager::dataupdate()
+{
+	Data* p = head;
+	while (p != NULL)
+	{
+		p->selfupdate();
+		if (p->next != NULL)
+		{
+			p = p->next;
+		}
+		else
+			break;
+	}
+}
+
+void Manager::showAllData()
+{
+	Data* p = head;
+	int count = 0;
+	string s_account[40]; string sp[40]; string counts;
+	string display1 = "数据集中共有"; string display3 = "个账号:";
+	string title;
+	while (p != NULL)
+	{
+		if (count > 50)
+		{
+			SetColor(126);
+			printf("!---------------<!>---------------!\n");
+			printf("|  :(                             |\n");
+			printf("|  Too many accounts are found!   |\n");
+			printf("!---------------<!>---------------!\n");
+			SetColor(112);
+		}
+		sp[count] = p->getplatform();
+		s_account[count] = p->getaccount();
+		count++;
+		if (p->next != NULL)
+		{
+			p = p->next;
+		}
+		else
+			break;
+	}
+	{
+		int tn = count / 10;
+		int gn = count % 10;
+		if (tn > 0)
+		{
+			counts += '0' + tn;
+			counts += '0' + gn;
+		}
+		else
+		{
+			counts = '0' + gn;
+		}
+	}
+	//sort content
+	for (int i = 0; i < count; i++)
+	{
+		for (int j = i; j < count; j++)
+		{
+			if (sp[i] > sp[j])
+			{
+				string midp = sp[i];
+				sp[i] = sp[j];
+				sp[j] = midp;
+				string mida = s_account[i];
+				s_account[i] = s_account[j];
+				s_account[j] = mida;
+			}
+			else if (sp[i] == sp[j])
+			{
+				if (s_account[i] > s_account[j])
+				{
+					string midp = sp[i];
+					sp[i] = sp[j];
+					sp[j] = midp;
+					string mida = s_account[i];
+					s_account[i] = s_account[j];
+					s_account[j] = mida;
+				}
+			}
+		}
+	}
+	title = display1 + counts + display3;
+	int mlp = 0; int mln = 0; int ml = 0;
+	for (int i = 0; i < count; i++)
+	{
+		mlp = fmax(sp[i].length(), mlp);
+		mln = fmax(s_account[i].length(), mln);
+	}
+	ml = fmax(title.length(), mlp + mln + 5);
+	printLine(ml - 2);
+	cout << "| " << setw(ml - 2) << left << title << " |" << endl;
+	for (int i = 0; i < count; i++)
+	{
+		printmLine(ml - 2, mlp + 2);
+		printf("| ");
+		cout << setw(mlp) << left << sp[i] << " |";
+		cout << " " << setw(ml - mlp - 3) << left << s_account[i]; printf(" |\n");
+	}
+	printLine(ml - 2);
 }
 
 void DataInit(Manager& m, string dp)
@@ -461,7 +616,7 @@ void DataInit(Manager& m, string dp)
 	infile.close();
 }
 
-void FileUpdate(Manager& m, string Datapath)
+void FileUpdate(Manager& m, string Datapath, int mode/*是否有反馈输出*/)
 {
 	ofstream outfile(Datapath, ios::out);
 	Data* p = m.getHead();
@@ -478,6 +633,9 @@ void FileUpdate(Manager& m, string Datapath)
 			break;
 	}
 	string fdis = "The data file has been updated!";
-	Displayinf(fdis, 0, 0, "green");
+	if (mode)
+	{
+		Displayinf(fdis, 0, 0, "green");
+	}
 	outfile.close();
 }

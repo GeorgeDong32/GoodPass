@@ -5,6 +5,7 @@
 * GPSES.h Provides GoodPass Symmetrical Encryption System						*
 * The system contains GPBES(GoodPass Base Encryption System) and AES-256 system *
 * Copyright(c) GeorgeDong32(Github).All rights reserved.						*
+* GPSES.h version 2.6.0                                                         *
 *																			    *
 ********************************************************************************/
 #include <iostream>
