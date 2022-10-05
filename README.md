@@ -1,7 +1,7 @@
 <h1 align="center">
 GoodPass -- A developing password manager
 <h1 align="center">
-  <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Title%20Photo/GoodPass3.0_Title.png" alt="GoodPass" width="400">
+  <img src="https://github.com/GeorgeDong32/GoodPass/blob/main/Resource/Title%20Photo/GoodPass3.0_Title.png" alt="GoodPass" width="400">
 </h1>
   <p align="center">
     <a href="/Readmes/README_tcn.md">繁體中文</a>
@@ -10,7 +10,7 @@ GoodPass -- A developing password manager
 </p>
 </h1>
 <h2 align="center">
-  Made with <img src="https://github.com/GeorgeDong32/GoodPass/blob/resource/Other%20Photos/visual_studio.png" alt="VS" width="200">
+  Made with <img src="https://github.com/GeorgeDong32/GoodPass/blob/main/Resource/Other%20Photos/visual_studio.png" alt="VS" width="200">
 </h2>
 
 ## ©️Copyright
