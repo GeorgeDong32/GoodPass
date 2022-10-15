@@ -1,0 +1,1 @@
+# GoodPass Privacy Statement
