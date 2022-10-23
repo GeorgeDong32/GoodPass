@@ -60,8 +60,10 @@ GoodPass不定期發佈大小版本更新，大版本更新版本號為`v n.0.0`
 
 🚧 GPHES(GoodPass哈希加密驗證系統)与GPSES(GoodPass對稱加密系統)，兩者都為TEA(二重加密算法)，它們將不斷完善以保護你的數據安全
 
-🏗️ 基於C# MAUI的圖形界面正在開發,預計將於v3.0.0問世
+🏗️ 基於.NET MAUI/ WinUI3的圖形界面正在開發,預計將於v3.0.0問世
+
 ## 🛡發行文件安全性
+
 發行文件的SHA256值記錄于下方文檔,請前往查閲
 
 [<img src="https://img.shields.io/badge/GoodPass-File SHA256-34558b" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/File_SHA256.md)

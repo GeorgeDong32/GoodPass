@@ -58,7 +58,7 @@ In every major version, after the first release `v n.0.0`, there will be some fu
 ### Development Plan
 🚧 GPHES(GoodPass Hash Encryption System) and GPSES(GoodPass Symmetrical Encryption System). Both are TEA(Twice Encryption Algorithm) that protect your password efficient and safely.
 
-🏗️ Graphic interface based on C# MAUI is under development. Maybe come out in the version v3.0.0.
+🏗️ Graphic interface based on .NET MAUI/ WinUI3 is under development. Maybe come out in the version v3.0.0.
 ## 🛡File Security
 The SHA256 Hash of releases are in the follow file。
 
