@@ -18,7 +18,7 @@
 #include "GPBase.h"
 int Test_Mode_Control = 0;//测试模式调控符
 
-string version = "2.6.0    ";//更新版本号! 
+string version = "2.6.2    ";//更新版本号! 
 //替换时格式为 "n.x.y    "(4个空格) 或 "n.x.y dev"
 
 //加密基数
@@ -34,7 +34,7 @@ int main(void)
 	//system("color 70");//设置控制台颜色，7为背景，0为字体
 	//定义区
 	string name, account, platform, patch, oripla, RTmod;
-	string MDpath = "D:\\My Project\\GoodPass\\MData\\Data.csv";
+	string MDpath = ".\\MData\\Data.csv";
 	string G_encr;  //生成阶段加密结果
 	string final; //结果数组
 	string Test_Direct;//测试模式导向符

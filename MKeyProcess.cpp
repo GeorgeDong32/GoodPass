@@ -74,7 +74,7 @@ void ProcessKEY(string mk, int* pk)
 
 void checkConfig(string& mk)
 {
-	string MKconpath = "D:\\My Project\\GoodPass\\MData\\MKCheck.config";
+	string MKconpath = ".\\MData\\MKCheck.config";
 	string MKC1 = "|  请输入主密码进行校验  |";
 	int Check_con = 0;
 MKC_Start:
@@ -123,7 +123,7 @@ MKC_Start:
 
 void setConfig(const string& mk)
 {
-	string MKconpath = "D:\\My Project\\GoodPass\\MData\\MKCheck.config";
+	string MKconpath = ".\\MData\\MKCheck.config";
 	string newMK = mk; bool setcon = 0;
 	if (!MKconO.is_open())
 		MKconO.open(MKconpath, ios::out);

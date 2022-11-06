@@ -13,10 +13,10 @@ void FloderInit(int mode)
 	string L0path = "D:\\My Project";
 	string L1fpath = "D:\\My Project\\GoodPass";
 	string L2Bpath = "D:\\My Project\\GoodPass\\Blog";
-	string L2Dpath = "D:\\My Project\\GoodPass\\MData";
+	string L2Dpath = ".\\MData";
 	if (mode)
 		printLine(33);
-	if (_access(L0path.c_str(), 00))//检测文件夹是否存在
+	/*if (_access(L0path.c_str(), 00))//检测文件夹是否存在
 	{
 		int flag = _mkdir(L0path.c_str());//创建文件夹
 		if (flag == 0 && mode == 1)
@@ -45,7 +45,7 @@ void FloderInit(int mode)
 			cout << "|  Failed to create Blog floder       |" << endl;
 	}
 	else if (mode == 1)
-		cout << "|  The Blog floder exists             |" << endl;
+		cout << "|  The Blog floder exists             |" << endl;*/
 	if (_access(L2Dpath.c_str(), 00))
 	{
 		int flag = _mkdir(L2Dpath.c_str());
@@ -62,13 +62,13 @@ void FloderInit(int mode)
 
 void BlogInit(int mode)
 {
-	string blogpath = "D:\\My Project\\GoodPass\\Blog\\GeneratorBlog.csv";
+	string blogpath = ".\\Blog\\GeneratorBlog.csv";
 	fblog.open(blogpath, ios_base::app);
 }
 
 int MKconInit()
 {
-	string MKconpath = "D:\\My Project\\GoodPass\\MData\\MKCheck.config";
+	string MKconpath = ".\\MData\\MKCheck.config";
 	if (!_access(MKconpath.c_str(), 00))//检测配置文件是否存在
 	{
 		MKconI.open(MKconpath, ios::in);
@@ -99,6 +99,6 @@ int MKconInit()
 
 void DataInit()
 {
-	string MDpath = "D:\\My Project\\GoodPass\\MData\\Data.csv";
+	string MDpath = ".\\MData\\Data.csv";
 	fdata.open(MDpath, ios::app);
 }
