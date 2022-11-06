@@ -136,12 +136,12 @@ void Manager::fuzzysearch(string platform)//按平台搜索账号
 	{
 		if (count > 40)
 		{
-			SetColor(126);
+			SetColor(14);
 			printf("!---------------<!>---------------!\n");
 			printf("|  :(                             |\n");
 			printf("|  Too many accounts are found!   |\n");
 			printf("!---------------<!>---------------!\n");
-			SetColor(112);
+			SetColor(15);
 		}
 		if (fuzzymatch(p->getplatform(), platform))
 		{
@@ -348,11 +348,11 @@ void Manager::deleteData(string p, string a)
 	else if (pd == NULL)
 	{
 		string Dis = "|  未找到对应账号，请检查后重试！   |";
-		SetColor(118);
+		SetColor(14);
 		cout << "*----------------<!>----------------*" << endl;
 		cout << Dis << endl;
 		cout << "*----------------<!>----------------*" << endl;
-		SetColor(112);
+		SetColor(15);
 	}
 }
 
@@ -471,11 +471,11 @@ void Manager::showData(string p, string a)
 		ps->printData();
 	else
 	{
-		SetColor(124);
+		SetColor(14);
 		printLine(dis_sD.length() - 6);
 		cout << dis_sD << endl;
 		printLine(dis_sD.length() - 6);
-		SetColor(112);
+		SetColor(15);
 	}
 }
 
@@ -510,12 +510,12 @@ void Manager::showAllData()
 	{
 		if (count > 50)
 		{
-			SetColor(126);
+			SetColor(14);
 			printf("!---------------<!>---------------!\n");
 			printf("|  :(                             |\n");
 			printf("|  Too many accounts are found!   |\n");
 			printf("!---------------<!>---------------!\n");
-			SetColor(112);
+			SetColor(15);
 		}
 		sp[count] = p->getplatform();
 		s_account[count] = p->getaccount();

@@ -74,7 +74,7 @@ void ProcessKEY(string mk, int* pk)
 
 void checkConfig(string& mk)
 {
-	string MKconpath = "D:\\My Project\\GoodPass\\MData\\MKCheck.config";
+	string MKconpath = ".\\MData\\MKCheck.config";
 	string MKC1 = "|  请输入主密码进行校验  |";
 	int Check_con = 0;
 MKC_Start:
@@ -105,12 +105,12 @@ MKC_Start:
 	{
 		if (Check_con > 4)
 		{
-			SetColor(124);
+			SetColor(12);
 			cout << "*----------------<!>----------------*" << endl;
 			cout << "!  :(                               !" << endl;
 			cout << "!  错误次数太多了，好好想想再来吧   !" << endl;
 			cout << "*----------------<!>----------------*" << endl;
-			SetColor(112);
+			SetColor(15);
 			system("pause");
 			exit(0);
 		}
@@ -123,7 +123,7 @@ MKC_Start:
 
 void setConfig(const string& mk)
 {
-	string MKconpath = "D:\\My Project\\GoodPass\\MData\\MKCheck.config";
+	string MKconpath = ".\\MData\\MKCheck.config";
 	string newMK = mk; bool setcon = 0;
 	if (!MKconO.is_open())
 		MKconO.open(MKconpath, ios::out);
