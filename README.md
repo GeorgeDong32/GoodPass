@@ -7,8 +7,13 @@ GoodPass -- A developing password manager
     <a href="./Docs/Readmes/README_tcn.md">繁體中文</a>
     |
     <a href="./Docs/Readmes/README_scn.md">简体中文</a>
-</p>
+   </p>
 </h1>
+<h4 align="center">
+    <a href="https://github.com/GeorgeDong32/GoodPass-v2">View GoodPass v2 Developments</a>
+    |
+    <a href="https://github.com/GeorgeDong32/GoodPass-v3">View GoodPass v3 Developments</a>
+</h4>
 <h2 align="center">
   Made with <img src="./Resource/Other%20Photos/visual_studio.png" alt="VS" width="200">
 </h2>
