@@ -8,6 +8,11 @@ GoodPass -- 開發中的密碼管家
     |
     <a href="./README_scn.md">简体中文</a>
   </p>
+<h4 align="center">
+    <a href="https://github.com/GeorgeDong32/GoodPass-v2">前往GoodPass v2開發倉庫</a>
+    |
+    <a href="https://github.com/GeorgeDong32/GoodPass-v3">前往GoodPass v3開發倉庫</a>
+</h4>
 <h2 align="center">
   Made with <img src="../../Resource/Other%20Photos/visual_studio.png" alt="VS" width="200">
 </h2>
