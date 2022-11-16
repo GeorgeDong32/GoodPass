@@ -18,7 +18,7 @@
 #include "GPBase.h"
 int Test_Mode_Control = 0;//²âÊÔÄ£Ê½µ÷¿Ø·û
 
-string version = "2.6.0    ";//¸üĞÂ°æ±¾ºÅ! 
+string version = "2.6.2    ";//¸üĞÂ°æ±¾ºÅ! 
 //Ìæ»»Ê±¸ñÊ½Îª "n.x.y    "(4¸ö¿Õ¸ñ) »ò "n.x.y dev"
 
 //¼ÓÃÜ»ùÊı
@@ -31,10 +31,10 @@ string MKC0 = "|  ÇëÉèÖÃÒ»¸ö³¤¶ÈÎ»15~39Î»µÄÃÜÂë  |"; string MKC2 = "|  ÇëÖØĞÂÉèÖ
 
 int main(void)
 {
-	system("color 70");//ÉèÖÃ¿ØÖÆÌ¨ÑÕÉ«£¬7Îª±³¾°£¬0Îª×ÖÌå
+	//system("color 70");//ÉèÖÃ¿ØÖÆÌ¨ÑÕÉ«£¬7Îª±³¾°£¬0Îª×ÖÌå
 	//¶¨ÒåÇø
 	string name, account, platform, patch, oripla, RTmod;
-	string MDpath = "D:\\My Project\\GoodPass\\MData\\Data.csv";
+	string MDpath = ".\\MData\\Data.csv";
 	string G_encr;  //Éú³É½×¶Î¼ÓÃÜ½á¹û
 	string final; //½á¹ûÊı×é
 	string Test_Direct;//²âÊÔÄ£Ê½µ¼Ïò·û
