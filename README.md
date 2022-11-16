@@ -43,7 +43,7 @@ GoodPass provide you with a password manage system which helps you to manage you
 
 GoodPass uses GPHES and GPSES to protect your data. The GPHES helps verify your identity, while GPSES makes sure your passwords are stored encrypted.
 ### More Information
-View the [`Features and Support`](./Features_and_Support/Features_and_Support.md) document to get more information.
+View the [`Features and Support`](./Docs/Features_and_Support/Features_and_Support.md) document to get more information.
 
 ## 📈Development
 
@@ -63,4 +63,4 @@ In every major version, after the first release `v n.0.0`, there will be some fu
 ## 🛡File Security
 The SHA256 Hash of releases are in the follow file。
 
-[<img src="https://img.shields.io/badge/GoodPass-File SHA256-24617D" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/File_SHA256.md)
+[<img src="https://img.shields.io/badge/GoodPass-File SHA256-24617D" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/Docs/File_SHA256.md)
