@@ -4,14 +4,15 @@ GoodPass -- A developing password manager
   <img src="./Resource/Title%20Photo/GoodPass3.0_Title.png" alt="GoodPass" width="400">
 </h1>
   <p align="center">
-    <a href="./Readmes/README_tcn.md">繁體中文</a>
+    <a href="./Docs/Readmes/README_tcn.md">繁體中文</a>
     |
-    <a href="./Readmes/README_scn.md">简体中文</a>
+    <a href="./Docs/Readmes/README_scn.md">简体中文</a>
 </p>
 </h1>
 <h2 align="center">
   Made with <img src="./Resource/Other%20Photos/visual_studio.png" alt="VS" width="200">
 </h2>
+
 
 
 ## ©️Copyright
