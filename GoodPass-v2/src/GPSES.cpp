@@ -1,4 +1,4 @@
-/* GPSES.cpp version 2.6.0     */
+/* GPSES.cpp version 2.7.0     */
 #include "GPSES.h"
 extern int KEY[40];
 

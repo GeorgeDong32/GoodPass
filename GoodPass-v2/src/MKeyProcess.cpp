@@ -1,4 +1,4 @@
-/* MKeyProcess.cpp version 2.6.0     */
+/* MKeyProcess.cpp version 2.7.0     */
 #include "MKeyProcess.h"
 #include <fstream>
 #include <sstream>
@@ -61,15 +61,6 @@ void ProcessKEY(string mk, int* pk)
 			*(pk + kp) = PI[kp];
 		}
 	}
-	/*check
-	int ct = 0;
-	for (int i = 0; i < 40; i++)
-	{
-		cout << KEY[i];
-		ct++;
-		if (ct % 10 == 0)
-			cout << endl;
-	}*/
 }
 
 void checkConfig(string& mk)

@@ -1,4 +1,4 @@
-/* Generate.cpp version 2.6.0     */
+/* Generate.cpp version 2.7.0     */
 #include "Generate.h"
 #include "GPBase.h"
 #include "GPSES.h"

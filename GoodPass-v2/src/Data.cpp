@@ -1,12 +1,10 @@
-/* Data.cpp version 2.6.0     */
+/* Data.cpp version 2.7.0     */
 #include "Data.h"
 #include "GPSES.h"
 #include "Display.h"
 #include <fstream>
 #include <Windows.h>
 #include <sstream>
-
-//extern string MDpath;
 
 bool fuzzymatch(string o, string t)//×Ö·û´®Ä£ºýÆ¥Åä
 {

@@ -4,7 +4,7 @@
 *                                                        *
 * FileOperate.h -- Process GoodPass local files          *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
-* FileOperate.h version 2.6.0                            *
+* FileOperate.h version 2.7.0                            *
 *                                                        *
 **********************************************************/
 #include <fstream>

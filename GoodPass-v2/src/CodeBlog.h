@@ -4,13 +4,17 @@
 *                                                        *
 * Blog.h -- Record the Update blogs                      *
 * Copyright(c) GeorgeDong32(Github).All rights reserved. *
-* Codeblog.h version 2.6.0                               *
+* Codeblog.h version 2.7.0                               *
 *                                                        *
 **********************************************************/
 //Update Blog
 /*commit sample*/
 //Update 2.5.0 dev1 build22604.14
 /*
+* 2022.11.17
+*2.7.0 CLI
+	转换项目开发模式，更换全新图标
+	清理代码，优化程序性能
 * 2022.6.27
 *2.6.0 (dev1 build22627.20)
 	修复了Data.csv无法创建的bug

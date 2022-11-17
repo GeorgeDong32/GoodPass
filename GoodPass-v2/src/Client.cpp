@@ -18,7 +18,7 @@
 #include "GPBase.h"
 int Test_Mode_Control = 0;//²âÊÔÄ£Ê½µ÷¿Ø·û
 
-string version = "2.6.2    ";//¸üĞÂ°æ±¾ºÅ! 
+string version = "2.7.0    ";//¸üĞÂ°æ±¾ºÅ! 
 //Ìæ»»Ê±¸ñÊ½Îª "n.x.y    "(4¸ö¿Õ¸ñ) »ò "n.x.y dev"
 
 //¼ÓÃÜ»ùÊı
@@ -31,7 +31,6 @@ string MKC0 = "|  ÇëÉèÖÃÒ»¸ö³¤¶ÈÎ»15~39Î»µÄÃÜÂë  |"; string MKC2 = "|  ÇëÖØĞÂÉèÖ
 
 int main(void)
 {
-	//system("color 70");//ÉèÖÃ¿ØÖÆÌ¨ÑÕÉ«£¬7Îª±³¾°£¬0Îª×ÖÌå
 	//¶¨ÒåÇø
 	string name, account, platform, patch, oripla, RTmod;
 	string MDpath = ".\\MData\\Data.csv";
@@ -79,39 +78,39 @@ int main(void)
 	{
 		switch (opt)
 		{
-		case 'e':
-		case '0':
-			FileUpdate(gpm, MDpath, 1);
-			gpm.~Manager();
-			system("pause");
-			exit(0);
-			break;
-		case 'a':
-		case '1':
-			GP_add(gpm);
-			break;
-		case 's':
-		case '2':
-			GP_search(gpm);
-			break;
-		case 'g':
-		case '3':
-			GP_get(gpm);
-			break;
-		case 'c':
-		case '4':
-			GP_change(gpm);
-			break;
-		case 'd':
-		case '5':
-			GP_delete(gpm);
-			break;
-		case '6':
-			GP_showall(gpm);
-			break;
-		default:
-			Displayinf("Çë¼ì²éÄúµÄÊäÈë", 0, 0, "yellow");
-			break;
+			case 'e':
+			case '0':
+				FileUpdate(gpm, MDpath, 1);
+				gpm.~Manager();
+				system("pause");
+				exit(0);
+				break;
+			case 'a':
+			case '1':
+				GP_add(gpm);
+				break;
+			case 's':
+			case '2':
+				GP_search(gpm);
+				break;
+			case 'g':
+			case '3':
+				GP_get(gpm);
+				break;
+			case 'c':
+			case '4':
+				GP_change(gpm);
+				break;
+			case 'd':
+			case '5':
+				GP_delete(gpm);
+				break;
+			case '6':
+				GP_showall(gpm);
+				break;
+			default:
+				Displayinf("Çë¼ì²éÄúµÄÊäÈë", 0, 0, "yellow");
+				break;
 		}
 		printMenu(Test_Mode_Control);
 	}

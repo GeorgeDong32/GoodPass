@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{7b07de50-f11a-4b16-baa0-58a70bc6a0d6}</ProjectGuid>
+    <ProjectGuid>{0bd90dc1-cea9-4612-a5e1-6c5629d4f9fc}</ProjectGuid>
     <RootNamespace>GoodPass</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
@@ -70,18 +70,6 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <LinkIncremental>true</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <LinkIncremental>true</LinkIncremental>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -139,33 +127,33 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Client.cpp" />
-    <ClCompile Include="Data.cpp" />
-    <ClCompile Include="Display.cpp" />
-    <ClCompile Include="FileOperate.cpp" />
-    <ClCompile Include="Generate.cpp" />
-    <ClCompile Include="GPBase.cpp" />
-    <ClCompile Include="GPHES.cpp" />
-    <ClCompile Include="GPSES.cpp" />
-    <ClCompile Include="MKeyProcess.cpp" />
+    <ClInclude Include="resource1.h" />
+    <ClInclude Include="src\CodeBlog.h" />
+    <ClInclude Include="src\Data.h" />
+    <ClInclude Include="src\Display.h" />
+    <ClInclude Include="src\FileOperate.h" />
+    <ClInclude Include="src\Generate.h" />
+    <ClInclude Include="src\GPBase.h" />
+    <ClInclude Include="src\GPHES.h" />
+    <ClInclude Include="src\GPSES.h" />
+    <ClInclude Include="src\MKeyProcess.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CodeBlog.h" />
-    <ClInclude Include="Data.h" />
-    <ClInclude Include="Display.h" />
-    <ClInclude Include="FileOperate.h" />
-    <ClInclude Include="Generate.h" />
-    <ClInclude Include="GPBase.h" />
-    <ClInclude Include="GPHES.h" />
-    <ClInclude Include="GPSES.h" />
-    <ClInclude Include="MKeyProcess.h" />
-    <ClInclude Include="resource.h" />
+    <ClCompile Include="src\Client.cpp" />
+    <ClCompile Include="src\Data.cpp" />
+    <ClCompile Include="src\Display.cpp" />
+    <ClCompile Include="src\FileOperate.cpp" />
+    <ClCompile Include="src\Generate.cpp" />
+    <ClCompile Include="src\GPBase.cpp" />
+    <ClCompile Include="src\GPHES.cpp" />
+    <ClCompile Include="src\GPSES.cpp" />
+    <ClCompile Include="src\MKeyProcess.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="GoodPass.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\Resource\Icon\GoodPass2.0_wb.ico" />
+    <Image Include="Assert\GoodPass_CLI.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

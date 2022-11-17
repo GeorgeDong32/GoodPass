@@ -1,10 +1,8 @@
-/* GPHES.cpp version 2.6.0     */
+/* GPHES.cpp version 2.7.0     */
 #include <cstring>
 #include <fstream>
 #include "GPHES.h"
-/*≤‚ ‘ π”√
-#include <iostream>
-using std::cout; using std::endl;*/
+
 /***************************************************************
 *                                                              *
 * GPEHS.h -- Provides GoodPass Hash Encryption System          *
@@ -209,7 +207,6 @@ string GPHES::getSalt()
 		resalt[i] = saltbase[i];
 	}
 	salt_s = resalt;
-	//cout << "resalt is" << resalt << endl;
 	return resalt;
 }
 
@@ -223,7 +220,6 @@ string GPHES::Mix()
 		s2[i] = salt_s[i + 4];
 	remix = s1 + mainkey_s + s2;
 	salted_mainkey = remix;
-	//cout << "The salted_mainkey is:" << endl << salted_mainkey << endl;
 	return remix;
 }
 
