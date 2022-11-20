@@ -72,9 +72,16 @@
                         License and copyright notice
                     </span>
                 </div>
-            </dic>
+                <div class="text-small pl-3">
+                <svg width="13" class="octicon octicon-info color-fg-accent ml-n3 v-align-middle" viewBox="0 0 16 16" version="1.1" height="13" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg>
+                <span class="v-align-middle" title="Modifications must be released under the same license when distributing the licensed material. In some cases a similar or related license may be used.">
+                  Same license
+                </span>
+              </div>
+            </div>
         </div>
 </table>
+
 
 <h2 align=center>
     Liability and Warranty
@@ -181,7 +188,24 @@
 </h2>
 
 ```
-     
+      Unmodified source code and software may not be used commercially 
+      without the permission of the copyright owner. 
+      The modified software and its source code may be used commercially 
+      with the consent of the modifier and the original author.
+      Authorized modifiers may, in their sole discretion, determine 
+      whether their modified software and source code may be commercially available
+```
+
+<h2 align=center>
+    Additional conditions
+</h2>
+
+```
+	  The copyright notice and this license shall be included in 
+	  all copies or substantial portions of the Software.
+	  All copies and modified versions of the Software and Source Code shall 
+	  be distributed and distributed under this License, except as specifically 
+	  permitted by the copyright owner
 ```
 
 
