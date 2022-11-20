@@ -2,7 +2,8 @@
     GoodPass Open Source License
 </h1>
 <p align=center>
-    Copyright  (C) 2022-present  GeorgeDong32
+    Copyright  (C) 2022-present  GeorgeDong32<br>
+    License is based on Mozilla Public License 2.0 and MIT License
 </p>
 <h2 align=center>
     Overview
@@ -54,6 +55,12 @@
                   Warranty
                 </span>
               </div>
+              <div class="l3">
+                <svg width="13" class="crosssign" viewBox="0 0 16 16" version="1.1" height="13" aria-hidden="true"><path fill-rule="evenodd" d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"></path></svg>
+                <span class="v-align-middle" title="This license includes a limitation of liability.">
+                  Trademark use
+                </span>
+              </div>
           </div>
         </div>
         <div class="conditions" style="float:left;width:300px;">
@@ -68,4 +75,19 @@
             </dic>
         </div>
 </table>
+
+<h2 align=center>
+    Liability and Warranty
+</h2>
+
+<div class="Liability and Warranty" width=300>
+    <p>
+        Covered Software is provided under this License on an "as is" basis, without warranty of any kind, either expressed, implied, or statutory, including, without limitation, warranties that the Covered Software is free of defects, merchantable, fit for a particular purpose or non-infringing. The entire risk as to the 
+quality and performance of the Covered Software is with You. Should any Covered Software prove defective in any respect, You (not any Contributor) assume the cost of any necessary servicing, repair, or correction.This disclaimer of warranty constitutes an essential part of this License. No use of any Covered Software is authorized under this License except under this disclaimer.
+    </p>
+</div>
+
+<h2>
+    
+</h2>
 
