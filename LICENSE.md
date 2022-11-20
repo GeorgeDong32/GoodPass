@@ -1,5 +1,5 @@
 <h1 align=center>
-    GoodPass Open Source License
+    GoodPass Open Source License 1.0
 </h1>
 <p align=center>
     Copyright  (C) 2022-present  GeorgeDong32<br>
@@ -81,6 +81,7 @@
             </div>
         </div>
 </table>
+
 
 
 <h2 align=center>
@@ -208,7 +209,8 @@
 	  permitted by the copyright owner
 ```
 
+**END OF TERMS AND CONDITIONS**
 
+​																																													Version 1.0, November 2022
 
-
-
+​																																																			GeorgeDong32
