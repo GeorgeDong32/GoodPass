@@ -4,10 +4,11 @@
 
 The latest release is the safest version, so if you are no using the latest version, please update!
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 2.x     | :white_check_mark: |
-| 1.x     | :x:                |
+| Version | Support situation                                         |
+| ------- | --------------------------------------------------------- |
+| 3.x     | :white_check_mark: Feature updates , Security maintenance |
+| 2.x     | :white_check_mark: Feature updates , Security maintenance |
+| 1.x     | :x: No longer support                                     |
 
 ## Reporting a Vulnerability
 
