@@ -67,7 +67,7 @@ GoodPass now uses a two-wire development model, with the v2 version continuing t
 
 ## :balance_scale: Licnese
 
-[GoodPass Open Source License]([GoodPass/LICENSE.md at main · GeorgeDong32/GoodPass (github.com)](https://github.com/GeorgeDong32/GoodPass/blob/main/LICENSE.md))
+[GoodPass Open Source License](https://github.com/GeorgeDong32/GoodPass/blob/main/LICENSE.md)
 
 <h2 align=center>
     <img src="./Resource/LicenseOverview/GPOL_overview.png">
