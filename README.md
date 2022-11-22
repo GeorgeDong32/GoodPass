@@ -26,13 +26,13 @@ GoodPass -- A developing password manager
 > **Copyright (c) GeorgeDong32(Github). All rights reserved.**<br>
 
 ## 🎤Introduction
-GoodPass is a developing password manager that help to to manage your passwords. It now works locally with a off-line encryption system to protect your data.
+GoodPass is a developing password manager that help to to manage your passwords. It now works locally with a off-line encryption system to protect your data. 
+
+Under the new development plan, GoodPass is divided into two major versions of continuous development, namely the CLI version and the GUI version. The CLI version number is v2 and the GUI version is v3.
 
 ## 📦Releases  [<img src="https://img.shields.io/badge/GoodPass-Release-34558b" alt="Release">](https://github.com/GeorgeDong32/GoodPass/releases)
 
 You can get the application in [Releases](https://github.com/GeorgeDong32/GoodPass/releases) part, thanks for using it.
-
-[![Release Version](https://img.shields.io/github/v/release/GeorgeDong32/GoodPass)](https://github.com/GeorgeDong32/GoodPass/releases/latest)
 
 ## 💬 Feedback  [<img src="https://img.shields.io/badge/GoodPass-Feedback-939597" alt="Issue">](https://github.com/GeorgeDong32/GoodPass/issues)
 
@@ -52,20 +52,24 @@ View the [`Features and Support`](./Docs/Features_and_Support/Features_and_Suppo
 
 ## 📈Development
 
-### Development Process
+### Development roadmap
 
 <h1 align="center">
-  <img src="./Resource/Other%20Photos/GoodPass_development_process.png" alt="Development Process" width="600">
+  <img src="./Resource/RoadMap/GPRoadMap_en.png" alt="Development roadmap" width="600">
 </h1>
 
-
-In every major version, after the first release `v n.0.0`, there will be some functional updates, security updates and also some patches. After that, the project will go into a freeze period which no new applications will be release. While the period, the new major version will be built and tested. 
+GoodPass now uses a two-wire development model, with the v2 version continuing to use C++ to develop CLI applications, and the v3 version using C# to build GUI applications.
 
 ### Development Plan
 🚧 GPHES(GoodPass Hash Encryption System) and GPSES(GoodPass Symmetrical Encryption System). Both are TEA(Twice Encryption Algorithm) that protect your password efficient and safely.
 
-🏗️ Graphic interface based on .NET MAUI/ WinUI3 is under development. Maybe come out in the version v3.0.0.
-## 🛡File Security
-The SHA256 Hash of releases are in the follow file。
+🏗️ A WinUI3-based graphical interface is under development and is expected to be available in the first half of 2023.
 
-[<img src="https://img.shields.io/badge/GoodPass-File SHA256-24617D" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/Docs/File_SHA256.md)
+## :balance_scale: Licnese
+
+[GoodPass Open Source License]([GoodPass/LICENSE.md at main · GeorgeDong32/GoodPass (github.com)](https://github.com/GeorgeDong32/GoodPass/blob/main/LICENSE.md))
+
+<h2 align=center>
+    <img src="./Resource/GPOL_overview.png">
+</h2>
+
