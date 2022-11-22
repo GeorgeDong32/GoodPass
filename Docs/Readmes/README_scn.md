@@ -70,8 +70,9 @@ GoodPass现行双线开发模式，v2版本继续使用C++开发CLI应用，v3�
 
 ## :balance_scale: 开源证书
 
-[GoodPass Open Source License]([GoodPass/LICENSE.md at main · GeorgeDong32/GoodPass (github.com)](https://github.com/GeorgeDong32/GoodPass/blob/main/LICENSE.md))
+[GoodPass开源证书](https://github.com/GeorgeDong32/GoodPass/blob/main/Docs/License/LICENSE_ZH.md)
 
 <h2 align=center>
-    <img src="../../Resource/GPOL_overview.png">
+    <img src="../../Resource/LicenseOverview/GPOL_overview_CN.png">
 </h2>
+

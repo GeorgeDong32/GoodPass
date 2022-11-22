@@ -23,13 +23,13 @@ GoodPass -- 開發中的密碼管家
 >
 > **<Copyright (c) GeorgeDong32(Github). All rights reserved.>**<br>
 ## 🎤 簡介
-GoodPass 係一個開發中的密碼管家。它目前完全在本地運行，在本地加密和解密你的數據，你無需擔心聯網所帶來的安全風險
+GoodPass 係一個開發中的密碼管家。它目前完全在本地運行，在本地加密和解密你的數據，你無需擔心聯網所帶來的安全風險。
+
+在新的開發規劃下，GoodPass分為兩個大版本持續開發，分別為CLI版本和GUI版本。 其中CLI版本版本號為v2，GUI版本版本號為v3。
 
 ## 📦 發行版本  [<img src="https://img.shields.io/badge/GoodPass-Release-34558b" alt="Release">](https://github.com/GeorgeDong32/GoodPass/releases)
 
 你可以在[Releases](https://github.com/GeorgeDong32/GoodPass/releases)界面獲取應用, 感謝你的使用
-
-[![Release Version](https://img.shields.io/github/v/release/GeorgeDong32/GoodPass)](https://github.com/GeorgeDong32/GoodPass/releases/latest)
 
 ## 💬 反饋  [<img src="https://img.shields.io/badge/GoodPass-Feedback-939597" alt="Issue">](https://github.com/GeorgeDong32/GoodPass/issues)
 我非常希望能夠聽到你的聲音，你可以將建議和意見發送到`georgedong32@foxmail.com`或者點擊上方`feedback`按鈕提交反饋
@@ -50,22 +50,25 @@ GoodPass 使用 **GPHES** 和 **GPSES** 兩套安全加密系統保護你的數�
 
 ## 📈 開發
 
-### 開發流程
+### 開發路線圖
 
 <h1 align="center">
-  <img src="../../Resource/Other%20Photos/GoodPass_development_process_tcn.png" alt="開發流程" width="600">
+  <img src="../../Resource/RoadMap/GPRoadMap_tcn.png" alt="開發路線圖" width="600">
 </h1>
 
-GoodPass不定期發佈大小版本更新，大版本更新版本號為`v n.0.0`，小版本在大版本的基礎上進行安全性更新和功能性更新，偶爾進行補丁更新，功能 / 安全更新版本號為`v n.x.0`，補丁版本號為`v n.x.y`。在大版本相對完善時項目會進入開發窗口期，在此期間將進行新版本的開發，一般不會發佈上一大版本的更新
+
+GoodPass現行雙線開發模式，v2版本繼續使用C++開發CLI應用，v3版本使用C#構建GUI應用。
 
 ### 開發計劃
 
 🚧 GPHES(GoodPass哈希加密驗證系統)与GPSES(GoodPass對稱加密系統)，兩者都為TEA(二重加密算法)，它們將不斷完善以保護你的數據安全
 
-🏗️ 基於.NET MAUI/ WinUI3的圖形界面正在開發,預計將於v3.0.0問世
+🏗️ 基於WinUI3的圖形介面正在開發中，預計將在2023年上半年問世
 
-## 🛡發行文件安全性
+## :balance_scale: 開源證書
 
-發行文件的SHA256值記錄于下方文檔,請前往查閲
+[GoodPass开源证书](https://github.com/GeorgeDong32/GoodPass/blob/main/Docs/License/LICENSE_ZH.md)
 
-[<img src="https://img.shields.io/badge/GoodPass-File SHA256-34558b" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/Docs/File_SHA256.md)
+<h2 align=center>
+    <img src="../../Resource/LicenseOverview/GPOL_overview_CN.png">
+</h2>
