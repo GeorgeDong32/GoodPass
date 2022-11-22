@@ -70,6 +70,6 @@ GoodPass now uses a two-wire development model, with the v2 version continuing t
 [GoodPass Open Source License]([GoodPass/LICENSE.md at main · GeorgeDong32/GoodPass (github.com)](https://github.com/GeorgeDong32/GoodPass/blob/main/LICENSE.md))
 
 <h2 align=center>
-    <img src="./Resource/GPOL_overview.png">
+    <img src="./Resource/LicenseOverview/GPOL_overview.png">
 </h2>
 
