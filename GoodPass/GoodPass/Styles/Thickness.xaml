@@ -33,4 +33,6 @@
 
     <Thickness x:Key="SettingsPageHyperlinkButtonMargin">-12,4,6,0</Thickness>
 
+    <Thickness x:Key="ListDetailsDetailControlDetailMargin">16,2,0,8</Thickness>
+
 </ResourceDictionary>

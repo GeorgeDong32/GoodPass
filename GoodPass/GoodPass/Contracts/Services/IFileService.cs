@@ -1,4 +1,4 @@
-﻿namespace GoodPass.Core.Contracts.Services;
+﻿namespace GoodPass.Contracts.Services;
 
 public interface IFileService
 {

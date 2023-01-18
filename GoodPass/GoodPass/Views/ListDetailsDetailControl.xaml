@@ -5,68 +5,214 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+
+    <!--  Todo:解决UserControl使用strings资源问题  -->
     <ScrollViewer
         Name="ForegroundElement"
         HorizontalAlignment="Stretch"
-        VerticalScrollMode="Enabled"
-        IsTabStop="True">
+        IsTabStop="True"
+        VerticalScrollMode="Enabled">
         <StackPanel HorizontalAlignment="Left">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <StackPanel HorizontalAlignment="Stretch" Orientation="Horizontal">
                 <FontIcon
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
+                    AutomationProperties.Name="ListDetailContentIcon"
                     FontSize="48"
-                    Glyph="{x:Bind ListDetailsMenuItem.Symbol, Mode=OneWay}"
-                    AutomationProperties.Name="{x:Bind ListDetailsMenuItem.SymbolName, Mode=OneWay}"  />
+                    Glyph="&#xE77B;" />
                 <TextBlock
                     Margin="{StaticResource SmallLeftMargin}"
                     VerticalAlignment="Center"
-                    Text="{x:Bind ListDetailsMenuItem.Company, Mode=OneWay}"
-                    Style="{ThemeResource TitleTextBlockStyle}" />
+                    Style="{ThemeResource TitleTextBlockStyle}"
+                    Text="{x:Bind ListDetailsMenuItem.PlatformName, Mode=OneWay}" />
             </StackPanel>
-            <StackPanel Padding="0,15,0,0">
-                <TextBlock Text="Status" Style="{StaticResource DetailSubTitleStyle}" />
+            <StackPanel x:Name="ListDetailsDetailControl_DataDetails" Padding="0,15,0,0">
 
-                <TextBlock Text="{x:Bind ListDetailsMenuItem.Status, Mode=OneWay}" Style="{StaticResource DetailBodyBaseMediumStyle}" />
+                <RelativePanel x:Name="ListDetailsDetailControl_AccountNamePanel">
+                    <TextBlock
+                        x:Name="ListDetailsDetailControl_AccountNameTitle"
+                        x:Uid="ListDetailsDetailControl_AccountNameTitle"
+                        Margin="{StaticResource ListDetailsDetailControlDetailMargin}"
+                        Style="{StaticResource DetailSubTitleStyle}"
+                        Text="Account Name" />
 
-                <TextBlock
-                    Margin="{StaticResource SmallTopMargin}"
-                    Text="Order date"
-                    Style="{StaticResource DetailSubTitleStyle}" />
-                <TextBlock Text="{x:Bind ListDetailsMenuItem.OrderDate, Mode=OneWay}" Style="{StaticResource DetailBodyBaseMediumStyle}" />
-                <TextBlock
-                    Margin="{StaticResource SmallTopMargin}"
-                    Text="Company"
-                    Style="{StaticResource DetailSubTitleStyle}" />
-                <TextBlock Text="{x:Bind ListDetailsMenuItem.Company, Mode=OneWay}" Style="{StaticResource DetailBodyBaseMediumStyle}" />
+                    <TextBox
+                        x:Name="ListDetailsDetailControl_AccountNameText"
+                        Width="350"
+                        Margin="{StaticResource ListDetailsDetailControlDetailMargin}"
+                        IsReadOnly="True"
+                        RelativePanel.Below="ListDetailsDetailControl_AccountNameTitle"
+                        Style="{StaticResource DetailBodyBaseMediumStyle}"
+                        Text="{x:Bind ListDetailsMenuItem.AccountName, Mode=OneWay}" />
+                    <Button
+                        x:Name="ListDetailsDetailControl_AcconutNameCopyButton"
+                        x:Uid="ListDetailsDetailControl_AcconutNameCopyButton"
+                        Width="40"
+                        Height="31.5"
+                        Margin="{StaticResource ListDetailsDetailControlDetailMargin}"
+                        AutomationProperties.Name="ListDetailsDetailControl_AcconutNameCopyButton"
+                        Click="ListDetailsDetailControl_AcconutNameCopyButton_Click"
+                        RelativePanel.AlignRightWithPanel="True"
+                        RelativePanel.Below="ListDetailsDetailControl_AccountNameTitle">
+                        <FontIcon
+                            x:Name="ListDetailsDetailControl_AcconutNameCopyButtonIcon"
+                            FontFamily="{StaticResource SymbolThemeFontFamily}"
+                            FontSize="16"
+                            Glyph="&#xE8C8;" />
+                    </Button>
 
-                <TextBlock
-                    Margin="{StaticResource SmallTopMargin}"
-                    Text="Ship to"
-                    Style="{StaticResource DetailSubTitleStyle}" />
-                <TextBlock Text="{x:Bind ListDetailsMenuItem.ShipTo, Mode=OneWay}" Style="{StaticResource DetailBodyBaseMediumStyle}" />
-                <TextBlock
-                    Margin="{StaticResource SmallTopMargin}"
-                    Text="Order total"
-                    Style="{StaticResource DetailSubTitleStyle}" />
-                <TextBlock Text="{x:Bind ListDetailsMenuItem.OrderTotal, Mode=OneWay}" Style="{StaticResource DetailBodyBaseMediumStyle}" />
+                    <TeachingTip
+                        x:Name="CopiedTipforAcconutNameCopyButton"
+                        x:Uid="CopiedTipforAcconutNameCopyButton"
+                        Title="AccountName has copied!"
+                        Target="{x:Bind ListDetailsDetailControl_AcconutNameCopyButton}">
+                        <TeachingTip.IconSource>
+                            <SymbolIconSource Symbol="Accept" />
+                        </TeachingTip.IconSource>
+                    </TeachingTip>
+                </RelativePanel>
 
-                <TextBlock
-                    Margin="{StaticResource MediumTopMargin}"
-                    Text="Note 1"
-                    Style="{StaticResource DetailSubTitleStyle}" />
-                <TextBlock
-                    Style="{StaticResource DetailBodyStyle}"
-                    Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis hendrerit nulla, vel molestie libero. In nec ultricies magna, ultricies molestie ipsum. Mauris non dignissim velit. Etiam malesuada blandit mauris eu maximus. Quisque ornare, felis nec scelerisque mollis, risus dolor posuere magna, in gravida quam mi id nisi. Nullam mattis consequat ex. Cras nulla neque, dictum ac urna et, vestibulum feugiat ex. Pellentesque malesuada accumsan ligula, vel fringilla lacus facilisis sit amet. Proin convallis tempor arcu, ac placerat libero pretium ut. Praesent hendrerit nisl at lobortis viverra. Fusce vitae velit odio. Nam ut tortor sed purus finibus sollicitudin quis at ante. Ut sodales dolor vel eros mollis suscipit. Donec eu nulla id urna ultricies consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;" />
+                <RelativePanel x:Name="ListDetailsDetailControl_PasswordPanel">
+                    <TextBlock
+                        x:Name="ListDetailsDetailControl_PasswordTitle"
+                        x:Uid="ListDetailsDetailControl_PasswordTitle"
+                        Margin="{StaticResource ListDetailsDetailControlDetailMargin}"
+                        Style="{StaticResource DetailSubTitleStyle}"
+                        Text="Password" />
 
-                <TextBlock
-                    Margin="{StaticResource SmallTopMargin}"
-                    Text="Note 2"
-                    Style="{StaticResource DetailSubTitleStyle}" />
-                <TextBlock
-                    Margin="{StaticResource MediumBottomMargin}"
-                    Style="{StaticResource DetailBodyStyle}"
-                    Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis quis hendrerit nulla, vel molestie libero. In nec ultricies magna, ultricies molestie ipsum. Mauris non dignissim velit. Etiam malesuada blandit mauris eu maximus. Quisque ornare, felis nec scelerisque mollis, risus dolor posuere magna, in gravida quam mi id nisi. Nullam mattis consequat ex. Cras nulla neque, dictum ac urna et, vestibulum feugiat ex. Pellentesque malesuada accumsan ligula, vel fringilla lacus facilisis sit amet. Proin convallis tempor arcu, ac placerat libero pretium ut. Praesent hendrerit nisl at lobortis viverra. Fusce vitae velit odio. Nam ut tortor sed purus finibus sollicitudin quis at ante. Ut sodales dolor vel eros mollis suscipit. Donec eu nulla id urna ultricies consequat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;" />
+                    <PasswordBox
+                        Name="ListDetailsDetailControl_PasswordBox"
+                        Width="350"
+                        Margin="{StaticResource ListDetailsDetailControlDetailMargin}"
+                        IsEnabled="False"
+                        Password="{x:Bind ListDetailsMenuItem.GetPassword()}"
+                        PasswordRevealMode="Hidden"
+                        RelativePanel.Below="ListDetailsDetailControl_PasswordTitle" />
+                    <Button
+                        x:Name="ListDetailsDetailControl_PasswordCopyButton"
+                        x:Uid="ListDetailsDetailControl_PasswordCopyButton"
+                        Width="40"
+                        Height="31.5"
+                        Margin="4,2,0,8"
+                        AutomationProperties.Name="ListDetailsDetailControl_PasswordCopyButton"
+                        Click="ListDetailsDetailControl_PasswordCopyButton_Click"
+                        RelativePanel.Below="ListDetailsDetailControl_PasswordTitle"
+                        RelativePanel.RightOf="ListDetailsDetailControl_PasswordBox">
+                        <FontIcon
+                            FontFamily="{StaticResource SymbolThemeFontFamily}"
+                            FontSize="16"
+                            Glyph="&#xE8C8;" />
+                    </Button>
+
+                    <TeachingTip
+                        x:Name="CopiedTipforPasswordCopyButton"
+                        x:Uid="CopiedTipforPasswordCopyButton"
+                        Title="Password has copied!"
+                        Target="{x:Bind ListDetailsDetailControl_PasswordCopyButton}">
+                        <TeachingTip.IconSource>
+                            <SymbolIconSource Symbol="Accept" />
+                        </TeachingTip.IconSource>
+                    </TeachingTip>
+
+                    <ToggleButton
+                        x:Name="PasswordRevealButton"
+                        Height="31.5"
+                        Margin="4,2,0,8"
+                        Click="PasswordRevealButton_Click"
+                        IsThreeState="False"
+                        RelativePanel.Below="ListDetailsDetailControl_PasswordTitle"
+                        RelativePanel.RightOf="ListDetailsDetailControl_PasswordCopyButton">
+                        <FontIcon
+                            FontFamily="{StaticResource SymbolThemeFontFamily}"
+                            FontSize="16"
+                            Glyph="&#xF78D;" />
+                    </ToggleButton>
+                </RelativePanel>
+
+                <RelativePanel x:Name="ListDetailsDetailControl_PlatformUrlPanel">
+                    <TextBlock
+                        x:Name="ListDetailsDetailControl_PlatformUrlTitle"
+                        x:Uid="ListDetailsDetailControl_PlatformUrlTitle"
+                        Margin="{StaticResource ListDetailsDetailControlDetailMargin}"
+                        Style="{StaticResource DetailSubTitleStyle}"
+                        Text="Platfrom Url" />
+
+                    <HyperlinkButton
+                        x:Name="ListDetailsDetailControl_PlatformUrlHyperLink"
+                        Margin="{StaticResource ListDetailsDetailControlDetailMargin}"
+                        Click="ListDetailsDetailControl_PlatformUrlHyperLink_Click"
+                        RelativePanel.Below="ListDetailsDetailControl_PlatformUrlTitle">
+                        <RelativePanel VerticalAlignment="Center">
+                            <FontIcon
+                                x:Name="ListDetailsDetailControl_PlatformUrlHyperLinkIcon"
+                                Margin="0,8,4,8"
+                                FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                Glyph="&#xE71B;" />
+                            <TextBlock
+                                Margin="2,6,0,8"
+                                RelativePanel.RightOf="ListDetailsDetailControl_PlatformUrlHyperLinkIcon"
+                                Style="{StaticResource DetailBodyStyle}"
+                                Text="{x:Bind ListDetailsMenuItem.PlatformUrl, Mode=OneWay}" />
+                        </RelativePanel>
+                    </HyperlinkButton>
+                </RelativePanel>
+
+                <RelativePanel x:Name="ListDetailsDetailControl_LastmodifiedPanel">
+                    <TextBlock
+                        x:Name="ListDetailsDetailControl_LastmodifiedTitle"
+                        x:Uid="ListDetailsDetailControl_LastmodifiedTitle"
+                        Margin="{StaticResource ListDetailsDetailControlDetailMargin}"
+                        Style="{StaticResource DetailSubTitleStyle}"
+                        Text="Last modified" />
+                    <TextBlock
+                        Margin="{StaticResource ListDetailsDetailControlDetailMargin}"
+                        RelativePanel.Below="ListDetailsDetailControl_LastmodifiedTitle"
+                        Style="{StaticResource DetailBodyStyle}"
+                        Text="{x:Bind ListDetailsMenuItem.LatestUpdateTime, Mode=OneWay}" />
+                </RelativePanel>
+
+                <RelativePanel x:Name="ListDetailsDetailControl_EditDeleteButton" Margin="{StaticResource ListDetailsDetailControlDetailMargin}">
+                    <Button
+                        x:Name="ListDetailsDetailControl_EditButton"
+                        x:Uid="ListDetailsDetailControl_EditButton"
+                        Width="200"
+                        Height="40"
+                        Click="ListDetailsDetailControl_EditButton_Click"
+                        RelativePanel.AlignLeftWithPanel="True">
+                        <RelativePanel>
+                            <FontIcon
+                                x:Name="ListDetailsDetailControl_EditButtonIcon"
+                                FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                Glyph="&#xE70F;" />
+                            <TextBlock
+                                x:Uid="ListDetailsDetailControl_EditButtonText"
+                                Margin="4,0,0,0"
+                                RelativePanel.RightOf="ListDetailsDetailControl_EditButtonIcon"
+                                Text="编辑" />
+                        </RelativePanel>
+                    </Button>
+
+                    <Button
+                        x:Name="ListDetailsDetailControl_DeleteButton"
+                        x:Uid="ListDetailsDetailControl_DeleteButton"
+                        Width="200"
+                        Height="40"
+                        Click="ListDetailsDetailControl_DeleteButton_Click"
+                        RelativePanel.AlignRightWithPanel="True">
+                        <RelativePanel>
+                            <FontIcon
+                                x:Name="ListDetailsDetailControl_DeleteButtonIcon"
+                                FontFamily="{StaticResource SymbolThemeFontFamily}"
+                                Glyph="&#xE74D;" />
+                            <TextBlock
+                                x:Uid="ListDetailsDetailControl_DeleteButtonText"
+                                Margin="4,0,0,0"
+                                RelativePanel.RightOf="ListDetailsDetailControl_DeleteButtonIcon"
+                                Text="删除" />
+                        </RelativePanel>
+                    </Button>
+                </RelativePanel>
+
             </StackPanel>
         </StackPanel>
     </ScrollViewer>

@@ -3,51 +3,60 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 
 using GoodPass.Contracts.ViewModels;
-using GoodPass.Core.Contracts.Services;
-using GoodPass.Core.Models;
+using GoodPass.Models;
+using GoodPass.Services;
 
 namespace GoodPass.ViewModels;
 
 public class ListDetailsViewModel : ObservableRecipient, INavigationAware
 {
-    private readonly ISampleDataService _sampleDataService;
-    private SampleOrder? _selected;
-
-    public SampleOrder? Selected
-    {
-        get => _selected;
-        set => SetProperty(ref _selected, value);
-    }
-
-    public ObservableCollection<SampleOrder> SampleItems { get; private set; } = new ObservableCollection<SampleOrder>();
-
-    public ListDetailsViewModel(ISampleDataService sampleDataService)
-    {
-        _sampleDataService = sampleDataService;
-    }
-
-    public async void OnNavigatedTo(object parameter)
-    {
-        SampleItems.Clear();
-
-        // TODO: Replace with real data.
-        var data = await _sampleDataService.GetListDetailsDataAsync();
-
-        foreach (var item in data)
-        {
-            SampleItems.Add(item);
-        }
-    }
-
     public void OnNavigatedFrom()
     {
     }
 
+    private readonly GoodPassDataService _dataService;
+    private GPData? _selectedData;
+    public ObservableCollection<GPData> DataItems { get; private set; } = new ObservableCollection<GPData>();
+
+    public ListDetailsViewModel(GoodPassDataService goodPassDataService)
+    {
+        _dataService = goodPassDataService;
+    }
+
+    public async void OnNavigatedTo(object parameter)
+    {
+        DataItems.Clear();
+
+        var datas = await _dataService.GetListDetailsDataAsync();
+
+        foreach (var data in datas)
+        {
+            DataItems.Add(data);
+        }
+        EnsureItemSelected();
+    }
+
+    public GPData? SlectedData
+    {
+        get => _selectedData;
+        set => SetProperty(ref _selectedData, value);
+    }
+
     public void EnsureItemSelected()
     {
-        if (Selected == null)
+        if (SlectedData == null)
         {
-            Selected = SampleItems.First();
+            SlectedData = DataItems.First();
         }
+    }
+
+    public bool DeleteDataItem(GPData targetItem)
+    {
+        return DataItems.Remove(targetItem);
+    }
+
+    public void AddDataItem(GPData newData)
+    {
+        DataItems.Add(newData);
     }
 }

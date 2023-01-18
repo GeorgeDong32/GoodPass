@@ -1,4 +1,4 @@
-﻿namespace GoodPass.Core.Models;
+﻿namespace GoodPass.Models;
 
 // Model for the SampleDataService. Replace with your own model.
 public class SampleOrderDetail

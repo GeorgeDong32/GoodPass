@@ -167,10 +167,10 @@
     <value>安全简洁的密码管家</value>
   </data>
   <data name="SettingsPage_PrivacyTermsLink.NavigateUri" xml:space="preserve">
-    <value>https://github.com/GeorgeDong32/GoodPass/blob/main/Statements%26Agreements/Privacy%20Statement.md</value>
+    <value>https://github.com/GeorgeDong32/GoodPass/blob/main/Docs/Statements%26Agreements/Privacy%20Statement.md</value>
   </data>
   <data name="SettingsPage_UserAgreementLink.NavigateUri" xml:space="preserve">
-    <value>https://github.com/GeorgeDong32/GoodPass/blob/main/Statements%26Agreements/User%20Agreement.md</value>
+    <value>https://github.com/GeorgeDong32/GoodPass/blob/main/Docs/Statements%26Agreements/User%20Agreement.md</value>
   </data>
   <data name="ShellMenuBarSettingsButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
     <value>设置</value>
@@ -192,23 +192,95 @@
   <data name="ShellMenuItem_File_Lock.Text" xml:space="preserve">
     <value>锁定</value>
   </data>
-  <data name="SettingsPage_PrivacyTermsLink.Content" xml:space="preserve">
-    <value>隐私声明</value>
-  </data>
-  <data name="SettingsPage_UserAgreementLink.Content" xml:space="preserve">
-    <value>用户协议</value>
-  </data>
   <data name="Settings_Title.Text" xml:space="preserve">
     <value>设置</value>
     <comment>Page title for SettingsPage</comment>
   </data>
-  <data name="SettingsPage_OpenSourceLicense.Content" xml:space="preserve">
-    <value>开源许可证</value>
-  </data>
   <data name="SettingsPage_OpenSourceLicense.NavigateUri" xml:space="preserve">
-    <value>https://github.com/GeorgeDong32/GoodPass/blob/main/LICENSE</value>
+    <value>https://github.com/GeorgeDong32/GoodPass/blob/main/LICENSE.md</value>
   </data>
   <data name="GoToGithub_Button.NavigateUri" xml:space="preserve">
     <value>https://github.com/GeorgeDong32/GoodPass</value>
+  </data>
+  <data name="GoToGithub_Button_Text.Text" xml:space="preserve">
+    <value>View GitHub Repository</value>
+  </data>
+  <data name="SettingsPage_OpenSourceLicense_Text.Text" xml:space="preserve">
+    <value>开源许可证</value>
+  </data>
+  <data name="SettingsPage_PrivacyTermsLink_Text.Text" xml:space="preserve">
+    <value>隐私声明</value>
+  </data>
+  <data name="SettingsPage_UserAgreementLink_Text.Text" xml:space="preserve">
+    <value>用户协议</value>
+  </data>
+  <data name="ListDetailsDetailControl_AccountNameTitleText" xml:space="preserve">
+    <value>账户名</value>
+  </data>
+  <data name="ListDetailsDetailControl_LastmodifiedTitleText" xml:space="preserve">
+    <value>最后修改时间</value>
+  </data>
+  <data name="ListDetailsDetailControl_PasswordTitleText" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="ListDetailsDetailControl_PlatformUrlTitleText" xml:space="preserve">
+    <value>平台链接</value>
+  </data>
+  <data name="ShellMenuBarAddDataButtonText.Text" xml:space="preserve">
+    <value>添加数据</value>
+  </data>
+  <data name="AddDataDialog_PlatformBox.Header" xml:space="preserve">
+    <value>平台名称</value>
+  </data>
+  <data name="AddDataDialog_PlatformBox.PlaceholderText" xml:space="preserve">
+    <value>请输入平台名</value>
+  </data>
+  <data name="AddDataDialog_AccountBox.Header" xml:space="preserve">
+    <value>账号名</value>
+  </data>
+  <data name="AddDataDialog_AccountBox.PlaceholderText" xml:space="preserve">
+    <value>请输入账号名</value>
+  </data>
+  <data name="AddDataDialog_PasswordBox.Header" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="AddDataDialog_PasswordBox.PlaceholderText" xml:space="preserve">
+    <value>请输入密码</value>
+  </data>
+  <data name="AddDataDialog_PasswordModeText.Text" xml:space="preserve">
+    <value>生成密码</value>
+  </data>
+  <data name="AddDataDialog_PasswordMode_GPStyle.Text" xml:space="preserve">
+    <value>GoodPass风格</value>
+  </data>
+  <data name="AddDataDialog_PasswordMode_RandomNoSpec.Text" xml:space="preserve">
+    <value>随机生成(无特殊字符)</value>
+  </data>
+  <data name="AddDataDialog_PasswordMode_RandomSpec.Text" xml:space="preserve">
+    <value>随机生成(有特殊字符)</value>
+  </data>
+  <data name="AddDataDialog_PlatformUrlBox.Header" xml:space="preserve">
+    <value>平台链接</value>
+  </data>
+  <data name="AddDataDialog_PlatformUrlBox.PlaceholderText" xml:space="preserve">
+    <value>https://example.com</value>
+  </data>
+  <data name="ShellMenuBarAddDataButton_Flyout_Title.Text" xml:space="preserve">
+    <value>请先解锁后再添加数据！</value>
+  </data>
+  <data name="AddDataDialog_PlatformCheckText.Text" xml:space="preserve">
+    <value>平台名不能为空</value>
+  </data>
+  <data name="AddDataDialog_AccountCheckText.Text" xml:space="preserve">
+    <value>账号名不能为空</value>
+  </data>
+  <data name="AddDataDialog_UrlCheckText.Text" xml:space="preserve">
+    <value>Url为空，可选择添加链接</value>
+  </data>
+  <data name="AddDataDialog_PasswordLengthBox.PlaceholderText" xml:space="preserve">
+    <value>长度</value>
+  </data>
+  <data name="AddDataDialog_PasswordLengthTeachtip.Title" xml:space="preserve">
+    <value>请先输入生成密码长度</value>
   </data>
 </root>

@@ -1,6 +1,8 @@
 *.exe
 *.o
 *.layout
+#忽略证书
+*.fpx
 #忽略文件夹
 .vs
 x64/
@@ -267,3 +269,4 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
+SigningCertificate_Encoded.txt

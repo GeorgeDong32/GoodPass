@@ -1,12 +1,10 @@
 ﻿using GoodPass.Contracts.Services;
 using GoodPass.Helpers;
 using GoodPass.ViewModels;
-
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
-
 using Windows.System;
 
 namespace GoodPass.Views;
@@ -43,6 +41,8 @@ public sealed partial class ShellPage : Page
 
         ShellMenuBarSettingsButton.AddHandler(UIElement.PointerPressedEvent, new PointerEventHandler(ShellMenuBarSettingsButton_PointerPressed), true);
         ShellMenuBarSettingsButton.AddHandler(UIElement.PointerReleasedEvent, new PointerEventHandler(ShellMenuBarSettingsButton_PointerReleased), true);
+        ShellMenuBarItem_Back.AddHandler(UIElement.PointerPressedEvent, new PointerEventHandler(ShellMenuBarItem_Back_PointerPressed), true);
+        ShellMenuBarItem_Back.AddHandler(UIElement.PointerReleasedEvent, new PointerEventHandler(ShellMenuBarItem_Back_PointerReleased), true);
     }
 
     private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
@@ -56,6 +56,8 @@ public sealed partial class ShellPage : Page
     {
         ShellMenuBarSettingsButton.RemoveHandler(UIElement.PointerPressedEvent, (PointerEventHandler)ShellMenuBarSettingsButton_PointerPressed);
         ShellMenuBarSettingsButton.RemoveHandler(UIElement.PointerReleasedEvent, (PointerEventHandler)ShellMenuBarSettingsButton_PointerReleased);
+        ShellMenuBarItem_Back.RemoveHandler(UIElement.PointerReleasedEvent, (PointerEventHandler)ShellMenuBarItem_Back_PointerPressed);
+        ShellMenuBarItem_Back.RemoveHandler(UIElement.PointerPressedEvent, (PointerEventHandler)ShellMenuBarItem_Back_PointerPressed);
     }
 
     private static KeyboardAccelerator BuildKeyboardAccelerator(VirtualKey key, VirtualKeyModifiers? modifiers = null)
@@ -109,5 +111,38 @@ public sealed partial class ShellPage : Page
     private void ShellMenuBarItem_Back_PointerReleased(object sender, PointerRoutedEventArgs e)
     {
         AnimatedIcon.SetState((UIElement)sender, "Normal");
+    }
+
+    private async void ShellMenuBarAddDataButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (App.App_IsLock())
+        {
+            ShellMenuBarAddDataButton.Flyout.ShowAt(ShellMenuBarSettingsButton);
+        }
+        else if (App.App_IsLock() == false)
+        {
+            ShellMenuBarAddDataButton.Flyout.Hide();
+            AddDataDialog addDataDialog = new()
+            {
+                XamlRoot = this.XamlRoot,
+                Style = App.Current.Resources["DefaultContentDialogStyle"] as Style
+            };
+            var result = await addDataDialog.ShowAsync();
+            if (addDataDialog.Result == Models.AddDataResult.Failure_Duplicate)
+            {
+                GPDialog2 warningdialog = new()
+                {
+                    XamlRoot = this.XamlRoot,
+                    Style = App.Current.Resources["DefaultContentDialogStyle"] as Style
+                };
+                warningdialog.Title = "出错了！";
+                warningdialog.Content = "数据重复，请前往修改已存在的数据";
+                var _ = await warningdialog.ShowAsync();
+            }
+        }
+        else
+        {
+            ShellMenuBarAddDataButton.Flyout.ShowAt(ShellMenuBarSettingsButton);
+        }
     }
 }

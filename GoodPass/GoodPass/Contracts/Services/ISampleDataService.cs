@@ -1,6 +1,6 @@
-﻿using GoodPass.Core.Models;
+﻿using GoodPass.Models;
 
-namespace GoodPass.Core.Contracts.Services;
+namespace GoodPass.Contracts.Services;
 
 // Remove this class once your pages/features are using your data.
 public interface ISampleDataService

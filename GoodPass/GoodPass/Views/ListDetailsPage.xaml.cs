@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.WinUI.UI.Controls;
-
+using GoodPass.Services;
 using GoodPass.ViewModels;
-
 using Microsoft.UI.Xaml.Controls;
 
 namespace GoodPass.Views;
@@ -15,7 +14,8 @@ public sealed partial class ListDetailsPage : Page
 
     public ListDetailsPage()
     {
-        ViewModel = App.GetService<ListDetailsViewModel>();
+        App.ListDetailsVM = new ListDetailsViewModel(App.GetService<GoodPassDataService>());
+        ViewModel = App.ListDetailsVM;
         InitializeComponent();
     }
 
@@ -26,4 +26,6 @@ public sealed partial class ListDetailsPage : Page
             ViewModel.EnsureItemSelected();
         }
     }
+
+    public ListDetailsViewModel GetDetailsViewModel() => ViewModel;
 }

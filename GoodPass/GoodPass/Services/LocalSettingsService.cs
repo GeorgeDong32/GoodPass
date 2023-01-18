@@ -1,6 +1,4 @@
 ﻿using GoodPass.Contracts.Services;
-using GoodPass.Core.Contracts.Services;
-using GoodPass.Core.Helpers;
 using GoodPass.Helpers;
 using GoodPass.Models;
 

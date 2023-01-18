@@ -1,13 +1,10 @@
 ﻿using GoodPass.Activation;
 using GoodPass.Contracts.Services;
-using GoodPass.Core.Contracts.Services;
-using GoodPass.Core.Services;
 using GoodPass.Models;
 using GoodPass.Notifications;
 using GoodPass.Services;
 using GoodPass.ViewModels;
 using GoodPass.Views;
-
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.UI.Xaml;
@@ -33,6 +30,12 @@ public partial class App : Application
     public static int[]? MKBase;
     /*End MasterKey加密数组*/
 
+    /*数据成员*/
+    public static GPManager DataManager;
+
+    public static ListDetailsViewModel ListDetailsVM;
+    /*End 数据成员*/
+
     /*App状态区*/
     private static bool LockConsition
     {
@@ -44,7 +47,7 @@ public partial class App : Application
         get; set;
     }
 
-    public static bool App_IsLock() => LockConsition;
+    public static bool App_IsLock() => LockConsition;//true为锁定状态，false为解锁状态
 
     public static void App_UnLock() => LockConsition = false;
 
@@ -83,10 +86,11 @@ public partial class App : Application
             services.AddSingleton<IMaterKeyService, MasterKeyService>();
             services.AddSingleton<MasterKeyService>();
             services.AddSingleton<GoodPassSHAServices>();
-
-            // Core Services
+            services.AddSingleton<GoodPassCryptographicServices>();
+            services.AddSingleton<GoodPassDataService>();
             services.AddSingleton<ISampleDataService, SampleDataService>();
             services.AddSingleton<IFileService, FileService>();
+            services.AddSingleton<ListDetailsViewModel>();
 
             // Views and ViewModels
             services.AddTransient<SettingsViewModel>();
@@ -104,6 +108,8 @@ public partial class App : Application
             services.Configure<LocalSettingsOptions>(context.Configuration.GetSection(nameof(LocalSettingsOptions)));
         }).
         Build();
+
+        /*禁止在类中初始化static成员*/
 
         App.GetService<IAppNotificationService>().Initialize();
 

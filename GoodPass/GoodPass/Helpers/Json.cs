@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace GoodPass.Core.Helpers;
+namespace GoodPass.Helpers;
 
 public static class Json
 {

@@ -2,52 +2,89 @@
     x:Class="GoodPass.Views.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     mc:Ignorable="d">
 
     <Grid x:Name="LoginPage" RowSpacing="20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="150"/>
+            <RowDefinition Height="150" />
             <RowDefinition Height="48" />
-            <RowDefinition Height="160"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="32"/>
+            <RowDefinition Height="160" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="32" />
         </Grid.RowDefinitions>
 
-        <Image x:Name="Login_Icon" Grid.Row="0" Grid.Column="1"
-                   Source="/Assets/GoodPass128.png"
-        />
+        <Image
+            x:Name="Login_Icon"
+            Grid.Row="0"
+            Grid.Column="1"
+            Source="/Assets/GoodPass128.png" />
 
-        <TextBlock x:Name="Login_Title" Grid.Row="1" Grid.Column="1"
-            Text="Welcome to GoodPass"
+        <TextBlock
+            x:Name="Login_Title"
+            Grid.Row="1"
+            Grid.Column="1"
             HorizontalAlignment="Center"
             FontSize="40"
-        />
+            Text="Welcome to GoodPass" />
 
-        <Grid x:Name="Login_PasswordArea" Grid.Row="2" Grid.Column="1" Width="480" >
-            <Border CornerRadius="10" BorderThickness="2" BorderBrush="#e1e1e1" Width="450" Height="150"/>
+        <Grid
+            x:Name="Login_PasswordArea"
+            Grid.Row="2"
+            Grid.Column="1"
+            Width="480">
+            <Border
+                Width="450"
+                Height="150"
+                BorderBrush="#e1e1e1"
+                BorderThickness="2"
+                CornerRadius="10" />
 
-            <Grid Width="480" Height="120" VerticalAlignment="Center">
-                <TextBlock x:Name="Login_Password_title" Width="400" 
-                           Text="主密码"
-                           TextAlignment="Left" 
-                           FontSize="22" FontWeight="Light"/>
+            <Grid
+                Width="480"
+                Height="120"
+                VerticalAlignment="Center">
+                <TextBlock
+                    x:Name="Login_Password_title"
+                    Width="400"
+                    FontSize="22"
+                    FontWeight="Light"
+                    Text="主密码"
+                    TextAlignment="Left" />
 
-                <PasswordBox x:Name="Login_PssswordBox" Width="400" Height="34"
-                             PlaceholderText="请输入密码以解锁" PasswordChanging="Login_PssswordBox_PasswordChanging"/>
+                <PasswordBox
+                    x:Name="Login_PssswordBox"
+                    Width="400"
+                    Height="34"
+                    PasswordChanging="Login_PssswordBox_PasswordChanging"
+                    PlaceholderText="请输入密码以解锁" />
 
-                <Button x:Name="Login_Check" Width="120" Height="35" HorizontalAlignment="Center" VerticalAlignment="Bottom"
-                        FontFamily="Segoe MDL2 Assets" Content="&#xE785;" Click="Login_Check_ClickAsync" ToolTipService.ToolTip="解锁"/>
+                <Button
+                    x:Name="Login_Check"
+                    Width="120"
+                    Height="35"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Bottom"
+                    Click="Login_Check_ClickAsync"
+                    Content="&#xE785;"
+                    FontFamily="Segoe MDL2 Assets"
+                    ToolTipService.ToolTip="解锁" />
             </Grid>
         </Grid>
 
-        <Grid Grid.Row="3" HorizontalAlignment="Center" Width="450">
+        <Grid
+            Grid.Row="3"
+            Width="450"
+            HorizontalAlignment="Center">
 
-            <InfoBar x:Name="Login_InfoBar"
-                     IsOpen="False" IsIconVisible="True" IsClosable="True">
-            <InfoBar.Title>GoodPass:</InfoBar.Title>
+            <InfoBar
+                x:Name="Login_InfoBar"
+                IsClosable="True"
+                IsIconVisible="True"
+                IsOpen="False">
+                <InfoBar.Title>GoodPass:</InfoBar.Title>
             </InfoBar>
         </Grid>
 

@@ -1,10 +1,10 @@
 ﻿using System.Text;
 
-using GoodPass.Core.Contracts.Services;
+using GoodPass.Contracts.Services;
 
 using Newtonsoft.Json;
 
-namespace GoodPass.Core.Services;
+namespace GoodPass.Services;
 
 public class FileService : IFileService
 {

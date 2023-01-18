@@ -2,9 +2,9 @@
     x:Class="GoodPass.Views.ShellPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:animatedvisuals="using:Microsoft.UI.Xaml.Controls.AnimatedVisuals"
     Loaded="OnLoaded"
     Unloaded="OnUnloaded"
     mc:Ignorable="d">
@@ -14,45 +14,87 @@
             <RowDefinition Height="48" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" x:Name="AppTitleBar">
-            <Image Source="/Assets/GPico128.ico" HorizontalAlignment="Left" Width="16" Height="16" Margin="8,0"/>
-            <TextBlock x:Name="AppTitleBarText" VerticalAlignment="Center" TextWrapping="NoWrap" Style="{StaticResource CaptionTextBlockStyle}" Margin="32, 0, 0, 0"/>
+        <Grid x:Name="AppTitleBar" Grid.Row="0">
+            <Image
+                Width="16"
+                Height="16"
+                Margin="8,0"
+                HorizontalAlignment="Left"
+                Source="/Assets/GPico128.ico" />
+            <TextBlock
+                x:Name="AppTitleBarText"
+                Margin="32,0,0,0"
+                VerticalAlignment="Center"
+                Style="{StaticResource CaptionTextBlockStyle}"
+                TextWrapping="NoWrap" />
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <AppBarButton x:Name="ShellMenuBarItem_Back" Grid.Column="0" HorizontalAlignment="Left"
-                          AnimatedIcon.State="Normal"
-                          PointerPressed="ShellMenuBarItem_Back_PointerPressed"
-                          PointerReleased="ShellMenuBarItem_Back_PointerReleased"
-                          Command="{x:Bind ViewModel.GoBackCommand}">
+            <AppBarButton
+                x:Name="ShellMenuBarItem_Back"
+                Grid.Column="0"
+                HorizontalAlignment="Left"
+                AnimatedIcon.State="Normal"
+                Command="{x:Bind ViewModel.GoBackCommand}"
+                PointerPressed="ShellMenuBarItem_Back_PointerPressed"
+                PointerReleased="ShellMenuBarItem_Back_PointerReleased">
                 <AnimatedIcon x:Name="ShellMenuBarGoBackIcon">
-                    <AnimatedIcon.Source>
-                        <animatedvisuals:AnimatedBackVisualSource/>
-                    </AnimatedIcon.Source>
+                    <animatedvisuals:AnimatedBackVisualSource />
+                    <AnimatedIcon.FallbackIconSource>
+                        <SymbolIconSource Symbol="Back" />
+                    </AnimatedIcon.FallbackIconSource>
                 </AnimatedIcon>
             </AppBarButton>
             <MenuBar Grid.Column="1">
                 <MenuBarItem x:Uid="ShellMenuBarItem_File">
                     <MenuFlyoutItem x:Uid="ShellMenuItem_File_Exit" Command="{x:Bind ViewModel.MenuFileExitCommand}" />
-                    <!--ToDo：应该替换为Command：MenuLock（保存文件+回到登录界面）-->
-                    <MenuFlyoutItem x:Uid="ShellMenuItem_File_Lock" Command="{x:Bind ViewModel.MenuFileLockCommand}"/>
+                    <!--  ToDo：应该替换为Command：MenuLock（保存文件+回到登录界面）  -->
+                    <MenuFlyoutItem x:Uid="ShellMenuItem_File_Lock" Command="{x:Bind ViewModel.MenuFileLockCommand}" />
                 </MenuBarItem>
             </MenuBar>
-            <AppBarButton Grid.Column="2" x:Name="ShellMenuBarSettingsButton" x:Uid="ShellMenuBarSettingsButton"
-                          AnimatedIcon.State="Normal"
-                          PointerEntered="ShellMenuBarSettingsButton_PointerEntered"
-                          PointerExited="ShellMenuBarSettingsButton_PointerExited"
-                          Command="{x:Bind ViewModel.MenuSettingsCommand}">
+            <AppBarButton
+                x:Name="ShellMenuBarAddDataButton"
+                Grid.Column="2"
+                Click="ShellMenuBarAddDataButton_Click">
+                <RelativePanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <FontIcon
+                        x:Name="ShellMenuBarAddDataButtonIcon"
+                        Margin="0,0,4,0"
+                        FontFamily="Segoe MDL2 Assets"
+                        FontSize="18"
+                        Glyph="&#xE710;" />
+                    <TextBlock
+                        x:Name="ShellMenuBarAddDataButtonText"
+                        x:Uid="ShellMenuBarAddDataButtonText"
+                        RelativePanel.RightOf="ShellMenuBarAddDataButtonIcon" />
+                </RelativePanel>
+                <AppBarButton.Flyout>
+                    <Flyout LightDismissOverlayMode="On">
+                        <StackPanel>
+                            <TextBlock x:Uid="ShellMenuBarAddDataButton_Flyout_Title" />
+                        </StackPanel>
+                    </Flyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <AppBarButton
+                x:Name="ShellMenuBarSettingsButton"
+                x:Uid="ShellMenuBarSettingsButton"
+                Grid.Column="3"
+                AnimatedIcon.State="Normal"
+                Command="{x:Bind ViewModel.MenuSettingsCommand}"
+                PointerEntered="ShellMenuBarSettingsButton_PointerEntered"
+                PointerExited="ShellMenuBarSettingsButton_PointerExited">
                 <AnimatedIcon x:Name="ShellMenuBarSettingsButtonIcon">
                     <AnimatedIcon.Source>
-                        <animatedvisuals:AnimatedSettingsVisualSource/>
+                        <animatedvisuals:AnimatedSettingsVisualSource />
                     </AnimatedIcon.Source>
                     <AnimatedIcon.FallbackIconSource>
-                        <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE713;"/>
+                        <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE713;" />
                     </AnimatedIcon.FallbackIconSource>
                 </AnimatedIcon>
             </AppBarButton>
