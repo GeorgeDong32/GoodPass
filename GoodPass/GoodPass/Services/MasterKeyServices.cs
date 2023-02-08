@@ -1,31 +1,35 @@
 ﻿using GoodPass.Contracts.Services;
+using GoodPass.Helpers;
 
 namespace GoodPass.Services;
 
+/// <summary>
+/// Provide services such as verifying the master password and setting the master password.
+/// </summary>
 public class MasterKeyService : IMaterKeyService
 {
-    private string _LocalMKHash;
+    private string localMKHash;
     readonly string userName;
 
-    readonly string _appdataPath;
+    readonly string appdataPath;
 
-    private readonly string _LocalMKPath;
-
-    private readonly GoodPassSHAServices GPHESService = new();
-
-    private readonly Helpers.TaskTConverter taskTConverter = new();
+    private readonly string localMKPath;
 
     public MasterKeyService()
     {
         userName = Environment.UserName;
-        _appdataPath = $"C:\\Users\\{userName}\\AppData\\Local";
-        _LocalMKPath = Path.Combine(_appdataPath, "GoodPass", "MKconfig.txt");
-        _LocalMKHash = "";
+        appdataPath = $"C:\\Users\\{userName}\\AppData\\Local";
+        localMKPath = Path.Combine(appdataPath, "GoodPass", "MKconfig.txt");
+        localMKHash = "";
     }
 
+    /// <summary>
+    /// 设置本地哈希校验值
+    /// </summary>
+    /// <param name="MasterKey">主密码</param>
     public bool SetLocalMKHash(string MasterKey)
     {
-        var GoodPassFolderPath = Path.Combine(_appdataPath, "GoodPass");
+        var GoodPassFolderPath = Path.Combine(appdataPath, "GoodPass");
         var MKconfigPath = Path.Combine(GoodPassFolderPath, "MKconfig.txt");
         if (!System.IO.Directory.Exists(GoodPassFolderPath))
         {
@@ -35,7 +39,7 @@ public class MasterKeyService : IMaterKeyService
                 System.IO.File.Create(MKconfigPath).Close();
                 if (System.IO.File.Exists(MKconfigPath))
                 {
-                    System.IO.File.WriteAllText(MKconfigPath, GPHESService.getGPHES(MasterKey));
+                    System.IO.File.WriteAllText(MKconfigPath, GoodPassSHAServices.getGPHES(MasterKey));
                     return true;
                 }
                 else
@@ -57,7 +61,7 @@ public class MasterKeyService : IMaterKeyService
                 System.IO.File.Create(MKconfigPath).Close();
                 if (System.IO.File.Exists(MKconfigPath))
                 {
-                    System.IO.File.WriteAllText(MKconfigPath, GPHESService.getGPHES(MasterKey));
+                    System.IO.File.WriteAllText(MKconfigPath, GoodPassSHAServices.getGPHES(MasterKey));
                     return true;
                 }
                 else
@@ -68,7 +72,7 @@ public class MasterKeyService : IMaterKeyService
             }
             else
             {
-                System.IO.File.WriteAllText(MKconfigPath, GPHESService.getGPHES(MasterKey));
+                System.IO.File.WriteAllText(MKconfigPath, GoodPassSHAServices.getGPHES(MasterKey));
                 return true;
             }
         }
@@ -78,56 +82,63 @@ public class MasterKeyService : IMaterKeyService
         }
     }
 
+    /// <summary>
+    /// 获取本地主密码哈希校验值
+    /// </summary>
+    /// <returns>本地哈希校验值</returns>
     public string GetLocalMKHash()
     {
         var LocalMKHash = "";
         try
         {
-            LocalMKHash = File.ReadAllText(_LocalMKPath);
+            LocalMKHash = File.ReadAllText(localMKPath);
         }
         catch (System.IO.DirectoryNotFoundException)
         {
-            _LocalMKHash = "Not found";
+            localMKHash = "Not found";
             LocalMKHash = "Not found";
         }
         catch (System.IO.FileNotFoundException)
         {
-            _LocalMKHash = "Not found";
+            localMKHash = "Not found";
             LocalMKHash = "Not found";
         }
         finally
         {
             if (LocalMKHash == "")
-                _LocalMKHash = "Empty";
+                localMKHash = "Empty";
             else
-                _LocalMKHash = LocalMKHash;
+                localMKHash = LocalMKHash;
         }
-        return _LocalMKHash;
+        return localMKHash;
     }
 
+    /// <summary>
+    /// (封装的)校验主密码方法
+    /// </summary>
+    /// <param name="InputKey">输入的主密码</param>
+    /// <returns>校验结果</returns>
     public string CheckMasterKey(string InputKey)
     {
-        /*Debug codes
-        string userName = Environment.UserName;
-        string logPath = $"C:\\Users\\{userName}\\Documents\\GoodPass\\GPlog.txt";
-        System.IO.File.WriteAllText(logPath,InputKey);
-        /*End Debug codes*/
-        var InputKeyHash = GPHESService.getGPHES(InputKey);
+        var InputKeyHash = GoodPassSHAServices.getGPHES(InputKey);
         GetLocalMKHash();
-        if (InputKeyHash == _LocalMKHash)
+        if (InputKeyHash == localMKHash)
         {
             ProcessMKArray(InputKey);
             return "pass";
         }
-        else if (_LocalMKHash == "Not found")
+        else if (localMKHash == "Not found")
             return "error: not found";
-        else if (_LocalMKHash == "Empty")
+        else if (localMKHash == "Empty")
             return "error: data broken";
-        else if (InputKeyHash != _LocalMKHash)
+        else if (InputKeyHash != localMKHash)
             return "npass";
         else return "Unknown Error";
     }
 
+    /// <summary>
+    /// 生成App的加密基和主密码基
+    /// </summary>
     public void ProcessMKArray(string InputKey)
     {
         App.EncryptBase = new int[40] { 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9, 3, 2, 3, 8, 4, 6, 2, 6, 4, 3, 3, 8, 3, 2, 7, 9, 5, 0, 2, 8, 8, 4, 1, 9, 7, 1 };
@@ -173,43 +184,47 @@ public class MasterKeyService : IMaterKeyService
         }
     }
 
+    /// <summary>
+    /// (异步)获取本地主密码哈希校验值
+    /// </summary>
+    /// <returns>本地哈希校验值</returns>
     public async Task<string> GetLocalMKHashAsync()/*ToDo：通过RATAsync的异常机制精简方法*/
     {
-        Task<string> LocalMKHash = taskTConverter.StringToTaskString(""); ;
+        Task<string> LocalMKHash = TaskTConverter.StringToTaskString(""); ;
         try
         {
             //使用部分同步方法用以解决异步方法不抛出异常的问题
-            var tryreadfile = File.ReadAllText(_LocalMKPath);
-            LocalMKHash = File.ReadAllTextAsync(_LocalMKPath);
+            var tryreadfile = File.ReadAllText(localMKPath);
+            LocalMKHash = File.ReadAllTextAsync(localMKPath);
         }
         catch (System.IO.DirectoryNotFoundException)
         {
-            _LocalMKHash = "Not found";
-            LocalMKHash = taskTConverter.StringToTaskString("Not found");
+            localMKHash = "Not found";
+            LocalMKHash = TaskTConverter.StringToTaskString("Not found");
         }
         catch (System.IO.FileNotFoundException)
         {
-            _LocalMKHash = "Not found";
-            LocalMKHash = taskTConverter.StringToTaskString("Not found");
+            localMKHash = "Not found";
+            LocalMKHash = TaskTConverter.StringToTaskString("Not found");
         }
         finally
         {
             if (LocalMKHash.Result == String.Empty)
-                _LocalMKHash = "Empty";
+                localMKHash = "Empty";
             else
-                _LocalMKHash = LocalMKHash.Result;
+                localMKHash = LocalMKHash.Result;
         }
         return await LocalMKHash;
     }
 
+    /// <summary>
+    /// (封装的异步)校验主密码方法
+    /// </summary>
+    /// <param name="InputKey">输入的主密码</param>
+    /// <returns>校验结果</returns>
     public async Task<string> CheckMasterKeyAsync(string InputKey)
     {
-        /*Debug codes
-        string userName = Environment.UserName;
-        string logPath = $"C:\\Users\\{userName}\\Documents\\GoodPass\\GPlog.txt";
-        System.IO.File.WriteAllText(logPath, InputKey);
-        /*End Debug codes*/
-        var InputKeyHash = GPHESService.getGPHES(InputKey);
+        var InputKeyHash = GoodPassSHAServices.getGPHES(InputKey);
         var LocalMKHash = await GetLocalMKHashAsync();
         if (InputKeyHash == LocalMKHash)
         {

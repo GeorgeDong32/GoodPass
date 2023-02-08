@@ -1,8 +1,10 @@
 ﻿using GoodPass.Activation;
 using GoodPass.Contracts.Services;
+using GoodPass.Dialogs;
 using GoodPass.Models;
 using GoodPass.Notifications;
 using GoodPass.Services;
+using GoodPass.Strings;
 using GoodPass.ViewModels;
 using GoodPass.Views;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,40 +27,98 @@ public partial class App : Application
         get;
     }
 
-    /*MasterKey加密数组*/
+    /// <summary>
+    /// 加密基数组
+    /// </summary>
     public static int[]? EncryptBase;
+    /// <summary>
+    /// 主密码基数组
+    /// </summary>
     public static int[]? MKBase;
-    /*End MasterKey加密数组*/
 
-    /*数据成员*/
+    /// <summary>
+    /// 数据管理成员
+    /// </summary>
     public static GPManager DataManager;
 
+    /// <summary>
+    /// 公共的ListDetailViewModel
+    /// </summary>
     public static ListDetailsViewModel ListDetailsVM;
-    /*End 数据成员*/
 
-    /*App状态区*/
+    /// <summary>
+    /// App锁定情况
+    /// </summary>
     private static bool LockConsition
     {
         get; set;
     }
 
+    /// <summary>
+    /// App设置页情况
+    /// </summary>
     private static bool InSettingsPage
     {
         get; set;
     }
 
-    public static bool App_IsLock() => LockConsition;//true为锁定状态，false为解锁状态
+    /// <summary>
+    /// MainOOBE状态
+    /// </summary>
+    public static OOBESituation MainOOBE
+    {
+        get; set;
+    }
 
+    public static OOBESituation ShellOOBE
+    {
+        get; set;
+    }
+
+    public static OOBESituation AgreementOOBE
+    {
+        get; set;
+    }
+
+    /// <summary>
+    /// 多语言字符串资源
+    /// </summary>
+    public static UIStrings UIStrings
+    {
+        get; set;
+    }
+
+    /// <summary>
+    /// 获取App锁定情况
+    /// </summary>
+    /// <returns>true为锁定状态，false为解锁状态</returns>
+    public static bool App_IsLock() => LockConsition;//
+
+    /// <summary>
+    /// 解锁App接口
+    /// </summary>
     public static void App_UnLock() => LockConsition = false;
 
+    /// <summary>
+    /// 锁定App接口
+    /// </summary>
     public static void App_Lock() => LockConsition = true;
 
+    /// <summary>
+    /// 获取App设置页情况
+    /// </summary>
+    /// <returns>true为在设置页，false为不在设置页</returns>
     public static bool IsInSettingsPage() => InSettingsPage;
 
+    /// <summary>
+    /// 进入设置页状态更改接口
+    /// </summary>
     public static void GoInSettingsPage() => InSettingsPage = true;
 
+    /// <summary>
+    /// 离开设置页状态更改接口
+    /// </summary>
     public static void LeftSettingsPage() => InSettingsPage = false;
-    /*App 状态区结束*/
 
     public static WindowEx MainWindow { get; } = new MainWindow();
 
@@ -84,13 +144,13 @@ public partial class App : Application
             services.AddSingleton<IPageService, PageService>();
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<IMaterKeyService, MasterKeyService>();
+            services.AddSingleton<IFileService, FileService>();
             services.AddSingleton<MasterKeyService>();
-            services.AddSingleton<GoodPassSHAServices>();
             services.AddSingleton<GoodPassCryptographicServices>();
             services.AddSingleton<GoodPassDataService>();
-            services.AddSingleton<ISampleDataService, SampleDataService>();
-            services.AddSingleton<IFileService, FileService>();
+            services.AddSingleton<OOBEServices>();
             services.AddSingleton<ListDetailsViewModel>();
+            services.AddSingleton<MultilingualStringsServices>();
 
             // Views and ViewModels
             services.AddTransient<SettingsViewModel>();

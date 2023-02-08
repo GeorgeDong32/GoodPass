@@ -4,8 +4,10 @@ namespace GoodPass.Services;
 
 public class GoodPassDataService
 {
-    private List<GPData> _allDatas;
-
+    /// <summary>
+    /// 从DataManager获取IEnumerable形式的所有数据或初始化示例数据
+    /// </summary>
+    /// <returns>IEnumerable形式的数据列表</returns>
     private static IEnumerable<GPData> AllDatas()
     {
         var manager = App.DataManager;
@@ -35,12 +37,13 @@ public class GoodPassDataService
         }
     }
 
+    /// <summary>
+    /// 异步获取IEnumerable形式的所有数据或初始化示例数据
+    /// </summary>
+    /// <returns>异步的IEnumerable形式的数据列表</returns>
     public async Task<IEnumerable<GPData>> GetListDetailsDataAsync()
     {
-        if (_allDatas == null)
-        {
-            _allDatas = new List<GPData>(AllDatas());
-        }
+        var _allDatas = new List<GPData>(AllDatas());
         await Task.CompletedTask;
         return _allDatas;
     }

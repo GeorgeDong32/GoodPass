@@ -1,0 +1,92 @@
+﻿<ContentDialog
+    x:Class="GoodPass.Dialogs.SetMKDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="设置主密码"
+    CloseButtonText="取消"
+    DefaultButton="Primary"
+    PrimaryButtonClick="SetMKDialog_PrimaryButtonClick"
+    PrimaryButtonText="确定"
+    mc:Ignorable="d">
+
+    <StackPanel
+        HorizontalAlignment="Stretch"
+        VerticalAlignment="Stretch"
+        Spacing="0">
+        <TextBlock
+            x:Name="SetMKDialog_TB1"
+            Width="400"
+            Margin="0,0,0,8"
+            FontSize="20"
+            FontWeight="Light"
+            Text="设置密码"
+            TextAlignment="Left" />
+
+        <RelativePanel
+            x:Name="SetMKDialog_PBPanel1"
+            Height="64"
+            Margin="0,0,0,4"
+            VerticalAlignment="Center">
+            <!--  Margin:左上右下  -->
+            <PasswordBox
+                x:Name="SetMKDialog_PssswordBox1"
+                Width="250"
+                Height="36"
+                Margin="0,0,8,0"
+                PasswordChanged="SetMKDialog_PssswordBox1_PasswordChanged"
+                PasswordRevealMode="Hidden"
+                PlaceholderText="请输入8-40位的主密码" />
+            <TextBlock
+                x:Name="SetMKDialog_PB1Status"
+                Height="20"
+                Margin="2"
+                HorizontalAlignment="Center"
+                Foreground="Red"
+                RelativePanel.Below="SetMKDialog_PssswordBox1" />
+            <ToggleButton
+                Name="SetMKDialog_PB1RevealBtn"
+                Height="28"
+                Margin="0,4,0,4"
+                Click="RevealModeCheckbox_Changed1"
+                RelativePanel.RightOf="SetMKDialog_PssswordBox1">
+                <FontIcon
+                    FontFamily="{StaticResource SymbolThemeFontFamily}"
+                    FontSize="16"
+                    Glyph="&#xF78D;" />
+            </ToggleButton>
+        </RelativePanel>
+
+        <RelativePanel x:Name="SetMKDialog_PBPanel2" Margin="0,0,0,0">
+            <PasswordBox
+                x:Name="SetMKDialog_PssswordBox2"
+                Width="250"
+                Height="36"
+                Margin="0,0,8,0"
+                PasswordChanged="SetMKDialog_PssswordBox2_PasswordChanged"
+                PasswordRevealMode="Hidden"
+                PlaceholderText="请再次输入您的主密码" />
+            <TextBlock
+                x:Name="SetMKDialog_PB2Status"
+                Height="20"
+                Margin="2"
+                HorizontalAlignment="Center"
+                Foreground="Red"
+                RelativePanel.Below="SetMKDialog_PssswordBox2" />
+            <ToggleButton
+                Name="SetMKDialog_PB2RevealBtn"
+                Height="28"
+                Margin="0,4,0,0"
+                Click="RevealModeCheckbox_Changed2"
+                RelativePanel.RightOf="SetMKDialog_PssswordBox2">
+                <FontIcon
+                    FontFamily="{StaticResource SymbolThemeFontFamily}"
+                    FontSize="16"
+                    Glyph="&#xF78D;" />
+            </ToggleButton>
+        </RelativePanel>
+
+    </StackPanel>
+
+</ContentDialog>

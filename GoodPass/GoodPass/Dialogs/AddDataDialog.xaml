@@ -1,0 +1,164 @@
+﻿<ContentDialog
+    x:Class="GoodPass.Dialogs.AddDataDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="添加数据"
+    CloseButtonText="取消"
+    DefaultButton="Primary"
+    PrimaryButtonClick="AddDataDialog_PrimaryButtonClick"
+    PrimaryButtonText="确定"
+    mc:Ignorable="d">
+
+    <StackPanel
+        Width="550"
+        HorizontalAlignment="Left"
+        VerticalAlignment="Stretch"
+        Spacing="8">
+        <RelativePanel x:Name="AddDataDialog_PlatformPanel" HorizontalAlignment="Left">
+            <TextBox
+                x:Name="AddDataDialog_PlatformBox"
+                x:Uid="AddDataDialog_PlatformBox"
+                Width="250"
+                TextChanged="AddDataDialog_PlatformBox_TextChanged" />
+            <RelativePanel
+                x:Name="AddDataDialog_PlatformCheckPanel"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.RightOf="AddDataDialog_PlatformBox">
+                <FontIcon
+                    x:Name="AddDataDialog_PlatformCheckIcon"
+                    Margin="8,2,0,8"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="14"
+                    Glyph="&#xE711;" />
+                <!--  E711 叉图标，E73E 勾图标  -->
+                <TextBlock
+                    x:Name="AddDataDialog_PlatformCheckText"
+                    x:Uid="AddDataDialog_PlatformCheckText"
+                    Margin="4,0,0,0"
+                    RelativePanel.RightOf="AddDataDialog_PlatformCheckIcon" />
+            </RelativePanel>
+        </RelativePanel>
+        <RelativePanel x:Name="AddDataDialog_AccountPanel" HorizontalAlignment="Left">
+            <TextBox
+                x:Name="AddDataDialog_AccountBox"
+                x:Uid="AddDataDialog_AccountBox"
+                Width="250"
+                TextChanged="AddDataDialog_AccountBox_TextChanged" />
+            <RelativePanel
+                x:Name="AddDataDialog_AccountCheckPanel"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.RightOf="AddDataDialog_AccountBox">
+                <FontIcon
+                    x:Name="AddDataDialog_AccountCheckIcon"
+                    Margin="8,2,0,8"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="14"
+                    Glyph="&#xE711;" />
+                <!--  E711 叉图标，E73E 勾图标  -->
+                <TextBlock
+                    x:Name="AddDataDialog_AccountCheckText"
+                    x:Uid="AddDataDialog_AccountCheckText"
+                    Margin="4,0,0,0"
+                    RelativePanel.RightOf="AddDataDialog_AccountCheckIcon" />
+            </RelativePanel>
+        </RelativePanel>
+        <RelativePanel x:Name="AddDataDialog_PasswordPanel" VerticalAlignment="Bottom">
+            <PasswordBox
+                x:Name="AddDataDialog_PasswordBox"
+                x:Uid="AddDataDialog_PasswordBox"
+                Width="200"
+                Margin="0,0,8,0"
+                PasswordChanged="AddDataDialog_PasswordBox_PasswordChanged" />
+            <ToggleButton
+                x:Name="Add_PasswordRevealButton"
+                Height="31.5"
+                Margin="0,0,8,0"
+                Click="Add_PasswordRevealButton_Click"
+                IsThreeState="False"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.RightOf="AddDataDialog_PasswordBox">
+                <FontIcon
+                    FontFamily="{StaticResource SymbolThemeFontFamily}"
+                    FontSize="16"
+                    Glyph="&#xF78D;" />
+            </ToggleButton>
+            <DropDownButton
+                x:Name="AddDataDialog_PasswordMode"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.RightOf="Add_PasswordRevealButton">
+                <TextBlock x:Name="AddDataDialog_PasswordModeText" x:Uid="AddDataDialog_PasswordModeText" />
+                <DropDownButton.Flyout>
+                    <MenuFlyout Placement="Bottom">
+                        <MenuFlyoutItem
+                            x:Name="AddDataDialog_PasswordMode_RandomNoSpec"
+                            x:Uid="AddDataDialog_PasswordMode_RandomNoSpec"
+                            Click="AddDataDialog_PasswordMode_RandomNoSpec_Click" />
+                        <MenuFlyoutItem
+                            x:Name="AddDataDialog_PasswordMode_RandomSpec"
+                            x:Uid="AddDataDialog_PasswordMode_RandomSpec"
+                            Click="AddDataDialog_PasswordMode_RandomSpec_Click" />
+                        <MenuFlyoutItem
+                            x:Name="AddDataDialog_PasswordMode_GPStyle"
+                            x:Uid="AddDataDialog_PasswordMode_GPStyle"
+                            Click="AddDataDialog_PasswordMode_GPStyle_Click" />
+                    </MenuFlyout>
+                </DropDownButton.Flyout>
+            </DropDownButton>
+            <TeachingTip
+                x:Name="AddDataDialog_PasswordModeTeachtip"
+                x:Uid="AddDataDialog_PasswordModeTeachtip"
+                IsLightDismissEnabled="True"
+                IsOpen="False"
+                Target="{x:Bind AddDataDialog_PasswordMode}">
+                <TeachingTip.IconSource>
+                    <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE783;" />
+                </TeachingTip.IconSource>
+            </TeachingTip>
+            <TextBox
+                x:Name="AddDataDialog_PasswordLengthBox"
+                x:Uid="AddDataDialog_PasswordLengthBox"
+                Width="Auto"
+                Margin="8,0,0,0"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.RightOf="AddDataDialog_PasswordMode"
+                ToolTipService.ToolTip="Input the password length you want to generate" />
+            <TeachingTip
+                x:Name="AddDataDialog_PasswordLengthTeachtip"
+                x:Uid="AddDataDialog_PasswordLengthTeachtip"
+                IsLightDismissEnabled="True"
+                IsOpen="False"
+                Target="{x:Bind AddDataDialog_PasswordLengthBox}">
+                <TeachingTip.IconSource>
+                    <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE783;" />
+                </TeachingTip.IconSource>
+            </TeachingTip>
+        </RelativePanel>
+        <RelativePanel x:Name="AddDataDialog_PlatformUrlPanel" HorizontalAlignment="Left">
+            <TextBox
+                x:Name="AddDataDialog_PlatformUrlBox"
+                x:Uid="AddDataDialog_PlatformUrlBox"
+                Width="250"
+                TextChanged="AddDataDialog_PlatformUrlBox_TextChanged" />
+            <RelativePanel
+                x:Name="AddDataDialog_UrlCheckPanel"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.RightOf="AddDataDialog_PlatformUrlBox">
+                <FontIcon
+                    x:Name="AddDataDialog_UrlCheckIcon"
+                    Margin="8,2,0,8"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="14"
+                    Glyph="&#xE946;" />
+                <!--  E711 叉图标，E73E 勾图标，E946感叹号  -->
+                <TextBlock
+                    x:Name="AddDataDialog_UrlCheckText"
+                    x:Uid="AddDataDialog_UrlCheckText"
+                    Margin="4,0,0,0"
+                    RelativePanel.RightOf="AddDataDialog_UrlCheckIcon" />
+            </RelativePanel>
+        </RelativePanel>
+    </StackPanel>
+
+</ContentDialog>

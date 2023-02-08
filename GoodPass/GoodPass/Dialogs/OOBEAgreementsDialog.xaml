@@ -1,0 +1,61 @@
+﻿<ContentDialog
+    x:Class="GoodPass.Dialogs.OOBEAgreementsDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    CloseButtonClick="OOBEAgreementsDialog_CloseButtonClick"
+    CloseButtonText="取消"
+    DefaultButton="Primary"
+    PrimaryButtonClick="OOBEAgreementsDialog_PrimaryButtonClick"
+    PrimaryButtonText="确定"
+    mc:Ignorable="d">
+
+    <StackPanel HorizontalAlignment="Left" VerticalAlignment="Stretch">
+        <StackPanel x:Name="AgreementsDialogPanel" HorizontalAlignment="Left">
+            <RelativePanel x:Name="UserAgreementPanel" HorizontalAlignment="Left">
+                <CheckBox
+                    x:Name="UserAgreementCheck"
+                    x:Uid="UserAgreementCheck"
+                    Checked="OOBEDialogCheck_Checked"
+                    IsThreeState="False"
+                    Unchecked="OOBEDialogCheck_UnChecked">
+                    <HyperlinkButton
+                        x:Name="UserAgreementHyperButton"
+                        x:Uid="UserAgreementHyperButton"
+                        HorizontalContentAlignment="Left">
+                        <TextBlock
+                            x:Name="UserAgreementHyperButtonText"
+                            x:Uid="UserAgreementHyperButtonText"
+                            Margin="-4,-4,0,2"
+                            HorizontalAlignment="Left"
+                            FontSize="15"
+                            FontWeight="Bold" />
+                    </HyperlinkButton>
+                </CheckBox>
+            </RelativePanel>
+            <RelativePanel x:Name="PrivacyTermsPanel">
+                <CheckBox
+                    x:Name="PrivacyTermsCheck"
+                    x:Uid="PrivacyTermsCheck"
+                    Checked="OOBEDialogCheck_Checked"
+                    IsThreeState="False"
+                    Unchecked="OOBEDialogCheck_UnChecked">
+                    <HyperlinkButton
+                        x:Name="PrivacytermsHyperButton"
+                        x:Uid="PrivacytermsHyperButton"
+                        HorizontalContentAlignment="Left">
+                        <TextBlock
+                            x:Name="PrivacytermsHyperButtonText"
+                            x:Uid="PrivacytermsHyperButtonText"
+                            Margin="-4,-4,0,2"
+                            HorizontalAlignment="Left"
+                            FontSize="15"
+                            FontWeight="Bold" />
+                    </HyperlinkButton>
+                </CheckBox>
+            </RelativePanel>
+        </StackPanel>
+    </StackPanel>
+
+</ContentDialog>

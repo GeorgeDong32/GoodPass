@@ -1,42 +1,91 @@
 ﻿namespace GoodPass.Services;
 
-//提供GPSES服务，用于对数据进行加解密
+/// <summary>
+/// 提供GPSES服务，用于对数据进行加解密
+/// </summary>
 public class GoodPassCryptographicServices
 {
-    /*成员*/
-    private int[]? CryptBase
+    /// <summary>
+    /// 加密基数组
+    /// </summary>
+    private int[] CryptBase
     {
         get; set;
     }
 
+    /// <summary>
+    /// 数字字符index数组
+    /// </summary>
     private int[] NumPos
     {
         get; set;
     }
 
+    /// <summary>
+    /// 特殊字符index数组
+    /// </summary>
     private int[] SpecPos
     {
         get; set;
     }
 
-    /*方法*/
+    /// <summary>
+    /// GoodPassCryptographicServices构造函数
+    /// </summary>
     public GoodPassCryptographicServices()
     {
+        if (App.MKBase == null)
+            throw new ArgumentNullException("GoodPassCryptographicServices(): App.MKBase is null");
         CryptBase = App.MKBase;
         NumPos = new int[41];
         SpecPos = new int[41];
         NumPos[0] = 0; SpecPos[0] = 0;
     }
 
+    /// <summary>
+    /// (测试用)GoodPassCryptographicServices构造函数
+    /// </summary>
+    /// <param name="cryptBase">加密基</param>
+    public GoodPassCryptographicServices(int[] cryptBase)
+    {
+        CryptBase = cryptBase;
+        NumPos = new int[41];
+        SpecPos = new int[41];
+        NumPos[0] = 0; SpecPos[0] = 0;
+    }
+
+    /// <summary>
+    /// 解密输入的字符串
+    /// </summary>
+    /// <param name="input">待解密的字符串</param>
+    /// <returns>解密后字符串</returns>
+    /// <exception cref="ArgumentNullException">空输入异常</exception>
     public string DecryptStr(string input)
     {
-        //确保CryptBase已经赋值
-        CryptBase = App.MKBase;
+        if (App.MKBase == null)
+            throw new ArgumentNullException("DecryptStr: App.MKBase is null");
+        return DecryptStr(input, App.MKBase);
+    }
+
+    /// <summary>
+    /// (基础的)解密输入的字符串
+    /// </summary>
+    /// <param name="input">待解密的字符串</param>
+    /// <param name="cryptBase">加密基</param>
+    /// <returns>解密结果</returns>
+    /// <exception cref="ArgumentNullException">输入字符串为空</exception>
+    public string DecryptStr(string input, int[] cryptBase)
+    {
         if (input == null || input == string.Empty)
         {
             throw new ArgumentNullException("DecryptStr: input is null or empty");
         }
+        CryptBase = cryptBase;      
         var decStr = "";
+        var baseStr = "";
+        //清理数组
+        Array.Fill(NumPos, -1);
+        Array.Fill(SpecPos, -1);
         //找数字位置
         NumPos[0] = (int)input[0] - 'A';
         for (var i = 1; i <= NumPos[0]; i++)
@@ -60,44 +109,71 @@ public class GoodPassCryptographicServices
         {
             SpecPos[i] = (int)reinput[i] - 65;
         }
-        for (var i = NumPos[0] + 1; i < input.Length - SpecPos[0] - 1; i++)
+        var baseLength = input.Length - NumPos[0] - SpecPos[0] - 2;
+        baseStr = input.Substring(NumPos[0] + 1, baseLength);
+
+        for (var i = 0; i < baseLength; i++)
         {
-            var actLength = i - NumPos[0] - 1;
             if (Array.FindIndex(NumPos, 1, p => p == i) != -1)//判断是否为数字
             {
-                switch (actLength % 2)
+                switch (i % 2)
                 {
                     case 0:
-                        decStr += (char)(input[i] - 'e' - CryptBase[actLength] + '0');
+                        decStr += (char)(baseStr[i] - 'e' - CryptBase[i] + '0');
                         break;
                     case 1:
-                        decStr += (char)(input[i] - 'O' - CryptBase[actLength] + '0');
+                        decStr += (char)(baseStr[i] - 'O' - CryptBase[i] + '0');
                         break;
                 }
             }
             else if (Array.FindIndex(SpecPos, 1, p => p == i) != -1)
             {
-                decStr += input[i];
+                decStr += (char)(baseStr[i] - CryptBase[i]);
             }
             else
             {
-                if (input[i] >= 58 && input[i] <= 92)
+                var temp = baseStr[i] - CryptBase[i];
+                if (temp >= 65 && temp <= 90)
                 {
-                    decStr += (char)(input[i] + 39 - CryptBase[actLength]);
+                    decStr += (char)(temp + 32);
                 }
                 else
                 {
-                    decStr += (char)(input[i] - 28 - CryptBase[actLength]);
+                    decStr += (char)(temp - 32);
                 }
             }
         }
         return decStr;
     }
 
+    /// <summary>
+    /// 加密输入的字符串
+    /// </summary>
+    /// <param name="input">待加密字符串</param>
+    /// <returns>加密后字符串</returns>
     public string EncryptStr(string input)//Todo：测试char-int是否按要求转换
     {
-        //确保CryptBase已经赋值
-        CryptBase = App.MKBase;
+        if (App.MKBase == null)
+            throw new ArgumentNullException("EncryptStr: App.MKBase is null");
+        return EncryptStr(input, App.MKBase);
+    }
+
+    /// <summary>
+    /// (基础的)加密输入字符串
+    /// </summary>
+    /// <param name="input">待加密的字符串</param>
+    /// <param name="cryptBase">加密基</param>
+    /// <returns>加密结果</returns>
+    public string EncryptStr(string input, int[] cryptBase)//Todo：测试char-int是否按要求转换
+    {
+        CryptBase = cryptBase;
+        if (input == null || input == string.Empty)
+        {
+            throw new ArgumentNullException("EncryptStr: input is null or empty");
+        }
+        //清理NumPos和SpecPos
+        Array.Clear(NumPos);
+        Array.Clear(SpecPos);
         //找数字位置
         var Strlength = input.Length;
         var npCount = 1;
@@ -113,9 +189,10 @@ public class GoodPassCryptographicServices
             }
         }
         //全串加密
-        for (var i = 0; i < Strlength; i++)//未考虑特殊字符加密
+        for (var i = 0; i < Strlength; i++)
         {
             var temp = (int)input[i];
+            //数字加密
             if (temp >= 48 && temp <= 57)
             {
                 if (i % 2 == 0)
@@ -129,21 +206,25 @@ public class GoodPassCryptographicServices
 
                 output += (char)temp;
             }
+            //大写字母加密
             else if (temp >= 65 && temp <= 90)
             {
-                temp += 28;
+                temp += 32;
                 output += (char)(temp + CryptBase[i]);
             }
+            //小写字母加密
             else if (temp >= 97 && temp <= 122)
             {
-                temp -= 39;
+                temp -= 32;
                 output += (char)(temp + CryptBase[i]);
             }
+            //特殊字符
             else
             {
-                output += (char)temp;
+                output += (char)(temp + CryptBase[i]);
                 SpecPos[specCount] = i;
                 specCount++;
+                SpecPos[0]++;
             }
         }
         //生成指示串头
@@ -163,7 +244,7 @@ public class GoodPassCryptographicServices
         }
         //生成指示串尾
         var tail = "";
-        for (var i = 1; i < SpecPos[0]; i++)
+        for (var i = 1; i <= SpecPos[0]; i++)
         {
             tail += (char)(SpecPos[i] + 65);
         }

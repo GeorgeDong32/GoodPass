@@ -1,8 +1,15 @@
 ﻿namespace GoodPass.Services;
 
-public static class GoodPassPWGService //密码生成服务(随机密码+指定格式密码)
+/// <summary>
+/// GoodPass密码生成服务
+/// </summary>
+public static class GoodPassPWGService
 {
-    public static string RandomPasswordNormal(int length) //生成随机密码
+    /// <summary>
+    /// 生成不含特殊字符的随机密码
+    /// </summary>
+    /// <param name="length">生成密码长度</param>
+    public static string RandomPasswordNormal(int length)
     {
         var random = new Random();
         var password = "";
@@ -25,7 +32,10 @@ public static class GoodPassPWGService //密码生成服务(随机密码+指定�
         return password;
     }
 
-    public static string RandomPasswordSpec(int length) //生成含特殊字符的随机密码
+    /// <summary>
+    /// 生成含特殊字符的随机密码
+    /// </summary>
+    public static string RandomPasswordSpec(int length)
     {
         var random = new Random();
         var password = "";
@@ -51,7 +61,10 @@ public static class GoodPassPWGService //密码生成服务(随机密码+指定�
         return password;
     }
 
-    public static string GPstylePassword(string platformName, string accountName) //生成GoodPass风格密码
+    /// <summary>
+    /// 生成GoodPass风格密码
+    /// </summary>
+    public static string GPstylePassword(string platformName, string accountName)
     {
         var random = new Random();
         //对平台名进行大小写处理
@@ -98,19 +111,9 @@ public static class GoodPassPWGService //密码生成服务(随机密码+指定�
         }
         //处理时间戳补强串
         var time = DateTime.Now;
-        var timePatch1 = (char)(64 + time.Month + time.Day);
-        var timePatch2 = (char)(64 + time.Hour + time.Minute);
+        var timePatch1 = (char)(48 + time.Month + time.Minute);
+        var timePatch2 = (char)(48 + time.Hour + time.Day);
         var timePatch = timePatch1.ToString() + timePatch2.ToString();
-        temp = random.Next(0, 2);
-        switch (temp)
-        {
-            case 0:
-                timePatch.ToLower();
-                break;
-            case 1:
-                timePatch.ToUpper();
-                break;
-        }
         //整合
         var gpPassword = platn + accn + timePatch;
         return gpPassword;

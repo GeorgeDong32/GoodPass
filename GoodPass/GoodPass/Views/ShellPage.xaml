@@ -80,7 +80,20 @@
                         </StackPanel>
                     </Flyout>
                 </AppBarButton.Flyout>
+                <ToolTipService.ToolTip>
+                    <ToolTip x:Uid="ShellPage_AddDataButtonTip" Placement="Bottom" />
+                </ToolTipService.ToolTip>
             </AppBarButton>
+            <TeachingTip
+                x:Name="OOBE_AddDataTip"
+                x:Uid="OOBE_AddDataTip"
+                CloseButtonClick="OOBE_AddDataTip_CloseButtonClick"
+                IsOpen="False"
+                Target="{x:Bind ShellMenuBarAddDataButton}">
+                <TeachingTip.IconSource>
+                    <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE783;" />
+                </TeachingTip.IconSource>
+            </TeachingTip>
             <AppBarButton
                 x:Name="ShellMenuBarSettingsButton"
                 x:Uid="ShellMenuBarSettingsButton"
@@ -97,7 +110,20 @@
                         <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE713;" />
                     </AnimatedIcon.FallbackIconSource>
                 </AnimatedIcon>
+                <ToolTipService.ToolTip>
+                    <ToolTip x:Uid="ShellPage_SettingButtonTip" Placement="Bottom" />
+                </ToolTipService.ToolTip>
             </AppBarButton>
+            <TeachingTip
+                x:Name="OOBE_SettingTip"
+                x:Uid="OOBE_SettingTip"
+                IsOpen="False"
+                PreferredPlacement="Bottom"
+                Target="{x:Bind ShellMenuBarSettingsButton}">
+                <TeachingTip.IconSource>
+                    <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE783;" />
+                </TeachingTip.IconSource>
+            </TeachingTip>
         </Grid>
         <Grid Grid.Row="2" Margin="{StaticResource MenuBarContentMargin}">
             <Frame x:Name="NavigationFrame" />

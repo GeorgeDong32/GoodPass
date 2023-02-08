@@ -1,5 +1,7 @@
 ﻿using GoodPass.Contracts.Services;
+using GoodPass.Dialogs;
 using GoodPass.Helpers;
+using GoodPass.Services;
 using GoodPass.ViewModels;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -19,7 +21,16 @@ public sealed partial class ShellPage : Page
     public ShellPage(ShellViewModel viewModel)
     {
         ViewModel = viewModel;
+        App.UIStrings = App.GetService<MultilingualStringsServices>().Getzh_CN();
+        App.MainOOBE = App.GetService<OOBEServices>().GetOOBEStatusAsync("MainOOBE").Result;
+        App.ShellOOBE = App.GetService<OOBEServices>().GetOOBEStatusAsync("ShellOOBE").Result;
+        App.AgreementOOBE = App.GetService<OOBEServices>().GetOOBEStatusAsync("AgreementOOBE").Result;
         InitializeComponent();
+        if (App.ShellOOBE == Models.OOBESituation.EnableOOBE)
+        {
+            OOBE_AddDataTip.IsOpen = true;
+            OOBE_SettingTip.IsOpen = true;
+        }
 
         ViewModel.NavigationService.Frame = NavigationFrame;
 
@@ -113,6 +124,9 @@ public sealed partial class ShellPage : Page
         AnimatedIcon.SetState((UIElement)sender, "Normal");
     }
 
+    /// <summary>
+    /// 添加数据按钮的事件响应
+    /// </summary>
     private async void ShellMenuBarAddDataButton_Click(object sender, RoutedEventArgs e)
     {
         if (App.App_IsLock())
@@ -137,12 +151,18 @@ public sealed partial class ShellPage : Page
                 };
                 warningdialog.Title = "出错了！";
                 warningdialog.Content = "数据重复，请前往修改已存在的数据";
-                var _ = await warningdialog.ShowAsync();
+                _ = await warningdialog.ShowAsync();
             }
         }
         else
         {
             ShellMenuBarAddDataButton.Flyout.ShowAt(ShellMenuBarSettingsButton);
         }
+    }
+
+    private async void OOBE_AddDataTip_CloseButtonClick(TeachingTip sender, object args)
+    {
+        OOBE_AddDataTip.IsOpen = false;
+        _ = await App.GetService<OOBEServices>().SetOOBEStatusAsync("ShellOOBE", Models.OOBESituation.DIsableOOBE);
     }
 }

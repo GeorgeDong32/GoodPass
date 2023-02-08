@@ -31,7 +31,8 @@
     <Page Remove="Converters\**" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Controls\ExpandableSettingControl.xaml" />
+    <None Remove="Dialogs\EditDataDialog.xaml" />
+    <None Remove="Dialogs\OOBEAgreementsDialog.xaml" />
     <None Remove="Images\ImageResoueces.xaml" />
     <None Remove="Views\AddDataDialog.xaml" />
     <None Remove="Views\GPDialog2.xaml" />
@@ -56,6 +57,12 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Dialogs\OOBEAgreementsDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Dialogs\EditDataDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\AddDataDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -89,5 +96,9 @@
 
   <ItemGroup>
     <PRIResource Remove="Converters\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controls\" />
   </ItemGroup>
 </Project>

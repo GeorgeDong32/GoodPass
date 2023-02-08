@@ -283,4 +283,82 @@
   <data name="AddDataDialog_PasswordLengthTeachtip.Title" xml:space="preserve">
     <value>请先输入生成密码长度</value>
   </data>
+  <data name="EditDataDialog_AccountBox.Header" xml:space="preserve">
+    <value>账号名</value>
+  </data>
+  <data name="EditDataDialog_AccountBox.PlaceholderText" xml:space="preserve">
+    <value>请输入账号名</value>
+  </data>
+  <data name="EditDataDialog_AccountCheckText.Text" xml:space="preserve">
+    <value>账号名合法</value>
+  </data>
+  <data name="EditDataDialog_PasswordBox.Header" xml:space="preserve">
+    <value>密码</value>
+  </data>
+  <data name="EditDataDialog_PasswordBox.PlaceholderText" xml:space="preserve">
+    <value>请输入密码</value>
+  </data>
+  <data name="EditDataDialog_PasswordLengthBox.PlaceholderText" xml:space="preserve">
+    <value>长度</value>
+  </data>
+  <data name="EditDataDialog_PasswordLengthTeachtip.Title" xml:space="preserve">
+    <value>请先输入生成密码长度</value>
+  </data>
+  <data name="EditDataDialog_PasswordModeText.Text" xml:space="preserve">
+    <value>生成密码</value>
+  </data>
+  <data name="EditDataDialog_PasswordMode_GPStyle.Text" xml:space="preserve">
+    <value>GoodPass风格</value>
+  </data>
+  <data name="EditDataDialog_PasswordMode_RandomNoSpec.Text" xml:space="preserve">
+    <value>随机生成(无特殊字符)</value>
+  </data>
+  <data name="EditDataDialog_PasswordMode_RandomSpec.Text" xml:space="preserve">
+    <value>随机生成(有特殊字符)</value>
+  </data>
+  <data name="EditDataDialog_PlatformBox.Header" xml:space="preserve">
+    <value>平台名称</value>
+  </data>
+  <data name="EditDataDialog_PlatformBox.PlaceholderText" xml:space="preserve">
+    <value>请输入平台名</value>
+  </data>
+  <data name="EditDataDialog_PlatformCheckText.Text" xml:space="preserve">
+    <value>平台名合法</value>
+  </data>
+  <data name="EditDataDialog_PlatformUrlBox.Header" xml:space="preserve">
+    <value>平台链接</value>
+  </data>
+  <data name="EditDataDialog_PlatformUrlBox.PlaceholderText" xml:space="preserve">
+    <value>https://example.com</value>
+  </data>
+  <data name="EditDataDialog_UrlCheckText.Text" xml:space="preserve">
+    <value>Url为空，可选择添加链接</value>
+  </data>
+  <data name="OOBE_LoginTip.Title" xml:space="preserve">
+    <value>点击此解锁按钮开始使用GoodPass</value>
+  </data>
+  <data name="OOBE_AddDataTip.Title" xml:space="preserve">
+    <value>解锁后点击此按钮添加数据</value>
+  </data>
+  <data name="OOBE_SettingTip.Title" xml:space="preserve">
+    <value>点击设置按钮进入设置</value>
+  </data>
+  <data name="ShellPage_AddDataButtonTip.Content" xml:space="preserve">
+    <value>添加数据</value>
+  </data>
+  <data name="ShellPage_SettingButtonTip.Content" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="PrivacytermsHyperButton.NavigateUri" xml:space="preserve">
+    <value>https://github.com/GeorgeDong32/GoodPass/blob/main/Docs/Statements%26Agreements/Privacy%20Statement.md</value>
+  </data>
+  <data name="PrivacytermsHyperButtonText.Text" xml:space="preserve">
+    <value>隐私声明</value>
+  </data>
+  <data name="UserAgreementHyperButton.NavigateUri" xml:space="preserve">
+    <value>https://github.com/GeorgeDong32/GoodPass/blob/main/Docs/Statements%26Agreements/User%20Agreement.md</value>
+  </data>
+  <data name="UserAgreementHyperButtonText.Text" xml:space="preserve">
+    <value>用户协议</value>
+  </data>
 </root>

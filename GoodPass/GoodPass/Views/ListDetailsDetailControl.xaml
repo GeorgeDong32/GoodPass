@@ -21,6 +21,7 @@
                     FontSize="48"
                     Glyph="&#xE77B;" />
                 <TextBlock
+                    x:Name="PlatformNameText"
                     Margin="{StaticResource SmallLeftMargin}"
                     VerticalAlignment="Center"
                     Style="{ThemeResource TitleTextBlockStyle}"
@@ -59,12 +60,16 @@
                             FontFamily="{StaticResource SymbolThemeFontFamily}"
                             FontSize="16"
                             Glyph="&#xE8C8;" />
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="AccountNameCopyButtonTip" />
+                        </ToolTipService.ToolTip>
                     </Button>
 
                     <TeachingTip
                         x:Name="CopiedTipforAcconutNameCopyButton"
                         x:Uid="CopiedTipforAcconutNameCopyButton"
                         Title="AccountName has copied!"
+                        IsLightDismissEnabled="True"
                         Target="{x:Bind ListDetailsDetailControl_AcconutNameCopyButton}">
                         <TeachingTip.IconSource>
                             <SymbolIconSource Symbol="Accept" />
@@ -85,8 +90,7 @@
                         Width="350"
                         Margin="{StaticResource ListDetailsDetailControlDetailMargin}"
                         IsEnabled="False"
-                        Password="{x:Bind ListDetailsMenuItem.GetPassword()}"
-                        PasswordRevealMode="Hidden"
+                        Password="{x:Bind ListDetailsMenuItem.GetPassword, Mode=OneWay}"
                         RelativePanel.Below="ListDetailsDetailControl_PasswordTitle" />
                     <Button
                         x:Name="ListDetailsDetailControl_PasswordCopyButton"
@@ -102,12 +106,16 @@
                             FontFamily="{StaticResource SymbolThemeFontFamily}"
                             FontSize="16"
                             Glyph="&#xE8C8;" />
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="PasswordCopyButtonTip" />
+                        </ToolTipService.ToolTip>
                     </Button>
 
                     <TeachingTip
                         x:Name="CopiedTipforPasswordCopyButton"
                         x:Uid="CopiedTipforPasswordCopyButton"
                         Title="Password has copied!"
+                        IsLightDismissEnabled="True"
                         Target="{x:Bind ListDetailsDetailControl_PasswordCopyButton}">
                         <TeachingTip.IconSource>
                             <SymbolIconSource Symbol="Accept" />
@@ -126,6 +134,9 @@
                             FontFamily="{StaticResource SymbolThemeFontFamily}"
                             FontSize="16"
                             Glyph="&#xF78D;" />
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="PasswordRevealButtonTip" />
+                        </ToolTipService.ToolTip>
                     </ToggleButton>
                 </RelativePanel>
 
@@ -149,11 +160,15 @@
                                 FontFamily="{StaticResource SymbolThemeFontFamily}"
                                 Glyph="&#xE71B;" />
                             <TextBlock
+                                x:Name="ListDetailsDetailControl_PlatformUrlHyperLinkText"
                                 Margin="2,6,0,8"
                                 RelativePanel.RightOf="ListDetailsDetailControl_PlatformUrlHyperLinkIcon"
                                 Style="{StaticResource DetailBodyStyle}"
                                 Text="{x:Bind ListDetailsMenuItem.PlatformUrl, Mode=OneWay}" />
                         </RelativePanel>
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="PlatformUrlButtonTip" />
+                        </ToolTipService.ToolTip>
                     </HyperlinkButton>
                 </RelativePanel>
 
@@ -165,6 +180,7 @@
                         Style="{StaticResource DetailSubTitleStyle}"
                         Text="Last modified" />
                     <TextBlock
+                        x:Name="ListDetailsDetailControl_LastmodifiedText"
                         Margin="{StaticResource ListDetailsDetailControlDetailMargin}"
                         RelativePanel.Below="ListDetailsDetailControl_LastmodifiedTitle"
                         Style="{StaticResource DetailBodyStyle}"
@@ -190,7 +206,22 @@
                                 RelativePanel.RightOf="ListDetailsDetailControl_EditButtonIcon"
                                 Text="编辑" />
                         </RelativePanel>
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="EditButtonTip" />
+                        </ToolTipService.ToolTip>
                     </Button>
+
+                    <!--  弃用，无法拉起  -->
+                    <TeachingTip
+                        x:Name="OOBE_EditTip"
+                        x:Uid="OOBE_EditTip"
+                        Title="点击此处编辑数据"
+                        IsOpen="False"
+                        Target="{x:Bind ListDetailsDetailControl_EditButton}">
+                        <TeachingTip.IconSource>
+                            <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE783;" />
+                        </TeachingTip.IconSource>
+                    </TeachingTip>
 
                     <Button
                         x:Name="ListDetailsDetailControl_DeleteButton"
@@ -210,7 +241,22 @@
                                 RelativePanel.RightOf="ListDetailsDetailControl_DeleteButtonIcon"
                                 Text="删除" />
                         </RelativePanel>
+                        <ToolTipService.ToolTip>
+                            <ToolTip x:Name="DeleteButtonTip" />
+                        </ToolTipService.ToolTip>
                     </Button>
+
+                    <!--  弃用，无法拉起  -->
+                    <TeachingTip
+                        x:Name="OOBE_DeleteTip"
+                        x:Uid="OOBE_DeleteTip"
+                        Title="点击此处删除数据，该操作不可撤销"
+                        IsOpen="False"
+                        Target="{x:Bind ListDetailsDetailControl_DeleteButton}">
+                        <TeachingTip.IconSource>
+                            <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE783;" />
+                        </TeachingTip.IconSource>
+                    </TeachingTip>
                 </RelativePanel>
 
             </StackPanel>

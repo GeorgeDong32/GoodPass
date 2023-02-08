@@ -44,17 +44,21 @@ public class ListDetailsViewModel : ObservableRecipient, INavigationAware
 
     public void EnsureItemSelected()
     {
-        if (SlectedData == null)
-        {
-            SlectedData = DataItems.First();
-        }
+        SlectedData ??= DataItems.First(); //复合分配简化防null代码
     }
 
+    /// <summary>
+    /// 实现删除数据的实时响应
+    /// </summary>
+    /// <param name="targetItem">指定删除的数据</param>
     public bool DeleteDataItem(GPData targetItem)
     {
         return DataItems.Remove(targetItem);
     }
 
+    /// <summary>
+    /// 实现添加数据的实时响应
+    /// </summary>
     public void AddDataItem(GPData newData)
     {
         DataItems.Add(newData);

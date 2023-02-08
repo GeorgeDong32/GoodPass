@@ -148,11 +148,8 @@
             </HyperlinkButton>
         </StackPanel>
 
-        <StackPanel Grid.Row="3">
-            <ImageIcon
-                x:Name="Test"
-                Height="20"
-                x:FieldModifier="public" />
+        <StackPanel x:Name="testpanel" Grid.Row="4">
+            <!--  Button Click="Button_Click" Content="Test" /  -->
         </StackPanel>
     </Grid>
 </Page>

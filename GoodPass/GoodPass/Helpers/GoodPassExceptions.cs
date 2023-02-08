@@ -1,5 +1,8 @@
 ﻿namespace GoodPass.Helpers;
 
+/// <summary>
+/// A class to provide GoodPass Exception -- Object not found in collection
+/// </summary>
 public class GPObjectNotFoundException : Exception
 {
     public GPObjectNotFoundException() : base() { }

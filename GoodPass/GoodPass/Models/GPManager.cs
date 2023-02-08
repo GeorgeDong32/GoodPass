@@ -6,13 +6,22 @@ public class GPManager
 {
     /*成员区*/
     private List<GPData> GPDatas;
+    /*End 成员区*/
 
     /*方法区*/
+    /// <summary>
+    /// 构造函数
+    /// </summary>
     public GPManager()
     {
         GPDatas = new List<GPData>();
     }
 
+    /// <summary>
+    /// 数据模糊搜索
+    /// </summary>
+    /// <param name="platformName">模糊搜索平台名</param>
+    /// <returns>搜索结果index数组</returns>
     public int[] FuzzySearch(string platformName) //预留接口（模糊搜索）
     {
         var indexArray = new int[1] { -1 };
@@ -29,7 +38,13 @@ public class GPManager
         return indexArray;
     }
 
-    public int AccurateSearch(string platformName, string accountName) //预留接口（精确搜索）
+    /// <summary>
+    /// 精确搜索
+    /// </summary>
+    /// <param name="platformName">平台名</param>
+    /// <param name="accountName">账户名</param>
+    /// <returns>搜索结果index</returns>
+    public int AccurateSearch(string platformName, string accountName)
     {
         foreach (var data in GPDatas)
         {
@@ -41,6 +56,10 @@ public class GPManager
         return -1;
     }
 
+    /// <summary>
+    /// 添加数据1(自带去重)
+    /// </summary>
+    /// <returns>添加结果</returns>
     public bool AddData(string platformName, string platformUrl, string accountName, string password)
     {
         var indexArray = FuzzySearch(platformName);
@@ -55,13 +74,17 @@ public class GPManager
                 return false;
             }
         }
-        var cryptService = new GoodPassCryptographicServices();
+        var cryptService = App.GetService<GoodPassCryptographicServices>();
         var encPassword = cryptService.EncryptStr(password);
         var datatemp = new GPData(platformName, platformUrl, accountName, encPassword, DateTime.Now);
         GPDatas.Add(datatemp);
         return true;
     }
 
+    /// <summary>
+    /// 添加数据2(自带去重)
+    /// </summary>
+    /// <returns>添加结果</returns>
     public bool AddData(string platformName, string platformUrl, string accountName, string encPassword, DateTime latestUpdateTime)/*自动添加数据*/
     {
         var indexArray = FuzzySearch(platformName);
@@ -81,6 +104,10 @@ public class GPManager
         return true;
     }
 
+    /// <summary>
+    /// 添加数据3(自带去重)
+    /// </summary>
+    /// <returns>添加结果</returns>
     public bool AddData(GPData data)
     {
         var indexArray = FuzzySearch(data.PlatformName);
@@ -99,7 +126,13 @@ public class GPManager
         return true;
     }
 
-    public bool DeleteData(string platformName, string accountName)/*删除数据*/
+    /// <summary>
+    /// 删除数据
+    /// </summary>
+    /// <param name="platformName">目标平台名</param>
+    /// <param name="accountName">目标账号名</param>
+    /// <returns>删除结果</returns>
+    public bool DeleteData(string platformName, string accountName)
     {
         var indexArray = FuzzySearch(platformName);
         foreach (var index in indexArray)
@@ -113,16 +146,104 @@ public class GPManager
         return false;
     }
 
-    public string ChangeData(string platformName, string accountName, string newPassword)//重新设置密码
+    /// <summary>
+    /// 更改密码
+    /// </summary>
+    /// <param name="platformName">目标平台名</param>
+    /// <param name="accountName">目标账号名</param>
+    /// <param name="newPassword">新密码</param>
+    /// <returns>更改结果</returns>
+    public string ChangePassword(string platformName, string accountName, string newPassword)//重新设置密码
     {
         var targetIndex = AccurateSearch(platformName, accountName);
         return GPDatas[targetIndex].ChangePassword(newPassword);
     }
 
+    /// <summary>
+    /// 更改平台Url
+    /// </summary>
+    /// <param name="platformName">目标平台名</param>
+    /// <param name="accountName">目标账号名</param>
+    /// <param name="newUrl">新Url</param>
+    /// <returns>更改结果</returns>
+    public bool ChangeUrl(string platformName, string accountName, string newUrl)
+    {
+        var targetIndex = AccurateSearch(platformName, accountName);
+        if (targetIndex == -1)
+        {
+            return false;
+        }
+        else
+        {
+            return GPDatas[targetIndex].ChangeUrl(newUrl);
+        }
+    }
+
+    /// <summary>
+    /// 更改账号名(自动去重)
+    /// </summary>
+    /// <param name="platformName">目标平台名</param>
+    /// <param name="accountName">目标账号名</param>
+    /// <param name="newAccountName">新账号名</param>
+    /// <returns>更改结果</returns>
+    public bool ChangeAccountName(string platformName, string accountName, string newAccountName)
+    {
+        var targetIndex = AccurateSearch(platformName, accountName);
+        if (targetIndex == -1)
+        {
+            return false;
+        }
+        else
+        {
+            GPDatas[targetIndex].ChangeAccountName(newAccountName);
+            if (GPDatas[targetIndex].AccountName == newAccountName)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    /// <summary>
+    /// 更改平台名
+    /// </summary>
+    /// <param name="platformName">目标平台名</param>
+    /// <param name="accountName">目标账号名</param>
+    /// <param name="newPlatformName">新平台名</param>
+    /// <returns>更改结果</returns>
+    public bool ChangePlatformName(string platformName, string accountName, string newPlatformName)
+    {
+        if (platformName == newPlatformName)
+            return false;
+        var targetIndex = AccurateSearch(platformName, accountName);
+        if (targetIndex == -1)
+        {
+            return false;
+        }
+        else
+        {
+            GPDatas[targetIndex].DataDecrypt();
+            var password = GPDatas[targetIndex].GetPassword;
+            var platformUrl = GPDatas[targetIndex].PlatformUrl;
+            DeleteData(platformName, accountName);
+            return AddData(newPlatformName, platformUrl, accountName, password);
+        }
+    }
+
+    /// <summary>
+    /// 从本地数据文件加载数据
+    /// </summary>
+    /// <param name="filePath">数据文件路径</param>
+    /// <returns>加载结果</returns>
     public bool LoadFormFile(string filePath)//从文件导入数据
     {
         if (File.Exists(filePath))
         {
+            if (GPDatas.Count != 0)
+                GPDatas.Clear();
             var dataLines = File.ReadLines(filePath);
             dataLines = dataLines.Skip(1); //跳过文件头
             foreach (var line in dataLines)
@@ -139,12 +260,17 @@ public class GPManager
         }
     }
 
-    //Todo:出现文件被GoodPass某一进程占用情况
+    /// <summary>
+    /// 保存数据到本地文件
+    /// </summary>
+    /// <param name="filePath">文件路径</param>
+    /// <returns>保存结果</returns>
     public bool SaveToFile(string filePath)//保存数据到文件
     {
+        //Todo:出现文件被GoodPass某一进程占用情况（在沙盒中） 若自行创建文件夹则不会
         if (File.Exists(filePath))
         {
-            File.WriteAllText(filePath, "PlatformName,PlatformUrl,AccountName,EncPassword,LatestUpdateTime");
+            File.WriteAllText(filePath, "PlatformName,PlatformUrl,AccountName,EncPassword,LatestUpdateTime\n");
             foreach (var data in GPDatas)
             {
                 File.AppendAllText(filePath, $"{data.PlatformName},{data.PlatformUrl},{data.AccountName},{data.EncPassword},{data.LatestUpdateTime}\n", System.Text.Encoding.UTF8);
@@ -154,7 +280,7 @@ public class GPManager
         else
         {
             File.Create(filePath);
-            File.WriteAllText(filePath, "PlatformName,PlatformUrl,AccountName,EncPassword,LatestUpdateTime");
+            File.WriteAllText(filePath, "PlatformName,PlatformUrl,AccountName,EncPassword,LatestUpdateTime\n");
             foreach (var data in GPDatas)
             {
                 File.AppendAllText(filePath, $"{data.PlatformName},{data.PlatformUrl},{data.AccountName},{data.EncPassword},{data.LatestUpdateTime}\n", System.Text.Encoding.UTF8);
@@ -163,11 +289,18 @@ public class GPManager
         }
     }
 
+    /// <summary>
+    /// 获取所有数据
+    /// </summary>
+    /// <returns>IEnumerable形式的所有数据</returns>
     public IEnumerable<GPData> GetAllDatas()
     {
         return GPDatas;
     }
 
+    /// <summary>
+    /// 解密所有数据
+    /// </summary>
     public void DecryptAllDatas()
     {
         foreach (var data in GPDatas)
@@ -176,6 +309,11 @@ public class GPManager
         }
     }
 
+    /// <summary>
+    /// 获取指定数据
+    /// </summary>
+    /// <param name="index">目标index</param>
+    /// <returns>指定数据</returns>
     public GPData GetData(int index)
     {
         if (index == -1 || index > GPDatas.Count)
@@ -184,6 +322,12 @@ public class GPManager
             return GPDatas[index];
     }
 
+    /// <summary>
+    /// 获取数据
+    /// </summary>
+    /// <param name="platformName">目标平台名</param>
+    /// <param name="accountName">目标账号名</param>
+    /// <returns>指定数据</returns>
     public GPData GetData(string platformName, string accountName)
     {
         var targetIndex = AccurateSearch(platformName, accountName);
@@ -192,4 +336,5 @@ public class GPManager
         else
             return GPDatas[targetIndex];
     }
+    /*End 方法区*/
 }

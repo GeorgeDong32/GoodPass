@@ -71,6 +71,7 @@
             ListHeaderTemplate="{StaticResource ListHeaderTemplate}"
             NoSelectionContentTemplate="{StaticResource NoSelectionContentTemplate}"
             SelectedItem="{x:Bind ViewModel.SlectedData, Mode=TwoWay}"
+            SelectionChanged="ListDetailsViewControl_SelectionChanged"
             ViewStateChanged="OnViewStateChanged" />
     </Grid>
 </Page>
