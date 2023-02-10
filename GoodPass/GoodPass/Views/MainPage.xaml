@@ -60,7 +60,22 @@
                     Height="34"
                     KeyDown="Login_PasswordBox_KeyDown"
                     PasswordChanging="Login_PasswordBox_PasswordChanging"
-                    PlaceholderText="请输入密码以解锁" />
+                    PlaceholderText="请输入密码以解锁">
+                    <ToolTipService.ToolTip>
+                        <ToolTip x:Uid="LoginBoxTip" />
+                    </ToolTipService.ToolTip>
+                </PasswordBox>
+
+                <TeachingTip
+                    x:Name="OOBE_LoginBoxTip"
+                    x:Uid="OOBE_LoginBoxTip"
+                    IsOpen="False"
+                    PreferredPlacement="Bottom"
+                    Target="{x:Bind Login_PasswordBox}">
+                    <TeachingTip.IconSource>
+                        <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE783;" />
+                    </TeachingTip.IconSource>
+                </TeachingTip>
 
                 <Button
                     x:Name="Login_Check"

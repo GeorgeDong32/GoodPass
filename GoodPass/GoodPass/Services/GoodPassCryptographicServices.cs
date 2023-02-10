@@ -80,7 +80,7 @@ public class GoodPassCryptographicServices
         {
             throw new ArgumentNullException("DecryptStr: input is null or empty");
         }
-        CryptBase = cryptBase;      
+        CryptBase = cryptBase;
         var decStr = "";
         var baseStr = "";
         //清理数组

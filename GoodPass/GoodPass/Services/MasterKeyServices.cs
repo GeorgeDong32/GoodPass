@@ -1,5 +1,10 @@
-﻿using GoodPass.Contracts.Services;
+﻿using System.ComponentModel;
+using GoodPass.Contracts.Services;
 using GoodPass.Helpers;
+using GoodPass.Models;
+using Microsoft.UI.Composition;
+using Windows.Networking.Vpn;
+using Windows.Storage;
 
 namespace GoodPass.Services;
 
@@ -220,15 +225,15 @@ public class MasterKeyService : IMaterKeyService
     /// <summary>
     /// (封装的异步)校验主密码方法
     /// </summary>
-    /// <param name="InputKey">输入的主密码</param>
+    /// <param name="inputKey">输入的主密码</param>
     /// <returns>校验结果</returns>
-    public async Task<string> CheckMasterKeyAsync(string InputKey)
+    public async Task<string> CheckMasterKeyAsync(string inputKey)
     {
-        var InputKeyHash = GoodPassSHAServices.getGPHES(InputKey);
+        var InputKeyHash = GoodPassSHAServices.getGPHES(inputKey);
         var LocalMKHash = await GetLocalMKHashAsync();
         if (InputKeyHash == LocalMKHash)
         {
-            ProcessMKArray(InputKey);
+            ProcessMKArray(inputKey);
             return "pass";
         }
         else if (LocalMKHash == "Not found")
@@ -238,5 +243,89 @@ public class MasterKeyService : IMaterKeyService
         else if (InputKeyHash != LocalMKHash)
             return "npass";
         else return "Unknown Error";
+    }
+
+    /// <summary>
+    /// MSIX打包应用的设置主密码方法
+    /// </summary>
+    /// <returns>设置密码状态</returns>
+    /// <exception cref="GPRuntimeException">未在MSIX环境中运行</exception>
+    public async Task<int> SetMasterKeyAsync_MSIX(string inputKey)
+    {
+        /// Return value table
+        /// 0 -- Successfully set localhash
+        /// 2 -- Already have localhash
+        /// 
+
+        var inputKeyHash = GoodPassSHAServices.getGPHES(inputKey);
+        if (RuntimeHelper.IsMSIX)
+        {
+            if (ApplicationData.Current.LocalSettings.Values.TryGetValue("LocalMKHash", out var obj))
+            {
+                var localHash = (string)obj;
+                if (localHash == String.Empty || obj == null)
+                {
+                    ApplicationData.Current.LocalSettings.Values["LocalMKHash"] = inputKeyHash;
+                    await Task.CompletedTask;
+                    return 0;
+                }
+                else
+                {
+                    return 2;
+                }
+            }
+            else
+            {
+                ApplicationData.Current.LocalSettings.Values["LocalMKHash"] = inputKeyHash;
+                await Task.CompletedTask;
+                return 0;
+            }
+        }
+        else
+        {
+            throw new GPRuntimeException("CheckMasterKeyAsync_MSIX: Not Run in MSIX");
+        }
+    }
+
+    /// <summary>
+    /// MSIX打包应用使用的主密码校验方法
+    /// </summary>
+    /// <exception cref="GPRuntimeException">未在MSIX环境中运行</exception>
+    public async Task<string> CheckMasterKeyAsync_MSIX(string inputKey)
+    {
+        var inputKeyHash = GoodPassSHAServices.getGPHES(inputKey);
+        if (RuntimeHelper.IsMSIX)
+        {
+            if (ApplicationData.Current.LocalSettings.Values.TryGetValue("LocalMKHash", out var obj))
+            {
+                var localHash = (string)obj;
+                await Task.CompletedTask;
+                if (localHash == String.Empty)
+                {
+                    return "error: data broken";
+                }
+                else if (inputKeyHash == localHash)
+                {
+                    ProcessMKArray(inputKey);
+                    return "pass";
+                }
+                else if (inputKeyHash != localHash)
+                {
+                    return "npass";
+                }
+                else
+                {
+                    return "Unknown Error";
+                }
+            }
+            else
+            {
+                return "error: not found";
+            }
+        }
+        else
+        {
+            throw new GPRuntimeException("CheckMasterKeyAsync_MSIX: Not Run in MSIX");
+        }
     }
 }

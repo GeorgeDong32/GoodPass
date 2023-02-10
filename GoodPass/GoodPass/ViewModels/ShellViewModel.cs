@@ -70,10 +70,16 @@ public class ShellViewModel : ObservableRecipient
     /// <summary>
     /// 点击MenuBar中退出按钮的操作实现
     /// </summary>
-    private void OnMenuFileExit()
+    private async void OnMenuFileExit()
     {
         //实现锁定并保存数据
-        OnMenuFileLock();
+        //保存到文件
+        var dataPath = Path.Combine($"C:\\Users\\{Environment.UserName}\\AppData\\Local", "GoodPass", "GoodPassData.csv");
+        if (App.DataManager != null)
+            await App.DataManager.SaveToFileAsync(dataPath);
+        //锁定
+        App.App_Lock();
+        App.LeftSettingsPage();
         Application.Current.Exit();
     }
 
@@ -106,12 +112,12 @@ public class ShellViewModel : ObservableRecipient
     /// <summary>
     /// 点击MenuBar锁定的事件处理
     /// </summary>
-    private void OnMenuFileLock()
+    private async void OnMenuFileLock()
     {
         //保存到文件
         var dataPath = Path.Combine($"C:\\Users\\{Environment.UserName}\\AppData\\Local", "GoodPass", "GoodPassData.csv");
         if (App.DataManager != null)
-            App.DataManager.SaveToFile(dataPath);
+            await App.DataManager.SaveToFileAsync(dataPath);
         //锁定
         App.App_Lock();
         App.LeftSettingsPage();

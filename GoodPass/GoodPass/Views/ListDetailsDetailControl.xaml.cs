@@ -114,8 +114,7 @@ public sealed partial class ListDetailsDetailControl : UserControl
             ListDetailsDetailControl_PlatformUrlHyperLinkText.Text = dialog.newPlatformUrl;
             PlatformNameText.Text = dialog.newPlatformName;
             ListDetailsDetailControl_LastmodifiedText.Text = dialog.newDateTime.ToString();
-            App.DataManager.SaveToFile($"C:\\Users\\{Environment.UserName}\\AppData\\Local\\GoodPass\\GoodPassData.csv");
-            //await Task.Delay(200);
+            await App.DataManager.SaveToFileAsync($"C:\\Users\\{Environment.UserName}\\AppData\\Local\\GoodPass\\GoodPassData.csv");
         }
         else if (dialog.Result == EditDataResult.Failure)
         {
@@ -157,7 +156,7 @@ public sealed partial class ListDetailsDetailControl : UserControl
                 if (delResult == false)
                     throw new GPObjectNotFoundException("Data Not Found!");
                 else
-                    App.DataManager.SaveToFile($"C:\\Users\\{Environment.UserName}\\AppData\\Local\\GoodPass\\GoodPassData.csv");
+                    await App.DataManager.SaveToFileAsync($"C:\\Users\\{Environment.UserName}\\AppData\\Local\\GoodPass\\GoodPassData.csv");
                 ListDetailsDetailControl_DeleteButton.IsEnabled = true;
             }
             catch (System.ArgumentOutOfRangeException)
@@ -182,7 +181,7 @@ public sealed partial class ListDetailsDetailControl : UserControl
         else
         {
             ListDetailsDetailControl_DeleteButton.IsEnabled = true;
-        }    
+        }
     }
 
     /// <summary>

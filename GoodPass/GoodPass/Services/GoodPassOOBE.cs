@@ -1,5 +1,4 @@
-﻿using GoodPass.Contracts.Services;
-using GoodPass.Helpers;
+﻿using GoodPass.Helpers;
 using GoodPass.Models;
 using Windows.Storage;
 
@@ -10,16 +9,13 @@ namespace GoodPass.Services;
 /// </summary>
 public class OOBEServices
 {
-    private readonly ILocalSettingsService _localSettingsService;
-
-    private OOBESituation _OOBESituation
+    private OOBESituation OOBESituation
     {
         get; set;
     }
 
-    public OOBEServices(ILocalSettingsService localSettingsService)
+    public OOBEServices()
     {
-        _localSettingsService = localSettingsService;
     }
 
     /// <summary>
@@ -40,39 +36,30 @@ public class OOBEServices
         switch (loaclstatus)
         {
             case "EnableOOBE":
-                _OOBESituation = OOBESituation.EnableOOBE;
+                OOBESituation = OOBESituation.EnableOOBE;
                 break;
             case "DIsableOOBE":
-                _OOBESituation = OOBESituation.DIsableOOBE;
+                OOBESituation = OOBESituation.DIsableOOBE;
                 break;
             default:
-                _OOBESituation = OOBESituation.EnableOOBE;
+                OOBESituation = OOBESituation.EnableOOBE;
                 break;
         }
-        return _OOBESituation;
+        return OOBESituation;
     }
 
     public async Task<bool> SetOOBEStatusAsync(string oobePosition, OOBESituation oobeSituation)
     {
-        _OOBESituation = oobeSituation;
-        switch (oobeSituation)
+        OOBESituation = oobeSituation;
+        if (RuntimeHelper.IsMSIX)
         {
-            case OOBESituation.EnableOOBE:
-                if (RuntimeHelper.IsMSIX)
-                {
-                    ApplicationData.Current.LocalSettings.Values[oobePosition] = oobeSituation.ToString();
-                    await Task.CompletedTask;
-                }
-                return true;
-            case OOBESituation.DIsableOOBE:
-                if (RuntimeHelper.IsMSIX)
-                {
-                    ApplicationData.Current.LocalSettings.Values[oobePosition] = oobeSituation.ToString();
-                    await Task.CompletedTask;
-                }
-                return true;
-            default:
-                return false;
+            ApplicationData.Current.LocalSettings.Values[oobePosition] = oobeSituation.ToString();
+            await Task.CompletedTask;
+            return true;
+        }
+        else
+        {
+            throw new GPRuntimeException("SetOOBEStatusAsync: Not in MSIX");
         }
     }
 }

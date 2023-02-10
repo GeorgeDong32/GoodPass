@@ -28,6 +28,7 @@ public sealed partial class ShellPage : Page
         InitializeComponent();
         if (App.ShellOOBE == Models.OOBESituation.EnableOOBE)
         {
+            OOBE_GoBackTip.IsOpen = true;
             OOBE_AddDataTip.IsOpen = true;
             OOBE_SettingTip.IsOpen = true;
         }

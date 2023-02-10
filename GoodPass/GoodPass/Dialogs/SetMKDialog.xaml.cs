@@ -1,4 +1,5 @@
-﻿using GoodPass.Services;
+﻿using GoodPass.Helpers;
+using GoodPass.Services;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
@@ -101,10 +102,17 @@ public sealed partial class SetMKDialog : ContentDialog
         }
     }
 
-    private void SetMKDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+    private async void SetMKDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
     {
-        var MKS = new MasterKeyService();
-        var MK = SetMKDialog_PssswordBox1.Password;
-        MKS.SetLocalMKHash(MK);
+        var MKS = App.GetService<MasterKeyService>();
+        var masterKey = SetMKDialog_PssswordBox1.Password;
+        if (RuntimeHelper.IsMSIX)
+        {
+            await MKS.SetMasterKeyAsync_MSIX(masterKey);
+        }
+        else
+        {
+            MKS.SetLocalMKHash(masterKey);
+        }
     }
 }

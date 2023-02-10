@@ -341,7 +341,7 @@
     <value>解锁后点击此按钮添加数据</value>
   </data>
   <data name="OOBE_SettingTip.Title" xml:space="preserve">
-    <value>点击设置按钮进入设置</value>
+    <value>点击此按钮进入设置或离开设置</value>
   </data>
   <data name="ShellPage_AddDataButtonTip.Content" xml:space="preserve">
     <value>添加数据</value>
@@ -360,5 +360,17 @@
   </data>
   <data name="UserAgreementHyperButtonText.Text" xml:space="preserve">
     <value>用户协议</value>
+  </data>
+  <data name="OOBE_GoBackTip.Title" xml:space="preserve">
+    <value>点击此处返回上一页面(存在上一页面时)</value>
+  </data>
+  <data name="ShellPage_BackButtonTip.Content" xml:space="preserve">
+    <value>返回</value>
+  </data>
+  <data name="LoginBoxTip.Content" xml:space="preserve">
+    <value>输入密码按下回车解锁</value>
+  </data>
+  <data name="OOBE_LoginBoxTip.Title" xml:space="preserve">
+    <value>在密码框内按下回车也可以解锁应用</value>
   </data>
 </root>

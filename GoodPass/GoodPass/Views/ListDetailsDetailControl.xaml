@@ -43,7 +43,6 @@
                         Margin="{StaticResource ListDetailsDetailControlDetailMargin}"
                         IsReadOnly="True"
                         RelativePanel.Below="ListDetailsDetailControl_AccountNameTitle"
-                        Style="{StaticResource DetailBodyBaseMediumStyle}"
                         Text="{x:Bind ListDetailsMenuItem.AccountName, Mode=OneWay}" />
                     <Button
                         x:Name="ListDetailsDetailControl_AcconutNameCopyButton"

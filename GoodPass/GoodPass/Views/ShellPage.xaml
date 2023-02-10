@@ -49,7 +49,19 @@
                         <SymbolIconSource Symbol="Back" />
                     </AnimatedIcon.FallbackIconSource>
                 </AnimatedIcon>
+                <ToolTipService.ToolTip>
+                    <ToolTip x:Uid="ShellPage_BackButtonTip" Placement="Bottom" />
+                </ToolTipService.ToolTip>
             </AppBarButton>
+            <TeachingTip
+                x:Name="OOBE_GoBackTip"
+                x:Uid="OOBE_GoBackTip"
+                IsOpen="False"
+                Target="{x:Bind ShellMenuBarItem_Back}">
+                <TeachingTip.IconSource>
+                    <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE783;" />
+                </TeachingTip.IconSource>
+            </TeachingTip>
             <MenuBar Grid.Column="1">
                 <MenuBarItem x:Uid="ShellMenuBarItem_File">
                     <MenuFlyoutItem x:Uid="ShellMenuItem_File_Exit" Command="{x:Bind ViewModel.MenuFileExitCommand}" />

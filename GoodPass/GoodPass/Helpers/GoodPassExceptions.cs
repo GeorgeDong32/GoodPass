@@ -9,3 +9,11 @@ public class GPObjectNotFoundException : Exception
     public GPObjectNotFoundException(string message) : base(message) { }
     public GPObjectNotFoundException(string message, Exception inner) : base(message, inner) { }
 }
+
+
+public class GPRuntimeException : Exception
+{
+    public GPRuntimeException() : base() { }
+    public GPRuntimeException(string message) : base(message) { }
+    public GPRuntimeException(string message, Exception inner) : base(message, inner) { }
+}
