@@ -86,7 +86,7 @@ public class GPData
     /// <summary>
     /// GPData的含时间的构造函数
     /// </summary>
-    public GPData(string platformName, string platformUrl, string accountName, string encPassword, DateTime latestUpdateTime)
+    public GPData(string platformName, string? platformUrl, string accountName, string encPassword, DateTime latestUpdateTime)
     {
         PlatformName = platformName;
         PlatformUrl = platformUrl;
@@ -154,7 +154,7 @@ public class GPData
     /// </summary>
     /// <param name="newUrl">新的Url</param>
     /// <returns>修改结果</returns>
-    public bool ChangeUrl(string newUrl)
+    public bool ChangeUrl(string? newUrl)
     {
         if (newUrl == this.PlatformUrl)
         {

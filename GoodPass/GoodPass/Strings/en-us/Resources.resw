@@ -140,7 +140,7 @@
     <comment>Page title for MainPage</comment>
   </data>
   <data name="ListDetails_NoSelection.Text" xml:space="preserve">
-    <value>Select an item from the list.</value>
+    <value>请添加数据或在左侧列表选择一个数据</value>
   </data>
   <data name="ShellMenuItem_Views_ListDetails.Text" xml:space="preserve">
     <value>ListDetails</value>

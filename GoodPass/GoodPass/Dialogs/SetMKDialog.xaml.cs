@@ -104,15 +104,14 @@ public sealed partial class SetMKDialog : ContentDialog
 
     private async void SetMKDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
     {
-        var MKS = App.GetService<MasterKeyService>();
         var masterKey = SetMKDialog_PssswordBox1.Password;
         if (RuntimeHelper.IsMSIX)
         {
-            await MKS.SetMasterKeyAsync_MSIX(masterKey);
+            await MasterKeyService.SetMasterKeyAsync_MSIX(masterKey);
         }
         else
         {
-            MKS.SetLocalMKHash(masterKey);
+            MasterKeyService.SetLocalMKHash(masterKey);
         }
     }
 }

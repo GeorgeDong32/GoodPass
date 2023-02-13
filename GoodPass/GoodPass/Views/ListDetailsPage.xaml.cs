@@ -14,7 +14,7 @@ public sealed partial class ListDetailsPage : Page
 
     public ListDetailsPage()
     {
-        App.ListDetailsVM = new ListDetailsViewModel(App.GetService<GoodPassDataService>());
+        App.ListDetailsVM = new ListDetailsViewModel();
         ViewModel = App.ListDetailsVM;
         InitializeComponent();
     }

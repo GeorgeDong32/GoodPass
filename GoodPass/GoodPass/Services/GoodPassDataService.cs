@@ -2,7 +2,7 @@
 
 namespace GoodPass.Services;
 
-public class GoodPassDataService
+public static class GoodPassDataService
 {
     /// <summary>
     /// 从DataManager获取IEnumerable形式的所有数据或初始化示例数据
@@ -39,7 +39,7 @@ public class GoodPassDataService
     /// 异步获取IEnumerable形式的所有数据或初始化示例数据
     /// </summary>
     /// <returns>异步的IEnumerable形式的数据列表</returns>
-    public async Task<IEnumerable<GPData>> GetListDetailsDataAsync()
+    public static async Task<IEnumerable<GPData>> GetListDetailsDataAsync()
     {
         var _allDatas = new List<GPData>(AllDatas());
         await Task.CompletedTask;

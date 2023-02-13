@@ -7,22 +7,13 @@ namespace GoodPass.Services;
 /// <summary>
 /// Provide GoodPass Out-Of-Box-Experience Services
 /// </summary>
-public class OOBEServices
+public static class OOBEServices
 {
-    private OOBESituation OOBESituation
-    {
-        get; set;
-    }
-
-    public OOBEServices()
-    {
-    }
-
     /// <summary>
     /// 获取OOBE状态
     /// </summary>
     /// <param name="oobePosition">OOBE位置，如MainOOBE/AddDataOOBE</param>
-    public async Task<OOBESituation> GetOOBEStatusAsync(string oobePosition)
+    public static async Task<OOBESituation> GetOOBEStatusAsync(string oobePosition)
     {
         var loaclstatus = "";
         if (RuntimeHelper.IsMSIX)
@@ -36,21 +27,16 @@ public class OOBEServices
         switch (loaclstatus)
         {
             case "EnableOOBE":
-                OOBESituation = OOBESituation.EnableOOBE;
-                break;
+                return OOBESituation.EnableOOBE;
             case "DIsableOOBE":
-                OOBESituation = OOBESituation.DIsableOOBE;
-                break;
+                return OOBESituation.DIsableOOBE;
             default:
-                OOBESituation = OOBESituation.EnableOOBE;
-                break;
+                return OOBESituation.EnableOOBE;
         }
-        return OOBESituation;
     }
 
-    public async Task<bool> SetOOBEStatusAsync(string oobePosition, OOBESituation oobeSituation)
+    public static async Task<bool> SetOOBEStatusAsync(string oobePosition, OOBESituation oobeSituation)
     {
-        OOBESituation = oobeSituation;
         if (RuntimeHelper.IsMSIX)
         {
             ApplicationData.Current.LocalSettings.Values[oobePosition] = oobeSituation.ToString();

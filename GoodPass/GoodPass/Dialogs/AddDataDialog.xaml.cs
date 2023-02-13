@@ -259,8 +259,17 @@ public sealed partial class AddDataDialog : ContentDialog
         var result = App.DataManager.AddData(AddDataDialog_PlatformBox.Text, AddDataDialog_PlatformUrlBox.Text, AddDataDialog_AccountBox.Text, AddDataDialog_PasswordBox.Password);
         if (result == true)
         {
-            App.ListDetailsVM.AddDataItem(App.DataManager.GetData(AddDataDialog_PlatformBox.Text, AddDataDialog_AccountBox.Text));
-            this.Result = AddDataResult.Success;
+            var newdata = App.DataManager.GetData(AddDataDialog_PlatformBox.Text, AddDataDialog_AccountBox.Text);
+            if (newdata != null)
+            {
+                App.ListDetailsVM.AddDataItem(newdata);
+                this.Result = AddDataResult.Success;
+            }
+            else
+            {
+                this.Result = AddDataResult.Failure_Duplicate;
+            }
+            
         }
         else
         {

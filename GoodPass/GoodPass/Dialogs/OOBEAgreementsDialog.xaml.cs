@@ -39,7 +39,7 @@ public sealed partial class OOBEAgreementsDialog : ContentDialog
 
     private async void OOBEAgreementsDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
     {
-        _ = await App.GetService<OOBEServices>().SetOOBEStatusAsync("AgreementOOBE", Models.OOBESituation.DIsableOOBE);
+        _ = await OOBEServices.SetOOBEStatusAsync("AgreementOOBE", Models.OOBESituation.DIsableOOBE);
     }
 
     private void OOBEAgreementsDialog_CloseButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)

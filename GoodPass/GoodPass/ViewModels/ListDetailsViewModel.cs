@@ -1,7 +1,5 @@
 ﻿using System.Collections.ObjectModel;
-
 using CommunityToolkit.Mvvm.ComponentModel;
-
 using GoodPass.Contracts.ViewModels;
 using GoodPass.Models;
 using GoodPass.Services;
@@ -14,20 +12,18 @@ public class ListDetailsViewModel : ObservableRecipient, INavigationAware
     {
     }
 
-    private readonly GoodPassDataService _dataService;
     private GPData? _selectedData;
     public ObservableCollection<GPData> DataItems { get; private set; } = new ObservableCollection<GPData>();
 
-    public ListDetailsViewModel(GoodPassDataService goodPassDataService)
+    public ListDetailsViewModel()
     {
-        _dataService = goodPassDataService;
     }
 
     public async void OnNavigatedTo(object parameter)
     {
         DataItems.Clear();
 
-        var datas = await _dataService.GetListDetailsDataAsync();
+        var datas = await GoodPassDataService.GetListDetailsDataAsync();
 
         foreach (var data in datas)
         {

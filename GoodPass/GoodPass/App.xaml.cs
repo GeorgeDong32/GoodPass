@@ -143,12 +143,8 @@ public partial class App : Application
             services.AddSingleton<IActivationService, ActivationService>();
             services.AddSingleton<IPageService, PageService>();
             services.AddSingleton<INavigationService, NavigationService>();
-            services.AddSingleton<IMaterKeyService, MasterKeyService>();
             services.AddSingleton<IFileService, FileService>();
-            services.AddSingleton<MasterKeyService>();
             services.AddSingleton<GoodPassCryptographicServices>();
-            services.AddSingleton<GoodPassDataService>();
-            services.AddSingleton<OOBEServices>();
             services.AddSingleton<ListDetailsViewModel>();
             services.AddSingleton<MultilingualStringsServices>();
 
