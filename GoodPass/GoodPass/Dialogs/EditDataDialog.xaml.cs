@@ -212,7 +212,7 @@ public sealed partial class EditDataDialog : ContentDialog
         if (EditDataDialog_AccountBox.Text != String.Empty)
         {
             EditDataDialog_AccountCheckIcon.Glyph = "\xE73E";
-            EditDataDialog_AccountCheckText.Text = "平台名合法";
+            EditDataDialog_AccountCheckText.Text = "账号名合法";
             if (EditDataCheck())
             {
                 IsPrimaryButtonEnabled = true;
@@ -225,7 +225,7 @@ public sealed partial class EditDataDialog : ContentDialog
         else
         {
             EditDataDialog_AccountCheckIcon.Glyph = "\xE711";
-            EditDataDialog_AccountCheckText.Text = "平台名不能为空";
+            EditDataDialog_AccountCheckText.Text = "账号名不能为空";
             IsPrimaryButtonEnabled = false;
         }
     }

@@ -31,6 +31,8 @@
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
@@ -41,8 +43,8 @@
                 HorizontalAlignment="Left"
                 AnimatedIcon.State="Normal"
                 Command="{x:Bind ViewModel.GoBackCommand}"
-                PointerPressed="ShellMenuBarItem_Back_PointerPressed"
-                PointerReleased="ShellMenuBarItem_Back_PointerReleased">
+                PointerPressed="ShellAnimatedIcon_PointerPressed"
+                PointerReleased="ShellAnimatedIcon_PointerReleased">
                 <AnimatedIcon x:Name="ShellMenuBarGoBackIcon">
                     <animatedvisuals:AnimatedBackVisualSource />
                     <AnimatedIcon.FallbackIconSource>
@@ -65,13 +67,61 @@
             <MenuBar Grid.Column="1">
                 <MenuBarItem x:Uid="ShellMenuBarItem_File">
                     <MenuFlyoutItem x:Uid="ShellMenuItem_File_Exit" Command="{x:Bind ViewModel.MenuFileExitCommand}" />
-                    <!--  ToDo：应该替换为Command：MenuLock（保存文件+回到登录界面）  -->
                     <MenuFlyoutItem x:Uid="ShellMenuItem_File_Lock" Command="{x:Bind ViewModel.MenuFileLockCommand}" />
+                    <MenuFlyoutItem
+                        x:Name="ShellMenuItem_File_Export"
+                        x:Uid="ShellMenuItem_File_Export"
+                        Click="Export_Click" />
                 </MenuBarItem>
             </MenuBar>
             <AppBarButton
-                x:Name="ShellMenuBarAddDataButton"
+                x:Name="ShellMenuSearchButton"
+                x:Uid="ShellMenuSearchButton"
                 Grid.Column="2"
+                AnimatedIcon.State="Normal"
+                Click="ShellMenuSearchButton_Click"
+                PointerEntered="ShellAnimatedIcon_PointerEntered"
+                PointerExited="ShellAnimatedIcon_PointerExited">
+                <AnimatedIcon x:Name="ShellMenuBarSearchIcon">
+                    <AnimatedIcon.Source>
+                        <animatedvisuals:AnimatedFindVisualSource />
+                    </AnimatedIcon.Source>
+                    <AnimatedIcon.FallbackIconSource>
+                        <SymbolIconSource Symbol="Find" />
+                    </AnimatedIcon.FallbackIconSource>
+                </AnimatedIcon>
+            </AppBarButton>
+            <TeachingTip
+                x:Name="ShellMenuSearchTip"
+                x:Uid="ShellMenuSearchTip"
+                CornerRadius="10"
+                IsLightDismissEnabled="True"
+                PreferredPlacement="Bottom"
+                Target="{x:Bind ShellMenuSearchButton}">
+                <StackPanel>
+                    <AutoSuggestBox
+                        x:Name="ShellMenuSearchBox"
+                        x:Uid="ShellMenuSearchBox"
+                        Width="300"
+                        IsEnabled="True"
+                        SuggestionChosen="AutoSuggestBox_SuggestionChosen"
+                        TextChanged="AutoSuggestBox_TextChanged" />
+                </StackPanel>
+            </TeachingTip>
+            <TeachingTip
+                x:Name="OOBE_SearchTip"
+                x:Uid="OOBE_SearchTip"
+                CloseButtonClick="OOBE_SearchTip_CloseButtonClick"
+                IsOpen="False"
+                Target="{x:Bind ShellMenuSearchButton}">
+                <TeachingTip.IconSource>
+                    <FontIconSource FontFamily="{StaticResource SymbolThemeFontFamily}" Glyph="&#xE783;" />
+                </TeachingTip.IconSource>
+            </TeachingTip>
+            <StackPanel Grid.Column="3" VerticalAlignment="Center" />
+            <AppBarButton
+                x:Name="ShellMenuBarAddDataButton"
+                Grid.Column="4"
                 Click="ShellMenuBarAddDataButton_Click">
                 <RelativePanel HorizontalAlignment="Center" VerticalAlignment="Center">
                     <FontIcon
@@ -109,11 +159,11 @@
             <AppBarButton
                 x:Name="ShellMenuBarSettingsButton"
                 x:Uid="ShellMenuBarSettingsButton"
-                Grid.Column="3"
+                Grid.Column="5"
                 AnimatedIcon.State="Normal"
                 Command="{x:Bind ViewModel.MenuSettingsCommand}"
-                PointerEntered="ShellMenuBarSettingsButton_PointerEntered"
-                PointerExited="ShellMenuBarSettingsButton_PointerExited">
+                PointerEntered="ShellAnimatedIcon_PointerEntered"
+                PointerExited="ShellAnimatedIcon_PointerExited">
                 <AnimatedIcon x:Name="ShellMenuBarSettingsButtonIcon">
                     <AnimatedIcon.Source>
                         <animatedvisuals:AnimatedSettingsVisualSource />

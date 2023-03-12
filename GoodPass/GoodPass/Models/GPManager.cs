@@ -1,5 +1,4 @@
 ﻿using GoodPass.Services;
-
 namespace GoodPass.Models;
 
 public class GPManager
@@ -57,6 +56,20 @@ public class GPManager
     }
 
     /// <summary>
+    /// 搜索框搜索接口
+    /// </summary>
+    /// <param name="searchText"></param>
+    /// <returns></returns>
+    public List<GPData> SuggestSearch(string searchText)
+    {
+        var matchString = searchText.ToLower();
+        var query = from GPData data in GPDatas
+                    where data.PlatformName.ToLower().Contains(matchString) || data.AccountName.ToLower().Contains(matchString)
+                    select data;
+        return query.ToList();
+    }
+
+    /// <summary>
     /// 添加数据1(自带去重)
     /// </summary>
     /// <returns>添加结果</returns>
@@ -74,8 +87,7 @@ public class GPManager
                 return false;
             }
         }
-        var cryptService = App.GetService<GoodPassCryptographicServices>();
-        var encPassword = cryptService.EncryptStr(password);
+        var encPassword = GoodPassCryptographicServices.EncryptStr(password);
         var datatemp = new GPData(platformName, platformUrl, accountName, encPassword, DateTime.Now);
         GPDatas.Add(datatemp);
         return true;
@@ -304,7 +316,7 @@ public class GPManager
         }
         else
         {
-            File.Create(filePath);
+            File.Create(filePath).Close();
             await File.WriteAllTextAsync(filePath, "PlatformName,PlatformUrl,AccountName,EncPassword,LatestUpdateTime\n", System.Text.Encoding.UTF8);
             foreach (var data in GPDatas)
             {
@@ -331,6 +343,14 @@ public class GPManager
         foreach (var data in GPDatas)
         {
             data.DataDecrypt();
+        }
+    }
+
+    public void EncryptAllDatas()
+    {
+        foreach (var data in GPDatas)
+        {
+            data.DataEncrypt();
         }
     }
 

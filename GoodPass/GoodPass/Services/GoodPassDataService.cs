@@ -22,9 +22,9 @@ public static class GoodPassDataService
             datas = new List<GPData>()
             {
                 //生成示例
-                new GPData("Example", "https://github.com/GeorgeDong32/GoodPass", "example1@example.com", App.GetService<GoodPassCryptographicServices>().EncryptStr("ExamplePassword"), DateTime.Now),
-                new GPData("Example", "https://example.com", "example2", App.GetService<GoodPassCryptographicServices>().EncryptStr("ExamplePassword"), DateTime.Now),
-                new GPData("Example", String.Empty ,"404871381511007", App.GetService<GoodPassCryptographicServices>().EncryptStr("ExamplePassword"), DateTime.Now)
+                new GPData("Example", "https://github.com/GeorgeDong32/GoodPass", "example1@example.com", GoodPassCryptographicServices.EncryptStr("ExamplePassword"), DateTime.Now),
+                new GPData("Example", "https://example.com", "example2", GoodPassCryptographicServices.EncryptStr("ExamplePassword"), DateTime.Now),
+                new GPData("Example", String.Empty ,"404871381511007", GoodPassCryptographicServices.EncryptStr("ExamplePassword"), DateTime.Now)
             };
             foreach (var data in datas)
             {

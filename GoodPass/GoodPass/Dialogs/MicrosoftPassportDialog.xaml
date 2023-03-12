@@ -1,0 +1,47 @@
+<ContentDialog
+    x:Class="GoodPass.Dialogs.MicrosoftPassportDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    CloseButtonText="取消"
+    DefaultButton="Primary"
+    PrimaryButtonText="确定"
+    mc:Ignorable="d">
+
+    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <StackPanel x:Name="MPD_IntroPanel" HorizontalAlignment="Left">
+            <TextBlock
+                x:Name="MPD_IntroText"
+                x:Uid="MPD_IntroText"
+                Width="450"
+                Margin="0,0,0,12"
+                FontSize="16" />
+        </StackPanel>
+        <RelativePanel x:Name="MPD_PasswordPanel" HorizontalAlignment="Left">
+            <PasswordBox
+                x:Name="MPD_PasswordBox"
+                x:Uid="MPD_PasswordBox"
+                Width="300"
+                PasswordChanged="MPD_PasswordBox_PasswordChanged" />
+            <RelativePanel
+                x:Name="MPD_PasswordCheckPanel"
+                RelativePanel.AlignBottomWithPanel="True"
+                RelativePanel.RightOf="MPD_PasswordBox">
+                <FontIcon
+                    x:Name="MPD_PasswordCheckIcon"
+                    Margin="8,2,0,8"
+                    FontFamily="Segoe MDL2 Assets"
+                    FontSize="14"
+                    Glyph="&#xE711;" />
+                <!--  E711 叉图标，E73E 勾图标  -->
+                <TextBlock
+                    x:Name="MPD_PasswordCheckText"
+                    x:Uid="MPD_PasswordCheckText"
+                    Margin="4,0,0,0"
+                    RelativePanel.RightOf="MPD_PasswordCheckIcon" />
+            </RelativePanel>
+        </RelativePanel>
+    </StackPanel>
+
+</ContentDialog>

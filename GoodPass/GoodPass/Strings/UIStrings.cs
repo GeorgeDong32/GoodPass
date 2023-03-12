@@ -40,6 +40,22 @@ public class UIStrings
 
     public readonly string AgreementNotArgeeContent;
 
+    public readonly string MicrosoftPassportSituatoinText1;
+
+    public readonly string MicrosoftPassportSituatoinText2;
+
+    public readonly string DataInsertSituationText1;
+
+    public readonly string DataInsertSituationText2;
+
+    public readonly string AESSituationText1;
+
+    public readonly string AESSituationText2;
+
+    public readonly string MPD_PasswordCheckSuccess;
+
+    public readonly string MPD_PasswordCheckFailed;
+
     /// <summary>
     /// UIStrings构造函数
     /// </summary>
@@ -59,7 +75,15 @@ public class UIStrings
                      string warningDialogTitle,
                      string errorDialogTitle,
                      string infoDialogTitle,
-                     string agreementNotArgeeContent)
+                     string agreementNotArgeeContent,
+                     string microsoftPassportSituatoinText1,
+                     string microsoftPassportSituatoinText2,
+                     string dataInsertSituationText1,
+                     string dataInsertSituationText2,
+                     string aESSituationText1,
+                     string aESSituationText2,
+                     string mpd_PasswordCheckSuccess,
+                     string mpd_PasswordCheckFailed)
     {
         ListDetailsDetailControl_AccountNameTitleText = listDetailsDetailControl_AccountNameTitleText;
         ListDetailsDetailControl_CopiedTipforAcconutNameCopyButtonTitle = listDetailsDetailControl_CopiedTipforAcconutNameCopyButtonTitle;
@@ -78,5 +102,13 @@ public class UIStrings
         ErrorDialogTitle = errorDialogTitle;
         InfoDialogTitle = infoDialogTitle;
         AgreementNotArgeeContent = agreementNotArgeeContent;
+        MicrosoftPassportSituatoinText1 = microsoftPassportSituatoinText1;
+        MicrosoftPassportSituatoinText2 = microsoftPassportSituatoinText2;
+        DataInsertSituationText1 = dataInsertSituationText1;
+        DataInsertSituationText2 = dataInsertSituationText2;
+        AESSituationText1 = aESSituationText1;
+        AESSituationText2 = aESSituationText2;
+        MPD_PasswordCheckSuccess = mpd_PasswordCheckSuccess;
+        MPD_PasswordCheckFailed = mpd_PasswordCheckFailed;
     }
 }

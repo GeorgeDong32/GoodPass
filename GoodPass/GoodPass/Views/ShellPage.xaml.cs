@@ -22,17 +22,17 @@ public sealed partial class ShellPage : Page
     {
         ViewModel = viewModel;
         App.UIStrings = App.GetService<MultilingualStringsServices>().Getzh_CN();
-        App.MainOOBE = OOBEServices.GetOOBEStatusAsync("MainOOBE").Result;
-        App.ShellOOBE = OOBEServices.GetOOBEStatusAsync("ShellOOBE").Result;
-        App.AgreementOOBE = OOBEServices.GetOOBEStatusAsync("AgreementOOBE").Result;
         InitializeComponent();
-        if (App.ShellOOBE == Models.OOBESituation.EnableOOBE)
+        if (OOBEServices.GetOOBEStatusAsync("ShellOOBE").Result == Models.OOBESituation.EnableOOBE)
         {
             OOBE_GoBackTip.IsOpen = true;
             OOBE_AddDataTip.IsOpen = true;
             OOBE_SettingTip.IsOpen = true;
         }
-
+        if (OOBEServices.GetOOBEStatusAsync("SearchOOBE").Result == Models.OOBESituation.EnableOOBE)
+        {
+            OOBE_SearchTip.IsOpen = true;
+        }
         ViewModel.NavigationService.Frame = NavigationFrame;
 
         // TODO: Set the title bar icon by updating /Assets/WindowIcon.ico.
@@ -51,10 +51,14 @@ public sealed partial class ShellPage : Page
         KeyboardAccelerators.Add(BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu));
         KeyboardAccelerators.Add(BuildKeyboardAccelerator(VirtualKey.GoBack));
 
-        ShellMenuBarSettingsButton.AddHandler(UIElement.PointerPressedEvent, new PointerEventHandler(ShellMenuBarSettingsButton_PointerPressed), true);
-        ShellMenuBarSettingsButton.AddHandler(UIElement.PointerReleasedEvent, new PointerEventHandler(ShellMenuBarSettingsButton_PointerReleased), true);
-        ShellMenuBarItem_Back.AddHandler(UIElement.PointerPressedEvent, new PointerEventHandler(ShellMenuBarItem_Back_PointerPressed), true);
-        ShellMenuBarItem_Back.AddHandler(UIElement.PointerReleasedEvent, new PointerEventHandler(ShellMenuBarItem_Back_PointerReleased), true);
+        ShellMenuBarSettingsButton.AddHandler(UIElement.PointerPressedEvent, new PointerEventHandler(ShellAnimatedIcon_PointerPressed), true);
+        ShellMenuBarSettingsButton.AddHandler(UIElement.PointerReleasedEvent, new PointerEventHandler(ShellAnimatedIcon_PointerReleased), true);
+        ShellMenuBarItem_Back.AddHandler(UIElement.PointerPressedEvent, new PointerEventHandler(ShellAnimatedIcon_PointerPressed), true);
+        ShellMenuBarItem_Back.AddHandler(UIElement.PointerReleasedEvent, new PointerEventHandler(ShellAnimatedIcon_PointerReleased), true);
+        ShellMenuSearchButton.AddHandler(UIElement.PointerEnteredEvent, new PointerEventHandler(ShellAnimatedIcon_PointerEntered), true);
+        ShellMenuSearchButton.AddHandler(UIElement.PointerExitedEvent, new PointerEventHandler(ShellAnimatedIcon_PointerExited), true);
+        ShellMenuSearchButton.AddHandler(UIElement.PointerPressedEvent, new PointerEventHandler(ShellAnimatedIcon_PointerPressed), true);
+        ShellMenuSearchButton.AddHandler(UIElement.PointerReleasedEvent, new PointerEventHandler(ShellAnimatedIcon_PointerReleased), true);
     }
 
     private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
@@ -66,10 +70,14 @@ public sealed partial class ShellPage : Page
 
     private void OnUnloaded(object sender, RoutedEventArgs e)
     {
-        ShellMenuBarSettingsButton.RemoveHandler(UIElement.PointerPressedEvent, (PointerEventHandler)ShellMenuBarSettingsButton_PointerPressed);
-        ShellMenuBarSettingsButton.RemoveHandler(UIElement.PointerReleasedEvent, (PointerEventHandler)ShellMenuBarSettingsButton_PointerReleased);
-        ShellMenuBarItem_Back.RemoveHandler(UIElement.PointerReleasedEvent, (PointerEventHandler)ShellMenuBarItem_Back_PointerPressed);
-        ShellMenuBarItem_Back.RemoveHandler(UIElement.PointerPressedEvent, (PointerEventHandler)ShellMenuBarItem_Back_PointerPressed);
+        ShellMenuBarSettingsButton.RemoveHandler(UIElement.PointerPressedEvent, (PointerEventHandler)ShellAnimatedIcon_PointerPressed);
+        ShellMenuBarSettingsButton.RemoveHandler(UIElement.PointerReleasedEvent, (PointerEventHandler)ShellAnimatedIcon_PointerReleased);
+        ShellMenuBarItem_Back.RemoveHandler(UIElement.PointerReleasedEvent, (PointerEventHandler)ShellAnimatedIcon_PointerReleased);
+        ShellMenuBarItem_Back.RemoveHandler(UIElement.PointerPressedEvent, (PointerEventHandler)ShellAnimatedIcon_PointerPressed);
+        ShellMenuSearchButton.RemoveHandler(UIElement.PointerEnteredEvent, (PointerEventHandler)ShellAnimatedIcon_PointerEntered);
+        ShellMenuSearchButton.RemoveHandler(UIElement.PointerExitedEvent, (PointerEventHandler)ShellAnimatedIcon_PointerExited);
+        ShellMenuSearchButton.RemoveHandler(UIElement.PointerPressedEvent, (PointerEventHandler)ShellAnimatedIcon_PointerPressed);
+        ShellMenuSearchButton.RemoveHandler(UIElement.PointerReleasedEvent, (PointerEventHandler)ShellAnimatedIcon_PointerReleased);
     }
 
     private static KeyboardAccelerator BuildKeyboardAccelerator(VirtualKey key, VirtualKeyModifiers? modifiers = null)
@@ -95,32 +103,22 @@ public sealed partial class ShellPage : Page
         args.Handled = result;
     }
 
-    private void ShellMenuBarSettingsButton_PointerEntered(object sender, PointerRoutedEventArgs e)
+    private void ShellAnimatedIcon_PointerEntered(object sender, PointerRoutedEventArgs e)
     {
         AnimatedIcon.SetState((UIElement)sender, "PointerOver");
     }
 
-    private void ShellMenuBarSettingsButton_PointerPressed(object sender, PointerRoutedEventArgs e)
+    private void ShellAnimatedIcon_PointerPressed(object sender, PointerRoutedEventArgs e)
     {
         AnimatedIcon.SetState((UIElement)sender, "Pressed");
     }
 
-    private void ShellMenuBarSettingsButton_PointerReleased(object sender, PointerRoutedEventArgs e)
+    private void ShellAnimatedIcon_PointerReleased(object sender, PointerRoutedEventArgs e)
     {
         AnimatedIcon.SetState((UIElement)sender, "Normal");
     }
 
-    private void ShellMenuBarSettingsButton_PointerExited(object sender, PointerRoutedEventArgs e)
-    {
-        AnimatedIcon.SetState((UIElement)sender, "Normal");
-    }
-
-    private void ShellMenuBarItem_Back_PointerPressed(object sender, PointerRoutedEventArgs e)
-    {
-        AnimatedIcon.SetState((UIElement)sender, "Pressed");
-    }
-
-    private void ShellMenuBarItem_Back_PointerReleased(object sender, PointerRoutedEventArgs e)
+    private void ShellAnimatedIcon_PointerExited(object sender, PointerRoutedEventArgs e)
     {
         AnimatedIcon.SetState((UIElement)sender, "Normal");
     }
@@ -158,7 +156,7 @@ public sealed partial class ShellPage : Page
             {
                 await App.DataManager.SaveToFileAsync($"C:\\Users\\{Environment.UserName}\\AppData\\Local\\GoodPass\\GoodPassData.csv");
             }
-                
+
         }
         else
         {
@@ -170,5 +168,103 @@ public sealed partial class ShellPage : Page
     {
         OOBE_AddDataTip.IsOpen = false;
         _ = await OOBEServices.SetOOBEStatusAsync("ShellOOBE", Models.OOBESituation.DIsableOOBE);
+    }
+
+    private void ShellMenuSearchButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (!App.App_IsLock() && !App.IsInSettingsPage())
+        {
+            ShellMenuSearchTip.IsOpen = true;
+        }
+    }
+
+    /// <summary>
+    /// Handle text change and present suitable items
+    /// </summary>
+    private void AutoSuggestBox_TextChanged(AutoSuggestBox sender, AutoSuggestBoxTextChangedEventArgs args)
+    {
+        // Since selecting an item will also change the text,
+        // only listen to changes caused by user entering text.
+        if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
+        {
+            var suitableItems = new List<string>();
+            var text = sender.Text;
+            var matchDatas = App.DataManager.SuggestSearch(text);
+            foreach (var data in matchDatas)
+            {
+                suitableItems.Add($"{data.PlatformName} - {data.AccountName}");
+            }
+            if (suitableItems.Count == 0)
+            {
+                suitableItems.Add("No results found");
+            }
+            sender.ItemsSource = suitableItems;
+        }
+    }
+
+    /// <summary>
+    /// 处理用户选择的结果
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="args"></param>
+    private void AutoSuggestBox_SuggestionChosen(AutoSuggestBox sender, AutoSuggestBoxSuggestionChosenEventArgs args)
+    {
+        var slectedItem = args.SelectedItem;
+        if (slectedItem != null)
+        {
+            if (slectedItem.ToString() == "No results found")
+            {
+            }
+            else
+            {
+                var splitText = slectedItem.ToString().Split(" - ");
+                var platformName = splitText[0];
+                var accountName = splitText[1];
+                var index = App.DataManager.AccurateSearch(platformName, accountName);
+                App.ListDetailsVM.GoToData(index);
+            }
+        }
+        else
+        {
+            throw new ArgumentNullException("AutoSuggestBox_SuggestionChosen: SelectedItem is null");
+        }
+    }
+
+    private async void OOBE_SearchTip_CloseButtonClick(TeachingTip sender, object args)
+    {
+        await OOBEServices.SetOOBEStatusAsync("SearchOOBE", Models.OOBESituation.DIsableOOBE);
+    }
+
+    /// <summary>
+    /// 导出数据
+    /// </summary>
+    private async void Export_Click(object sender, RoutedEventArgs e)
+    {
+        if (App.App_IsLock() == false)
+        {
+            GPDialog2 confirmDialog = new()
+            {
+                XamlRoot = this.XamlRoot,
+                Style = App.Current.Resources["DefaultContentDialogStyle"] as Style
+            };
+            confirmDialog.Title = "导出数据？";
+            confirmDialog.Content = "点击确定即可导出数据";
+            var result = await confirmDialog.ShowAsync();
+            if (result == ContentDialogResult.Primary)
+            {
+                var saveResult = await App.DataManager.SaveToFileAsync($"C:\\Users\\{Environment.UserName}\\Downloads\\GoodPassData.csv");
+                if (saveResult == true)
+                {
+                    var infoDialog = new GPDialog2
+                    {
+                        XamlRoot = this.XamlRoot,
+                        Style = App.Current.Resources["DefaultContentDialogStyle"] as Style,
+                        Title = "导出数据",
+                        Content = "导出成功，请前往下载文件夹查看"
+                    };
+                    _ = await infoDialog.ShowAsync();
+                }
+            }
+        }
     }
 }

@@ -169,7 +169,7 @@ public sealed partial class AddDataDialog : ContentDialog
         if (AddDataDialog_AccountBox.Text != String.Empty)
         {
             AddDataDialog_AccountCheckIcon.Glyph = "\xE73E";
-            AddDataDialog_AccountCheckText.Text = "平台名合法";
+            AddDataDialog_AccountCheckText.Text = "账号名合法";
             if (AddDataCheck())
             {
                 IsPrimaryButtonEnabled = true;
@@ -182,7 +182,7 @@ public sealed partial class AddDataDialog : ContentDialog
         else
         {
             AddDataDialog_AccountCheckIcon.Glyph = "\xE711";
-            AddDataDialog_AccountCheckText.Text = "平台名不能为空";
+            AddDataDialog_AccountCheckText.Text = "账号名不能为空";
             IsPrimaryButtonEnabled = false;
         }
     }
@@ -269,7 +269,7 @@ public sealed partial class AddDataDialog : ContentDialog
             {
                 this.Result = AddDataResult.Failure_Duplicate;
             }
-            
+
         }
         else
         {

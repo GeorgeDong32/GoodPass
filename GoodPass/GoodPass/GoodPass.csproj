@@ -22,7 +22,8 @@
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
-    <PackageCertificateThumbprint>1E6E72D37C25BAA2B2E3A386421C1E5249E17883</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>97944DEAC266FA3323658ABA56E71561DF956D06</PackageCertificateThumbprint>
+    <DefaultLanguage>zh-CN</DefaultLanguage>
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Converters\**" />
@@ -32,6 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Dialogs\EditDataDialog.xaml" />
+    <None Remove="Dialogs\MicrosoftPassportDialog.xaml" />
     <None Remove="Dialogs\OOBEAgreementsDialog.xaml" />
     <None Remove="Images\ImageResoueces.xaml" />
     <None Remove="Views\AddDataDialog.xaml" />
@@ -57,6 +59,9 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Dialogs\MicrosoftPassportDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Dialogs\OOBEAgreementsDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

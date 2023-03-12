@@ -9,147 +9,259 @@
     mc:Ignorable="d">
     <Page.Resources>
         <helpers:EnumToBooleanConverter x:Key="EnumToBooleanConverter" />
-        <!--
-        <ImageIconSource ImageSource="/Assets/GitHub-Mark-Light-64px.png" x:Key="GH-Mark-Light" />
-        <ImageIconSource ImageSource="/Assets/GitHub-Mark-64px.png" x:Key="GH-Mark-Dark"  />-->
     </Page.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="48" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="40" />
-            <RowDefinition Height="40" />
-            <RowDefinition Height="36" />
-        </Grid.RowDefinitions>
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-        <TextBlock
-            x:Uid="Settings_Title"
-            Grid.Row="0"
-            Style="{StaticResource PageTitleStyle}" />
-        <StackPanel x:Name="ContentArea" Grid.Row="1">
-            <TextBlock x:Uid="Settings_Personalization" Style="{ThemeResource SubtitleTextBlockStyle}" />
-            <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
-                <TextBlock x:Uid="Settings_Theme" />
+            <TextBlock
+                x:Uid="Settings_Title"
+                Grid.Row="0"
+                Style="{StaticResource PageTitleStyle}" />
 
-                <StackPanel Margin="{StaticResource XSmallTopMargin}">
-                    <RadioButton
-                        x:Uid="Settings_Theme_Light"
-                        Command="{x:Bind ViewModel.SwitchThemeCommand}"
-                        FontSize="15"
-                        GroupName="AppTheme"
-                        IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}">
-                        <RadioButton.CommandParameter>
-                            <xaml:ElementTheme>Light</xaml:ElementTheme>
-                        </RadioButton.CommandParameter>
-                    </RadioButton>
-                    <RadioButton
-                        x:Uid="Settings_Theme_Dark"
-                        Command="{x:Bind ViewModel.SwitchThemeCommand}"
-                        FontSize="15"
-                        GroupName="AppTheme"
-                        IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}">
-                        <RadioButton.CommandParameter>
-                            <xaml:ElementTheme>Dark</xaml:ElementTheme>
-                        </RadioButton.CommandParameter>
-                    </RadioButton>
-                    <RadioButton
-                        x:Uid="Settings_Theme_Default"
-                        Command="{x:Bind ViewModel.SwitchThemeCommand}"
-                        FontSize="15"
-                        GroupName="AppTheme"
-                        IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Default, Mode=OneWay}">
-                        <RadioButton.CommandParameter>
-                            <xaml:ElementTheme>Default</xaml:ElementTheme>
-                        </RadioButton.CommandParameter>
-                    </RadioButton>
+            <StackPanel x:Name="Settings_ThemeArea" Grid.Row="1">
+                <TextBlock x:Uid="Settings_Personalization" Style="{ThemeResource SubtitleTextBlockStyle}" />
+                <StackPanel Margin="{StaticResource SmallTopBottomMargin}">
+                    <TextBlock x:Uid="Settings_Theme" />
+                    <StackPanel Margin="{StaticResource XSmallTopMargin}" Orientation="Horizontal">
+                        <RadioButton
+                            x:Uid="Settings_Theme_Light"
+                            Command="{x:Bind ViewModel.SwitchThemeCommand}"
+                            FontSize="15"
+                            GroupName="AppTheme"
+                            IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Light, Mode=OneWay}">
+                            <RadioButton.CommandParameter>
+                                <xaml:ElementTheme>Light</xaml:ElementTheme>
+                            </RadioButton.CommandParameter>
+                        </RadioButton>
+                        <RadioButton
+                            x:Uid="Settings_Theme_Dark"
+                            Command="{x:Bind ViewModel.SwitchThemeCommand}"
+                            FontSize="15"
+                            GroupName="AppTheme"
+                            IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Dark, Mode=OneWay}">
+                            <RadioButton.CommandParameter>
+                                <xaml:ElementTheme>Dark</xaml:ElementTheme>
+                            </RadioButton.CommandParameter>
+                        </RadioButton>
+                        <RadioButton
+                            x:Uid="Settings_Theme_Default"
+                            Command="{x:Bind ViewModel.SwitchThemeCommand}"
+                            FontSize="15"
+                            GroupName="AppTheme"
+                            IsChecked="{x:Bind ViewModel.ElementTheme, Converter={StaticResource EnumToBooleanConverter}, ConverterParameter=Default, Mode=OneWay}">
+                            <RadioButton.CommandParameter>
+                                <xaml:ElementTheme>Default</xaml:ElementTheme>
+                            </RadioButton.CommandParameter>
+                        </RadioButton>
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
 
-            <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubtitleTextBlockStyle}" />
-
-            <StackPanel Margin="{StaticResource XSmallTopMargin}">
-                <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.VersionDescription, Mode=OneWay}" />
-
+            <StackPanel
+                x:Name="Settings_SecureArea"
+                Grid.Row="2"
+                Margin="0,4,0,4">
                 <TextBlock
-                    x:Uid="Settings_AboutDescription"
-                    Margin="{StaticResource XSmallTopMargin}"
-                    Style="{ThemeResource BodyTextBlockStyle}" />
+                    x:Uid="Settings_SecureTitle"
+                    Margin="{ThemeResource ContentDialogTitleMargin}"
+                    Style="{ThemeResource SubtitleTextBlockStyle}" />
+                <RelativePanel x:Name="MicrosoftPassportPanel" Margin="0,0,0,8">
+                    <ToggleButton
+                        x:Name="MicrosoftPassportButton"
+                        x:Uid="MicrosoftPassportButton"
+                        Click="MicrosoftPassportButton_Click"
+                        RelativePanel.AlignLeftWithPanel="True">
+                        <ToggleButton.ContextFlyout>
+                            <Flyout LightDismissOverlayMode="On">
+                                <TextBlock Text="功能还在开发中，敬请期待" />
+                            </Flyout>
+                        </ToggleButton.ContextFlyout>
+                    </ToggleButton>
+
+                    <RelativePanel
+                        x:Name="MicrosoftPassportSituation"
+                        RelativePanel.AlignBottomWithPanel="True"
+                        RelativePanel.RightOf="MicrosoftPassportButton">
+                        <FontIcon
+                            x:Name="MicrosoftPassportSituationIcon"
+                            Margin="8,2,0,8"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="14"
+                            Glyph="&#xE711;" />
+                        <!--  E711 叉图标，E73E 勾图标  -->
+                        <TextBlock
+                            x:Name="MicrosoftPassportSituationText"
+                            x:Uid="MicrosoftPassportSituationText"
+                            Margin="4,0,0,0"
+                            RelativePanel.RightOf="MicrosoftPassportSituationIcon" />
+                    </RelativePanel>
+                </RelativePanel>
+
+                <RelativePanel x:Name="DataInsertPanel" Margin="0,0,0,8">
+                    <ToggleButton
+                        x:Name="DataInsertButton"
+                        x:Uid="DataInsertButton"
+                        Margin="0,0,59.5,0"
+                        Click="DataInsertButton_Click"
+                        RelativePanel.AlignLeftWithPanel="True">
+                        <ToggleButton.ContextFlyout>
+                            <Flyout LightDismissOverlayMode="On">
+                                <TextBlock Text="功能还在开发中，敬请期待" />
+                            </Flyout>
+                        </ToggleButton.ContextFlyout>
+                    </ToggleButton>
+
+                    <RelativePanel
+                        x:Name="DataInsertSituation"
+                        RelativePanel.AlignBottomWithPanel="True"
+                        RelativePanel.RightOf="DataInsertButton">
+                        <FontIcon
+                            x:Name="DataInsertSituationIcon"
+                            Margin="8,2,0,8"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="14"
+                            Glyph="&#xE711;" />
+                        <!--  E711 叉图标，E73E 勾图标  -->
+                        <TextBlock
+                            x:Name="DataInsertSituationText"
+                            x:Uid="DataInsertSituationText"
+                            Margin="4,0,0,0"
+                            RelativePanel.RightOf="DataInsertSituationIcon" />
+                    </RelativePanel>
+                </RelativePanel>
+
+                <RelativePanel x:Name="AESPanel" Margin="0,0,0,8">
+                    <ToggleButton
+                        x:Name="AESButton"
+                        x:Uid="AESButton"
+                        Margin="0,0,63.5,0"
+                        Click="AESButton_Click"
+                        RelativePanel.AlignLeftWithPanel="True">
+                        <ToggleButton.ContextFlyout>
+                            <Flyout LightDismissOverlayMode="On">
+                                <TextBlock Text="功能还在开发中，敬请期待" />
+                            </Flyout>
+                        </ToggleButton.ContextFlyout>
+                    </ToggleButton>
+
+                    <RelativePanel
+                        x:Name="AESSituation"
+                        RelativePanel.AlignBottomWithPanel="True"
+                        RelativePanel.RightOf="AESButton">
+                        <FontIcon
+                            x:Name="AESSituationIcon"
+                            Margin="8,2,0,8"
+                            FontFamily="Segoe MDL2 Assets"
+                            FontSize="14"
+                            Glyph="&#xE711;" />
+                        <!--  E711 叉图标，E73E 勾图标  -->
+                        <TextBlock
+                            x:Name="AESSituationText"
+                            x:Uid="AESSituationText"
+                            Margin="4,0,0,0"
+                            RelativePanel.RightOf="AESSituationIcon" />
+                    </RelativePanel>
+                </RelativePanel>
             </StackPanel>
-        </StackPanel>
 
-        <HyperlinkButton
-            x:Uid="GoToGithub_Button"
-            Grid.Row="2"
-            Margin="-12,8,0,0"
-            VerticalContentAlignment="Center">
-            <RelativePanel>
-                <ImageIcon
-                    x:Name="GoToGithub_Button_Icon"
-                    Height="20"
-                    x:FieldModifier="public"
-                    Source="/Assets/GitHub-Mark-64px.png" />
-                <TextBlock
-                    x:Uid="GoToGithub_Button_Text"
-                    Margin="8,0,0,0"
-                    RelativePanel.RightOf="GoToGithub_Button_Icon" />
-            </RelativePanel>
-        </HyperlinkButton>
+            <StackPanel x:Name="Settings_AboutArea" Grid.Row="3">
+                <TextBlock x:Uid="Settings_About" Style="{ThemeResource SubtitleTextBlockStyle}" />
 
-        <StackPanel
-            x:Name="Settings_Agreements"
-            Grid.Row="3"
-            Orientation="Horizontal">
-            <HyperlinkButton
-                x:Uid="SettingsPage_PrivacyTermsLink"
-                Height="36"
-                Margin="{StaticResource SettingsPageHyperlinkButtonMargin}">
-                <RelativePanel>
-                    <FontIcon
-                        x:Name="SettingsPage_PrivacyTermsLink_Icon"
-                        FontFamily="Segoe Fluent Icons"
-                        Glyph="&#xe729;" />
+                <StackPanel Margin="{StaticResource XSmallTopMargin}">
+                    <TextBlock Style="{ThemeResource BodyTextBlockStyle}" Text="{x:Bind ViewModel.VersionDescription, Mode=OneWay}" />
+
                     <TextBlock
-                        x:Uid="SettingsPage_PrivacyTermsLink_Text"
-                        Margin="8,0,0,0"
-                        RelativePanel.RightOf="SettingsPage_PrivacyTermsLink_Icon" />
-                </RelativePanel>
-            </HyperlinkButton>
+                        x:Uid="Settings_AboutDescription"
+                        Margin="{StaticResource XSmallTopMargin}"
+                        Style="{ThemeResource BodyTextBlockStyle}" />
+                </StackPanel>
 
-            <HyperlinkButton
-                x:Uid="SettingsPage_UserAgreementLink"
-                Height="36"
-                Margin="{StaticResource SettingsPageHyperlinkButtonMargin}">
-                <RelativePanel>
-                    <FontIcon
-                        x:Name="SettingsPage_UserAgreementLink_Icon"
-                        FontFamily="Segoe Fluent Icons"
-                        Glyph="&#xe7c3;" />
-                    <TextBlock
-                        x:Uid="SettingsPage_UserAgreementLink_Text"
-                        Margin="8,0,0,0"
-                        RelativePanel.RightOf="SettingsPage_UserAgreementLink_Icon" />
-                </RelativePanel>
-            </HyperlinkButton>
+                <HyperlinkButton
+                    x:Uid="GoToGithub_Button"
+                    Margin="-12,8,0,0"
+                    VerticalContentAlignment="Center">
+                    <RelativePanel>
+                        <ImageIcon
+                            x:Name="GoToGithub_Button_Icon"
+                            Height="20"
+                            x:FieldModifier="public"
+                            Source="/Assets/GitHub-Mark-64px.png" />
+                        <TextBlock
+                            x:Uid="GoToGithub_Button_Text"
+                            Margin="8,0,0,0"
+                            RelativePanel.RightOf="GoToGithub_Button_Icon" />
+                    </RelativePanel>
+                </HyperlinkButton>
+            </StackPanel>
 
-            <HyperlinkButton
-                x:Uid="SettingsPage_OpenSourceLicense"
-                Height="36"
-                Margin="{StaticResource SettingsPageHyperlinkButtonMargin}">
-                <RelativePanel>
-                    <FontIcon
-                        x:Name="SettingsPage_OpenSourceLicense_Icon"
-                        FontFamily="Segoe Fluent Icons"
-                        Glyph="&#xeb95;" />
-                    <TextBlock
-                        x:Uid="SettingsPage_OpenSourceLicense_Text"
-                        Margin="8,0,0,0"
-                        RelativePanel.RightOf="SettingsPage_OpenSourceLicense_Icon" />
-                </RelativePanel>
-            </HyperlinkButton>
-        </StackPanel>
+            <StackPanel
+                x:Name="Settings_AgreementsArea"
+                Grid.Row="4"
+                Margin="0,0,0,8"
+                Orientation="Horizontal">
+                <HyperlinkButton
+                    x:Uid="SettingsPage_PrivacyTermsLink"
+                    Height="36"
+                    Margin="{StaticResource SettingsPageHyperlinkButtonMargin}">
+                    <RelativePanel>
+                        <FontIcon
+                            x:Name="SettingsPage_PrivacyTermsLink_Icon"
+                            FontFamily="Segoe Fluent Icons"
+                            Glyph="&#xe729;" />
+                        <TextBlock
+                            x:Uid="SettingsPage_PrivacyTermsLink_Text"
+                            Margin="8,0,0,0"
+                            RelativePanel.RightOf="SettingsPage_PrivacyTermsLink_Icon" />
+                    </RelativePanel>
+                </HyperlinkButton>
 
-        <StackPanel x:Name="testpanel" Grid.Row="4">
-            <!--  Button Click="Button_Click" Content="Test" /  -->
-        </StackPanel>
-    </Grid>
+                <HyperlinkButton
+                    x:Uid="SettingsPage_UserAgreementLink"
+                    Height="36"
+                    Margin="{StaticResource SettingsPageHyperlinkButtonMargin}">
+                    <RelativePanel>
+                        <FontIcon
+                            x:Name="SettingsPage_UserAgreementLink_Icon"
+                            FontFamily="Segoe Fluent Icons"
+                            Glyph="&#xe7c3;" />
+                        <TextBlock
+                            x:Uid="SettingsPage_UserAgreementLink_Text"
+                            Margin="8,0,0,0"
+                            RelativePanel.RightOf="SettingsPage_UserAgreementLink_Icon" />
+                    </RelativePanel>
+                </HyperlinkButton>
+                <HyperlinkButton
+                    x:Uid="SettingsPage_OpenSourceLicense"
+                    Height="36"
+                    Margin="{StaticResource SettingsPageHyperlinkButtonMargin}">
+                    <RelativePanel>
+                        <FontIcon
+                            x:Name="SettingsPage_OpenSourceLicense_Icon"
+                            FontFamily="Segoe Fluent Icons"
+                            Glyph="&#xeb95;" />
+                        <TextBlock
+                            x:Uid="SettingsPage_OpenSourceLicense_Text"
+                            Margin="8,0,0,0"
+                            RelativePanel.RightOf="SettingsPage_OpenSourceLicense_Icon" />
+                    </RelativePanel>
+                </HyperlinkButton>
+            </StackPanel>
+
+            <StackPanel
+                x:Name="testpanel"
+                Grid.Row="5"
+                Margin="8,0,0,0">
+                <!--  Test Windows Hello  -->
+
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
 </Page>

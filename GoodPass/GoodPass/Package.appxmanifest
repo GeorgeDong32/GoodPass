@@ -12,7 +12,7 @@
   <Identity
     Name="CAFB1BC6-D2EC-4C70-A2E4-3622C29FBD0C"
     Publisher="CN=GeorgeDong"
-    Version="3.0.0.0" />
+    Version="3.1.0.0" />
 
   <Properties>
     <DisplayName>GoodPass</DisplayName>
@@ -26,7 +26,8 @@
   </Dependencies>
 
   <Resources>
-    <Resource Language="x-generate"/>
+	  <Resource Language="en-US"/>
+	  <Resource Language="es-ES"/>
   </Resources>
 
   <Applications>

@@ -36,6 +36,10 @@ public partial class App : Application
     /// </summary>
     public static int[]? MKBase;
 
+    public static byte[] AESKey;
+
+    public static byte[] AESIV;
+
     /// <summary>
     /// 数据管理成员
     /// </summary>
@@ -58,24 +62,6 @@ public partial class App : Application
     /// App设置页情况
     /// </summary>
     private static bool InSettingsPage
-    {
-        get; set;
-    }
-
-    /// <summary>
-    /// MainOOBE状态
-    /// </summary>
-    public static OOBESituation MainOOBE
-    {
-        get; set;
-    }
-
-    public static OOBESituation ShellOOBE
-    {
-        get; set;
-    }
-
-    public static OOBESituation AgreementOOBE
     {
         get; set;
     }
@@ -144,7 +130,6 @@ public partial class App : Application
             services.AddSingleton<IPageService, PageService>();
             services.AddSingleton<INavigationService, NavigationService>();
             services.AddSingleton<IFileService, FileService>();
-            services.AddSingleton<GoodPassCryptographicServices>();
             services.AddSingleton<ListDetailsViewModel>();
             services.AddSingleton<MultilingualStringsServices>();
 

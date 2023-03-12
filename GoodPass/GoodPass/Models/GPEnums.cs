@@ -33,3 +33,13 @@ public enum AgreeStatus
     Agree,
     NotAgree
 }
+
+public enum PassportSignInResult
+{
+    Verified,
+    Busy,
+    Disabled,
+    NotUseable,
+    Failed,
+    Cancel
+}

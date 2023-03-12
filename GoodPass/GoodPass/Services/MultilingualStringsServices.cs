@@ -26,7 +26,15 @@ public class MultilingualStringsServices
                                         "警告",
                                         "出错了",
                                         "提示",
-                                        "您需要同意《用户协议》和《隐私政策》后方可使用本软件！");
+                                        "您需要同意《用户协议》和《隐私政策》后方可使用本软件！",
+                                        "已启用Microsoft Passport",
+                                        "未启用Microsoft Passport",
+                                        "已启用数据内嵌",
+                                        "未启用数据内嵌",
+                                        "已启用AES加密数据",
+                                        "未启用AES加密数据",
+                                        "主密码正确",
+                                        "主密码错误");
 
         UIStrings_en_US = new UIStrings("Account",
                                         "AccountName has copied!",
@@ -44,7 +52,15 @@ public class MultilingualStringsServices
                                         "Warning",
                                         "Error",
                                         "Info",
-                                        "You need to agree to the User Agreement and Privacy Policy before you can use the software!");
+                                        "You need to agree to the User Agreement and Privacy Policy before you can use the software!",
+                                        "Microsoft Passport is enabled",
+                                        "Microsoft Passport is not enabled",
+                                        "MSIX data embedding is enabled",
+                                        "MSIX data embedding is not enabled",
+                                        "AES encryption is enabled",
+                                        "AES encryption is not enabled",
+                                        "The master password is correct",
+                                        "The master password is incorrect");
     }
 
     public UIStrings Getzh_CN() => UIStrings_zh_CN;
