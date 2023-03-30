@@ -35,7 +35,7 @@ public static class GoodPassCryptographicServices
         }
         if (SecurityStatusHelper.GetAESStatusAsync().Result)
         {
-            input = GPAESServices.DecryptFromBase64(input, App.AESKey, App.AESIV);
+            input = GoodPassAESServices.DecryptFromBase64(input, App.AESKey, App.AESIV);
         }
         var decStr = "";
         var baseStr = "";
@@ -211,7 +211,7 @@ public static class GoodPassCryptographicServices
         output = head + output + tail;
         if (SecurityStatusHelper.GetAESStatusAsync().Result)
         {
-            output = GPAESServices.EncryptToBase64(output, App.AESKey, App.AESIV);
+            output = GoodPassAESServices.EncryptToBase64(output, App.AESKey, App.AESIV);
         }
         return output;
     }

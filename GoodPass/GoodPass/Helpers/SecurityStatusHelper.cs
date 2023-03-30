@@ -45,47 +45,6 @@ public static class SecurityStatusHelper
         }
     }
 
-    public static async Task<bool> GetDataInsetStatusAsync()
-    {
-        if (RuntimeHelper.IsMSIX)
-        {
-            bool DIS;
-            if (ApplicationData.Current.LocalSettings.Values.TryGetValue("DataInsert", out var obj))
-            {
-                DIS = (string)obj switch
-                {
-                    "True" => true,
-                    "False" => false,
-                    _ => false,
-                };
-            }
-            else
-            {
-                DIS = false;
-            }
-            await Task.CompletedTask;
-            return DIS;
-        }
-        else
-        {
-            throw new GPRuntimeException("GetDataInsetStatusAsync: Not in MSIX");
-        }
-    }
-
-    public static async Task<bool> SetDataInsetStatusAsync(bool value)
-    {
-        if (RuntimeHelper.IsMSIX)
-        {
-            ApplicationData.Current.LocalSettings.Values["DataInsert"] = value.ToString();
-            await Task.CompletedTask;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     public static async Task<bool> GetAESStatusAsync()
     {
         if (RuntimeHelper.IsMSIX)

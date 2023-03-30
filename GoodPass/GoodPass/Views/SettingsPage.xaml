@@ -105,52 +105,13 @@
                     </RelativePanel>
                 </RelativePanel>
 
-                <RelativePanel x:Name="DataInsertPanel" Margin="0,0,0,8">
-                    <ToggleButton
-                        x:Name="DataInsertButton"
-                        x:Uid="DataInsertButton"
-                        Margin="0,0,59.5,0"
-                        Click="DataInsertButton_Click"
-                        RelativePanel.AlignLeftWithPanel="True">
-                        <ToggleButton.ContextFlyout>
-                            <Flyout LightDismissOverlayMode="On">
-                                <TextBlock Text="功能还在开发中，敬请期待" />
-                            </Flyout>
-                        </ToggleButton.ContextFlyout>
-                    </ToggleButton>
-
-                    <RelativePanel
-                        x:Name="DataInsertSituation"
-                        RelativePanel.AlignBottomWithPanel="True"
-                        RelativePanel.RightOf="DataInsertButton">
-                        <FontIcon
-                            x:Name="DataInsertSituationIcon"
-                            Margin="8,2,0,8"
-                            FontFamily="Segoe MDL2 Assets"
-                            FontSize="14"
-                            Glyph="&#xE711;" />
-                        <!--  E711 叉图标，E73E 勾图标  -->
-                        <TextBlock
-                            x:Name="DataInsertSituationText"
-                            x:Uid="DataInsertSituationText"
-                            Margin="4,0,0,0"
-                            RelativePanel.RightOf="DataInsertSituationIcon" />
-                    </RelativePanel>
-                </RelativePanel>
-
                 <RelativePanel x:Name="AESPanel" Margin="0,0,0,8">
                     <ToggleButton
                         x:Name="AESButton"
                         x:Uid="AESButton"
                         Margin="0,0,63.5,0"
                         Click="AESButton_Click"
-                        RelativePanel.AlignLeftWithPanel="True">
-                        <ToggleButton.ContextFlyout>
-                            <Flyout LightDismissOverlayMode="On">
-                                <TextBlock Text="功能还在开发中，敬请期待" />
-                            </Flyout>
-                        </ToggleButton.ContextFlyout>
-                    </ToggleButton>
+                        RelativePanel.AlignLeftWithPanel="True" />
 
                     <RelativePanel
                         x:Name="AESSituation"

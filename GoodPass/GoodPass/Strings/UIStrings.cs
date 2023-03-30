@@ -44,10 +44,6 @@ public class UIStrings
 
     public readonly string MicrosoftPassportSituatoinText2;
 
-    public readonly string DataInsertSituationText1;
-
-    public readonly string DataInsertSituationText2;
-
     public readonly string AESSituationText1;
 
     public readonly string AESSituationText2;
@@ -78,8 +74,6 @@ public class UIStrings
                      string agreementNotArgeeContent,
                      string microsoftPassportSituatoinText1,
                      string microsoftPassportSituatoinText2,
-                     string dataInsertSituationText1,
-                     string dataInsertSituationText2,
                      string aESSituationText1,
                      string aESSituationText2,
                      string mpd_PasswordCheckSuccess,
@@ -104,8 +98,6 @@ public class UIStrings
         AgreementNotArgeeContent = agreementNotArgeeContent;
         MicrosoftPassportSituatoinText1 = microsoftPassportSituatoinText1;
         MicrosoftPassportSituatoinText2 = microsoftPassportSituatoinText2;
-        DataInsertSituationText1 = dataInsertSituationText1;
-        DataInsertSituationText2 = dataInsertSituationText2;
         AESSituationText1 = aESSituationText1;
         AESSituationText2 = aESSituationText2;
         MPD_PasswordCheckSuccess = mpd_PasswordCheckSuccess;

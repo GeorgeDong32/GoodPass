@@ -23,8 +23,12 @@ public sealed partial class SettingsPage : Page
         if (App.App_IsLock())
         {
             MicrosoftPassportButton.IsEnabled = false;
-            DataInsertButton.IsEnabled = false;
             AESButton.IsEnabled = false;
+        }
+        else
+        {
+            AESButton.IsEnabled = true;
+            MicrosoftPassportButton.IsEnabled = true;
         }
         switch (SecurityStatusHelper.GetMSPassportStatusAsync().Result)
         {
@@ -37,19 +41,6 @@ public sealed partial class SettingsPage : Page
                 MicrosoftPassportButton.IsChecked = false;
                 MicrosoftPassportSituationIcon.Glyph = "\xE711";
                 MicrosoftPassportSituationText.Text = App.UIStrings.MicrosoftPassportSituatoinText2;
-                break;
-        }
-        switch (SecurityStatusHelper.GetDataInsetStatusAsync().Result)
-        {
-            case true:
-                DataInsertButton.IsChecked = true;
-                DataInsertSituationIcon.Glyph = "\xE73E";
-                DataInsertSituationText.Text = App.UIStrings.DataInsertSituationText1;
-                break;
-            case false:
-                DataInsertButton.IsChecked = false;
-                DataInsertSituationIcon.Glyph = "\xE711";
-                DataInsertSituationText.Text = App.UIStrings.DataInsertSituationText2;
                 break;
         }
         switch (SecurityStatusHelper.GetAESStatusAsync().Result)
@@ -127,22 +118,11 @@ public sealed partial class SettingsPage : Page
         }
     }
 
-    private void DataInsertButton_Click(object sender, RoutedEventArgs e)
-    {
-        if (sender is ToggleButton tb)
-        {
-            //TODO: 在完成功能后删除
-            tb.ContextFlyout.ShowAt(tb);
-            tb.IsChecked = false;
-            return;
-            //TODO: 启用/关闭数据内嵌功能
-        }
-    }
-
     private async void AESButton_Click(object sender, RoutedEventArgs e)
     {
         if (sender is ToggleButton tb)
         {
+            tb.IsEnabled = false;
             switch (tb.IsChecked)
             {
                 case true:

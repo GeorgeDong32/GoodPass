@@ -102,7 +102,6 @@ public class GPData
     public void SelfUpdate() //预留接口
     {
         /*Todo:添加数据自升级的相应代码*/
-        LatestUpdateTime = DateTime.Now;
     }
 
     /// <summary>

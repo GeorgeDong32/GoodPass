@@ -68,10 +68,16 @@
                 <MenuBarItem x:Uid="ShellMenuBarItem_File">
                     <MenuFlyoutItem x:Uid="ShellMenuItem_File_Exit" Command="{x:Bind ViewModel.MenuFileExitCommand}" />
                     <MenuFlyoutItem x:Uid="ShellMenuItem_File_Lock" Command="{x:Bind ViewModel.MenuFileLockCommand}" />
-                    <MenuFlyoutItem
-                        x:Name="ShellMenuItem_File_Export"
-                        x:Uid="ShellMenuItem_File_Export"
-                        Click="Export_Click" />
+                    <MenuFlyoutSubItem x:Name="ShellMenuItem_File_Export" x:Uid="ShellMenuItem_File_Export">
+                        <MenuFlyoutItem
+                            x:Name="ShellMenuItem_File_ExportCiphertext"
+                            x:Uid="ShellMenuItem_File_ExportCiphertext"
+                            Click="ShellMenuItem_File_ExportCiphertext_Click" />
+                        <MenuFlyoutItem
+                            x:Name="ShellMenuItem_File_ExportPlaintext"
+                            x:Uid="ShellMenuItem_File_ExportPlaintext"
+                            Click="ShellMenuItem_File_ExportPlaintext_Click" />
+                    </MenuFlyoutSubItem>
                 </MenuBarItem>
             </MenuBar>
             <AppBarButton

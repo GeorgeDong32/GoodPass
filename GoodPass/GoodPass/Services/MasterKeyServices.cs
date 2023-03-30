@@ -69,54 +69,6 @@ public static class MasterKeyService
     }
 
     /// <summary>
-    /// 获取本地主密码哈希校验值
-    /// </summary>
-    /// <returns>本地哈希校验值</returns>
-    public static string GetLocalMKHash()
-    {
-        var MKconfigPath = Path.Combine($"C:\\Users\\{Environment.UserName}\\AppData\\Local", "GoodPass", "MKconfig.txt");
-        string? localMKHash;
-        try
-        {
-            localMKHash = File.ReadAllText(MKconfigPath);
-        }
-        catch (System.IO.DirectoryNotFoundException)
-        {
-            localMKHash = "Not found";
-        }
-        catch (System.IO.FileNotFoundException)
-        {
-            localMKHash = "Not found";
-        }
-        return localMKHash;
-    }
-
-    /// <summary>
-    /// (封装的)校验主密码方法
-    /// </summary>
-    /// <param name="inputKey">输入的主密码</param>
-    /// <returns>校验结果</returns>
-    public static string CheckMasterKey(string inputKey)
-    {
-        var InputKeyHash = GoodPassSHAServices.getGPHES(inputKey);
-        var localMKHash = GetLocalMKHash();
-        if (InputKeyHash == localMKHash)
-        {
-            App.AESIV = GPAESServices.GetLocalIV(inputKey);
-            App.AESKey = GPAESServices.GenerateKey(inputKey, App.AESIV);
-            ProcessMKArray(inputKey);
-            return "pass";
-        }
-        else if (localMKHash == "Not found")
-            return "error: not found";
-        else if (localMKHash == string.Empty)
-            return "error: data broken";
-        else if (InputKeyHash != localMKHash)
-            return "npass";
-        else return "Unknown Error";
-    }
-
-    /// <summary>
     /// 生成App的加密基和主密码基
     /// </summary>
     public static void ProcessMKArray(string inputKey)
@@ -199,14 +151,18 @@ public static class MasterKeyService
     /// </summary>
     /// <param name="inputKey">输入的主密码</param>
     /// <returns>校验结果</returns>
-    public static async Task<string> CheckMasterKeyAsync(string inputKey)
+    public static async Task<string> CheckMasterKeyAsync(string? inputKey)
     {
+        if (string.IsNullOrEmpty(inputKey))
+        {
+            return "npass";
+        }
         var InputKeyHash = GoodPassSHAServices.getGPHES(inputKey);
         var LocalMKHash = await GetLocalMKHashAsync();
         if (InputKeyHash == LocalMKHash)
         {
-            App.AESIV = GPAESServices.GetLocalIV(inputKey);
-            App.AESKey = GPAESServices.GenerateKey(inputKey, App.AESIV);
+            App.AESIV = GoodPassAESServices.GetLocalIV(inputKey);
+            App.AESKey = GoodPassAESServices.GenerateKey(inputKey, App.AESIV);
             ProcessMKArray(inputKey);
             return "pass";
         }
@@ -229,7 +185,6 @@ public static class MasterKeyService
         /// Return value table
         /// 0 -- Successfully set localhash
         /// 2 -- Already have localhash
-        /// 
 
         var inputKeyHash = GoodPassSHAServices.getGPHES(inputKey);
         if (RuntimeHelper.IsMSIX)
@@ -265,8 +220,12 @@ public static class MasterKeyService
     /// MSIX打包应用使用的主密码校验方法
     /// </summary>
     /// <exception cref="GPRuntimeException">未在MSIX环境中运行</exception>
-    public static async Task<string> CheckMasterKeyAsync_MSIX(string inputKey)
+    public static async Task<string> CheckMasterKeyAsync_MSIX(string? inputKey)
     {
+        if (string.IsNullOrEmpty(inputKey))
+        {
+            return "npass";
+        }
         var inputKeyHash = GoodPassSHAServices.getGPHES(inputKey);
         if (RuntimeHelper.IsMSIX)
         {
@@ -280,8 +239,8 @@ public static class MasterKeyService
                 }
                 else if (inputKeyHash == localHash)
                 {
-                    App.AESIV = GPAESServices.GetLocalIV(inputKey);
-                    App.AESKey = GPAESServices.GenerateKey(inputKey, App.AESIV);
+                    App.AESIV = GoodPassAESServices.GetLocalIV(inputKey);
+                    App.AESKey = GoodPassAESServices.GenerateKey(inputKey, App.AESIV);
                     ProcessMKArray(inputKey);
                     return "pass";
                 }
