@@ -72,4 +72,3 @@ GoodPass now uses a two-wire development model, with the v2 version continuing t
 <h2 align=center>
     <img src="./Resource/LicenseOverview/GPOL_overview.png">
 </h2>
-
