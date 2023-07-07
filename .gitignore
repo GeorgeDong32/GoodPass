@@ -1,2 +1,4 @@
 # 忽略desktop.ini
 desktop.ini
+# 忽略idea配置文件
+*/.idea/
