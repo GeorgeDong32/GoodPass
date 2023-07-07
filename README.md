@@ -40,7 +40,7 @@ To get pre releases, please go to subproject repo.
 Of course, I'm looking forward to your feedback.
 It is such a fortune to meet you here! You can provide your advise to me at georgedong32@foxmail.com or at the [Issue](https://github.com/GeorgeDong32/GoodPass/issues) part of Github.
 
-## ✨Features and Support [<img src="https://img.shields.io/badge/GoodPass-Features and Support-FFFFFF" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/Features_and_Support/Features_and_Support.md)
+## ✨Features
 
 ### Password Manager
 
