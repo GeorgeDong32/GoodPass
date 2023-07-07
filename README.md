@@ -4,7 +4,7 @@
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./img/GoodPass3.0_Title_white.png" width=400>
       <source media="(prefers-color-scheme: light)" srcset="./img/GoodPass3.0_Title.png" width=400>
-      <img alt="https://github.com/GeorgeDong32/SYSU_Matrix_2022/blob/main/LICENSE" src="./img/GoodPass3.0_Title.png" width=400>
+      <img alt="GoodPass" src="./img/GoodPass3.0_Title.png" width=400>
     </picture>
 </p>
 
@@ -14,9 +14,9 @@ This branch is only the target branch of release and has no practical meaning. T
 
 ## License
 
-[GoodPass Open Source License](./LICENSE.md)
+[GoodPass Open Source License](https://github.com/GeorgeDong32/GoodPass/blob/main/LICENSE.md)
 
-[GoodPass开源证书](../License/LICENSE_ZH.md)
+[GoodPass开源证书](https://github.com/GeorgeDong32/GoodPass/blob/main/Documents/License/LICENSE_ZH.md)
 
 <p align=center>
     <img src="./img/GPOL_overview.png">
