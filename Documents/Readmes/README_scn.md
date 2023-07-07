@@ -64,7 +64,7 @@ GoodPass GUI 和 GoodPass CLI已经可以使用。接下来将会继续进行优
 
 ## :balance_scale: 开源证书
 
-[GoodPass开源证书](https://github.com/GeorgeDong32/GoodPass/blob/main/Docs/License/LICENSE_ZH.md)
+[GoodPass开源证书](../License/LICENSE_ZH.md)
 
 <h2 align=center>
     <img src="../../Resource/LicenseOverview/GPOL_overview_CN.png">

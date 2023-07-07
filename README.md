@@ -4,9 +4,9 @@ GoodPass -- A developing password manager
   <img src="./Resource/Title%20Photo/GoodPass3.0_Title.png" alt="GoodPass" width="400">
 </h1>
   <p align="center">
-    <a href="./Docs/Readmes/README_tcn.md">繁體中文</a>
+    <a href="./Documents/Readmes/README_tcn.md">繁體中文</a>
     |
-    <a href="./Docs/Readmes/README_scn.md">简体中文</a>
+    <a href="./Documents/Readmes/README_scn.md">简体中文</a>
    </p>
 </h1>
 <h4 align="center">
@@ -64,7 +64,7 @@ The GoodPass GUI and GoodPass CLI are already available. Optimizations will cont
 
 ## :balance_scale: Licnese
 
-[GoodPass Open Source License](https://github.com/GeorgeDong32/GoodPass/blob/main/LICENSE.md)
+[GoodPass Open Source License](./LICENSE.md)
 
 <h2 align=center>
     <img src="./Resource/LicenseOverview/GPOL_overview.png">
