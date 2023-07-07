@@ -17,8 +17,6 @@ GoodPass -- 开发中的密码管家
   <a href="https://georgedong32.github.io/GoodPass">前往项目主页获取更多信息</a>
 </h4>
 
-
-
 ## ©️ 版权
 
 > **由GeorgeDong32开发并发布** 

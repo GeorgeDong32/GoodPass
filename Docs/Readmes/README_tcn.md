@@ -9,13 +9,14 @@ GoodPass -- 開發中的密碼管家
     <a href="./README_scn.md">简体中文</a>
   </p>
 <h4 align="center">
-    <a href="https://github.com/GeorgeDong32/GoodPass-v2">前往GoodPass v2開發倉庫</a>
+    <a href="https://github.com/GeorgeDong32/GoodPass-CLI">前往GoodPass CLI開發倉庫</a>
     |
-    <a href="https://github.com/GeorgeDong32/GoodPass-v3">前往GoodPass v3開發倉庫</a>
+    <a href="https://github.com/GeorgeDong32/GoodPass-GUI">前往GoodPass GUI開發倉庫</a>
 </h4>
-<h2 align="center">
-  Made with <img src="../../Resource/Other%20Photos/visual_studio.png" alt="VS" width="200">
-</h2>
+<h4 align="center">
+  <a href="https://georgedong32.github.io/GoodPass">前往項目主頁獲取更多信息</a>
+</h4>
+
 
 ## ©️ 版權
 
@@ -34,7 +35,7 @@ GoodPass 係一個開發中的密碼管家。它目前完全在本地運行，�
 ## 💬 反饋  [<img src="https://img.shields.io/badge/GoodPass-Feedback-939597" alt="Issue">](https://github.com/GeorgeDong32/GoodPass/issues)
 我非常希望能夠聽到你的聲音，你可以將建議和意見發送到`georgedong32@foxmail.com`或者點擊上方`feedback`按鈕提交反饋
 
-## ✨功能與支持 [<img src="https://img.shields.io/badge/GoodPass-功能與支持-FFFFFF" alt="File SHA256">](https://github.com/GeorgeDong32/GoodPass/blob/main/Features_and_Support/Features_and_Support_tcn.md)
+## ✨功能
 
 ### 密碼管家功能
 
@@ -46,24 +47,17 @@ GoodPass 使用 **GPHES** 和 **GPSES** 兩套安全加密系統保護你的數�
 
 ### 更多
 
-前往 [`功能與支持`](../Features_and_Support/Features_and_Support_tcn.md) 文檔獲取更多訊息
+前往 [`功能`](https://georgedong32.github.io/GoodPass/features) 頁面獲取更多訊息
 
 ## 📈 開發
 
 ### 開發路線圖
 
-<h1 align="center">
-  <img src="../../Resource/RoadMap/GPRoadMap_tcn.png" alt="開發路線圖" width="600">
-</h1>
-
-
-GoodPass現行雙線開發模式，v2版本繼續使用C++開發CLI應用，v3版本使用C#構建GUI應用。
+規劃中，即將推出
 
 ### 開發計劃
 
-🚧 GPHES(GoodPass哈希加密驗證系統)与GPSES(GoodPass對稱加密系統)，兩者都為TEA(二重加密算法)，它們將不斷完善以保護你的數據安全
-
-🏗️ 基於WinUI3的圖形介面正在開發中，預計將在2023年上半年問世
+GoodPass GUI 與 GoodPass CLI已經可用。接下來將會繼續優化，推出更多新功能。
 
 ## :balance_scale: 開源證書
 
