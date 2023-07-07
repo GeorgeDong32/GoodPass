@@ -1,14 +1,21 @@
 <h1 align="center">
 GoodPass -- A developing password manager
-<h1 align="center">
-  <img src="./Resource/Title%20Photo/GoodPass3.0_Title.png" alt="GoodPass" width="400">
 </h1>
+<p align=center>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="./Resource/Title Photo/GoodPass3.0_Title_white.png" width=400>
+      <source media="(prefers-color-scheme: light)" srcset="./Resource/Title Photo/GoodPass3.0_Title.png" width=400>
+      <img alt="GoodPass" src="./Resource/Title Photo/GoodPass3.0_Title.png" width=400>
+    </picture>
+</p>
+
+
   <p align="center">
     <a href="./Documents/Readmes/README_tcn.md">繁體中文</a>
     |
     <a href="./Documents/Readmes/README_scn.md">简体中文</a>
    </p>
-</h1>
+
 <h4 align="center">
     <a href="https://github.com/GeorgeDong32/GoodPass-CLI">View GoodPass CLI Developments</a>
     |
@@ -25,6 +32,7 @@ GoodPass -- A developing password manager
 > **Copyright (c) GeorgeDong32(Github). All rights reserved.**<br>
 
 ## 🎤Introduction
+
 GoodPass is a developing password manager that help to to manage your passwords. It now works locally with a off-line encryption system to protect your data. 
 
 Under the new development plan, GoodPass is divided into two major versions of continuous development, namely the CLI version and the GUI version.

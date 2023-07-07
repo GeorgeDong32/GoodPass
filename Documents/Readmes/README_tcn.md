@@ -1,8 +1,12 @@
 <h1 align="center">
-GoodPass -- 開發中的密碼管家
-<h1 align="center">
-  <img src="../../Resource/Title%20Photo/GoodPass3.0_Title.png" alt="GoodPass" width="400">
-</h1>
+    GoodPass -- 開發中的密碼管家</h1>
+<p align=center>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="../../Resource/Title Photo/GoodPass3.0_Title_white.png" width=400>
+      <source media="(prefers-color-scheme: light)" srcset="../../Resource/Title Photo/GoodPass3.0_Title.png" width=400>
+      <img alt="GoodPass" src="../../Resource/Title Photo/GoodPass3.0_Title.png" width=400>
+    </picture>
+</p>
   <p align="center">
     <a href="../../README.md">English</a>
     |
@@ -16,6 +20,7 @@ GoodPass -- 開發中的密碼管家
 <h4 align="center">
   <a href="https://georgedong32.github.io/GoodPass">前往項目主頁獲取更多信息</a>
 </h4>
+
 
 
 ## ©️ 版權
