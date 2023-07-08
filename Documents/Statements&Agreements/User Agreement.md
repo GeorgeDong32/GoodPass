@@ -30,17 +30,17 @@ This Agreement is an agreement between the User (hereinafter referred to as "you
 
 (3) Individual user: refers to the user who uses the software and services for non-commercial purposes.
 
-### 2.4 Scope of License
+### 2.2 Scope of License
 
-#### 2.4.1 Individual User License
+#### 2.2.1 Individual User License
 
 The GoodPass development team provides password data management, data encryption storage and other password security-related services to individual users, and local data services are completely free. The development team is committed to handling the privacy data of individual users in accordance with the privacy statement, and to do its best to ensure data security and reduce possible risks.
 
-#### 2.4.2 Enterprise User License
+#### 2.2.2 Enterprise User License
 
 The GoodPass development team provides password data management, data encryption storage, team data management and other password security-related services to enterprise users, and the local data service is completely free. The development team is committed to handling the private data of enterprise users in accordance with the privacy statement, and strives to ensure data security and reduce possible risks.
 
-#### 2.4.3 Open Source Contributor License
+#### 2.2.3 Open Source Contributor License
 
 The GoodPass development team welcomes contributions from external open source projects such as code contributions, bug fixes, bug reports, document translations, etc., provided that GoodPass open source certificates, contribution guidelines, and codes of conduct are followed. The GoodPass development team grants compliant open source contributors a series of developer rights such as co-authorship and use rights for the software as mentioned in the GoodPass open source certificate.
 
@@ -52,17 +52,17 @@ You can obtain the software installation package from the following sources
 
 * Github(https://github.com/GeorgeDong32/GoodPass)
 * Gitee(https://gitee.com/GeorgeDong32/GoodPass)
-* ......
+* Project Page(https://georgedong32.github.io/GoodPass/download)
 
 **If you obtain the Software or an installer with the same name as the Software from a third party not authorized by the GoodPass Development Team, the Development Team cannot guarantee that the Software will function properly and safely and will not be liable for any damages caused to you. **
 
 ### 3.2 Installation and uninstallation of software
 
-3.1.1 The GoodPass development team may develop different software versions for different terminals, systems, etc., you should choose to download the appropriate version for installation according to the actual situation.
+1. The GoodPass development team may develop different software versions for different terminals, systems, etc., you should choose to download the appropriate version for installation according to the actual situation.
 
-3.2.2 After downloading the installer, you need to follow the steps prompted by the program or the accompanying installation guide to install it correctly. 　　
+2. After downloading the installer, you need to follow the steps prompted by the program or the accompanying installation guide to install it correctly. 　　
 
-3.2.3 If you no longer need to use the Software or need to install a new version of the Software, you can uninstall it yourself.
+3. If you no longer need to use the Software or need to install a new version of the Software, you can uninstall it yourself.
 
 ### 3.3 Software Updates
 
@@ -86,7 +86,7 @@ You can obtain the software installation package from the following sources
 
 In the process of using the Service or the Software, you shall abide by the relevant laws and regulations, policies, user agreements, rules and specifications of the region where you are located, and shall not engage in any of the following acts, including but not limited to, nor provide convenience for any of the following acts:
 
-4.2.1 Acts prohibited by laws and regulations
+### 4.2.1 Acts prohibited by laws and regulations
 
 You shall not engage in, or facilitate, any of the following, including but not limited to:
 
@@ -108,9 +108,9 @@ You shall not engage in, or facilitate, any of the following, including but not 
 
 (9) Insulting or slandering others, infringing on the legitimate rights and interests of others;
 
-(11) Containing other acts or content prohibited by laws and administrative regulations.
+(10) Containing other acts or content prohibited by laws and administrative regulations.
 
-4.2.2 Improper Use of Software
+### 4.2.2 Improper Use of Software
 
 Unless permitted by law or with the written permission of the developer, you may not:
 
@@ -124,7 +124,7 @@ Unless permitted by law or with the written permission of the developer, you may
 
 (5) Other behaviors that may affect or interfere with the normal operation of the software and services.
 
-4.2.3 Endangering Platform Health and Affecting User Experience
+### 4.2.3 Endangering Platform Health and Affecting User Experience
 
 (1) Send a large amount of abnormal information to the server through the open interface of software and services;
 
@@ -132,7 +132,7 @@ Unless permitted by law or with the written permission of the developer, you may
 
 (3) Other behaviors that may affect the health of the platform, user communication, and user experience.
 
-4.2.4 Endangering the security content of the platform
+### 4.2.4 Endangering the security content of the platform
 
 (1) Misleading or deceiving other users with false identities or fraudulently using the identities of others;
 
@@ -140,7 +140,7 @@ Unless permitted by law or with the written permission of the developer, you may
 
 (3) Stealing other people's data or other property.
 
-4.2.5 Data Acquisition and Use
+### 4.2.5 Data Acquisition and Use
 
 In order to protect the security of user data, you shall not engage in (nor facilitate the following) or disseminate relevant information or organize related activities:
 
@@ -148,7 +148,7 @@ In order to protect the security of user data, you shall not engage in (nor faci
 
 (2) Scrape any user information or any protected information or data related to the Service or Software through various programs, software, etc.
 
-4.2.6 Other Prohibited Acts
+### 4.2.6 Other Prohibited Acts
 
 (1) Without the written authorization of the GoodPass developer team, you should not communicate externally or engage in corresponding acts in the name of the GoodPass development team, GoodPass development team agents, GoodPass development team partners, and official certification by the GoodPass development team.
 
