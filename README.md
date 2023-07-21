@@ -15,7 +15,6 @@ GoodPass -- A developing password manager
     |
     <a href="./Documents/Readmes/README_scn.md">简体中文</a>
    </p>
-
 <h4 align="center">
     <a href="https://github.com/GeorgeDong32/GoodPass-CLI">View GoodPass CLI Developments</a>
     |
@@ -23,6 +22,8 @@ GoodPass -- A developing password manager
 </h4>
 <h4 align="center">
   <a href="https://georgedong32.github.io/GoodPass">Go to project page for more infomation</a>
+    |
+    <a href="https://goodpass.netlify.app">中国加速链接</a>
 </h4>
 
 ## ©️Copyright
