@@ -22,8 +22,6 @@ GoodPass -- A developing password manager
 </h4>
 <h4 align="center">
   <a href="https://goodpass.georgedong.tech">Go to project page for more infomation</a>
-    |
-    <a href="https://goodpass.cn.georgedong.tech">中国加速链接</a>
 </h4>
 
 ## ©️Copyright
