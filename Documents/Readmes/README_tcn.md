@@ -18,7 +18,7 @@
     <a href="https://github.com/GeorgeDong32/GoodPass-GUI">前往GoodPass GUI開發倉庫</a>
 </h4>
 <h4 align="center">
-  <a href="https://georgedong32.github.io/GoodPass">前往項目主頁獲取更多信息</a>
+  <a href="https://goodpass.georgedong.tech">前往項目主頁獲取更多信息</a>
 </h4>
 
 
